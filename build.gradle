@@ -1,0 +1,15 @@
+apply plugin: "java"
+apply plugin: "eclipse"
+
+sourceSets {
+    unitTests {
+        compileClasspath = sourceSets.main.output + sourceSets.test.output + configurations.testRuntime
+        runtimeClasspath = output + sourceSets.main.output + sourceSets.test.output + configurations.testRuntime
+        java {
+            srcDir 'src/test/unit/java'
+        }
+        resources {
+            srcDir 'src/test/unit/resources'
+        }
+    }
+}
