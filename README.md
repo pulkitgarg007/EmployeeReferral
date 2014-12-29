@@ -12,21 +12,21 @@ Required tech's
 
 Clone code:
 -----------
-git clone https://github.com/ebhun851/emp-perf
-Import code into eclipse as git project.
+- git clone https://github.com/ebhun851/emp-perf
+- Import code into eclipse as git project.
 
-Then move inside emp-perf folder from command prompt
+- Then move inside emp-perf folder from command prompt
 
-Run gradlew eclipse, once this is success.
-Run gradlew
+- Run gradlew eclipse, once this is success.
+- Run gradlew
 
-In eclipse "Runas Jetty", give port as 8080
+- In eclipse "Runas Jetty", give port as 8080
 
-Hit "http://localhost:8080/emp-perf", you can see dummy page.
+- Hit "http://localhost:8080/emp-perf", you can see dummy page.
 
-Hit "http://localhost:8080/emp-perf/sample" from firefox rest-client. you can "Hello world" response. And check in your local mongodb, you can see "EmployeePerformanceInfo" collection under PAR db with one document.
+- Hit "http://localhost:8080/emp-perf/sample" from firefox rest-client. you can "Hello world" response. And check in your local mongodb, you can see "EmployeePerformanceInfo" collection under PAR db with one document.
 
-Then start your fun!!!!!!!
+**Then start your fun !!!!!!!**
 
 
 
