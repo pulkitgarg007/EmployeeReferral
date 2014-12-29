@@ -20,7 +20,7 @@ Clone code:
 - Run gradlew eclipse, once this is success.
 - Run gradlew
 
-- In eclipse "Runas Jetty", give port as 8080
+- In eclipse "Run As Jetty", give port as 8080
 
 - Hit "http://localhost:8080/emp-perf", you can see dummy page.
 
