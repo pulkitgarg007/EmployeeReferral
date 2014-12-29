@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 public class PAFAuditor implements AuditorAware<String> {
 	@Override
 	public String getCurrentAuditor() {
-		return "ots_user";
+		return "nisum_user";
 	}
 }
