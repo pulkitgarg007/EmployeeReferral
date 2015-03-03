@@ -8,16 +8,23 @@ repositories {
 }
 
 ext.springVersion = "3.2.2"
+ext.springSecurity = "3.2.2"
 ext.springExceptionHandlerVersion = "2.0.1"
-ext.springDataVersion = '1.6.1'
+ext.springDataVersion = "1.6.1"
 
 List SPRING = [
         "org.springframework.data:spring-data-mongodb:${springDataVersion}.RELEASE",
          "org.springframework:spring-webmvc:${springVersion}.RELEASE",
         "org.springframework:spring-web:${springVersion}.RELEASE",
         "org.springframework:spring-context:${springVersion}.RELEASE",
-        "org.springframework:spring-test:${springVersion}.RELEASE",
-        "com.github.raychatter:spring-restful-exception-handler:${springExceptionHandlerVersion}.RELEASE"
+        "org.springframework:spring-test:${springVersion}.RELEASE",     
+        "org.springframework.security:spring-security-core:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-web:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-config:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-ldap:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-acl:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-taglibs:${springSecurity}.RELEASE",
+        "com.github.raychatter:spring-restful-exception-handler:${springExceptionHandlerVersion}"
         
 ]
 
@@ -25,8 +32,14 @@ List SPRING_SOURCES = [
         "org.springframework:spring-webmvc:${springVersion}.RELEASE:sources",
         "org.springframework:spring-web:${springVersion}.RELEASE:sources",
         "org.springframework:spring-context:${springVersion}.RELEASE:sources",
-        "com.github.raychatter:spring-restful-exception-handler:${springExceptionHandlerVersion}:sources",
-        "org.springframework.data:spring-data-mongodb:${springDataVersion}.RELEASE:sources"
+         "org.springframework.security:spring-security-core:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-web:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-config:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-ldap:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-acl:${springSecurity}.RELEASE",
+        "org.springframework.security:spring-security-taglibs:${springSecurity}.RELEASE",
+        "com.github.raychatter:spring-restful-exception-handler:${springExceptionHandlerVersion}",
+        "org.springframework.data:spring-data-mongodb:${springDataVersion}.RELEASE"
         
 ]
 
