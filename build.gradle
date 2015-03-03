@@ -41,7 +41,6 @@ List SPRING_SOURCES = [
         "com.github.raychatter:spring-restful-exception-handler:${springExceptionHandlerVersion}",
         "org.springframework.data:spring-data-mongodb:${springDataVersion}.RELEASE"
         
-        
 ]
 
 List XUNIT = [
