@@ -13,8 +13,10 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="com.nisum.portal.hr.paf"/>
-    
-    
+    <context:component-scan base-package="com.nisum.employee.ref.controller"/>
+    <context:component-scan base-package="com.nisum.employee.ref.service"/>
+    <context:component-scan base-package="com.nisum.employee.ref.domain"/>
+    <context:component-scan base-package="com.nisum.employee.ref.repository"/>
     <mvc:default-servlet-handler/>
 
     <mvc:annotation-driven/>
