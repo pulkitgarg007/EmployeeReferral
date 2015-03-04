@@ -1,4 +1,4 @@
-package com.nisum.portal.hr.paf.domain;
+package com.nisum.employee.ref.domain;
 
 import java.util.Date;
 
@@ -7,15 +7,15 @@ import lombok.Setter;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
 
-@Setter
 @Getter
-public class AuditEntity {
+@Setter
 
+public class AuditEntity {
+	
 	/*@Id
 	private String _id;*/
 	@CreatedDate
@@ -28,5 +28,5 @@ public class AuditEntity {
 	private String lastModifiedBy;
 	@Version
 	private Long version;
-	
+
 }
