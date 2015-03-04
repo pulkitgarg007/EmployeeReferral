@@ -12,9 +12,13 @@ public class UserService {
 	@Autowired//(required=false)
 	private IUserInfoRepository userInfoRepository;
 	
-	public void prepareUserInfo(String data){
+	public void registerUser(UserInfo user) {
 		UserInfo userInfo=new UserInfo();
-		userInfo.setName(data);
-		userInfoRepository.save(userInfo);
+		userInfo.setFirstName(user.getFirstName());
+		userInfo.setLastName(user.getLastName());
+		userInfo.setExp(user.getExp());
+		userInfo.setMobileNumber(user.getMobileNumber());
+		userInfo.setRole(user.getRole());
+		userInfoRepository.save(user);
 	}
 }

@@ -6,8 +6,6 @@
 
 		    http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
 	
-	
-   
     <bean id="mongoClient" class="com.mongodb.MongoClient"/>
 
    <mongo:db-factory dbname="${db.name}" mongo-ref="mongoClient" id="mongoDbFactory"/>
