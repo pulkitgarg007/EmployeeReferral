@@ -5,6 +5,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
@@ -12,6 +13,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "UserInfo")
 public class UserInfo { 
 	
+	@Id
+	private String userId;
 	private String firstName;
 	private String lastName;
 	private Integer mobileNumber;
