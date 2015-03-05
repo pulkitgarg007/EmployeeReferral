@@ -17,7 +17,7 @@ import com.nisum.employee.ref.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 
-	@Autowired//(required=false)
+	@Autowired
 	private UserService userService;
 
 	@RequestMapping(value="/register", method = RequestMethod.POST)

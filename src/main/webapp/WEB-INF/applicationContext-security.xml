@@ -22,19 +22,20 @@
         <intercept-url pattern='/js/**' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
         <intercept-url pattern='/images/**' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
         <intercept-url pattern='/views/**' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
-        <intercept-url pattern='/**' access='ROLE_USER'/>
+        <intercept-url pattern='/**' access='ROLE_USER,ROLE_HR,ROLE_ADMIN'/>
+        
 
         <form-login
                 login-page='/login.html'
                 default-target-url='/googleandfacebooklogin.html'
                 always-use-default-target='false'
                 />
-        <logout logout-url="/logout" logout-success-url="/login.html"/>
+        <logout  logout-success-url="/login.html"/>
     </http>
-	<beans:bean id="SecurityProvider"
+	 <beans:bean id="SecurityProvider"
                 class="com.nisum.employee.ref.security.SecurityProvider">
-                </beans:bean>
-    <authentication-manager>
+                </beans:bean> 
+     <authentication-manager>
         <authentication-provider ref="SecurityProvider"/>
-    </authentication-manager>
+    </authentication-manager> 
 </beans:beans>

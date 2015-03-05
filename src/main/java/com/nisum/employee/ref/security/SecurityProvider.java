@@ -11,12 +11,11 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
 import com.nisum.employee.ref.security.authentication.IAuthentication;
 import com.nisum.employee.ref.security.authorization.IAuthorization;
 
-@Component("SecurityProvider")
+
 public class SecurityProvider extends AbstractUserDetailsAuthenticationProvider  {
 	
 	@Setter

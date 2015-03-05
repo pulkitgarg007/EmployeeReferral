@@ -12,14 +12,9 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<context:annotation-config />
-	
+	 <import resource="classpath:mongo-context.xml" />
 	<context:component-scan base-package="com.nisum.employee.ref"/>
-    <!-- <context:component-scan base-package="com.nisum.employee.ref.service"/>
-    <context:component-scan base-package="com.nisum.employee.ref.domain"/>
-
-    <context:component-scan base-package="com.nisum.employee.ref.security"/> -->
-	<!--  <context:component-scan base-package="com.nisum.employee.ref.security.authorization"/>
-	 <context:component-scan base-package="com.nisum.employee.ref.security.authentication"/> -->
+   
 	<mvc:default-servlet-handler />
 	<mvc:annotation-driven />
 
@@ -28,7 +23,9 @@
 		properties-ref="app" />
 
 	<bean id="jacksonObjectMapper" class="org.codehaus.jackson.map.ObjectMapper" />
-
+	<bean id="securityProvider" class="com.nisum.employee.ref.security.SecurityProvider" />
+	
+	
 	<bean
 		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 		<property name="targetObject" ref="jacksonObjectMapper" />
@@ -79,7 +76,5 @@
 	<!-- RestTemplate for external HTTP calls -->
 	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
 	</bean>
-
-	<import resource="classpath:mongo-context.xml" />
-
+	
 </beans>
