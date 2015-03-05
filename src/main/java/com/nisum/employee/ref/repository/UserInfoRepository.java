@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.nisum.employee.ref.domain.UserInfo;
 
 @Repository
-public interface IUserInfoRepository extends CrudRepository<UserInfo, String> {
+public interface UserInfoRepository extends CrudRepository<UserInfo, String> {
 	
 
 
