@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>RI Login</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/theme.css"/>
+    <link rel="stylesheet" href="css/jqueryui.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/common_header.css"/>
+
+    <script id="login" type="text/html">
+ 	</script>
+       
+
+    <script id="messageTemplate" type="text/html">
+        <li data-bind="message: $data"></li>
+    </script>
+
+</head>
+
+<body>
+<!-- Header -->
+<div class="header">
+    <div id="common" class="common"></div>
+    <div class="wrapper">
+        <h1 class="remove-bottom">Employee Referral Login</h1>
+    </div>
+</div>
+
+
+
+<!-- Content -->
+<div id="content">
+    <div id="messages">
+        <div id="errorMessages">
+            <div class="hidden error-message alert-message" data-bind="css: {hidden: errors().length == 0}">
+                <ul data-bind="template: { name: 'messageTemplate', foreach: errors }"></ul>
+            </div>
+        </div>
+    </div>
+ <form id="login-form" action="j_spring_security_check" method="post">
+            <div class="center">
+
+                <div class="row">
+                    <label>Username: </label>
+                    <input type="text" name="j_username" id="j_username" maxlength="50"/>
+                </div>
+
+                <div class="row">
+                    <label>Password: </label>
+                    <input type="password" name="j_password" id="j_password" maxlength="50"/>
+                </div>
+
+                <div class="row">
+                    <input type="submit" value="Login" id="login-submit"/>
+                </div>
+            </div>
+            <br class="clear"/>
+        </form>
+   
+    <div class="container" id="container" data-bind="template: 'login'"></div>
+    <br class="clear"/>
+</div>
+
+</body>
+
+</html>
+

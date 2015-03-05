@@ -1,5 +1,7 @@
 package com.nisum.employee.ref.domain;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,5 +19,6 @@ public class UserInfo {
 	private String designation;
 	private String role;
 	private Integer empId;
+	private List<String> roles;
 	
 }
