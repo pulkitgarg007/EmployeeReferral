@@ -1,0 +1,82 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Design by http://www.bluewebtemplates.com
+Released for free under a Creative Commons Attribution 3.0 License
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Employee Referral</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
+
+<script type="text/javascript" src="js/createCandidate.js"></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/georgia.js"></script>
+<script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/angular1.2.min.js"></script>
+<script type="text/javascript" src="js/jquery_1.11.1.js"></script>
+
+
+
+
+<!-- CuFon ends -->
+</head>
+<body>
+	
+					<div ng-app="" ng-controller="formController">
+						<form action="#" name="CreateCandidate" onvalidate>
+							<table width="100%" bgcolor="99FFFF" align="center">
+
+								<tr>
+									<td colspan=2>
+										<center>
+											<font size=4><b>CreateCandidate</b></font>
+										</center>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Name</td>
+									<td><input type=text name=name id="nam" size="30"
+										ng-model="candidate.name" /></td>
+								</tr>
+
+
+								<tr>
+									<td>Qulifation</td>
+									<td><input type=text  name="qualification" id="qualification"
+											size="30" ng-model="candidate.qualification"/></td>
+								</tr>
+
+								
+
+								<tr>
+									<td>Experience</td>
+									<td><input type="text" name="experience" id="experience" size="30"
+										ng-model="candidate.experience" /> </td>
+								</tr>
+
+								<tr>
+									<td>Age</td>
+									<td><input type="text" name="age" id="age"
+										size="30" ng-model="candidate.age " /> </td>
+								</tr>
+
+								
+
+								<tr>
+									<td><input type="button" ng-click="submit()"
+										value=Register name="post" align="center"/></td>
+								</tr>
+							</table>
+						</form>
+
+					</div>
+				
+
+
+
+</body>
+</html>
