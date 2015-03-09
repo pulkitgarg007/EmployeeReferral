@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.stereotype.Component;
 
 import com.nisum.employee.ref.domain.UserInfo;
+import com.nisum.employee.ref.exception.AuthorizationException;
 import com.nisum.employee.ref.repository.UserInfoRepository;
 
 @Component("RoleAuthorization")
@@ -20,21 +21,19 @@ public class RoleAuthorization implements IAuthorization {
 	
 	@Override
 	public List<GrantedAuthority> authorize(String userId) {
+		String[] parts = userId.split("@");
 		
 		List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-		/*if (StringUtils.equals(userId, "employee")) {
-		    grantedAuthorities.add(new GrantedAuthorityImpl("ROLE_USER"));
-		}*/
-		
-		UserInfo user = userRepository.findOne(userId);
+			
+		UserInfo user = userRepository.findOne(parts[0]);
 		 if (user != null) {	        	
 			 String role = user.getRole();		        
 		      grantedAuthorities.add(new GrantedAuthorityImpl("ROLE_"+role.toUpperCase()));		           
 	        }
 
-	       /* if (grantedAuthorities.isEmpty()) {
-	           // throw new AuthorizationException("User is not authorized to view this page");
-	        }*/
+	        if (grantedAuthorities.isEmpty()) {
+	            throw new AuthorizationException("User is not authorized to view this page");
+	        }
 		return grantedAuthorities;
 	}
 }

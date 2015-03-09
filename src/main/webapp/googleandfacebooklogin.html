@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/home.css">
+</head>
+
+<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+<script>
+
+function signinCallback(authResult) {
+	  if (authResult['status']['signed_in']) {
+	    // Update the app to reflect a signed in user
+	    // Hide the sign-in button now that the user is authorized, for example:
+	    document.getElementById('signinButton').setAttribute('style', 'display: none');
+	    alert("successful");
+	  } else {
+	    // Update the app to reflect a signed out user
+	    // Possible error values:
+	    //   "user_signed_out" - User is signed-out
+	    //   "access_denied" - User denied access to your app
+	    //   "immediate_failed" - Could not automatically log in the user
+	    console.log('Sign-in state: ' + authResult['error']);
+	  }
+	}
+	
+	
+function onSignInCallback(resp) {
+  gapi.client.load('plus', 'v1', apiClientLoaded);
+}
+
+/**
+ * Sets up an API call after the Google API client loads.
+ */
+function apiClientLoaded() {
+  gapi.client.plus.people.get({userId: 'me'}).execute(handleEmailResponse);
+}
+
+/**
+ * Response callback for when the API client receives a response.
+ *
+ * @param resp The API response object with the user email and profile information.
+ */
+function handleEmailResponse(resp) {
+	
+  var primaryEmail;
+  for (var i=0; i < resp.emails.length; i++) {
+    if (resp.emails[i].type === 'account') primaryEmail = resp.emails[i].value;
+  }
+  document.getElementById('responseContainer').value = 'Primary email: ' +
+      primaryEmail + '\n\nFull Response:\n' + JSON.stringify(resp);
+}
+	 function logoutfun()
+	 {
+		 gapi.auth.signOut();
+	 }
+</script>
+<body style="margin:0px;">
+	<div class="login-bg"></div>
+	<table class="headerTable">
+		<tr><td>
+			<div class="header">
+				<table class="headerTable">
+					<tr>
+						<td>
+ 							<a href="/restrobooking" id="bookmytable" >
+ 							<i style="color: white;font-size: 30px">BookMyTable</i>
+							 </a>
+ 						</td>
+ 						<td>
+ 							<span id="status" style="float: right;color: white;">Login via google</span>
+ 						</td>
+ 						<td width="200px">
+ 							<div style="float: right;" id="gConnect" class="button">
+  								<button
+								    class="g-signin"
+								    data-callback="onSignInCallback"
+								    data-clientid="609666609644-dd7hjkqfhb76ovst14l4gpf9pg8tpmk4.apps.googleusercontent.com"
+								    data-cookiepolicy="single_host_origin"
+								    data-theme="dark"   
+								    data-scope="email">
+								
+								  </button>
+							</div>
+						</td>
+					</tr>
+				</table>  
+							  
+			</div>
+		</td>
+	</tr>
+	
+	<tr>
+	<td>
+	<div class="socialLoginLinks clearfix">  
+				 <span >Login via facebook or google custom buttons</span>
+				 <br> <br>
+			<button id="login" class="btn-social btn-fb" >Sign in with Facebook</button>  
+			<button id="google-login-button" 
+				data-callback="onSignInCallback"
+			    data-clientid="609666609644-dd7hjkqfhb76ovst14l4gpf9pg8tpmk4.apps.googleusercontent.com"
+			    data-cookiepolicy="single_host_origin"
+			    data-theme="dark"   
+			    data-scope="email" class="g-signin btn-social btn-google">Sign in with Google</button> 
+			</div>
+	</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<div id="response" class="hide">Response from google
+        	<textarea id="responseContainer" style="width:90%; height:30px"></textarea>
+       
+			</div>
+			
+			<div> Click To | <button onclick="logoutfun()">ABCD</button></div>
+    <a href="https://mail.google.com/mail/logout?hl=en">logout</a>
+		</td>
+	</tr>
+ </table>
+</body>
+</html>

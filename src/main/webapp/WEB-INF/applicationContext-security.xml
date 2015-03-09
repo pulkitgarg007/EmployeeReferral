@@ -5,12 +5,12 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-  	       					http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+  	       					http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
     <global-method-security secured-annotations="enabled"></global-method-security>
 
     <context:component-scan base-package="com.nisum.employee.ref"/>
-
+	 <context:component-scan base-package="com.nisum.employee.ref.util"/>
     <http auto-config='true'>
         <intercept-url pattern='/resources/api-docs/**' access='IS_AUTHENTICATED_ANONYMOUSLY' />
        
@@ -29,7 +29,8 @@
                 login-page='/login.html'
                 default-target-url='/googleandfacebooklogin.html'
                 always-use-default-target='false'
-                />
+                authentication-failure-handler-ref="exceptionStatusCodeMappingBean"/>
+                
         <logout  logout-success-url="/login.html"/>
     </http>
 	 <beans:bean id="SecurityProvider"
@@ -38,4 +39,15 @@
      <authentication-manager>
         <authentication-provider ref="SecurityProvider"/>
     </authentication-manager> 
+
+	 <beans:bean id="exceptionStatusCodeMappingBean"
+                class="com.nisum.employee.ref.util.SecurityExceptionResponseErrorCodeMappingBean">
+       <!--  <beans:property name="failureStatusCodesMap">
+           <beans:props>
+                <beans:prop key="org.springframework.security.authentication.BadCredentialsException">401</beans:prop>
+                <beans:prop key="com.nisum.employee.ref.exception.AuthorizationException">403</beans:prop>
+            </beans:props>
+        </beans:property>  -->
+    </beans:bean>
+
 </beans:beans>
