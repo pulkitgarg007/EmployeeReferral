@@ -7,6 +7,14 @@
 <link rel="stylesheet" type="text/css" href="css/template.css">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+	<script type="text/javascript">
+	 function logoutfun()
+	 {
+		 gapi.auth.signOut();
+	 }
+	
+	</script>
 </head>
 <body>
 	<div class="siteDiv">
@@ -19,7 +27,11 @@
 <div class="rightDiv"></div>
 </div>
 			<div class="contentDiv">
-				<div class="mainDiv"></div>
+				<div class="mainDiv">
+				<div> Click To | <button onclick="logoutfun()">ABCD</button></div>
+    <a href="https://mail.google.com/mail/logout?hl=en">logout</a>
+    <a href="j_spring_security_logout">Logout Spring</a>
+				</div>
 			</div>
 			<div class="copyrightDiv">
 
