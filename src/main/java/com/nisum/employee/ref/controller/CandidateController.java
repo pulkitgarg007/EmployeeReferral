@@ -24,7 +24,7 @@ public class CandidateController {
 	@ResponseBody
 	public ResponseEntity<?> registerUser(@RequestBody Candidate candidate) {
 		//log.info("Creating user with name : {}", candidate.getName());
-		candidateService.prepareCandidate(candidate);
+		candidateService.prepareCandidate(candidate); 
 		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
 	}
 }
