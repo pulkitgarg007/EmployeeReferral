@@ -1,6 +1,8 @@
 
-function formController ($scope,$http) {
-    $scope.reset = function() {
+function positionController ($scope,$http) {
+	alert('Alert');
+   /* $scope.position.experienceRequired = '0-2';*/
+	$scope.reset = function() {
         $scope.position = angular.copy($scope.master);
     };
     var base_url = window.location.origin;

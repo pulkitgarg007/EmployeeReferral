@@ -21,11 +21,9 @@ public class PositionController {
 	@Autowired
 	private PositionService  positionService;
 	
-	
 	@RequestMapping(value="/position-create", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> createPosition(@RequestBody Position position) {
-		//log.info("Creating user with name : {}", candidate.getName());
 		positionService.preparePosition(position);
 		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
 	}

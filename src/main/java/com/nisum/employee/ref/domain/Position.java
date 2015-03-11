@@ -11,10 +11,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Position extends AuditEntity{
 	
 	String jobcode;
-	String postName;
-	String experience;
+	String designation;
+	String experienceRequired;
 	String skillsRequired;
 	int noOfPositions;
+	String jobProfile;
 	
 
 }
