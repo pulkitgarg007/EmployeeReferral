@@ -1,7 +1,5 @@
 package com.nisum.employee.ref.domain;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,13 +13,12 @@ public class UserInfo {
 	
 	@Id
 	private String userId;
-	private String firstName;
-	private String lastName;
-	private Integer mobileNumber;
-	private Integer exp;
-	private String designation;
-	private String role;
+	private String name;
 	private Integer empId;
-	private List<String> roles;
+	private Integer experience;
+	private Integer mobileNumber;
+	private String designation;
+	private String roles;
+	//private List<String> roles;
 	
 }
