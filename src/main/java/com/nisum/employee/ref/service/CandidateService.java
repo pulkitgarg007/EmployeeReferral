@@ -20,10 +20,17 @@ public class CandidateService {
   
   private void enrichCandidate(Candidate candidate)
   {
-		candidate.setName(candidate.getName());
+		candidate.setFirstName(candidate.getFirstName());
+		candidate.setLastName(candidate.getLastName());
+		candidate.setEmailId(candidate.getEmailId());
 		candidate.setQualification(candidate.getQualification());
+		candidate.setPositionName(candidate.getPositionName());
+		candidate.setSkills(candidate.getSkills());
 		candidate.setExperience(candidate.getExperience());
-		candidate.setAge(candidate.getAge());
+		candidate.setMobileNo(candidate.getMobileNo());
+		candidate.setPresentLocation(candidate.getPresentLocation());
+		candidate.setPancardNo(candidate.getPancardNo());
+		candidate.setPassportNo(candidate.getPassportNo());
   }
 
 }

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>RI Login</title>
+<meta charset="utf-8">
+<title>Employee Referral Portal</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/home.css">
-    <script src="https://apis.google.com/js/client:platform.js" async defer></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/template.css">
+<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script>
 
 function signinCallback(authResult) {
@@ -50,12 +52,8 @@ for (var i=0; i < resp.emails.length; i++) {
 }
 $('#j_username').val(primaryEmail);
 $('#j_password').val('referral');
-alert($('#j_username').val());
-document.getElementById('login-form').submit();
-$('login-form').submit(function(event) {
-	   event.preventDefault();
-});
 
+document.getElementById('login-form').submit();
 
 }
 	function logout()
@@ -66,43 +64,66 @@ $('login-form').submit(function(event) {
 
 </script>
 </head>
-<body>
-<!-- Header -->
-<div class="header">
-    <div class="wrapper">
-        <h1 class="remove-bottom">Employee Referral</h1>
-        
-    </div>
+<body class="login-body" >
+	<!-- Header -->
+<div class="page-header">
+		<div class=headerDiv>
+<div class="logoDiv"></div>
+<div class="rightDiv"><br><h1>Employee Referral Portal</h1></div>
 </div>
-<div id="content">
- 	<div style="display:none">  
-		<form id="login-form" action="j_spring_security_check" method="post" >
-            <div class="center">                  
-                    <input type="text" name="j_username" id="j_username" maxlength="50"/>                
-                    <input type="password" name="j_password" id="j_password" maxlength="50"/>                
-                    <input type="submit" value="Login" id="login-submit"/>               
-            </div>
-            <br class="clear"/>
-        </form>
-   </div>
-   <table>
-     <tr>
-		<td>		
-			<div class="socialLoginLinks clearfix">  
-					 <span>Login via Nisum Id</span>
-					 <br> <br>
-				<button id="google-login-button" 
-					data-callback="onSignInCallback"
-				    data-clientid="609666609644-dd7hjkqfhb76ovst14l4gpf9pg8tpmk4.apps.googleusercontent.com"
-				    data-cookiepolicy="single_host_origin"
-				    data-theme="dark"   
-				    data-scope="email" class="g-signin btn-social btn-google">Sign in with Google</button> 
+	</div>
+
+	<div style="display: none">
+		<form id="login-form" action="j_spring_security_check" method="post">
+			<div class="center">
+				<input type="text" name="j_username" id="j_username" maxlength="50" />
+				<input type="password" name="j_password" id="j_password"
+					maxlength="50" /> <input type="submit" value="Login"
+					id="login-submit" />
 			</div>
-		</td>
-	</tr>
-   </table>
-   <a href="https://mail.google.com/mail/logout?hl=en">logout</a>
-   <input type="button" value="Logout" onclick="logout()">
-</div>
+		</form>
+	</div>
+
+	
+	<div class="page-container">
+		<div class="loginDiv">
+			<h1>Login</h1>
+			<br>
+			<button id="google-login-button" type="button"
+				data-callback="onSignInCallback"
+				data-clientid="609666609644-dd7hjkqfhb76ovst14l4gpf9pg8tpmk4.apps.googleusercontent.com"
+				data-cookiepolicy="single_host_origin" data-theme="dark"
+				data-scope="email" class="g-signin">Sign
+				in with Google</button>
+		</div>
+	</div>
+	
+	<!-- <table>
+    			 <tr>
+					<td>		
+						<div class="socialLoginLinks clearfix">  
+							 <h1>Login via Nisum Id</h1>
+							 <br> <br>
+								<button id="google-login-button" 
+									data-callback="onSignInCallback"
+								    data-clientid="609666609644-dd7hjkqfhb76ovst14l4gpf9pg8tpmk4.apps.googleusercontent.com"
+								    data-cookiepolicy="single_host_origin"
+								    data-theme="dark"   
+								    data-scope="email" class="g-signin btn-social btn-google">Sign in with Google</button> 
+						</div>
+					</td>
+					<td width="30%">&nbsp;</td>
+				</tr>
+				
+  		   </table>
+  		   -->
+	<!-- <a href="https://mail.google.com/mail/logout?hl=en">logout</a>
+   			<input type="button" value="Logout" onclick="logout()">
+            <br class="clear"/>
+        -->
+
+
+
+
 </body>
 </html>
