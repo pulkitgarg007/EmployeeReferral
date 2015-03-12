@@ -21,9 +21,10 @@
 	href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/home.css">
 <title>Candidate</title>
 </head>
-<body>
+<body class="login-middile-body">
 	<div ng-app="" ng-controller="positionController">
 		<form action="#" name="createPosition" onvalidate>
 			<div class="siteDiv">
@@ -46,17 +47,18 @@
 									class="help-block">Job is required.</span>
 							</div>
 
-							<div class="control-group">
-								<label class="control-label" for="selectbasic">Experience Required :</label>
-								<div class="controls">
-									<select id="experienceRequired" name="experienceRequired"
-										ng-model="experienceRequired" class="input-xlarge">
+							<div class="form-group"
+								ng-class="{'has-error' :createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine}">
+								<label for="experienceRequired">Experience Required :</label> <select
+									class="form-control" name="experienceRequired" ng-model="experienceRequired"
+									id="experienceRequired">
 										<option>0-2</option>
 										<option>2-4</option>
 										<option>4-6</option>
 										<option>6 and above</option>
-									</select>
-								</div>
+								</select> <span class="help-block"
+									ng-show="createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine">City
+									is required.</span>
 							</div>
 
 							<div class="form-group" ng-class="{ 'has-error' : createPosition.skillsRequired.$invalid && !createPosition.skillsRequired.$pristine }">
@@ -94,7 +96,7 @@
 									class="help-block">Designation is required.</span>
 							</div>
 
-							<input type="button" ng-click="submit()" value=Register name="post" align="center"/>
+							<input type="button" ng-click="submit()" value=Register name="post" align="center" style="color: 0000FF"/>
 						</form>
 					</div>
 					<br />
