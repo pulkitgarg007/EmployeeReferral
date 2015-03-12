@@ -37,10 +37,13 @@
 					<div class="container">
 						<h2>Create New Position</h2>
 						<form id="integerForm" role="form" class="form-horizontal">
-							<div class="form-group">
-								<label for="jobcode">Job Code :</label> <input type="text"
+							<div class="form-group"
+								ng-class="{ 'has-error' : createPosition.jobcode.$invalid && !createPosition.jobcode.$pristine }">
+								<label for="jobcode">Job Code :</label> <input type="text" name="jobcode"
 									class="form-control" id="jobcode"
-									ng-model="position.jobcode" placeholder="Enter Job Code">
+									ng-model="position.jobcode" placeholder="Enter Job Code" required>
+								<span ng-show="createPosition.jobcode.$invalid  && !createPosition.jobcode.$pristine"
+									class="help-block">Job is required.</span>
 							</div>
 
 							<div class="control-group">
@@ -56,46 +59,42 @@
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="name">Skills :</label> <input type="text"
+							<div class="form-group" ng-class="{ 'has-error' : createPosition.skillsRequired.$invalid && !createPosition.skillsRequired.$pristine }">
+								<label for="skillsRequired">Skills :</label> <input type="text" name="skillsRequired"
 									class="form-control" id="skillsRequired"
 									ng-model="position.skillsRequired"
-									placeholder="Enter Skills">
+									placeholder="Enter Skills" required>
+								<span ng-show="createPosition.skillsRequired.$invalid  && !createPosition.skillsRequired.$pristine"
+									class="help-block">Skills are required.</span>
 							</div>
 
-							<div class="form-group">
-								<label for="name">No of Positions :</label> <input type="text"
-									class="form-control" id="noOfPositions" ng-model="position.noOfPositions"
-									placeholder="Enter No of Positions">
+							<div class="form-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
+								<label for="name">No of Positions :</label> <input
+									type="number" name="noOfPositions" class="form-control"
+									id="noOfPositions" ng-model="position.noOfPositions"
+									placeholder="Enter No of Positions" ngPattern="1234567890 " ng-maxlength="10" required> 
+								 <span class="help-block" ng-show="createPosition.noOfPositions.$error.required && !createPosition.noOfPositions.$pristine && !createPosition.noOfPositions.$error.number">Numbers should be entered</span>
+ 								 <span class="help-block" ng-show="createPosition.noOfPositions.$error.string">Invalid Value</span>  
 							</div>
 
-							<div class="form-group">
-								<label for="name">Skills:</label> <input type="text"
-									class="form-control" id="Skills" ng-model="candidate.skills"
-									placeholder="Enter Skills.">
-							</div>
-
-
-
-
-							<div class="form-group">
+							<div class="form-group" ng-class="{'has-error' :createPosition.jobProfile.$invalid && !createPosition.jobProfile.$pristine}">
 								<label for="name">Job Profile :</label>
-								<textarea cols="50" rows="5" class="form-control"
+								<textarea cols="50" rows="5" class="form-control" name="jobProfile"
 									id="jobProfile" ng-model="position.jobProfile"
-									placeholder="Enter Job Profile"></textarea>
+									placeholder="Enter Job Profile" required></textarea>
+								<span ng-show="createPosition.jobProfile.$invalid  && !createPosition.jobProfile.$pristine"
+									class="help-block">Job Profile is required.</span>
 							</div>
 							
-							<div class="form-group">
-								<label for="name">Designation :</label> <input type="text"
+							<div class="form-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
+								<label for="name">Designation :</label> <input type="text" name="designation"
 									class="form-control" id="designation" ng-model="position.designation"
-									placeholder="Enter Designation">
+									placeholder="Enter Designation" required>
+								<span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"
+									class="help-block">Designation is required.</span>
 							</div>
-							
-							<!-- <button type="submit" class="btn btn-default" ng-click="submit()"
-								name="post">Submit</button> -->
-								
-								<input type="button" ng-click="submit()"
-										value=Register name="post" align="center"/>
+
+							<input type="button" ng-click="submit()" value=Register name="post" align="center"/>
 						</form>
 					</div>
 					<br />
