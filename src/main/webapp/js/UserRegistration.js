@@ -1,5 +1,4 @@
 function formController ($scope,$http) {
-	alert("In form controller");
     $scope.reset = function() {
         $scope.user = angular.copy($scope.master);
     };
