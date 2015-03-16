@@ -17,53 +17,60 @@
 <link rel="stylesheet" type="text/css" href="css/home.css">
 <title>User</title>
 </head>
-<body class="login-middile-body">
+<!-- <body class="login-middile-body">
 	<div class="siteDiv">
-		<div class="pageDiv">
-			<div class="topLinkDiv"></div>
-			<div class=headerDiv>
-				<div class="logoDiv"></div>
-				<div class="titleDiv"></div>
+	<div class="pageDiv">
+		<div class="topLinkDiv"></div>
+		<div class=headerDiv>
+			<div class="logoDiv"></div>
+			<div class="titleDiv"></div>
 				<div class="rightDiv"></div>
-			</div>
-			<div ng-app="" ng-controller="formController">
+		</div>
+		<div ng-app="" ng-controller="formController">
 			<div class="container">
 				<h2>User Registration form</h2>
 				<form id="integerForm" role="form" class="form-horizontal">
 					<div class="form-group">
 						<label for="email">UserId:</label> <input type="text"
-							class="form-control" id="userId" placeholder="Enter user-id" ng-model="user.userId" name="userId" required>
+							class="form-control" id="userId" placeholder="Enter user-id"
+							ng-model="user.userId" name="userId" required>
 					</div>
 
 					<div class="form-group">
 						<label for="name">Name:</label> <input type="text"
-							class="form-control" id="name" placeholder="Enter name" ng-model="user.name" name="name" required>
+							class="form-control" id="name" placeholder="Enter name"
+							ng-model="user.name" name="name" required>
 					</div>
 
 					<div class="form-group">
 						<label for="name">EmployeeId:</label> <input type="text"
-							class="form-control" id="empId" placeholder="Enter EmployeeId" ng-model="user.empId" name="empId" required>
+							class="form-control" id="empId" placeholder="Enter EmployeeId"
+							ng-model="user.empId" name="empId" required>
 					</div>
 					<div class="form-group">
-							<label for="name">Experience:</label> <input type="text"
-								class="form-control" id="experience" placeholder="Enter Experience" ng-model="user.experience" name="experience" required>
-						</div>
-						
-						<div class="form-group">
-							<label for="name">Mobile No:</label> <input type="text"
-								class="form-control" id="mobileNumber"
-								placeholder="Enter Mobile No." name="mobileNumber" ng-model="user.mobileNumber">
-						</div>
-						
-						<div class="form-group">
-							<label for="name">Designation:</label> <input type="text"
-								class="form-control" id="designation"
-								placeholder="Enter Designation" ng-model="user.designation" name="designation">
-						</div>
-						
+						<label for="name">Experience:</label> <input type="text"
+							class="form-control" id="experience"
+							placeholder="Enter Experience" ng-model="user.experience"
+							name="experience" required>
+					</div>
+
 					<div class="form-group">
-						<label for="name">Role:</label><br/>
-						<!-- <div class="dropdown">
+						<label for="name">Mobile No:</label> <input type="text"
+							class="form-control" id="mobileNumber"
+							placeholder="Enter Mobile No." name="mobileNumber"
+							ng-model="user.mobileNumber">
+					</div>
+
+					<div class="form-group">
+						<label for="name">Designation:</label> <input type="text"
+							class="form-control" id="designation"
+							placeholder="Enter Designation" ng-model="user.designation"
+							name="designation">
+					</div>
+
+					<div class="form-group">
+						<label for="name">Role:</label><br />
+						<div class="dropdown">
 							<button class="btn btn-default dropdown-toggle" type="button"
 								id="menu1" data-toggle="dropdown">
 								Role <span class="caret"></span>
@@ -78,7 +85,7 @@
 								<li role="presentation" class="divider"></li>
 								<li role="presentation"><a role="menuitem" tabindex="-1"
 									href="#">Other</a></li>
-							</ul> -->
+							</ul>
 
 						<select class="form-control" ng-model="user.roles" name="roles">
 							<option selected="selected">Analyst</option>
@@ -88,21 +95,90 @@
 							<option>Other</option>
 						</select>
 					</div>
-						
-					<input type="submit" ng-click="submit()" value=Register name="post" style="float: left" class="button-submit"/>
-					
-					</form>
+
+					<input type="submit" class="btn btn-info" ng-click="submit()"
+						value=Register name="post" align="center" />
+				</form>
 			</div>
-</div>
-			
 		</div>
-		<br />
-		<div class="copyrightDiv"></div>
+
+	</div>
+	<br />
+	<div class="copyrightDiv"></div>
 	</div>
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script
 		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body> -->
+<body class="login-middile-body">
+	<div ng-app="" ng-controller="positionController">
+		<form action="#" name="createPosition" onvalidate>
+			<!-- <div class="siteDiv"> -->
+			<div class="pageDiv">
+				<!-- <div class="topLinkDiv"></div> -->
+				<div class=headerDiv>
+					<div class="logoDiv"></div>
+					<!-- <div class="titleDiv"></div>
+						<div class="rightDiv"></div> -->
+				</div>
+				<div class="container">
+					<h2>User Registration form</h2>
+					<form id="integerForm" role="form" class="form-horizontal">
+						<div class="form-group">
+							<label for="email">UserId:</label> <input type="text"
+								class="form-control" id="userId" placeholder="Enter user-id"
+								ng-model="user.userId" name="userId" required>
+						</div>
+
+						<div class="form-group">
+							<label for="name">Name:</label> <input type="text"
+								class="form-control" id="name" placeholder="Enter name"
+								ng-model="user.name" name="name" required>
+						</div>
+
+						<div class="form-group">
+							<label for="name">EmployeeId:</label> <input type="text"
+								class="form-control" id="empId" placeholder="Enter EmployeeId"
+								ng-model="user.empId" name="empId" required>
+						</div>
+						<div class="form-group">
+							<label for="name">Experience:</label> <input type="text"
+								class="form-control" id="experience"
+								placeholder="Enter Experience" ng-model="user.experience"
+								name="experience" required>
+						</div>
+
+						<div class="form-group">
+							<label for="name">Mobile No:</label> <input type="text"
+								class="form-control" id="mobileNumber"
+								placeholder="Enter Mobile No." name="mobileNumber"
+								ng-model="user.mobileNumber">
+						</div>
+						
+						<div class="form-group">
+							<label for="name">Designation:</label> <input type="text"
+								class="form-control" id="designation"
+								placeholder="Enter Designation" ng-model="user.designation"
+								name="designation">
+						</div>
+						
+						<label for="name">Role:</label><br/>
+						<div>
+							<select class="form-control" ng-model="user.roles" name="roles">
+								<option selected="selected">Analyst</option>
+								<option>Admin</option>
+								<option>HR</option>
+								<option>SystemAdmin</option>
+								<option>Other</option>
+							</select>
+						</div><br>
+							<input type="submit" class="btn btn-info" ng-click="submit()"
+								value=Register name="post" align="center" />
+
+					</form>
+
+				</div>
 </body>
 </html>

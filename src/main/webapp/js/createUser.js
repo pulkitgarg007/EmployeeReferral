@@ -1,6 +1,5 @@
 
 function formController ($scope,$http) {
-	alert('Cliked');
     $scope.reset = function() {
         $scope.user = angular.copy($scope.master);
     };
