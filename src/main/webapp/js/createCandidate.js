@@ -1,5 +1,6 @@
 
 function formController ($scope,$http) {
+		alert('inside Create Candidate');
 	    $scope.reset = function() {
         $scope.candidate = angular.copy($scope.master);
     };
