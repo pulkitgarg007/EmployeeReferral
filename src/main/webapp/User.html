@@ -2,85 +2,144 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/template.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css"
-	href="css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<script type="text/javascript" src="js/UserRegistration.js"></script>
-<script type="text/javascript" src="js/cufon-yui.js"></script>
+ <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/georgia.js"></script>
 <script type="text/javascript" src="js/cuf_run.js"></script>
-<script type="text/javascript" src="js/angular1.2.min.js"></script>
 <script type="text/javascript" src="js/jquery_1.11.1.js"></script>
+<script type="text/javascript" src="js/angular1.2.min.js"></script> -->
+
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" type="text/css" href="css/home.css">
+<script type="text/javascript" src="js/UserRegistration.js"></script>
+<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
 <title>User</title>
 </head>
 
 <body class="login-middile-body">
-	<div ng-app="" ng-controller="formController">
-		<form action="#" name="createUser" onvalidate>
-			<div class="pageDiv">
-				<div class=headerDiv>
-					<div class="logoDiv"></div>
-				</div>
-				<div class="container">
+
+	<!-- <form action="#" name="createUser" onvalidate> -->
+	<div class="siteDiv">
+		<div class="pageDiv">
+			<div class="topLinkDiv"></div>
+			<div class=headerDiv>
+				<div class="logoDiv"></div>
+				<div class="titleDiv"></div>
+				<div class="rightDiv"></div>
+			</div>
+			<div class="container">
+				<body ng-app="" ng-controller="formController">
+					<br>
 					<h2>User Registration form</h2>
-					<form id="integerForm" role="form" class="form-horizontal">
-						<div class="form-group">
-							<label for="email">UserId:</label> <input type="text"
-								class="form-control" id="userId" placeholder="Enter user-id"
-								ng-model="user.userId" name="userId" required>
+					<br>
+					<form name="userForm" id="integerForm" role="form"
+						class="form-horizontal">
+						<div class="form-group"
+							ng-class="{ 'has-error' : userForm.userId.$invalid && !userForm.userId.$pristine &&! userForm.userId.$required}">
+							<label for="userId">User Id*:</label> <input type="email"
+								name="userId" class="form-control" id="userId"
+								ng-model="user.Id" placeholder="Enter user Id" required>
+							<span
+								ng-show="userForm.userId.$invalid && !userForm.userId.$pristine  "
+								class="help-block">A Valid Email Id Should Be Entered</span> <span
+								ng-show="userForm.userId.$required" class="help-block">Email
+								Id Is Required</span>
 						</div>
 
-						<div class="form-group">
-							<label for="name">Name:</label> <input type="text"
-								class="form-control" id="name" placeholder="Enter name"
-								ng-model="user.name" name="name" required>
+
+						<div class="form-group"
+							ng-class="{ 'has-error' : userForm.userName.$invalid && !userForm.userName.$pristine }">
+							<label for="userName">Name*:</label> <input type="text"
+								name="userName" class="form-control" id="userName"
+								ng-model="user.Name" placeholder="Enter name"
+								ng-pattern="/^[a-zA-Z]*$/" required> <span
+								ng-show="userForm.userName.$invalid && !userForm.userName.$pristine && !userForm.userName.$error.userName"
+								class="help-block"> Enter A Valid Name</span> <span
+								class="help-block" ng-show="userForm.userName.$error.number">Name
+								Is Required !!</span>
 						</div>
 
-						<div class="form-group">
-							<label for="name">EmployeeId:</label> <input type="text"
-								class="form-control" id="empId" placeholder="Enter EmployeeId"
-								ng-model="user.empId" name="empId" required>
-						</div>
-						<div class="form-group">
-							<label for="name">Experience:</label> <input type="text"
-								class="form-control" id="experience"
-								placeholder="Enter Experience" ng-model="user.experience"
-								name="experience" required>
+
+
+						<div class="form-group"
+							ng-class="{ 'has-error' : userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine }">
+							<label for="emplyoeeId">Employee Id*:</label> <input
+								type="number" name="emplyoeeId" class="form-control"
+								id="emplyoeeId" ng-model="user.emplyoeeId"
+								placeholder="Enter employee Id" required> <span
+								class="help-block"
+								ng-show="userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine&& !userForm.emplyoeeId.$error.number">A
+								Valid Employee Id is required.</span> <span class="help-block"
+								ng-show="userForm.emplyoeeId.$error.$number">Employee Id
+								is invalid!!</span> <span class="help-block"
+								ng-show="userForm.emplyoeeId.$error.$error.maxlength">Employee
+								Id is too long</span>
 						</div>
 
-						<div class="form-group">
-							<label for="name">Mobile No:</label> <input type="text"
-								class="form-control" id="mobileNumber"
-								placeholder="Enter Mobile No." name="mobileNumber"
-								ng-model="user.mobileNumber">
+
+						<div class="form-group"
+							ng-class="{ 'has-error' : userForm.experience.$invalid && !userForm.experience.$pristine }">
+							<label for="experience">Experience*:</label> <input type="number"
+								name="experience" class="form-control" id="experience"
+								ng-model="user.experience" placeholder="Enter Experience"
+								required> <span class="help-block"
+								ng-show="userForm.experience.$invalid && !userForm.experience.$pristine&& !userForm.experience.$error.number">Years
+								Of Experience Is Required</span> <span class="help-block"
+								ng-show="userForm.experience.$error.$number">Entry is
+								invalid!!</span>
 						</div>
-						
-						<div class="form-group">
-							<label for="name">Designation:</label> <input type="text"
-								class="form-control" id="designation"
-								placeholder="Enter Designation" ng-model="user.designation"
-								name="designation">
+
+						<div class="form-group"
+							ng-class="{ 'has-error' : userForm.mobileNo.$invalid && !userForm.mobileNo.$pristine }">
+							<label for="mobileNo">Mobile No* :</label> <input type="number"
+								ng-model="user.mobileNo" name="mobileNo" id="mobileNo"
+								ngPattern="1234567890" ng-maxlength="10" class="form-control"
+								placeholder="Enter mobile number" required> <span
+								class="help-block"
+								ng-show="userForm.mobileNo.$required && !userForm.mobileNo.$pristine && !userForm.mobileNo.$error.number">Valid
+								Mobile Number is required.</span> <span class="help-block"
+								ng-show="userForm.mobileNo.$error.number">Mobile Number
+								is invalid!!</span> <span class="help-block"
+								ng-show="userForm.mobileNo.$error.maxlength">Mobile
+								Number is too long</span>
 						</div>
-						
-						<label for="name">Role:</label><br/>
+
+
+						<div class="form-group"
+							ng-class="{ 'has-error' : userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine }">
+							<label for="userDesignation">Designation*:</label> <input
+								type="text" name="userDesignation" class="form-control"
+								id="userDesignation" ng-model="user.designation"
+								placeholder="Enter Designation" required> <span
+								ng-show=" userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine"
+								class="help-block">Designation is required.</span>
+						</div>
+
 						<div>
-							<select class="form-control" ng-model="user.roles" name="roles">
-								<option selected="selected">Analyst</option>
+							<label for="name">Role:</label> <select class="form-control"
+								ng-model="user.roles" name="roles">
+								<option selected="select">Analyst</option>
 								<option>Admin</option>
 								<option>HR</option>
 								<option>SystemAdmin</option>
 								<option>Other</option>
 							</select>
-						</div><br>
-							<input type="submit" class="btn btn-info" ng-click="submit()"
-								value=Register name="post" align="center" />
+						</div>
+						<br> <input type="submit" class="btn btn-info"
+							ng-click="submit()" value=Register name="post" align="center" />
+			</div>
+			</form>
+		</div>
+	</div>
 
-					</form>
-
-				</div>
-</body> 
+</body>
 </html>
