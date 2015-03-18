@@ -22,6 +22,9 @@ button {
     width: 305px;
 }
 
+.container{
+	width: 600px;
+}
 
 .logoDiv {
     background-image: url("../images/logo.png");

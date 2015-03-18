@@ -1,11 +1,13 @@
 package com.nisum.employee.ref.repository;
 
+import java.util.ArrayList;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nisum.employee.ref.domain.Position;
+import com.nisum.employee.ref.domain.SkillsEntity;
 
 @Repository
-public interface IPositionRepository extends CrudRepository<Position, String> {
+public interface ISkillsRequired  extends CrudRepository<SkillsEntity, String>{
 
 }

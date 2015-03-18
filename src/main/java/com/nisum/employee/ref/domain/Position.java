@@ -13,7 +13,8 @@ public class Position extends AuditEntity{
 	String jobcode;
 	String designation;
 	String experienceRequired;
-	String skillsRequired;
+	String primarySkills;
+	String secondarySkills;
 	int noOfPositions;
 	String jobProfile;
 	

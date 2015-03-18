@@ -9,21 +9,18 @@
 <!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
 
 <script type="text/javascript" src="js/createPosition.js"></script>
-<script type="text/javascript" src="js/cufon-yui.js"></script>
-<script type="text/javascript" src="js/georgia.js"></script>
-<script type="text/javascript" src="js/cuf_run.js"></script>
 <script type="text/javascript" src="js/angular1.2.min.js"></script>
-<script type="text/javascript" src="js/jquery_1.11.1.js"></script>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/template.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css"
-	href="css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
 <link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <title>Candidate</title>
 </head>
+
+
 <body class="login-middile-body">
 	<div ng-app="" ng-controller="positionController">
 		<form action="#" name="createPosition" onvalidate>
@@ -47,7 +44,7 @@
 								ng-class="{'has-error' :createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine}">
 								<label for="experienceRequired">Experience Required :</label> <select
 									class="form-control" name="experienceRequired"
-									ng-model="experienceRequired" id="experienceRequired">
+									ng-model="position.experienceRequired" id="experienceRequired">
 									<option value="1">0-2</option>
 									<option value="2">2-4</option>
 									<option value="3">4-6</option>
@@ -56,17 +53,26 @@
 									ng-show="createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine">City
 									is required.</span>
 							</div>
-							
-							<div class="form-group" ng-class="{ 'has-error' : createPosition.skillsRequired.$invalid && !createPosition.skillsRequired.$pristine }">
-								<label for="skillsRequired">Skills :</label> <input type="text" name="skillsRequired"
-									class="form-control" id="skillsRequired"
-									ng-model="position.skillsRequired"
-									placeholder="Enter Skills" required>
-								<span ng-show="createPosition.skillsRequired.$invalid  && !createPosition.skillsRequired.$pristine"
-									class="help-block">Skills are required.</span>
-							</div>
 
-							<div class="form-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
+						<div class="ui-widget form-group"
+							ng-class="{ 'has-error' : createPosition.primarySkills.$invalid && !createPosition.primarySkills.$pristine }">
+							<label for="primarySkills">Primary Skills :</label> <input name="primarySkills" class="form-control"
+								id="primarySkills" ng-model="position.primarySkills" placeholder="Enter Primary Skills" required style="color: black"> <span
+								ng-show="createPosition.primarySkills.$invalid  && !createPosition.primarySkills.$pristine"
+								class="help-block" style="font: black">Primary Skills are required.</span>
+						</div>
+
+						<div class="ui-widget form-group"
+							ng-class="{ 'has-error' : createPosition.secondarySkills.$invalid && !createPosition.secondarySkills.$pristine }">
+							<label for="secondarySkills">Secondary Skills :</label> <input
+								id="secondarySkills" name="secondarySkills"
+								class="form-control" ng-model="position.secondarySkills"
+								placeholder="Enter Secondary Skills" required> <span
+								ng-show="createPosition.secondarySkills.$invalid  && !createPosition.secondarySkills.$pristine"
+								class="help-block">Secondary Skills are required.</span>
+						</div>
+
+						<div class="form-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
 								<label for="name">No of Positions :</label> <input
 									type="number" name="noOfPositions" class="form-control"
 									id="noOfPositions" ng-model="position.noOfPositions"
@@ -93,7 +99,7 @@
 							</div>
 
 							<input type="button" class="btn btn-info" ng-click="submit()" value=Register name="post" align="center" style="color: 0000FF"/>
-						</form>
+					</form>
 					</div>
 					<br />
 				</div>
@@ -103,4 +109,5 @@
 
 	</div>
 </body>
+
 </html>

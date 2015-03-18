@@ -19,6 +19,5 @@ public class UserInfo {
 	private Integer mobileNumber;
 	private String designation;
 	private String roles;
-	//private List<String> roles;
 	
 }
