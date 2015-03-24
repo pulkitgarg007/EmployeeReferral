@@ -9,7 +9,7 @@ import com.nisum.employee.ref.repository.UserInfoRepository;
 @Service
 public class UserService {
 	
-	@Autowired//(required=false)
+	@Autowired
 	private UserInfoRepository userInfoRepository;
 	
 	public void registerUser(UserInfo user) {

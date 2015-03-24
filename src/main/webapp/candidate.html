@@ -6,37 +6,28 @@
 <title>Employee Referral</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
-<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
 
 
-<script type="text/javascript" src="js/cufon-yui.js"></script>
-<script type="text/javascript" src="js/georgia.js"></script>
-<script type="text/javascript" src="js/cuf_run.js"></script>
-<script type="text/javascript" src="js/angular1.2.min.js"></script>
-<script type="text/javascript" src="js/jquery_1.11.1.js"></script>
-<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/template.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css"
-	href="css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<script type="text/javascript" src="js/createCandidate.js"></script>
 <link rel="stylesheet" type="text/css" href="css/home.css">
+<script type="text/javascript" src="js/viewUserController.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/createCandidate.js"></script>
+
 <title>Candidate</title>
 </head>
 <body class="login-middile-body">
 	<div ng-app="" ng-controller="formController">
 		<form action="#" name="CreateCandidate" onvalidate>
-			<!-- <div class="siteDiv"> -->
 			<div class="pageDiv">
-				<!-- <div class="topLinkDiv"></div> -->
 				<div class=headerDiv>
 					<div class="logoDiv"></div>
-					<!-- <div class="titleDiv"></div>
-						<div class="rightDiv"></div> -->
 				</div>
 				<div class="container">
+				<div ng-include="'menu.html'" class="menuBarStyle"></div>
 					<h2>Candidate Registration form</h2>
 					<form id="integerForm" role="form" class="form-horizontal">
 						<div class="form-group"
@@ -96,7 +87,7 @@
 								Name</label>
 							<div class="controls">
 								<select id="selectbasic" name="positionName"
-									ng-model="candidate.positionName" class="input-xlarge" required>
+									ng-model="candidate.positionName" class="input-xlarge" required style="color: black">
 									<option>Entry Level Engineer</option>
 									<option>Jr.Software Developer</option>
 									<option>Sr.Software Developer</option>

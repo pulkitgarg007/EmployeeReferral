@@ -16,7 +16,6 @@ function positionController($scope, $http) {
 	};
 
 	$scope.submit = function() {
-		alert('alert' + $scope.position);
 		if ($scope.position !== undefined) {
 			$http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position)
 		}

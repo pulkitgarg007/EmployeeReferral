@@ -1,5 +1,7 @@
 package com.nisum.employee.ref.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,10 +29,11 @@ public class UserController {
 		return new ResponseEntity<String>("User registered Successfully", HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<?> retrieveUser(@RequestParam(value = "user-id", required=true) String userId) {
+	@RequestMapping(value = "/searchUser" , method = RequestMethod.GET)
+	public ResponseEntity<?> retrieveUser(@RequestParam(value = "userId", required=true) String userId) {
 		final UserInfo user = userService.retrieveUser(userId);
-        return (null == user) ? new ResponseEntity<String>("No user found for the userName "+userId,HttpStatus.NOT_FOUND) : new ResponseEntity<UserInfo>(user, HttpStatus.OK);
+		ArrayList<UserInfo> userList = new ArrayList<UserInfo>();
+		userList.add(user);
+        return (null == user) ? new ResponseEntity<String>("No user found for the userName "+userId,HttpStatus.NOT_FOUND) : new ResponseEntity<ArrayList<UserInfo>>(userList, HttpStatus.OK);
 	}
-
 }
