@@ -1,6 +1,6 @@
 package com.nisum.employee.ref.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,18 +22,18 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value="/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> registerUser(@RequestBody UserInfo user) {
 		userService.registerUser(user);
-		return new ResponseEntity<String>("User registered Successfully", HttpStatus.OK);
+		return new ResponseEntity<String>("User registered Successfully",
+				HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/searchUser" , method = RequestMethod.GET)
-	public ResponseEntity<?> retrieveUser(@RequestParam(value = "userId", required=true) String userId) {
-		final UserInfo user = userService.retrieveUser(userId);
-		ArrayList<UserInfo> userList = new ArrayList<UserInfo>();
-		userList.add(user);
-        return (null == user) ? new ResponseEntity<String>("No user found for the userName "+userId,HttpStatus.NOT_FOUND) : new ResponseEntity<ArrayList<UserInfo>>(userList, HttpStatus.OK);
+
+	@RequestMapping(value = "/searchUser", method = RequestMethod.GET)
+	public ResponseEntity<?> retrieveUser(@RequestParam(value = "userId", required = true) String userId) {
+		List<UserInfo> userInfos = userService.retrieveUser(userId);
+		return (null == userInfos) ? new ResponseEntity<String>( "User with given argument is not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<List<UserInfo>>(userInfos, HttpStatus.OK);
 	}
 }
