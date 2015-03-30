@@ -19,9 +19,6 @@ public class UserService {
 	@Autowired
 	private UserInfoRepository userInfoRepository;
 	
-	/*@Qualifier("mongoTemplate")
-	private MongoOperations mongoOperations;*/
-	
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	
@@ -29,11 +26,11 @@ public class UserService {
 		userInfoRepository.save(user);
 	}
 	
-	public List<UserInfo> retrieveUser(String userId) {
+	public List<UserInfo> retrieveUser(String name) {
 		
 		 MongoOperations mongoOperations = (MongoOperations)mongoTemplate;
 		Query query = new Query();
-		query.addCriteria(Criteria.where("userId").regex(userId));
+		query.addCriteria(Criteria.where("name").regex(name));
 		List<UserInfo> userInfos = mongoOperations.find(query, UserInfo.class);
 		
 		return userInfos;

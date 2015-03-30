@@ -5,7 +5,7 @@ app.controller('viewUserController',['$scope', '$http','$q', function($scope,$ht
 	
 	$scope.searchUser = function() {
 		var base_url = window.location.origin;
-		var URL = base_url + '/EmployeeReferral/resources/user/searchUser?userId='+$scope.user.userId;
+		var URL = base_url + '/EmployeeReferral/resources/user/searchUser?name='+$scope.user.name;
 		$http.get(URL).success(function(data, status, headers, config) {
 			$scope.data.gridSkills = data;
 		}).error(function(data, status, headers, config) {

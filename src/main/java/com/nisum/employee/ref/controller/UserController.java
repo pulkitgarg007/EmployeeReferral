@@ -31,8 +31,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/searchUser", method = RequestMethod.GET)
-	public ResponseEntity<?> retrieveUser(@RequestParam(value = "userId", required = true) String userId) {
-		List<UserInfo> userInfos = userService.retrieveUser(userId);
+	public ResponseEntity<?> retrieveUser(@RequestParam(value = "name", required = true) String name) {
+		List<UserInfo> userInfos = userService.retrieveUser(name);
 		return (null == userInfos) ? new ResponseEntity<String>( "User with given argument is not found", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<List<UserInfo>>(userInfos, HttpStatus.OK);
 	}
