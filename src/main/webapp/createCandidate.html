@@ -31,23 +31,13 @@
 					<h2>Candidate Registration form</h2>
 					<form id="integerForm" role="form" class="form-horizontal">
 						<div class="form-group"
-							ng-class="{ 'has-error' : CreateCandidate.firstName.$invalid && !CreateCandidate.firstName.$pristine }">
-							<label for="firstName">First Name:</label> <input type="text"
-								name="firstName" class="form-control" id="firstName"
-								ng-model="candidate.firstName" placeholder="Enter first name"
+							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
+							<label for="candidateName">Candidate Name:</label> <input type="text"
+								name="candidateName" class="form-control" id="candidateName"
+								ng-model="candidate.candidateName" placeholder="Enter Candidate Name"
 								required> <span
-								ng-show="CreateCandidate.firstName.$invalid  && !CreateCandidate.firstName.$pristine"
-								class="help-block">First Name is required.</span>
-						</div>
-
-						<div class="form-group"
-							ng-class="{ 'has-error' : CreateCandidate.lastName.$invalid && !CreateCandidate.lastName.$pristine }">
-							<label for="lastName">Last Name:</label> <input type="text"
-								class="form-control" id="lastName" name="lastName"
-								ng-model="candidate.lastName" placeholder="Enter Last name"
-								required> <span
-								ng-show="CreateCandidate.lastName.$invalid  && !CreateCandidate.lastName.$pristine"
-								class="help-block">Last Name is required.</span>
+								ng-show="CreateCandidate.candidateName.$invalid  && !CreateCandidate.candidateName.$pristine"
+								class="help-block">Candidate Name is required.</span>
 						</div>
 
 
@@ -68,10 +58,6 @@
 								name="emailId" class="form-control" id="emailId"
 								ng-model="candidate.emailId" placeholder="Enter Email Id."
 								required>
-							<!-- <span style="color:red" ng-show="CreateCandidate.emailId.$dirty && CreateCandidate.emailId.$invalid">
-<span ng-show="CreateCandidate.emailId.$error.required">Email is required.</span>
-<span ng-show="CreateCandidate.emailId.$error.email">Invalid email address.</span>
-</span> -->
 							<span
 								ng-show="CreateCandidate.emailId.$dirty && CreateCandidate.emailId.$invalid">
 								<span
