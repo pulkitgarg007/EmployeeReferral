@@ -23,22 +23,24 @@
 			<div class="pageDiv">
 				<div class=headerDiv>
 					<div class="logoDiv"></div>
+					<div class="rightDiv"><br><h1>Employee Referral Portal</h1></div>
 				</div>
 				<div class="container">
-					<div ng-include="'menu.html'" class="menuBarStyle"></div>
-					<h2>Search for Existing Candidate</h2>
-					<div class="form-group">
+					<div ng-include="'menu.html'" class="menuBarStyle"></div><br>
+					<h2 class="heading-class">Search for Existing Candidate</h2><br>
+					<div class="control-group">
 						<label for="name">Name:</label> <input type="text"
 							name="candidateName" class="form-control" id="candidateName"
 							placeholder="Enter Name" ng-model="candidate.candidateName" name="candidateName"
 							required>
-					</div>
-
+					</div><br>
+					<div class="control-group">
 					<input type="button" class="btn btn-info" ng-click="searchCandidate()"
 						value="Search" name="get" align="center" />
 				</div>
+				</div>
 				<br>
-				<div class="gridStyle" ng-grid="gridOptions"></div>
+				<div class="gridStyle control-group" ng-grid="gridOptions"></div>
 			</div>
 		</form>
 	</div>

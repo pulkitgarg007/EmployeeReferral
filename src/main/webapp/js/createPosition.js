@@ -9,7 +9,7 @@ function positionController($scope, $http) {
 			source : data
 		});
 	}).error(function(data, status, headers, config) {
-		alert('error');
+		//alert('error');
 	});
 	$scope.reset = function() {
 		$scope.position = angular.copy($scope.master);
