@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>Employee Referral</title>
+<title>Create New Candidate</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 
@@ -11,26 +11,31 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <script type="text/javascript" src="js/viewUserController.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/createCandidate.js"></script>
-
-<title>Candidate</title>
 </head>
+
 <body class="login-middile-body">
-	<div ng-app="" ng-controller="formController">
+
 		<form action="#" name="CreateCandidate" onvalidate>
 			<div class="pageDiv">
 				<div class=headerDiv>
 					<div class="logoDiv"></div>
+					<div class="rightDiv"><br><h1>Employee Referral Portal</h1></div>
 				</div>
 				<div class="container">
 				<div ng-include="'menu.html'" class="menuBarStyle"></div>
-					<h2>Candidate Registration form</h2>
+				<body ng-app="" ng-controller="formController">
+					<br>
+					<h2 class ="heading-class">Candidate Registration form</h2>
+					<br>
 					<form id="integerForm" role="form" class="form-horizontal">
-						<div class="form-group"
+						<br>
+						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
 							<label for="candidateName">Candidate Name:</label> <input type="text"
 								name="candidateName" class="form-control" id="candidateName"
@@ -40,8 +45,8 @@
 								class="help-block">Candidate Name is required.</span>
 						</div>
 
-
-						<div class="form-group"
+						<br>
+						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
 							<label for="qualification">Qualification:</label> <input
 								type="text" name="qualification" class="form-control"
@@ -51,8 +56,8 @@
 								class="help-block">Qualification is required.</span>
 						</div>
 
-
-						<div class="form-group"
+						<br>
+						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.emailId.$invalid && !CreateCandidate.emailId.$pristine }">
 							<label for="emailId">Email Id:</label> <input type="text"
 								name="emailId" class="form-control" id="emailId"
@@ -66,7 +71,7 @@
 								class="error" ng-show="CreateCandidate.emailId.$error.email">
 									Not valid email!</span>
 						</div>
-
+						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine }">
 							<label class="positionName" for="selectbasic">Position
@@ -84,8 +89,8 @@
 							</div>
 						</div>
 
-
-						<div class="form-group"
+						<br>
+						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
 							<label for="Skills">Skills:</label> <input type="text"
 								name="Skills" class="form-control" id="Skills"
@@ -94,7 +99,7 @@
 								ng-show="CreateCandidate.Skills.$invalid  && !CreateCandidate.Skills.$pristine"
 								class="help-block">Skills are required.</span>
 						</div>
-
+						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.firstName.$invalid && !restroForm.restroname.$pristine }">
 							<label class="control-label" for="filebutton">Upload
@@ -104,8 +109,8 @@
 									type="file">
 							</div>
 						</div>
-
-						<div class="form-group"
+						<br>
+						<div class="control-group"
 							ng-class="{'has-error' :CreateCandidate.mobileNo.$invalid && !CreateCandidate.mobileNo.$pristine}">
 							<label for="mobileNo">MobileNo*:</label> <input type="number"
 								ng-model="candidate.mobileNo" name="mobileNo" id="mobileNo"
@@ -127,8 +132,8 @@
 									<span  class="help-block" ng-show="CreateCandidate.mobileNo.$error.required  && !CreateCandidate.mobileNo.$pristine  && !CreateCandidate.mobileNo.$error.number" class="help-block">Mobile Number is required.</span>
 									<span class="help-block" ng-show="CreateCandidate.mobileNo.$error.number">Invalid Mobile Number!!</span>
 							</div> -->
-
-						<div class="form-group"
+						<br>
+						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.presentLocation.$invalid && !CreateCandidate.presentLocation.$pristine }">
 							<label for="presentLocation">Present Location:</label> <input
 								type="text" name="presentLocation" class="form-control"
@@ -137,8 +142,8 @@
 								ng-show="CreateCandidate.presentLocation.$invalid  && !CreateCandidate.presentLocation.$pristine"
 								class="help-block">Present Location is required.</span>
 						</div>
-
-						<div class="form-group"
+						<br>
+						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.pancardNo.$invalid && !CreateCandidate.pancardNo.$pristine }">
 							<label for="pancardNo">Pancard No:</label> <input type="text"
 								class="form-control" id="pancardNo" name="pancardNo"
@@ -147,8 +152,8 @@
 								ng-show="CreateCandidate.pancardNo.$invalid  && !CreateCandidate.pancardNo.$pristine"
 								class="help-block">Pancard Number is required.</span>
 						</div>
-
-						<div class="form-group"
+						<br>
+						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.experience.$invalid && !CreateCandidate.experience.$pristine }">
 							<label for="experience">Experience:</label> <input type="text"
 								name="experience" class="form-control" id="experience"
@@ -157,9 +162,9 @@
 								ng-show="CreateCandidate.experience.$invalid  && !CreateCandidate.experience.$pristine"
 								class="help-block">Experience is required.</span>
 						</div>
+						<br>
 
-
-						<div class="form-group"
+						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.passportNo.$invalid && !CreateCandidate.passportNo.$pristine }">
 							<label for="passportNo">Passport No.:</label> <input type="text"
 								name="passportNo" class="form-control" id="passportNo"
@@ -168,13 +173,14 @@
 								ng-show="CreateCandidate.passportNo.$invalid  && !CreateCandidate.passportNo.$pristine"
 								class="help-block">Passport Number is required.</span>
 						</div>
-
+						<br>
 
 						<!-- <button type="reset" class="btn btn-info">Reset</button>  -->
-
+						<div class="control-group">
 						<input type="button" ng-click="submit()" value=Register
 							name="post" align="right" class="btn btn-info"
 							ng-disabled="restroForm.$invalid" />
+							</div>
 					</form>
 				</div>
 				<br />

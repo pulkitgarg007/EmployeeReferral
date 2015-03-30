@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css" href="css/home.css">
 <script type="text/javascript" src="js/UserRegistration.js"></script>
 <script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <title>User</title>
@@ -20,12 +19,13 @@
 		<div class="pageDiv">
 			<div class=headerDiv>
 				<div class="logoDiv"></div>
+				<div class="rightDiv"><br><h1>Employee Referral Portal</h1></div>
 			</div>
 			<div class="container">
-			<div ng-include="'menu.html'" class="menuBarStyle"></div>
+			<div ng-include="'menu.html'" class="menuBarStyle" align="center"></div>
 				<body ng-app="" ng-controller="formController">
 					<br>
-					<h2>User Registration form</h2>
+					<h2 class ="heading-class">User Registration form</h2>
 					<br>
 					<form name="userForm" id="integerForm" role="form"
 						class="form-horizontal">
@@ -110,8 +110,8 @@
 								class="help-block">Designation is required.</span>
 						</div>
 
-						<div>
-							<label for="name">Role:</label> <select class="form-control"
+						<div class="form-group">
+							<label for="name">Role*:</label> <select class="form-control"
 								ng-model="user.roles" name="roles">
 								<option selected="select">Analyst</option>
 								<option>Admin</option>
@@ -120,8 +120,11 @@
 								<option>Other</option>
 							</select>
 						</div>
-						<br> <input type="submit" class="btn btn-info"
+						<br> 
+						<div class="form-group">
+						<input type="submit" class="btn btn-info"
 							ng-click="submit()" value=Register name="post" align="center" />
+							</div>
 			</div>
 			</form>
 		</div>
