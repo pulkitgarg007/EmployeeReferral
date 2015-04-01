@@ -1,6 +1,7 @@
 package com.nisum.employee.ref.service;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -30,7 +31,7 @@ public class CandidateService {
 		
 		 MongoOperations mongoOperations = (MongoOperations)mongoTemplate;
 		Query query = new Query();
-		query.addCriteria(Criteria.where("candidateName").regex(candidateName));
+		query.addCriteria(Criteria.where("candidateName").regex(Pattern.compile(candidateName, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE)));
 		List<Candidate> candidateDetails = mongoOperations.find(query, Candidate.class);
 		
 		return candidateDetails;
