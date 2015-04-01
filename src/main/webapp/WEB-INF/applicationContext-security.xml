@@ -27,7 +27,7 @@
 
         <form-login
                 login-page='/login.html'
-                default-target-url='/googleandfacebooklogin.html'
+                default-target-url='/User.html'
                 always-use-default-target='false'
                 authentication-failure-handler-ref="exceptionStatusCodeMappingBean"/>
                 
