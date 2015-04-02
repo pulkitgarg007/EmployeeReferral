@@ -1,5 +1,5 @@
 var app = angular.module('myApp', ['ngGrid']);
-app.controller('searchCandidateController',['$scope', '$http','$q', function($scope,$http,$q) {
+app.controller('searchCandidateController',['$scope', '$http','$q', '$window', function($scope,$http,$q,$window) {
 	$scope.data = {};
 	
 	$scope.searchCandidate = function() {
@@ -25,7 +25,7 @@ app.controller('searchCandidateController',['$scope', '$http','$q', function($sc
    		 footerVisible: false,
    		 footerTemplate:false,
    		 columnDefs: [
-		    {field:'candidateName', displayName:'Name', width: "100"}, 
+		    {field:'candidateName', displayName:'Name', width: "100", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editCandidate(row)">{{row.getProperty(\'candidateName\')}}</a></div>'}, 
 		    {field:'emailId', displayName:'Email-ID', width: "130"}, 
 		    {field:'qualification', displayName:'Qualification', width: "100"}, 
 		    {field:'positionName', displayName:'Position', width: "100"}, 
@@ -37,5 +37,10 @@ app.controller('searchCandidateController',['$scope', '$http','$q', function($sc
    			{field:'passportNo', displayName:'Passport No', width: "110"}
    		    ]
     };
+	$scope.editCandidate = function(row) {
+		window.console && console.log(row.entity);
+		$window.location.href = 'editCandidate.html#?target='+row.entity.candidateName;
+		//var candidateName = 
+	};
 	
 }]);
