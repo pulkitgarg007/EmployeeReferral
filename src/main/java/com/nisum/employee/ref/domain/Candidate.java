@@ -2,6 +2,7 @@ package com.nisum.employee.ref.domain;
 import lombok.Getter;
 import lombok.Setter;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
@@ -9,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Candidate")
 public class Candidate extends AuditEntity{
 	String candidateName ;
+	@Id
 	String emailId;
 	String qualification;
 	String positionName;

@@ -14,6 +14,4 @@ public class SkillsEntity {
 	
 	List<String> Skills;
 	
-	//List<String> secondrySkills;
-
 }
