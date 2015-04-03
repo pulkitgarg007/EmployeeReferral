@@ -41,4 +41,13 @@ public class PositionService {
 		List<Position> positionDatails = mongoOperations.find(query, Position.class);
 		return positionDatails;
 	}
+	
+	public Position retrievePositionsbasedOnJobCode(String jobcode) {
+
+		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").regex(jobcode));
+		Position positionDetail = mongoOperations.findOne(query, Position.class);
+		return positionDetail;
+	}
 }

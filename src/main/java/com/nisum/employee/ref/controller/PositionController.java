@@ -43,4 +43,11 @@ public class PositionController {
 		return (null == allPositionsDetails) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<List<Position>>(allPositionsDetails, HttpStatus.OK);
 	} 
+	
+	@RequestMapping(value = "/searchPositionsBasedOnJobCode", method = RequestMethod.GET)
+	public ResponseEntity<?> retrievePositionsBasedOnJobCode(@RequestParam(value = "jobcode", required = true) String jobcode) {
+		Position positionsDetail = positionService.retrievePositionsbasedOnJobCode(jobcode);
+		return (null == positionsDetail) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<Position>(positionsDetail, HttpStatus.OK);
+	} 
 }

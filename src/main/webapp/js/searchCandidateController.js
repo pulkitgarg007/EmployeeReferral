@@ -40,7 +40,6 @@ app.controller('searchCandidateController',['$scope', '$http','$q', '$window', f
 	$scope.editCandidate = function(row) {
 		window.console && console.log(row.entity);
 		$window.location.href = 'editCandidate.html#?target='+row.entity.candidateName;
-		//var candidateName = 
 	};
 	
 }]);

@@ -1,5 +1,5 @@
 var app = angular.module('myApp', ['ngGrid']);
-app.controller('searchPositionController',['$scope', '$http','$q', function($scope,$http,$q) {
+app.controller('searchPositionController',['$scope', '$http','$q', '$window', function($scope,$http,$q , $window) {
 	$scope.data = {};
 	
 	var base_url = window.location.origin;
@@ -32,7 +32,7 @@ app.controller('searchPositionController',['$scope', '$http','$q', function($sco
    		 footerVisible: false,
    		 footerTemplate:false,
    		 columnDefs: [
-		    {field:'jobcode', displayName:'Job Code', width: "50"}, 
+		    {field:'jobcode', displayName:'Job Code', width: "50", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcode\')}}</a></div>'}, 
 		    {field:'designation', displayName:'Designation', width: "75"}, 
 		    {field:'experienceRequired', displayName:'Experience', width: "75"}, 
 		    {field:'primarySkills', displayName:'Primary Skills', width: "130"}, 
@@ -41,5 +41,10 @@ app.controller('searchPositionController',['$scope', '$http','$q', function($sco
    			{field:'jobProfile', displayName:'Job Profile', width: "100"}
    		    ]
     };
+	
+	$scope.editPosition = function(row) {
+		window.console && console.log(row.entity);
+		$window.location.href = 'editPosition.html#?target='+row.entity.jobcode;
+	};
 	
 }]);
