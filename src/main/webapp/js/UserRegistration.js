@@ -19,7 +19,7 @@ angular.module('editUser',[])
 	 $scope.submit = function() {
 		   if($scope.editUser !== undefined){
 		       $http.post(base_url+'/EmployeeReferral/resources/user/update', $scope.editUser) 
-		       window.location="viewUser.html";
+		       window.location="searchUser.html";
 		   }
 		 }
 		  
