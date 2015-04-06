@@ -49,7 +49,7 @@ List XUNIT = [
 
 dependencies {
     compile SPRING, SPRING_SOURCES
-    compile group: 'org.projectlombok', name: 'lombok', version: '0.11.8'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.14.8'
     compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
     compile group: 'org.codehaus.jackson', name: 'jackson-core-lgpl', version: '1.9.11'
     compile group:'com.fasterxml.jackson.core', name:'jackson-databind', version:'2.2.3'

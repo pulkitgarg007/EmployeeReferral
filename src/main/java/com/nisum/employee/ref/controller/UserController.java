@@ -31,9 +31,30 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/searchUser", method = RequestMethod.GET)
-	public ResponseEntity<?> retrieveUser(@RequestParam(value = "name", required = true) String name) {
+	public ResponseEntity<?> retrieveUser(
+			@RequestParam(value = "name", required = true) String name) {
 		List<UserInfo> userInfos = userService.retrieveUser(name);
-		return (null == userInfos) ? new ResponseEntity<String>( "User with given argument is not found", HttpStatus.NOT_FOUND)
+		return (null == userInfos) ? new ResponseEntity<String>(
+				"User with given argument is not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<List<UserInfo>>(userInfos, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> updateUser(@RequestBody UserInfo user) {
+		System.out.println("inside update user....");
+		userService.updateUser(user);
+		return new ResponseEntity<String>("User registered Successfully",
+				HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/searchUserById", method = RequestMethod.GET)
+	public ResponseEntity<?> retrieveUserBy(
+			@RequestParam(value = "userId", required = true) String userId) {
+		System.out.println("inside searchUserById....");
+		List<UserInfo> userInfos = userService.retrieveUserById(userId);
+		return (null == userInfos) ? new ResponseEntity<String>(
+				"User with given argument is not found", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<List<UserInfo>>(userInfos, HttpStatus.OK);
 	}
 }

@@ -1,5 +1,5 @@
 var app = angular.module('myApp', ['ngGrid']);
-app.controller('viewUserController',['$scope', '$http','$q', function($scope,$http,$q) {
+app.controller('viewUserController',['$scope', '$http','$q', '$window', function($scope,$http,$q , $window) {
 	$scope.data = {};
 	$scope.mySelections = [];
 	
@@ -26,8 +26,12 @@ app.controller('viewUserController',['$scope', '$http','$q', function($scope,$ht
    		 footerVisible: false,
    		 footerTemplate:false,
    		 columnDefs: [
-		    {field:'userId', displayName:'User Id ', width: "100"}, 
-   			{field:'name', displayName:'Name', width: "200"},
+   		    {
+   		            field: 'userId',
+   		            displayName: 'User Id', width: "100" ,
+   		            cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editUser(row)">{{row.getProperty(\'userId\')}}</a></div>'
+   		           },
+		    {field:'name', displayName:'Name', width: "200"},
    			{field:'empId', displayName:'Employee Id', width: "100"}, 
    			{field:'experience', displayName:'Experience', width: "100"},
    			{field:'mobileNumber', displayName:'Contact No', width: "100"}, 
@@ -35,5 +39,15 @@ app.controller('viewUserController',['$scope', '$http','$q', function($scope,$ht
    			{field:'roles', displayName:'Roles', width: "100"}
    		    ]
     };
+	
+	$scope.editUser = function(row) {
+		alert("editUser");
+		window.console && console.log(row.entity);
+		alert(row.entity.userId);
+		$window.location.href = 'editUser.html#?target='+row.entity.userId;
+		
+		
+		 
+	};
 	
 }]);

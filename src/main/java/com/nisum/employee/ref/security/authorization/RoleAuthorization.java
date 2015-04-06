@@ -33,12 +33,13 @@ public class RoleAuthorization implements IAuthorization {
 		String[] parts = userId.split("@");
 
 		List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-
+		
 		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
 		Query query = new Query();
 		query.addCriteria(Criteria.where("_id").regex(parts[0]));
 		UserInfo user = mongoOperations.findOne(query, UserInfo.class);
-		if (user != null) {
+		grantedAuthorities.add(new GrantedAuthorityImpl("ROLE_USER"));
+		/*if (user != null) {
 			String[] userRoles = user.getRoles().split(",");
 			for (String userRole : userRoles) {
 				grantedAuthorities.add(new GrantedAuthorityImpl("ROLE_" + userRole.toUpperCase()));
@@ -48,7 +49,7 @@ public class RoleAuthorization implements IAuthorization {
 		if (grantedAuthorities.isEmpty()) {
 			throw new AuthorizationException(
 					"User is not authorized to view this page");
-		}
+		}*/
 		return grantedAuthorities;
 	}
 }
