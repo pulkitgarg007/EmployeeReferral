@@ -9,8 +9,6 @@ angular.module('editPosition',[])
 	
 	$http.get(URL).success(function(data, status, headers, config) {
 		$scope.position =data;
-		alert($scope.position);
-		
 	}).error(function(data, status, headers, config) {
 		alert('error');
 	});	
