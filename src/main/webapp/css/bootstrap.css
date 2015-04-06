@@ -6566,3 +6566,21 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.form-control
+{
+	border-color: #000000;
+	border-width:1.2px;
+	border-style:solid;
+}
+.form-control:focus 
+{
+    background:#E5E4E2;
+	font-weight:bold;
+	border-color:#0000A0;
+	border-style:bold;
+	border-width:2px;
+	box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.75);
+	-moz-box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.75);
+	-webkit-box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.75);
+}
