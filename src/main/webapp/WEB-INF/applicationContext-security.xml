@@ -27,7 +27,7 @@
 
         <form-login
                 login-page='/login.html'
-                default-target-url='/searchUser.html'
+                default-target-url='/createUser.html'
                 always-use-default-target='false'
                 authentication-failure-handler-ref="exceptionStatusCodeMappingBean"/>
                 
