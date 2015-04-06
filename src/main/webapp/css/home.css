@@ -234,3 +234,9 @@ background: none repeat scroll 0 0 rgba(206, 42, 46, 0.9) !important;
 	position: relative; 
 	margin-left: 17%;
 }
+
+.divider{
+	width:7px;
+    height:auto;
+    display:inline-block;
+}

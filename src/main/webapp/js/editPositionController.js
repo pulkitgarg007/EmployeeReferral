@@ -8,7 +8,7 @@ angular.module('editPosition',[])
 	var URL = base_url + '/EmployeeReferral/resources/searchPositionsBasedOnJobCode?jobcode='+$scope.jobcode;
 	
 	$http.get(URL).success(function(data, status, headers, config) {
-		$scope.position =data[0];
+		$scope.position =data;
 		alert($scope.position);
 		
 	}).error(function(data, status, headers, config) {

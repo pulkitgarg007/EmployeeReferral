@@ -13,4 +13,11 @@ angular.module('editCandidate',[])
 	}).error(function(data, status, headers, config) {
 		alert('error');
 	});	
+	$scope.updateCandidate = function() {
+		alert('1');
+		if($scope.candidate !== undefined){
+		var base_url = window.location.origin;
+		var URL = base_url + '/EmployeeReferral/resources/candidate-update'+$scope.candidate;
+	}
+	}
 }])

@@ -37,4 +37,11 @@ public class CandidateController {
 		return (null == candidateDetails) ? new ResponseEntity<String>( "Candidate with given argument is not found", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<List<Candidate>>(candidateDetails, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/candidate-update", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> updateUser(@RequestBody Candidate candidate) {
+		candidateService.updateCandidate(candidate); 
+		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
+	}
 }

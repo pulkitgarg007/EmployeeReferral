@@ -5,7 +5,6 @@
 
 <title>Edit Candidate</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" type="text/css" href="css/home.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -174,7 +173,11 @@
 
 						<!-- <button type="reset" class="btn btn-info">Reset</button>  -->
 						<div class="control-group">
-						<input type="button" ng-click="submit()" value=Register
+						<input type="button" ng-click="updateCandidate()" value=Update
+							name="post" align="right" class="btn btn-info"
+							ng-disabled="restroForm.$invalid" />
+						<div class="divider"></div>							
+						<input type="button" ng-click="reset()" value=Cancel
 							name="post" align="right" class="btn btn-info"
 							ng-disabled="restroForm.$invalid" />
 							</div>

@@ -1769,7 +1769,7 @@ table.accordianTable td {
 }
 .error {
     background-color: #ffbaba;
-    background-image: url("../images/icon_error.gif");
+   /*  background-image: url("../images/icon_error.gif"); */
     color: #d8000c;
 }
 a.icon-right {
@@ -1779,7 +1779,7 @@ a.icon-right {
     text-decoration: none;
 }
 a.icon-alert {
-    background: url("../images/icon_error.gif") no-repeat scroll left center transparent;
+   /*  background: url("../images/icon_error.gif") no-repeat scroll left center transparent; */
     margin: 10px 5px 0 4px;
     padding: 0 0 0 18px;
     text-decoration: none;

@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import com.nisum.employee.ref.domain.Candidate;
@@ -35,5 +36,24 @@ public class CandidateService {
 		List<Candidate> candidateDetails = mongoOperations.find(query, Candidate.class);
 		
 		return candidateDetails;
+	}
+  
+  public void  updateCandidate(Candidate candidate){
+		MongoOperations mongoOperations = (MongoOperations)mongoTemplate;
+		Query updateQuery = new Query();
+		updateQuery.addCriteria(Criteria.where("emailId").is(candidate.getEmailId()));
+		Candidate candidate1 = mongoOperations.findOne(updateQuery, Candidate.class);
+		candidate1.equals(candidate) ;
+		Update update = new Update();
+		update.set("candidateName", candidate.getCandidateName());
+		update.set("qualification", candidate.getQualification());
+		update.set("experience", candidate.getExperience());
+		update.set("mobileNo", candidate.getMobileNo());
+		update.set("pancardNo", candidate.getPancardNo());
+		update.set("passportNo", candidate.getPassportNo());
+		update.set("positionName", candidate.getPositionName());
+		update.set("presentLocation", candidate.getPresentLocation());
+		update.set("skills", candidate.getSkills());
+		mongoOperations.updateFirst(updateQuery, update, Candidate.class);
 	}
 }
