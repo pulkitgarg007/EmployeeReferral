@@ -35,6 +35,7 @@ angular.module('editPosition',[])
 	
 	$scope.editPosition = function() {
          $scope.enableDisableButton = false;
+         $scope.disableEditButton = true;
          $scope.Done = true;
  }
 	

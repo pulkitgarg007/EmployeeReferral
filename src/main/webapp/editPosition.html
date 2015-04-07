@@ -100,8 +100,8 @@
 									class="help-block">Designation is required.</span>
 							</div><br>
 							<div class="control-group">
-							<input type="button" class="btn btn-info" ng-click="editPosition()" value=Edit name="post" align="center" style="color: 0000FF;width: 80px"/>
-							<input type="button" class="btn btn-info" ng-click="updatePositionDetails()" value=Update name="post" align="center" style="color: 0000FF"/>
+							<input type="button" class="btn btn-info" ng-click="editPosition()" value=Edit ng-disabled="disableEditButton" ng-init="disableEditButton=false" name="post" align="center" style="color: 0000FF;width: 80px"/>
+							<input type="button" class="btn btn-info" ng-click="updatePositionDetails()" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true" value=Update name="post" align="center" style="color: 0000FF"/>
 							<input type="button" class="btn btn-info" ng-click="cancel()" value=Cancel name="post" align="center" style="color: 0000FF"/>
 							</div>
 					</form>
