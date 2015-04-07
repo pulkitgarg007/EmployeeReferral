@@ -22,7 +22,17 @@ angular.module('editUser',[])
 		       window.location="searchUser.html";
 		   }
 		 }
-		  
+	 
+		$scope.editPosition = function() {
+	         $scope.enableDisableButton = false;
+	         $scope.disableEditButton = true;
+	         $scope.Done = true;
+	 }
+		
+		$scope.cancel = function() {
+			$window.location.href = 'searchUser.html'
+	} 
+		
 	$scope.data = {};
 	$scope.editUser = {};
 	$scope.userId = $location.search().target;

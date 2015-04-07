@@ -41,7 +41,7 @@
 						ng-class="{ 'has-error' : userForm.userId.$invalid && !userForm.userId.$pristine &&! userForm.userId.$required}">
 						<label for="userId">User Id*:</label> <input type="email"
 							name="userId" class="form-control" id="userId"
-							ng-model="editUser.userId" placeholder="Enter user Id" required>
+							ng-model="editUser.userId" placeholder="Enter user Id" required  ng-disabled="true" >
 						<span
 							ng-show="userForm.userId.$invalid && !userForm.userId.$pristine  "
 							class="help-block">A Valid Email Id Should Be Entered</span> <span
@@ -50,53 +50,52 @@
 					</div>
 
 
-					<div class="form-group"
-						ng-class="{ 'has-error' : userForm.userName.$invalid && !userForm.userName.$pristine }">
-						<label for="userName">Name*:</label> <input type="text"
-							name="userName" class="form-control" id="userName"
-							ng-model="editUser.name" placeholder="Enter name"
-							ng-pattern="/^[a-zA-Z]*$/" required> <span
+					<div class="control-group"
+								ng-class="{ 'has-error' : createPosition.jobcode.$invalid && !createPosition.jobcode.$pristine }">
+								<label for="userName">Name*:</label> 
+								
+								<input type="text" name="userName" class="form-control" id="userName" ng-model="editUser.name" placeholder="Enter name"
+							ng-pattern="/^[a-zA-Z]*$/" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true" required><span
 							ng-show="userForm.userName.$invalid && !userForm.userName.$pristine && !userForm.userName.$error.userName"
 							class="help-block"> Enter A Valid Name</span> <span
 							class="help-block" ng-show="userForm.userName.$error.number">Name
 							Is Required !!</span>
-					</div>
+					</div><br>
 
 
-
-					<div class="form-group"
+					<div class="control-group"
 						ng-class="{ 'has-error' : userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine }">
 						<label for="emplyoeeId">Employee Id*:</label> <input type="number"
 							name="emplyoeeId" class="form-control" id="emplyoeeId"
 							ng-model="editUser.empId" placeholder="Enter employee Id"
-							required> <span class="help-block"
+							required  ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"> <span class="help-block"
 							ng-show="userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine&& !userForm.emplyoeeId.$error.number">A
 							Valid Employee Id is required.</span> <span class="help-block"
 							ng-show="userForm.emplyoeeId.$error.$number">Employee Id
 							is invalid!!</span> <span class="help-block"
 							ng-show="userForm.emplyoeeId.$error.$error.maxlength">Employee
 							Id is too long</span>
-					</div>
+					</div><br>
 
 
-					<div class="form-group"
+					<div class="control-group"
 						ng-class="{ 'has-error' : userForm.experience.$invalid && !userForm.experience.$pristine }">
 						<label for="experience">Experience*:</label> <input type="number"
 							name="experience" class="form-control" id="experience"
 							ng-model="editUser.experience" placeholder="Enter Experience"
-							required> <span class="help-block"
+							required  ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"> <span class="help-block"
 							ng-show="userForm.experience.$invalid && !userForm.experience.$pristine&& !userForm.experience.$error.number">Years
 							Of Experience Is Required</span> <span class="help-block"
 							ng-show="userForm.experience.$error.$number">Entry is
 							invalid!!</span>
-					</div>
+					</div><br>
 
-					<div class="form-group"
+					<div class="control-group"
 						ng-class="{ 'has-error' : userForm.mobileNo.$invalid && !userForm.mobileNo.$pristine }">
 						<label for="mobileNo">Mobile No* :</label> <input type="number"
 							ng-model="editUser.mobileNumber" name="mobileNo" id="mobileNo"
 							ngPattern="1234567890" ng-maxlength="10" class="form-control"
-							placeholder="Enter mobile number" required> <span
+							placeholder="Enter mobile number" required  ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"> <span
 							class="help-block"
 							ng-show="userForm.mobileNo.$required && !userForm.mobileNo.$pristine && !userForm.mobileNo.$error.number">Valid
 							Mobile Number is required.</span> <span class="help-block"
@@ -104,34 +103,36 @@
 							invalid!!</span> <span class="help-block"
 							ng-show="userForm.mobileNo.$error.maxlength">Mobile Number
 							is too long</span>
-					</div>
+					</div><br>
 
 
-					<div class="form-group"
+					<div class="control-group"
 						ng-class="{ 'has-error' : userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine }">
 						<label for="userDesignation">Designation*:</label> <input
 							type="text" name="userDesignation" class="form-control"
 							id="userDesignation" ng-model="editUser.designation"
-							placeholder="Enter Designation" required> <span
+							placeholder="Enter Designation" required ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"> <span
 							ng-show=" userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine"
 							class="help-block">Designation is required.</span>
-					</div>
+					</div><br>
 
-					<div class="form-group">
+					<div class="control-group">
 						<label for="name">Role:</label> <select class="form-control"
-							ng-model="editUser.roles" name="roles">
+							ng-model="editUser.roles" name="roles"  ng-disabled="enableDisableButton" ng-init="enableDisableButton=true">
 							<option selected="select">Analyst</option>
 							<option>Admin</option>
 							<option>HR</option>
 							<option>SystemAdmin</option>
 							<option>Other</option>
 						</select>
-					</div>
+					</div><br>
 					
-					<div class="form-group">
-						<input type="submit" class="btn btn-info" ng-click="submit()"
-							value="update" name="post" align="center" />
-					</div>
+			<div class="control-group">
+				<input type="button" class="btn btn-info" ng-click="editPosition()" value=Edit ng-disabled="disableEditButton" ng-init="disableEditButton=false" name="post" align="center" style="color: 0000FF;width: 80px"/>
+				<input type="button" class="btn btn-info" ng-click="submit()" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true" value=Update name="post" align="center" style="color: 0000FF"/>
+				<input type="button" class="btn btn-info" ng-click="cancel()" value=Cancel name="post" align="center" style="color: 0000FF"/>
+		</div><br><br><br>
+		
 		</div>
 		</form>
 	</div>
