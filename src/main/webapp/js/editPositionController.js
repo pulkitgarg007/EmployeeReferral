@@ -26,9 +26,10 @@ angular.module('editPosition',[])
 		alert('error');
 	});	
 	
-	$scope.submit = function() {
+	$scope.updatePositionDetails = function() {
 		if ($scope.position !== undefined) {
 			$http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position)
+			$window.location.href = 'searchPosition.html';
 		}
 	}
 	
