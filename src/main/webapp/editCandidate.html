@@ -35,8 +35,8 @@
 							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
 							<label for="candidateName">Candidate Name:</label> <input type="text"
 								name="candidateName" class="form-control" id="candidateName"
-								ng-model="candidate.candidateName" placeholder="Enter Candidate Name"
-								required> <span
+								ng-model="candidate.candidateName" ng-disabled="button" required ng-init="button=true" placeholder="Enter Candidate Name"
+								required > <span
 								ng-show="CreateCandidate.candidateName.$invalid  && !CreateCandidate.candidateName.$pristine"
 								class="help-block">Candidate Name is required.</span>
 						</div>
@@ -46,7 +46,7 @@
 							ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
 							<label for="qualification">Qualification:</label> <input
 								type="text" name="qualification" class="form-control"
-								id="qualification" ng-model="candidate.qualification"
+								id="qualification" ng-model="candidate.qualification" ng-disabled="button" required ng-init="button=true"
 								placeholder="Enter qualification" required> <span
 								ng-show="CreateCandidate.qualification.$invalid  && !CreateCandidate.qualification.$pristine"
 								class="help-block">Qualification is required.</span>
@@ -57,7 +57,7 @@
 							ng-class="{ 'has-error' : CreateCandidate.emailId.$invalid && !CreateCandidate.emailId.$pristine }">
 							<label for="emailId">Email Id:</label> <input type="text"
 								name="emailId" class="form-control" id="emailId"
-								ng-model="candidate.emailId" placeholder="Enter Email Id."
+								ng-model="candidate.emailId" ng-disabled="candidate.emailId"  placeholder="Enter Email Id."
 								required>
 							<span
 								ng-show="CreateCandidate.emailId.$dirty && CreateCandidate.emailId.$invalid">
@@ -74,7 +74,7 @@
 								Name</label>
 							<div class="controls">
 								<select id="selectbasic" name="positionName"
-									ng-model="candidate.positionName" class="input-xlarge" required style="color: black">
+									ng-model="candidate.positionName" ng-disabled="button" required ng-init="button=true" class="input-xlarge" required style="color: black">
 									<option>Entry Level Engineer</option>
 									<option>Jr.Software Developer</option>
 									<option>Sr.Software Developer</option>
@@ -90,7 +90,7 @@
 							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
 							<label for="Skills">Skills:</label> <input type="text"
 								name="Skills" class="form-control" id="Skills"
-								ng-model="candidate.skills" placeholder="Enter Skills." required>
+								ng-model="candidate.skills" ng-disabled="button" required ng-init="button=true" placeholder="Enter Skills." required>
 							<span
 								ng-show="CreateCandidate.Skills.$invalid  && !CreateCandidate.Skills.$pristine"
 								class="help-block">Skills are required.</span>
@@ -101,7 +101,7 @@
 							<label class="control-label" for="filebutton">Upload
 								Resume</label>
 							<div class="controls">
-								<input id="filebutton" name="filebutton" class="input-file"
+								<input id="filebutton" name="filebutton" class="input-file" disabled="true"
 									type="file">
 							</div>
 						</div>
@@ -109,7 +109,7 @@
 						<div class="control-group"
 							ng-class="{'has-error' :CreateCandidate.mobileNo.$invalid && !CreateCandidate.mobileNo.$pristine}">
 							<label for="mobileNo">MobileNo*:</label> <input type="number"
-								ng-model="candidate.mobileNo" name="mobileNo" id="mobileNo"
+								ng-model="candidate.mobileNo" ng-disabled="button" required ng-init="button=true" name="mobileNo" id="mobileNo"
 								ngPattern="1234567890 " ng-maxlength="10" class="form-control"
 								placeholder="Enter mobileNo" required> <span
 								class="help-block"
@@ -133,7 +133,7 @@
 							ng-class="{ 'has-error' : CreateCandidate.presentLocation.$invalid && !CreateCandidate.presentLocation.$pristine }">
 							<label for="presentLocation">Present Location:</label> <input
 								type="text" name="presentLocation" class="form-control"
-								id="presentLocation" ng-model="candidate.presentLocation"
+								id="presentLocation" ng-model="candidate.presentLocation" ng-disabled="button" required ng-init="button=true"
 								placeholder="Enter Present Location" required> <span
 								ng-show="CreateCandidate.presentLocation.$invalid  && !CreateCandidate.presentLocation.$pristine"
 								class="help-block">Present Location is required.</span>
@@ -143,7 +143,7 @@
 							ng-class="{ 'has-error' : CreateCandidate.pancardNo.$invalid && !CreateCandidate.pancardNo.$pristine }">
 							<label for="pancardNo">Pancard No:</label> <input type="text"
 								class="form-control" id="pancardNo" name="pancardNo"
-								ng-model="candidate.pancardNo" placeholder="Enter Pancard No."
+								ng-model="candidate.pancardNo" ng-disabled="button" required ng-init="button=true" placeholder="Enter Pancard No."
 								required> <span
 								ng-show="CreateCandidate.pancardNo.$invalid  && !CreateCandidate.pancardNo.$pristine"
 								class="help-block">Pancard Number is required.</span>
@@ -153,7 +153,7 @@
 							ng-class="{ 'has-error' : CreateCandidate.experience.$invalid && !CreateCandidate.experience.$pristine }">
 							<label for="experience">Experience:</label> <input type="text"
 								name="experience" class="form-control" id="experience"
-								ng-model="candidate.experience" placeholder="Enter Experience"
+								ng-model="candidate.experience" ng-disabled="button" required ng-init="button=true" placeholder="Enter Experience"
 								required> <span
 								ng-show="CreateCandidate.experience.$invalid  && !CreateCandidate.experience.$pristine"
 								class="help-block">Experience is required.</span>
@@ -164,7 +164,7 @@
 							ng-class="{ 'has-error' : CreateCandidate.passportNo.$invalid && !CreateCandidate.passportNo.$pristine }">
 							<label for="passportNo">Passport No.:</label> <input type="text"
 								name="passportNo" class="form-control" id="passportNo"
-								ng-model="candidate.passportNo" placeholder="Enter Passport No."
+								ng-model="candidate.passportNo" ng-disabled="button" required ng-init="button=true" placeholder="Enter Passport No."
 								required> <span
 								ng-show="CreateCandidate.passportNo.$invalid  && !CreateCandidate.passportNo.$pristine"
 								class="help-block">Passport Number is required.</span>
@@ -173,6 +173,10 @@
 
 						<!-- <button type="reset" class="btn btn-info">Reset</button>  -->
 						<div class="control-group">
+						<input type="button" ng-click="editCandidate()" ng-disabled="Done" value=Edit
+							name="post" align="right" class="btn btn-info"
+							ng-disabled="restroForm.$invalid" />
+							<div class="divider"></div>
 						<input type="button" ng-click="updateCandidate()" value=Update
 							name="post" align="right" class="btn btn-info"
 							ng-disabled="restroForm.$invalid" />

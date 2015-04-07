@@ -13,6 +13,10 @@ angular.module('editCandidate',[])
 	}).error(function(data, status, headers, config) {
 		alert('error');
 	});	
+	$scope.editCandidate = function() {
+		$scope.button = false;
+		$scope.Done = true;
+	}
 	$scope.updateCandidate = function() {
 		alert('1');
 		if($scope.candidate !== undefined){
