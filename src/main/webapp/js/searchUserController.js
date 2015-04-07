@@ -41,9 +41,7 @@ app.controller('viewUserController',['$scope', '$http','$q', '$window', function
     };
 	
 	$scope.editUser = function(row) {
-		alert("editUser");
 		window.console && console.log(row.entity);
-		alert(row.entity.userId);
 		$window.location.href = 'editUser.html#?target='+row.entity.userId;
 		
 		
