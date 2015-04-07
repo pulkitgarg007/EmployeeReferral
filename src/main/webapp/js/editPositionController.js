@@ -36,4 +36,8 @@ angular.module('editPosition',[])
          $scope.enableDisableButton = false;
          $scope.Done = true;
  }
+	
+	$scope.cancel = function() {
+		$window.location.href = 'searchPosition.html'
+}
 }])
