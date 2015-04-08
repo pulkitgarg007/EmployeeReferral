@@ -32,8 +32,8 @@ app.controller('searchPositionController',['$scope', '$http','$q', '$window', fu
    		 footerVisible: false,
    		 footerTemplate:false,
    		 columnDefs: [
-		    {field:'jobcode', displayName:'Job Code', width: "50", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcode\')}}</a></div>'}, 
-		    {field:'designation', displayName:'Designation', width: "150"}, 
+		    {field:'jobcode', displayName:'Job Code', width: "73", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcode\')}}</a></div>'}, 
+		    {field:'designation', displayName:'Designation', width: "125"}, 
 		    {field:'experienceRequired', displayName:'Experience', width: "75"}, 
 		    {field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
    			{field:'noOfPositions', displayName:'No Of Positions', width: "50"}, 
