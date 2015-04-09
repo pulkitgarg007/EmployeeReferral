@@ -41,6 +41,8 @@ public class RoleAuthorization implements IAuthorization {
 			for (String userRole : userRoles) {
 				grantedAuthorities.add(new GrantedAuthorityImpl("ROLE_" + userRole.toUpperCase()));
 			}
+		}else{
+			grantedAuthorities.add(new GrantedAuthorityImpl("ROLE_USER"));
 		}
 
 		if (grantedAuthorities.isEmpty()) {
