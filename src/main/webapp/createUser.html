@@ -47,7 +47,7 @@
 							<label for="userName">Name*:</label> <input type="text"
 								name="userName" class="form-control" id="userName"
 								ng-model="user.name" placeholder="Enter name"
-								ng-pattern="/^[a-zA-Z]*$/" required> <span
+								ng-pattern="/^[a-zA-Z _]*$/" required> <span
 								ng-show="userForm.userName.$invalid && !userForm.userName.$pristine && !userForm.userName.$error.userName"
 								class="help-block"> Enter A Valid Name</span> <span
 								class="help-block" ng-show="userForm.userName.$error.number">Name

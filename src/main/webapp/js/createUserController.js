@@ -1,8 +1,21 @@
-function formController ($scope,$http) {
+function formController ($scope,$http , $window) {
+	var base_url = window.location.origin;
+	if(sessionStorage.getItem('userId') != null && sessionStorage.getItem('userId') != ''){
+		var URL = base_url + '/EmployeeReferral/resources/user/searchUserBasedOnUserId?userId=' + sessionStorage.getItem('userId');
+		$http.get(URL).success(function(data, status, headers, config) {
+			if (data[0].userId != null) {
+				sessionStorage.userId='';
+				$window.location.href = 'searchPosition.html';
+			}
+
+		}).error(function(data, status, headers, config) {
+			alert('error');
+		});
+	}	
+	
        $scope.reset = function() {
        $scope.user = angular.copy($scope.master);
    };
-   var base_url = window.location.origin;
    $scope.submit = function() {
    if($scope.user !== undefined){
        $http.post(base_url+'/EmployeeReferral/resources/user/register', $scope.user) 

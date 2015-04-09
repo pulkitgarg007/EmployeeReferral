@@ -53,6 +53,8 @@ for (var i=0; i < resp.emails.length; i++) {
 $('#j_username').val(primaryEmail);
 $('#j_password').val('referral');
 
+sessionStorage.userId = primaryEmail;
+
 document.getElementById('login-form').submit();
 
 }
