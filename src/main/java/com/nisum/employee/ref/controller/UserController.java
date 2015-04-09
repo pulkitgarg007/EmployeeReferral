@@ -38,6 +38,15 @@ public class UserController {
 				"User with given argument is not found", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<List<UserInfo>>(userInfos, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/searchUserBasedOnUserId", method = RequestMethod.GET)
+	public ResponseEntity<?> retrieveUserBasedOnUserId(
+			@RequestParam(value = "userId", required = true) String userId) {
+		List<UserInfo> userInfos = userService.retrieveUserBasedOnUserId(userId);
+		return (null == userInfos) ? new ResponseEntity<String>(
+				"User with given argument is not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<List<UserInfo>>(userInfos, HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	@ResponseBody

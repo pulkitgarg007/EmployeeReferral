@@ -36,7 +36,17 @@ public class UserService {
 
 		return userInfos;
 	}
+	
+	public List<UserInfo> retrieveUserBasedOnUserId(String userId) {
 
+		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").regex(Pattern.compile(userId, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE)));
+		List<UserInfo> userInfos = mongoOperations.find(query, UserInfo.class);
+
+		return userInfos;
+	}
+	
 	public void updateUser(UserInfo user) {
 
 		UserInfo userInfo = userInfoRepository.findOne(user.getUserId());
