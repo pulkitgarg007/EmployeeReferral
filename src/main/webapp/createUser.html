@@ -14,7 +14,7 @@
 <title>User</title>
 </head>
 
-<body class="login-middile-body">
+<body class="login-middile-body" ng-app="" ng-controller="formController">
 
 		<div class="pageDiv">
 			<div class=headerDiv>
@@ -23,7 +23,7 @@
 			</div>
 			<div class="container">
 			<div ng-include="'menu.html'" class="menuBarStyle" align="center"></div>
-				<body ng-app="" ng-controller="formController">
+				
 					<br>
 					<h2 class ="heading-class">User Registration form</h2>
 					<br>
@@ -32,7 +32,7 @@
 						<div class="form-group"
 							ng-class="{ 'has-error' : userForm.userId.$invalid && !userForm.userId.$pristine &&! userForm.userId.$required}">
 							<label for="userId">User Id*:</label> <input type="email"
-								name="userId" class="form-control" id="userId"
+								name="userId" class="form-control" id="userId" ng-change="changeEvent()" 
 								ng-model="user.userId" placeholder="Enter user Id" required>
 							<span
 								ng-show="userForm.userId.$invalid && !userForm.userId.$pristine  "
@@ -44,7 +44,7 @@
 
 						<div class="form-group"
 							ng-class="{ 'has-error' : userForm.userName.$invalid && !userForm.userName.$pristine }">
-							<label for="userName">Name*:</label> <input type="text"
+							<label for="userName">Name*:</label> <input type="text" ng-change="changeEvent()"
 								name="userName" class="form-control" id="userName"
 								ng-model="user.name" placeholder="Enter name"
 								ng-pattern="/^[a-zA-Z _]*$/" required> <span
@@ -59,7 +59,7 @@
 						<div class="form-group"
 							ng-class="{ 'has-error' : userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine }">
 							<label for="emplyoeeId">Employee Id*:</label> <input
-								type="number" name="emplyoeeId" class="form-control"
+								type="number" name="emplyoeeId" class="form-control" ng-change="changeEvent()" 
 								id="emplyoeeId" ng-model="user.empId"
 								placeholder="Enter employee Id" required> <span
 								class="help-block"
@@ -74,7 +74,7 @@
 
 						<div class="form-group"
 							ng-class="{ 'has-error' : userForm.experience.$invalid && !userForm.experience.$pristine }">
-							<label for="experience">Experience*:</label> <input type="number"
+							<label for="experience">Experience*:</label> <input type="number" ng-change="changeEvent()" 
 								name="experience" class="form-control" id="experience"
 								ng-model="user.experience" placeholder="Enter Experience"
 								required> <span class="help-block"
@@ -86,7 +86,7 @@
 
 						<div class="form-group"
 							ng-class="{ 'has-error' : userForm.mobileNo.$invalid && !userForm.mobileNo.$pristine }">
-							<label for="mobileNo">Mobile No* :</label> <input type="number"
+							<label for="mobileNo">Mobile No* :</label> <input type="number" ng-change="changeEvent()" 
 								ng-model="user.mobileNumber" name="mobileNo" id="mobileNo"
 								ngPattern="1234567890" ng-maxlength="10" class="form-control"
 								placeholder="Enter mobile number" required> <span
@@ -103,7 +103,7 @@
 						<div class="form-group"
 							ng-class="{ 'has-error' : userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine }">
 							<label for="userDesignation">Designation*:</label> <input
-								type="text" name="userDesignation" class="form-control"
+								type="text" name="userDesignation" class="form-control" ng-change="changeEvent()" 
 								id="userDesignation" ng-model="user.designation"
 								placeholder="Enter Designation" required> <span
 								ng-show=" userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine"
@@ -111,7 +111,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="name">Role*:</label> <select class="form-control"
+							<label for="name">Role*:</label> <select class="form-control" ng-change="changeEvent()" 
 								ng-model="user.roles" name="roles">
 								<option selected="select">USER</option>
 								<option>Admin</option>
@@ -121,12 +121,13 @@
 						<br> 
 						<div class="form-group">
 						<input type="submit" class="btn btn-info"
-							ng-click="submit()" value=Register name="post" align="center" />
+							ng-click="submit()" value=Register name="post" align="center" ng-disabled="enableDisbleButton" />
 							</div>
+							<loading></loading>
 			</div>
+			
 			</form>
 		</div>
-	</div>
 
 </body>
 </html>

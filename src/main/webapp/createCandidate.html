@@ -34,7 +34,7 @@
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
 							<label for="candidateName">Candidate Name:</label> <input type="text"
-								name="candidateName" class="form-control" id="candidateName"
+								name="candidateName" class="form-control" id="candidateName" ng-change="changeEvent()"
 								ng-model="candidate.candidateName" placeholder="Enter Candidate Name"
 								required> <span
 								ng-show="CreateCandidate.candidateName.$invalid  && !CreateCandidate.candidateName.$pristine"
@@ -45,7 +45,7 @@
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
 							<label for="qualification">Qualification:</label> <input
-								type="text" name="qualification" class="form-control"
+								type="text" ng-change="changeEvent()" name="qualification" class="form-control"
 								id="qualification" ng-model="candidate.qualification"
 								placeholder="Enter qualification" required> <span
 								ng-show="CreateCandidate.qualification.$invalid  && !CreateCandidate.qualification.$pristine"
@@ -55,7 +55,7 @@
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.emailId.$invalid && !CreateCandidate.emailId.$pristine }">
-							<label for="emailId">Email Id:</label> <input type="text"
+							<label for="emailId">Email Id:</label> <input type="text" ng-change="changeEvent()"
 								name="emailId" class="form-control" id="emailId"
 								ng-model="candidate.emailId" placeholder="Enter Email Id."
 								required>
@@ -73,7 +73,7 @@
 							<label class="positionName" for="selectbasic">Position
 								Name</label>
 							<div class="controls">
-								<select id="selectbasic" name="positionName"
+								<select id="selectbasic" name="positionName" ng-change="changeEvent()"
 									ng-model="candidate.positionName" class="form-control" required style="color: black">
 									<option>Entry Level Engineer</option>
 									<option>Jr.Software Developer</option>
@@ -88,7 +88,7 @@
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
-							<label for="Skills">Skills:</label> <input type="text"
+							<label for="Skills">Skills:</label> <input type="text" ng-change="changeEvent()"
 								name="Skills" class="form-control" id="Skills"
 								ng-model="candidate.skills" placeholder="Enter Skills." required>
 							<span
@@ -108,7 +108,7 @@
 						<br>
 						<div class="control-group"
 							ng-class="{'has-error' :CreateCandidate.mobileNo.$invalid && !CreateCandidate.mobileNo.$pristine}">
-							<label for="mobileNo">MobileNo*:</label> <input type="number"
+							<label for="mobileNo">MobileNo*:</label> <input type="number" ng-change="changeEvent()" 
 								ng-model="candidate.mobileNo" name="mobileNo" id="mobileNo"
 								ngPattern="1234567890 " ng-maxlength="10" class="form-control"
 								placeholder="Enter mobileNo" required> <span
@@ -132,7 +132,7 @@
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.presentLocation.$invalid && !CreateCandidate.presentLocation.$pristine }">
 							<label for="presentLocation">Present Location:</label> <input
-								type="text" name="presentLocation" class="form-control"
+								type="text" name="presentLocation" class="form-control" ng-change="changeEvent()"
 								id="presentLocation" ng-model="candidate.presentLocation"
 								placeholder="Enter Present Location" required> <span
 								ng-show="CreateCandidate.presentLocation.$invalid  && !CreateCandidate.presentLocation.$pristine"
@@ -141,7 +141,7 @@
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.pancardNo.$invalid && !CreateCandidate.pancardNo.$pristine }">
-							<label for="pancardNo">Pancard No:</label> <input type="text"
+							<label for="pancardNo">Pancard No:</label> <input type="text" ng-change="changeEvent()" 
 								class="form-control" id="pancardNo" name="pancardNo"
 								ng-model="candidate.pancardNo" placeholder="Enter Pancard No."
 								required> <span
@@ -151,7 +151,7 @@
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.experience.$invalid && !CreateCandidate.experience.$pristine }">
-							<label for="experience">Experience:</label> <input type="text"
+							<label for="experience">Experience:</label> <input type="text" ng-change="changeEvent()" 
 								name="experience" class="form-control" id="experience"
 								ng-model="candidate.experience" placeholder="Enter Experience"
 								required> <span
@@ -162,7 +162,7 @@
 
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.passportNo.$invalid && !CreateCandidate.passportNo.$pristine }">
-							<label for="passportNo">Passport No.:</label> <input type="text"
+							<label for="passportNo">Passport No.:</label> <input type="text" ng-change="changeEvent()" 
 								name="passportNo" class="form-control" id="passportNo"
 								ng-model="candidate.passportNo" placeholder="Enter Passport No."
 								required> <span
@@ -173,7 +173,7 @@
 
 						<!-- <button type="reset" class="btn btn-info">Reset</button>  -->
 						<div class="control-group">
-						<input type="button" ng-click="submit()" value=Register
+						<input type="button" ng-click="submit()" value=Register ng-disabled="enableDisbleButton" 
 							name="post" align="right" class="btn btn-info"
 							ng-disabled="restroForm.$invalid" />
 							</div>

@@ -35,7 +35,7 @@
 						<form id="integerForm" role="form" class="form-horizontal">
 							<div class="control-group"
 								ng-class="{ 'has-error' : createPosition.jobcode.$invalid && !createPosition.jobcode.$pristine }">
-								<label for="jobcode">Job Code :</label> <input type="text" name="jobcode"
+								<label for="jobcode">Job Code :</label> <input type="text" name="jobcode" ng-init="enableDisableButton=true"
 									class="form-control" id="jobcode"
 									ng-model="position.jobcode" placeholder="Enter Job Code" ng-disabled="true" required required>
 								<span ng-show="createPosition.jobcode.$invalid  && !createPosition.jobcode.$pristine"
@@ -45,7 +45,7 @@
 							<div class="control-group"
 								ng-class="{'has-error' :createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine}">
 								<label for="experienceRequired">Experience Required :</label> <select
-									class="form-control" name="experienceRequired"
+									class="form-control" name="experienceRequired" ng-init="enableDisableButton=true"
 									ng-model="position.experienceRequired" id="experienceRequired" ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true">
 									<option value="1">0-2</option>
 									<option value="2">2-4</option>
@@ -68,7 +68,7 @@
 							ng-class="{ 'has-error' : createPosition.secondarySkills.$invalid && !createPosition.secondarySkills.$pristine }">
 							<label for="secondarySkills">Secondary Skills :</label> <input
 								id="secondarySkills" name="secondarySkills"
-								class="form-control" ng-model="position.secondarySkills"
+								class="form-control" ng-model="position.secondarySkills" ng-init="enableDisableButton=true"
 								placeholder="Enter Secondary Skills" ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true" required> <span
 								ng-show="createPosition.secondarySkills.$invalid  && !createPosition.secondarySkills.$pristine"
 								class="help-block">Secondary Skills are required.</span>
@@ -76,7 +76,7 @@
 
 						<div class="control-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
 								<label for="name">No of Positions :</label> <input
-									type="number" name="noOfPositions" class="form-control"
+									type="number" name="noOfPositions" class="form-control" ng-init="enableDisableButton=true"
 									id="noOfPositions" ng-model="position.noOfPositions" ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true"
 									placeholder="Enter No of Positions" ngPattern="1234567890 " ng-maxlength="10" required> 
 								 <span class="help-block" ng-show="createPosition.noOfPositions.$error.required && !createPosition.noOfPositions.$pristine && !createPosition.noOfPositions.$error.number">Numbers should be entered</span>
@@ -86,14 +86,14 @@
 							<div class="control-group" ng-class="{'has-error' :createPosition.jobProfile.$invalid && !createPosition.jobProfile.$pristine}">
 								<label for="name">Job Profile :</label>
 								<textarea cols="50" rows="5" class="form-control" name="jobProfile"
-									id="jobProfile" ng-model="position.jobProfile"
+									id="jobProfile" ng-model="position.jobProfile" ng-init="enableDisableButton=true"
 									placeholder="Enter Job Profile" ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true" required></textarea>
 								<span ng-show="createPosition.jobProfile.$invalid  && !createPosition.jobProfile.$pristine"
 									class="help-block">Job Profile is required.</span>
 							</div><br>
 							
 							<div class="control-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
-								<label for="name">Designation :</label> <input type="text" name="designation"
+								<label for="name">Designation :</label> <input type="text" name="designation" ng-init="enableDisableButton=true"
 									class="form-control" id="designation" ng-model="position.designation"
 									placeholder="Enter Designation"  ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true" required>
 								<span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"

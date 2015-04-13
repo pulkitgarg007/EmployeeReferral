@@ -39,7 +39,7 @@
 					class="form-horizontal">
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.userId.$invalid && !userForm.userId.$pristine &&! userForm.userId.$required}">
-						<label for="userId">User Id*:</label> <input type="email"
+						<label for="userId">User Id*:</label> <input type="email" ng-change="changeEventEditUser()" 
 							name="userId" class="form-control" id="userId"
 							ng-model="editUser.userId" placeholder="Enter user Id" required>
 						<span
@@ -52,7 +52,7 @@
 
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.userName.$invalid && !userForm.userName.$pristine }">
-						<label for="userName">Name*:</label> <input type="text"
+						<label for="userName">Name*:</label> <input type="text" ng-change="changeEventEditUser()" 
 							name="userName" class="form-control" id="userName"
 							ng-model="editUser.name" placeholder="Enter name"
 							ng-pattern="/^[a-zA-Z]*$/" required> <span
@@ -66,7 +66,7 @@
 
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine }">
-						<label for="emplyoeeId">Employee Id*:</label> <input type="number"
+						<label for="emplyoeeId">Employee Id*:</label> <input type="number" ng-change="changeEventEditUser()" 
 							name="emplyoeeId" class="form-control" id="emplyoeeId"
 							ng-model="editUser.empId" placeholder="Enter employee Id"
 							required> <span class="help-block"
@@ -81,7 +81,7 @@
 
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.experience.$invalid && !userForm.experience.$pristine }">
-						<label for="experience">Experience*:</label> <input type="number"
+						<label for="experience">Experience*:</label> <input type="number" ng-change="changeEventEditUser()" 
 							name="experience" class="form-control" id="experience"
 							ng-model="editUser.experience" placeholder="Enter Experience"
 							required> <span class="help-block"
@@ -93,7 +93,7 @@
 
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.mobileNo.$invalid && !userForm.mobileNo.$pristine }">
-						<label for="mobileNo">Mobile No* :</label> <input type="number"
+						<label for="mobileNo">Mobile No* :</label> <input type="number" ng-change="changeEventEditUser()" 
 							ng-model="editUser.mobileNumber" name="mobileNo" id="mobileNo"
 							ngPattern="1234567890" ng-maxlength="10" class="form-control"
 							placeholder="Enter mobile number" required> <span
@@ -110,7 +110,7 @@
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine }">
 						<label for="userDesignation">Designation*:</label> <input
-							type="text" name="userDesignation" class="form-control"
+							type="text" name="userDesignation" class="form-control" ng-change="changeEventEditUser()" 
 							id="userDesignation" ng-model="editUser.designation"
 							placeholder="Enter Designation" required> <span
 							ng-show=" userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine"
@@ -118,7 +118,7 @@
 					</div>
 
 					<div class="form-group">
-						<label for="name">Role:</label> <select class="form-control"
+						<label for="name">Role:</label> <select class="form-control" ng-change="changeEventEditUser()" 
 							ng-model="editUser.roles" name="roles">
 							<option selected="select">Analyst</option>
 							<option>Admin</option>
@@ -129,9 +129,9 @@
 					</div>
 					
 					<div class="control-group">
-							<input type="button" class="btn btn-info" ng-click="editUserr()" value=Edit ng-disabled="disableEditButton" ng-init="disableEditButton=false" name="post" align="center" style="color: 0000FF;width: 80px"/>
-							<input type="button" class="btn btn-info" ng-click="submit()" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true" value=Update name="post" align="center" style="color: 0000FF"/>
-							<input type="button" class="btn btn-info" ng-click="cancel()" value=Cancel name="post" align="center" style="color: 0000FF"/>
+							<input type="button" ng-disabled="enableDisbleButton" class="btn btn-info" ng-click="editUserr()" value=Edit ng-disabled="disableEditButton" ng-init="disableEditButton=false" name="post" align="center" style="color: 0000FF;width: 80px"/>
+							<input type="button" ng-disabled="enableDisbleButton" class="btn btn-info" ng-click="submit()" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true" value=Update name="post" align="center" style="color: 0000FF"/>
+							<input type="button" ng-disabled="enableDisbleButton" class="btn btn-info" ng-click="cancel()" value=Cancel name="post" align="center" style="color: 0000FF"/>
 							</div>
 		</div>
 		</form>

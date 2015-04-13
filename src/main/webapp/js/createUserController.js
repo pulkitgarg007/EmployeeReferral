@@ -1,4 +1,5 @@
 function formController ($scope,$http , $window) {
+	$scope.enableDisbleButton = true;
 	var base_url = window.location.origin;
 	if(sessionStorage.getItem('userId') != null && sessionStorage.getItem('userId') != ''){
 		var URL = base_url + '/EmployeeReferral/resources/user/searchUserBasedOnUserId?userId=' + sessionStorage.getItem('userId');
@@ -23,6 +24,13 @@ function formController ($scope,$http , $window) {
  }
    $scope.reset();
    $scope.submit();
+   
+   $scope.changeEvent = function(){
+		if($scope.user.userId == null || $scope.user.userId == '' || $scope.user.name == null || $scope.user.name == '' || $scope.user.empId == null || $scope.user.empId == '' || $scope.user.experience == null || $scope.user.experience == '' || $scope.user.mobileNumber == null || $scope.user.mobileNumber == '' || $scope.user.designation == null || $scope.user.designation == '' || $scope.user.roles == null || $scope.user.roles == '')
+		$scope.enableDisbleButton = true;
+	else
+		$scope.enableDisbleButton = false;
+	}
 }
 
 angular.module('editUser',[])

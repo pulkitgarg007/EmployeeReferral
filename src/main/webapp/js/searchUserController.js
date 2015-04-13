@@ -14,6 +14,7 @@ var app = angular.module('myApp', ['ngGrid']).directive('loading', function () {
       }
   });
 app.controller('viewUserController',['$scope', '$http','$q', '$window', function($scope,$http,$q , $window) {
+	$scope.enableDisbleButton = true;
 	$scope.data = {};
 	$scope.mySelections = [];
 	
@@ -57,11 +58,16 @@ app.controller('viewUserController',['$scope', '$http','$q', '$window', function
     };
 	
 	$scope.editUser = function(row) {
+		$scope.loading = true;
 		window.console && console.log(row.entity);
 		$window.location.href = 'editUser.html#?target='+row.entity.userId;
-		
-		
-		 
 	};
+	
+	$scope.changeEvent = function(){
+		if($scope.user.name == null || $scope.user.name == '')
+			$scope.enableDisbleButton = true;
+	else
+		$scope.enableDisbleButton = false;
+	}
 	
 }]);

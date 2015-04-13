@@ -1,4 +1,5 @@
 function positionController($scope, $http) {
+	$scope.enableDisbleButton = true;
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/skill';
 	$http.get(URL).success(function(data, status, headers, config) {
@@ -22,4 +23,11 @@ function positionController($scope, $http) {
 	}
 	$scope.reset();
 	$scope.submit();
+	
+	$scope.changeEvent = function(){
+		if($scope.position.jobcode == null || $scope.position.jobcode == '' || $scope.position.experienceRequired == null || $scope.position.experienceRequired == '' || $scope.position.primarySkills == null || $scope.position.primarySkills == '' || $scope.position.secondarySkills == null || $scope.position.secondarySkills == '' || $scope.position.noOfPositions == null || $scope.position.noOfPositions == '' || $scope.position.jobProfile == null || $scope.position.jobProfile == '' || $scope.position.designation == null || $scope.position.designation == '')
+		$scope.enableDisbleButton = true;
+	else
+		$scope.enableDisbleButton = false;
+	}
 }

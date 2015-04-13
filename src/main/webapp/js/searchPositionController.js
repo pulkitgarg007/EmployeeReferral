@@ -14,8 +14,8 @@ var app = angular.module('myApp', ['ngGrid']).directive('loading', function () {
       }
   });
 app.controller('searchPositionController',['$scope', '$http','$q', '$window', function($scope,$http,$q , $window) {
+	$scope.enableDisbleButton = true;
 	$scope.data = {};
-	
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/searchAllPosition'; 
 	$scope.loading = true;
@@ -60,8 +60,16 @@ app.controller('searchPositionController',['$scope', '$http','$q', '$window', fu
     };
 	
 	$scope.editPosition = function(row) {
+		$scope.loading = true;
 		window.console && console.log(row.entity);
 		$window.location.href = 'editPosition.html#?target='+row.entity.jobcode;
 	};
+	
+	$scope.changeEvent = function(){
+		if($scope.searchPosition.designations == null || $scope.searchPosition.designations == '')
+			$scope.enableDisbleButton = true;
+	else
+		$scope.enableDisbleButton = false;
+	}
 	
 }]);

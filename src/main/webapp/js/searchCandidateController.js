@@ -14,6 +14,7 @@ var app = angular.module('myApp', ['ngGrid']).directive('loading', function () {
       }
   });
 app.controller('searchCandidateController',['$scope', '$http','$q', '$window', function($scope,$http,$q,$window) {
+	$scope.enableDisbleButton = true;
 	$scope.data = {};
 	$scope.searchCandidate = function() {
 		$scope.loading = true;
@@ -53,8 +54,16 @@ app.controller('searchCandidateController',['$scope', '$http','$q', '$window', f
    		    ]
     };
 	$scope.editCandidate = function(row) {
+		$scope.loading = true;
 		window.console && console.log(row.entity);
 		$window.location.href = 'editCandidate.html#?target='+row.entity.candidateName;
 	};
+	
+	$scope.changeEvent = function(){
+		if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '')
+			$scope.enableDisbleButton = true;
+	else
+		$scope.enableDisbleButton = false;
+	}
 	
 }]);

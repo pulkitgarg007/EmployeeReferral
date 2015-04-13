@@ -38,13 +38,13 @@
 					<div class="control-group">
 						<label for="name">Name:</label> <input type="text"
 							name="candidateName" class="form-control" id="candidateName"
-							placeholder="Enter Name" ng-model="candidate.candidateName"
+							placeholder="Enter Name" ng-model="candidate.candidateName" ng-change="changeEvent()" 
 							name="candidateName" required>
 					</div>
 					<br>
 					<div class="control-group">
 						<input type="button" class="btn btn-info"
-							ng-click="searchCandidate()" value="Search" name="get"
+							ng-click="searchCandidate()" value="Search" name="get" ng-disabled="enableDisbleButton"
 							align="center" />
 					</div>
 				</div>
