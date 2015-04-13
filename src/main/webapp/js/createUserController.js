@@ -28,6 +28,11 @@ function formController ($scope,$http , $window) {
 angular.module('editUser',[])
 .controller('editController',['$scope', '$http', '$q', '$location', '$window', function($scope, $http, $q, $location, $window) {
 	
+	$scope.editUserr = function() {
+        $scope.enableDisableButton = false;
+        $scope.disableEditButton = true;
+        $scope.Done = true;
+}
 
 	 $scope.submit = function() {
 		   if($scope.editUser !== undefined){
@@ -35,6 +40,10 @@ angular.module('editUser',[])
 		       window.location="searchUser.html";
 		   }
 		 }
+
+		$scope.cancel = function() {
+			$window.location.href = 'searchUser.html'
+	}
 		  
 	$scope.data = {};
 	$scope.editUser = {};
