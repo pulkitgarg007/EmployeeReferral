@@ -1,4 +1,3 @@
-
 function formController ($scope,$http) {
     $scope.reset = function() {
         $scope.user = angular.copy($scope.master);
