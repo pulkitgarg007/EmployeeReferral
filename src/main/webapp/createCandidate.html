@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
 
 <title>Create New Candidate</title>
@@ -11,6 +11,9 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/angular-file-upload-shim.min.js"></script>
+<script type="text/javascript" src="js/angular-file-upload.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/createCandidate.js"></script>
 </head>
@@ -25,7 +28,7 @@
 				</div>
 				<div class="container">
 				<div ng-include="'menu.html'" class="menuBarStyle"></div>
-				<body ng-app="" ng-controller="formController">
+				<body ng-controller="formController">
 					<br>
 					<h2 class ="heading-class">Candidate Registration form</h2>
 					<br>
@@ -96,15 +99,14 @@
 								class="help-block">Skills are required.</span>
 						</div>
 						<br>
-						<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.firstName.$invalid && !restroForm.restroname.$pristine }">
+						<div class="control-group">
 							<label class="control-label" for="filebutton">Upload
 								Resume</label>
 							<div class="controls">
-								<input id="filebutton" name="filebutton" class="input-file"
-									type="file">
+								<input id="uploadFile" type="file" ng-file-select="upload($files)"/> 
 							</div>
 						</div>
+						
 						<br>
 						<div class="control-group"
 							ng-class="{'has-error' :CreateCandidate.mobileNo.$invalid && !CreateCandidate.mobileNo.$pristine}">
@@ -120,14 +122,6 @@
 								ng-show="CreateCandidate.mobileNo.$error.maxlength">Mobile
 								Number is too long</span>
 						</div>
-
-						<!-- <div class="form-group" ng-class="{ 'has-error' : CreateCandidate.mobileNo.$invalid && !CreateCandidate.mobileNo.$pristine }">
-								<label for="mobileNo">Mobile No:</label> <input type="number" name="mobileNo" ngPattern="1234567890 " ng-maxlength="10
-									class="form-control" id="mobileNo"
-									ng-model="candidate.mobileNo" placeholder="Enter Mobile No." required>
-									<span  class="help-block" ng-show="CreateCandidate.mobileNo.$error.required  && !CreateCandidate.mobileNo.$pristine  && !CreateCandidate.mobileNo.$error.number" class="help-block">Mobile Number is required.</span>
-									<span class="help-block" ng-show="CreateCandidate.mobileNo.$error.number">Invalid Mobile Number!!</span>
-							</div> -->
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.presentLocation.$invalid && !CreateCandidate.presentLocation.$pristine }">
@@ -170,8 +164,6 @@
 								class="help-block">Passport Number is required.</span>
 						</div>
 						<br>
-
-						<!-- <button type="reset" class="btn btn-info">Reset</button>  -->
 						<div class="control-group">
 						<input type="button" ng-click="submit()" value=Register ng-disabled="enableDisbleButton" 
 							name="post" align="right" class="btn btn-info"

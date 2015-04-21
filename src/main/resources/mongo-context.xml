@@ -23,6 +23,14 @@
         <constructor-arg name="mappingContext" ref="mappingContext"/>
         <property name="typeMapper" ref="defaultMongoTypeMapper"/>
     </bean>
+    
+    <mongo:mapping-converter id="converter" />
+    
+    <bean name="gridFsTemplate"
+		class="org.springframework.data.mongodb.gridfs.GridFsTemplate">
+		<constructor-arg ref="mongoDbFactory" />
+		<constructor-arg ref="converter" />
+	</bean>
 
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
       <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
