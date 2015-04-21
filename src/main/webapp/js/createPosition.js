@@ -26,14 +26,10 @@
 	$scope.submit = function() {
 		var skills =[];
 		if ($scope.position !== undefined) {
-			 console.log("1--------------->"+angular.toJson($scope.position.primarySkills));
-
 			 angular.forEach($scope.position.primarySkills, function(value, key) {
 				 skills.push(value.text);
 				});
-			 console.log("angular.toJson(skills)--------------->"+angular.toJson(skills));
 			 $scope.position.primarySkills = skills;
-			 console.log("2--------------->"+angular.toJson($scope.position.primarySkills));
 			$http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position)
 		}
 	}
