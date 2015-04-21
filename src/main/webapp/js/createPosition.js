@@ -1,23 +1,39 @@
-function positionController($scope, $http) {
+ angular.module('myApp', ['ngTagsInput'])
+
+   .controller('positionController',['$scope', '$http', function($scope, $http){
+	   $scope.position ={};
+	   $scope.position.primarySkills = {};
+	   $scope.primarySkills ={};
 	$scope.enableDisbleButton = true;
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/skill';
+	$scope.data = {};
 	$http.get(URL).success(function(data, status, headers, config) {
-		$("#primarySkills").autocomplete({
-			source : data
-		});
-		$("#secondarySkills").autocomplete({
-			source : data
-		});
+		$scope.data = data;
+		
 	}).error(function(data, status, headers, config) {
 		alert('error');
-	});
+	})
+	$scope.loadTags = function(query) {
+		
+		return $scope.data;
+	};
+	
 	$scope.reset = function() {
 		$scope.position = angular.copy($scope.master);
-	};
+	}
 
 	$scope.submit = function() {
+		var skills =[];
 		if ($scope.position !== undefined) {
+			 console.log("1--------------->"+angular.toJson($scope.position.primarySkills));
+
+			 angular.forEach($scope.position.primarySkills, function(value, key) {
+				 skills.push(value.text);
+				});
+			 console.log("angular.toJson(skills)--------------->"+angular.toJson(skills));
+			 $scope.position.primarySkills = skills;
+			 console.log("2--------------->"+angular.toJson($scope.position.primarySkills));
 			$http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position)
 		}
 	}
@@ -30,4 +46,4 @@ function positionController($scope, $http) {
 	else
 		$scope.enableDisbleButton = false;
 	}
-}
+}]);
