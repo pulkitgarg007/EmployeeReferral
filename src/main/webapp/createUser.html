@@ -56,6 +56,7 @@
 							<label for="emplyoeeId">Employee Id*:</label> <input
 								type="number" name="emplyoeeId" class="form-control" ng-change="changeEvent()" 
 								id="emplyoeeId" ng-model="user.empId"
+								ng-pattern="^[0-9]*$" 
 								placeholder="Enter employee Id" required> <span
 								class="help-block"
 								ng-show="userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine&& !userForm.emplyoeeId.$error.number">A
@@ -71,6 +72,7 @@
 							<label for="experience">Experience*:</label> <input type="number" ng-change="changeEvent()" 
 								name="experience" class="form-control" id="experience"
 								ng-model="user.experience" placeholder="Enter Experience"
+								ng-pattern="^[0-9]*$" 
 								required> <span class="help-block"
 								ng-show="userForm.experience.$invalid && !userForm.experience.$pristine&& !userForm.experience.$error.number">Years
 								Of Experience Is Required</span> <span class="help-block"
@@ -98,9 +100,10 @@
 							<label for="userDesignation">Designation*:</label> <input
 								type="text" name="userDesignation" class="form-control" ng-change="changeEvent()" 
 								id="userDesignation" ng-model="user.designation"
+								ng-pattern="/^[a-zA-Z _]*$/"
 								placeholder="Enter Designation" required> <span
 								ng-show=" userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine"
-								class="help-block">Designation is required.</span>
+								class="help-block">A Valid Designation is required.</span>
 						</div><br>
 
 						<div class="control-group">

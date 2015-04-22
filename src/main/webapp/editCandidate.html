@@ -2,7 +2,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
 <title>Edit Candidate</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="css/template.css">
@@ -14,19 +13,16 @@
 </head>
 
 <body class="login-middile-body">
-
 		<form action="#" name="CreateCandidate" onvalidate>
 			<div class="pageDiv">
 				<div class=headerDiv>
 					<div class="logoDiv"></div>
-					<div class="rightDiv"><br><h1>Employee Referral Portal</h1></div>
 				</div>
 				<div class="container">
 				<div ng-include="'menu.html'" class="menuBarStyle"></div>
-				<body ng-app="editCandidate" ng-controller="formController">
-					<br>
-					<h2 class ="heading-class">Edit Candidate</h2>
-					<br>
+				<div class="form-container">
+				<body ng-app="editCandidate" ng-controller="formController"><br>
+					<h2 class ="heading-class">Edit Candidate</h2><br>
 					<form id="integerForm" role="form" class="form-horizontal">
 						<br>
 						<div class="control-group"
@@ -171,18 +167,15 @@
 
 						<!-- <button type="reset" class="btn btn-info">Reset</button>  -->
 						<div class="control-group">
-						<input type="button" ng-click="updateCandidate()" value=Update
-							name="post" align="right" class="btn btn-info"
-							ng-disabled="restroForm.$invalid" />
-						<div class="divider"></div>							
-						<input type="button" ng-click="reset()" value=Cancel
-							name="post" align="right" class="btn btn-info"
-							ng-disabled="restroForm.$invalid" />
+						<input type="button" class="btn btn-info" ng-click="editCandidate()" value=Edit ng-disabled="disableEditButton" ng-init="disableEditButton=false" name="post" align="center" style="color: 0000FF;width: 80px"/>
+						<div class="divider"></div>	
+						<input type="button" class="btn btn-info" ng-click="updateCandidate()" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true" value=Update name="post" align="center" style="color: 0000FF" />
+						<div class="divider"></div>						
+						<input type="button" class="btn btn-info" ng-click="reset()" value=Cancel value=Cancel name="post" align="center" style="color: 0000FF"/>
 							</div>
 					</form>
+					</div>
 				</div>
-				<br />
-				<div class="copyrightDiv"></div>
 			</div>
 	</div>
 
