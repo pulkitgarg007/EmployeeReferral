@@ -52,7 +52,7 @@
 						<label for="userName">Name*:</label> <input type="text" ng-change="changeEventEditUser()" 
 							name="userName" class="form-control" id="userName"
 							ng-model="editUser.name" placeholder="Enter name"
-							ng-pattern="/^[a-zA-Z]*$/" required> <span
+							ng-pattern="/^[a-zA-Z _]*$/" required> <span
 							ng-show="userForm.userName.$invalid && !userForm.userName.$pristine && !userForm.userName.$error.userName"
 							class="help-block"> Enter A Valid Name</span> <span
 							class="help-block" ng-show="userForm.userName.$error.number">Name
@@ -61,6 +61,7 @@
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine }">
 						<label for="emplyoeeId">Employee Id*:</label> <input type="number" ng-change="changeEventEditUser()" 
+						ng-pattern="^[0-9]*$" 
 							name="emplyoeeId" class="form-control" id="emplyoeeId"
 							ng-model="editUser.empId" placeholder="Enter employee Id"
 							required> <span class="help-block"
@@ -76,6 +77,7 @@
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.experience.$invalid && !userForm.experience.$pristine }">
 						<label for="experience">Experience*:</label> <input type="number" ng-change="changeEventEditUser()" 
+						ng-pattern="^[0-9]*$" 
 							name="experience" class="form-control" id="experience"
 							ng-model="editUser.experience" placeholder="Enter Experience"
 							required> <span class="help-block"
@@ -106,9 +108,10 @@
 						<label for="userDesignation">Designation*:</label> <input
 							type="text" name="userDesignation" class="form-control" ng-change="changeEventEditUser()" 
 							id="userDesignation" ng-model="editUser.designation"
+							ng-pattern="/^[a-zA-Z _]*$/"
 							placeholder="Enter Designation" required> <span
 							ng-show=" userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine"
-							class="help-block">Designation is required.</span>
+							class="help-block">A Valid Designation is required.</span>
 					</div>
 
 					<div class="form-group">
