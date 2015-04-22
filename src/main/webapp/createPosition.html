@@ -78,15 +78,17 @@
 							<label for="secondarySkills">Secondary Skills :</label> <input
 								id="secondarySkills" ng-change="changeEvent()" name="secondarySkills"
 								class="form-control" ng-model="position.secondarySkills"
+								ng-pattern="/^[a-zA-Z _]*$/" 
 								placeholder="Enter Secondary Skills" required> <span
 								ng-show="createPosition.secondarySkills.$invalid  && !createPosition.secondarySkills.$pristine"
-								class="help-block">Secondary Skills are required.</span>
+								class="help-block">Enter Correct Secondary Skills.</span>
 						</div><br>
 
 						<div class="control-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
 								<label for="name">No of Positions :</label> <input
 									type="number" ng-change="changeEvent()" name="noOfPositions" class="form-control"
 									id="noOfPositions" ng-model="position.noOfPositions"
+									ng-pattern="^[0-9]*$" 
 									placeholder="Enter No of Positions" ngPattern="1234567890 " ng-maxlength="10" required> 
 								 <span class="help-block" ng-show="createPosition.noOfPositions.$error.required && !createPosition.noOfPositions.$pristine && !createPosition.noOfPositions.$error.number">Numbers should be entered</span>
  								 <span class="help-block" ng-show="createPosition.noOfPositions.$error.string">Invalid Value</span>  
@@ -104,13 +106,15 @@
 							<div class="control-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
 								<label for="name">Designation :</label> <input type="text" name="designation" ng-change="changeEvent()" 
 									class="form-control" id="designation" ng-model="position.designation"
+									ng-pattern="/^[a-zA-Z _]*$/" 
 									placeholder="Enter Designation" required>
 								<span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"
-									class="help-block">Designation is required.</span>
+									class="help-block">Enter Correct Designation.</span>
 							</div><br>
 							<div class="control-group">
 							<input type="button" class="btn btn-info" ng-click="submit()" value=Register name="post" align="center" style="color: 0000FF" ng-disabled="enableDisbleButton" />
 							</div>
+							<br>
 					</form>
 					</div>
 					</div>
