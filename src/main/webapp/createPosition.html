@@ -28,11 +28,12 @@
 				<div class="pageDiv">
 					<div class=headerDiv>
 						<div class="logoDiv"></div>
-						<div class="rightDiv"><br><h1>Employee Referral Portal</h1></div>
-					</div>
+						 <!-- <div class="rightDiv"><br>
+						<h2>Employee Referral Portal</h2>></div> -->
+					</div> 
 					<div class="container">
 					<div ng-include="'menu.html'" class="menuBarStyle"></div>
-					<br>
+					<div class="form-container">
 						<h2 class ="heading-class">Create New Position</h2>
 						<br>
 						<form id="integerForm" role="form" class="form-horizontal">
@@ -61,8 +62,8 @@
 
 						<div class="control-group" >
 						<label for="primarySkills">Primary Skills:</label>
-						<tags-input ng-model="position.primarySkills" class="form-control"  placeholder="Enter Skills"> <auto-complete id="sk"
-							source="loadTags($query)"></auto-complete> </tags-input></div><br>
+						<tags-input ng-model="position.primarySkills" class="field-control" placeholder="Enter Skills"> <auto-complete id="sk"
+							source="loadTags($query)" class="field-control"></auto-complete> </tags-input></div>
 						
 						<!-- <div class="ui-widget control-group"
 							ng-class="{ 'has-error' : createPosition.primarySkills.$invalid && !createPosition.primarySkills.$pristine }">
@@ -112,13 +113,12 @@
 							</div>
 					</form>
 					</div>
+					</div>
 					<br />
 				</div>
 			</div>
 
 		</form>
-
-	</div>
 </body>
 
 </html>
