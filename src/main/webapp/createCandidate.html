@@ -24,10 +24,10 @@
 			<div class="pageDiv">
 				<div class=headerDiv>
 					<div class="logoDiv"></div>
-					<div class="rightDiv"><br><h1>Employee Referral Portal</h1></div>
 				</div>
 				<div class="container">
 				<div ng-include="'menu.html'" class="menuBarStyle"></div>
+				<div class="form-container">
 				<body ng-controller="formController">
 					<br>
 					<h2 class ="heading-class">Candidate Registration form</h2>
@@ -42,9 +42,7 @@
 								required> <span
 								ng-show="CreateCandidate.candidateName.$invalid  && !CreateCandidate.candidateName.$pristine"
 								class="help-block">Candidate Name is required.</span>
-						</div>
-
-						<br>
+						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
 							<label for="qualification">Qualification:</label> <input
@@ -53,9 +51,7 @@
 								placeholder="Enter qualification" required> <span
 								ng-show="CreateCandidate.qualification.$invalid  && !CreateCandidate.qualification.$pristine"
 								class="help-block">Qualification is required.</span>
-						</div>
-
-						<br>
+						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.emailId.$invalid && !CreateCandidate.emailId.$pristine }">
 							<label for="emailId">Email Id:</label> <input type="text" ng-change="changeEvent()"
@@ -69,8 +65,7 @@
 								class="help-block">Email Id is required.</span> <span
 								class="error" ng-show="CreateCandidate.emailId.$error.email">
 									Not valid email!</span>
-						</div>
-						<br>
+						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine }">
 							<label class="positionName" for="selectbasic">Position
@@ -86,9 +81,7 @@
 									ng-show="CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine">Position
 									Name is required.</span>
 							</div>
-						</div>
-
-						<br>
+						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
 							<label for="Skills">Skills:</label> <input type="text" ng-change="changeEvent()"
@@ -97,17 +90,14 @@
 							<span
 								ng-show="CreateCandidate.Skills.$invalid  && !CreateCandidate.Skills.$pristine"
 								class="help-block">Skills are required.</span>
-						</div>
-						<br>
+						</div><br>
 						<div class="control-group">
 							<label class="control-label" for="filebutton">Upload
 								Resume</label>
 							<div class="controls">
 								<input id="uploadFile" type="file" ng-file-select="upload($files)"/> 
 							</div>
-						</div>
-						
-						<br>
+						</div><br>
 						<div class="control-group"
 							ng-class="{'has-error' :CreateCandidate.mobileNo.$invalid && !CreateCandidate.mobileNo.$pristine}">
 							<label for="mobileNo">MobileNo*:</label> <input type="number" ng-change="changeEvent()" 
@@ -121,8 +111,7 @@
 								mobileNo!!</span> <span class="help-block"
 								ng-show="CreateCandidate.mobileNo.$error.maxlength">Mobile
 								Number is too long</span>
-						</div>
-						<br>
+						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.presentLocation.$invalid && !CreateCandidate.presentLocation.$pristine }">
 							<label for="presentLocation">Present Location:</label> <input
@@ -131,8 +120,7 @@
 								placeholder="Enter Present Location" required> <span
 								ng-show="CreateCandidate.presentLocation.$invalid  && !CreateCandidate.presentLocation.$pristine"
 								class="help-block">Present Location is required.</span>
-						</div>
-						<br>
+						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.pancardNo.$invalid && !CreateCandidate.pancardNo.$pristine }">
 							<label for="pancardNo">Pancard No:</label> <input type="text" ng-change="changeEvent()" 
@@ -141,8 +129,7 @@
 								required> <span
 								ng-show="CreateCandidate.pancardNo.$invalid  && !CreateCandidate.pancardNo.$pristine"
 								class="help-block">Pancard Number is required.</span>
-						</div>
-						<br>
+						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.experience.$invalid && !CreateCandidate.experience.$pristine }">
 							<label for="experience">Experience:</label> <input type="text" ng-change="changeEvent()" 
@@ -151,9 +138,7 @@
 								required> <span
 								ng-show="CreateCandidate.experience.$invalid  && !CreateCandidate.experience.$pristine"
 								class="help-block">Experience is required.</span>
-						</div>
-						<br>
-
+						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.passportNo.$invalid && !CreateCandidate.passportNo.$pristine }">
 							<label for="passportNo">Passport No.:</label> <input type="text" ng-change="changeEvent()" 
@@ -162,22 +147,16 @@
 								required> <span
 								ng-show="CreateCandidate.passportNo.$invalid  && !CreateCandidate.passportNo.$pristine"
 								class="help-block">Passport Number is required.</span>
-						</div>
-						<br>
+						</div><br>
 						<div class="control-group">
 						<input type="button" ng-click="submit()" value=Register ng-disabled="enableDisbleButton" 
 							name="post" align="right" class="btn btn-info"
 							ng-disabled="restroForm.$invalid" />
-							</div>
+							</div><br>
 					</form>
 				</div>
-				<br />
-				<div class="copyrightDiv"></div>
+				</div>
 			</div>
-	</div>
-
 	</form>
-
-	</div>
 </body>
 </html>
