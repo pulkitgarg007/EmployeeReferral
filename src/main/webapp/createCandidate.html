@@ -46,7 +46,7 @@
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
 							<label for="qualification">Qualification:</label> <input
-								type="text" ng-change="changeEvent()" name="qualification" class="form-control"
+								type="text" ng-change="changeEvent()" name="qualification" class="form-control" ng-pattern="/^[a-zA-Z _]*$/"
 								id="qualification" ng-model="candidate.qualification"
 								placeholder="Enter qualification" required> <span
 								ng-show="CreateCandidate.qualification.$invalid  && !CreateCandidate.qualification.$pristine"
@@ -55,7 +55,7 @@
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.emailId.$invalid && !CreateCandidate.emailId.$pristine }">
 							<label for="emailId">Email Id:</label> <input type="text" ng-change="changeEvent()"
-								name="emailId" class="form-control" id="emailId"
+								name="emailId" class="form-control" id="emailId" 
 								ng-model="candidate.emailId" placeholder="Enter Email Id."
 								required>
 							<span
@@ -84,12 +84,12 @@
 						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
-							<label for="Skills">Skills:</label> <input type="text" ng-change="changeEvent()"
+							<label for="Skills">Skills:</label> <input type="text" ng-change="changeEvent()" ng-pattern="/^[a-zA-Z _]*$/"
 								name="Skills" class="form-control" id="Skills"
 								ng-model="candidate.skills" placeholder="Enter Skills." required>
 							<span
 								ng-show="CreateCandidate.Skills.$invalid  && !CreateCandidate.Skills.$pristine"
-								class="help-block">Skills are required.</span>
+								class="help-block">Valid Skills are required.</span>
 						</div><br>
 						<div class="control-group">
 							<label class="control-label" for="filebutton">Upload
