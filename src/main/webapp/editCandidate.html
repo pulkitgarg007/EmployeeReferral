@@ -27,23 +27,23 @@
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
-							<label for="candidateName">Candidate Name:</label> <input type="text"
+							<label for="candidateName">Candidate Name:</label> <input type="text"  ng-pattern="/^[a-zA-Z _]*$/"
 								name="candidateName" class="form-control" id="candidateName"
 								ng-model="candidate.candidateName" placeholder="Enter Candidate Name"
 								required> <span
 								ng-show="CreateCandidate.candidateName.$invalid  && !CreateCandidate.candidateName.$pristine"
-								class="help-block">Candidate Name is required.</span>
+								class="help-block">Valid Candidate Name is required.</span>
 						</div>
 
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
 							<label for="qualification">Qualification:</label> <input
-								type="text" name="qualification" class="form-control"
+								type="text" name="qualification" class="form-control" ng-pattern="/^[a-zA-Z _]*$/"
 								id="qualification" ng-model="candidate.qualification"
 								placeholder="Enter qualification" required> <span
 								ng-show="CreateCandidate.qualification.$invalid  && !CreateCandidate.qualification.$pristine"
-								class="help-block">Qualification is required.</span>
+								class="help-block">Valid Qualification is required.</span>
 						</div>
 
 						<br>
@@ -82,7 +82,7 @@
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
-							<label for="Skills">Skills:</label> <input type="text"
+							<label for="Skills">Skills:</label> <input type="text" ng-pattern="/^[a-zA-Z _]*$/"
 								name="Skills" class="form-control" id="Skills"
 								ng-model="candidate.skills" placeholder="Enter Skills." required>
 							<span
@@ -145,7 +145,7 @@
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.experience.$invalid && !CreateCandidate.experience.$pristine }">
-							<label for="experience">Experience:</label> <input type="text"
+							<label for="experience">Experience:</label> <input type="text" 
 								name="experience" class="form-control" id="experience"
 								ng-model="candidate.experience" placeholder="Enter Experience"
 								required> <span
