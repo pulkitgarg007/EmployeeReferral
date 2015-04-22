@@ -36,9 +36,9 @@
 						<br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
-							<label for="candidateName">Candidate Name:</label> <input type="text"
+							<label for="candidateName">Candidate Name:</label> <input type="text" 
 								name="candidateName" class="form-control" id="candidateName" ng-change="changeEvent()"
-								ng-model="candidate.candidateName" placeholder="Enter Candidate Name"
+								ng-model="candidate.candidateName" placeholder="Enter Candidate Name" ng-pattern="/^[a-zA-Z _]*$/"
 								required> <span
 								ng-show="CreateCandidate.candidateName.$invalid  && !CreateCandidate.candidateName.$pristine"
 								class="help-block">Candidate Name is required.</span>
@@ -64,7 +64,7 @@
 								ng-show="CreateCandidate.emailId.$invalid  && !CreateCandidate.emailId.$pristine"
 								class="help-block">Email Id is required.</span> <span
 								class="error" ng-show="CreateCandidate.emailId.$error.email">
-									Not valid email!</span>
+									Valid Email-id is required</span>
 						</div><br>
 						<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine }">
