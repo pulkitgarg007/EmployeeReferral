@@ -32,7 +32,7 @@
 				</div>
 				<div class="container">
 					<div ng-include="'menu.html'" class="menuBarStyle"></div>
-					<br>
+					<div class="form-container">
 					<h2 class="heading-class">Search for Existing Candidate</h2>
 					<br>
 					<div class="control-group">
@@ -47,11 +47,13 @@
 							ng-click="searchCandidate()" value="Search" name="get" ng-disabled="enableDisbleButton"
 							align="center" />
 					</div>
-				</div>
+				
 				<br>
-				<div class="gridStyle control-group" ng-grid="gridOptions"></div>
+				<div class="gridStyle control-group" ng-grid="gridOptions"></div><br>
 			</div>
+			
 			<loading></loading>
+			</div>
 		</form>
 	</div>
 
