@@ -20,7 +20,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-<title>User</title>
+<title>Edit User</title>
 </head>
 
 <body class="login-middile-body">
@@ -31,10 +31,9 @@
 		</div>
 		<div class="container">
 			<div ng-include="'menu.html'" class="menuBarStyle"></div>
+			<div class="form-container">
 			<body ng-app="editUser" ng-controller="editController">
-				<br>
-				<h2>User Edit form</h2>
-				<br>
+				<h2 class="heading-class">User Edit form</h2><br>
 				<form name="userForm" id="integerForm" role="form"
 					class="form-horizontal">
 					<div class="form-group"
@@ -48,8 +47,6 @@
 							ng-show="userForm.userId.$required" class="help-block">Email
 							Id Is Required</span>
 					</div>
-
-
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.userName.$invalid && !userForm.userName.$pristine }">
 						<label for="userName">Name*:</label> <input type="text" ng-change="changeEventEditUser()" 
@@ -61,9 +58,6 @@
 							class="help-block" ng-show="userForm.userName.$error.number">Name
 							Is Required !!</span>
 					</div>
-
-
-
 					<div class="form-group"
 						ng-class="{ 'has-error' : userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine }">
 						<label for="emplyoeeId">Employee Id*:</label> <input type="number" ng-change="changeEventEditUser()" 
@@ -126,17 +120,16 @@
 							<option>SystemAdmin</option>
 							<option>Other</option>
 						</select>
-					</div>
-					
+					</div><br>
 					<div class="control-group">
 							<input type="button" ng-disabled="enableDisbleButton" class="btn btn-info" ng-click="editUserr()" value=Edit ng-disabled="disableEditButton" ng-init="disableEditButton=false" name="post" align="center" style="color: 0000FF;width: 80px"/>
 							<input type="button" ng-disabled="enableDisbleButton" class="btn btn-info" ng-click="submit()" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true" value=Update name="post" align="center" style="color: 0000FF"/>
 							<input type="button" ng-disabled="enableDisbleButton" class="btn btn-info" ng-click="cancel()" value=Cancel name="post" align="center" style="color: 0000FF"/>
-							</div>
+							</div><br>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
-		</form>
-	</div>
-	</div>
-
-</body>
+	</body>
 </html>

@@ -14,13 +14,17 @@ angular.module('editCandidate',[])
 		alert('error');
 	});	
 	$scope.editCandidate = function() {
-		$scope.button = false;
-		$scope.Done = true;
+		$scope.enableDisableButton = false;
+        $scope.disableEditButton = true;
+        $scope.Done = true;
 	}
 	$scope.updateCandidate = function() {
 		if($scope.candidate !== undefined){
 		var base_url = window.location.origin;
 		var URL = base_url + '/EmployeeReferral/resources/candidate-update'+$scope.candidate;
 	}
+	}
+	$scope.reset = function() {
+		$window.location.href = 'searchCandidate.html'
 	}
 }])
