@@ -12,12 +12,12 @@
 <!-- <script type="text/javascript" src="js/angular1.2.min.js"></script> -->
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/template.css">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">  -->
 <link rel="stylesheet" type="text/css" href="css/home.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/ng-tags-input.min.css">
 </head>
 
@@ -37,6 +37,18 @@
 						<h2 class ="heading-class">Create New Position</h2>
 						<br>
 						<form id="integerForm" role="form" class="form-horizontal">
+							
+							<div class="control-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
+								<label for="name">Designation :</label> <select name="designation" ng-change="changeEvent()" placeholder="Select Designation"
+									ng-model="position.designation" class="form-control" id="designation" required style="color: black">
+									<option>Developer</option>
+									<option>Quality Engineer</option>
+									<option>System Engineer</option>
+								</select> <span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"
+									class="help-block">Enter Correct Designation.</span>
+							</div>
+							
+							<br>
 							<div class="control-group"
 								ng-class="{ 'has-error' : createPosition.jobcode.$invalid && !createPosition.jobcode.$pristine }">
 								<label for="jobcode">Job Code :</label> <input type="text" name="jobcode"
@@ -65,13 +77,7 @@
 						<tags-input ng-model="position.primarySkills" class="field-control" placeholder="Enter Skills"> <auto-complete id="sk"
 							source="loadTags($query)" class="field-control"></auto-complete> </tags-input></div>
 						
-						<!-- <div class="ui-widget control-group"
-							ng-class="{ 'has-error' : createPosition.primarySkills.$invalid && !createPosition.primarySkills.$pristine }">
-							<label for="primarySkills">Primary Skills :</label> <input name="primarySkills" ng-change="changeEvent()" class="form-control"
-								id="primarySkills" ng-model="position.primarySkills" placeholder="Enter Primary Skills" required style="color: black"> <span
-								ng-show="createPosition.primarySkills.$invalid  && !createPosition.primarySkills.$pristine"
-								class="help-block" style="font: black">Primary Skills are required.</span>
-						</div> --><br>
+				<br>
 
 						<div class="ui-widget control-group"
 							ng-class="{ 'has-error' : createPosition.secondarySkills.$invalid && !createPosition.secondarySkills.$pristine }">
@@ -87,9 +93,9 @@
 						<div class="control-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
 								<label for="name">No of Positions :</label> <input
 									type="number" ng-change="changeEvent()" name="noOfPositions" class="form-control"
-									id="noOfPositions" ng-model="position.noOfPositions"
+									id="noOfPositions" ng-model="position.noOfPositions" 
 									ng-pattern="^[0-9]*$" 
-									placeholder="Enter No of Positions" ngPattern="1234567890 " ng-maxlength="10" required> 
+									placeholder="Enter No of Positions" ng-maxlength="10" required> 
 								 <span class="help-block" ng-show="createPosition.noOfPositions.$error.required && !createPosition.noOfPositions.$pristine && !createPosition.noOfPositions.$error.number">Numbers should be entered</span>
  								 <span class="help-block" ng-show="createPosition.noOfPositions.$error.string">Invalid Value</span>  
 							</div><br>
@@ -101,16 +107,26 @@
 									placeholder="Enter Job Profile" required></textarea>
 								<span ng-show="createPosition.jobProfile.$invalid  && !createPosition.jobProfile.$pristine"
 									class="help-block">Job Profile is required.</span>
-							</div><br>
-							
-							<div class="control-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
-								<label for="name">Designation :</label> <input type="text" name="designation" ng-change="changeEvent()" 
-									class="form-control" id="designation" ng-model="position.designation"
+							</div>
+							<br>
+							<div class="control-group" ng-class="{'has-error' :createPosition.location.$invalid && !createPosition.location.$pristine}">
+								<label for="name">Location :</label> <input type="text" name="location" ng-change="changeEvent()" 
+									class="form-control" id="location" ng-model="position.location"
 									ng-pattern="/^[a-zA-Z _]*$/" 
-									placeholder="Enter Designation" required>
-								<span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"
-									class="help-block">Enter Correct Designation.</span>
-							</div><br>
+									placeholder="Enter Job Location" required>
+								<span ng-show="createPosition.location.$invalid  && !createPosition.location.$pristine"
+									class="help-block">Enter Correct Location.</span>
+							</div>
+							<br>
+							<div class="control-group" ng-class="{'has-error' :createPosition.client.$invalid && !createPosition.client.$pristine}">
+								<label for="name">Client :</label> <input type="text" name="client" ng-change="changeEvent()" 
+									class="form-control" id="client" ng-model="position.client"
+									ng-pattern="/^[a-zA-Z _]*$/" 
+									placeholder="Enter Client" required>
+								<span ng-show="createPosition.client.$invalid  && !createPosition.client.$pristine"
+									class="help-block">Enter Correct Client.</span>
+							</div>
+							<br>
 							<div class="control-group">
 							<input type="button" class="btn btn-info" ng-click="submit()" value=Register name="post" align="center" style="color: 0000FF" ng-disabled="enableDisbleButton" />
 							</div>
