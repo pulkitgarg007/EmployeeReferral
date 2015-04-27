@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <title>Employee Referral Portal</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    
+<link href="css/custom.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/pages/signin.css" rel="stylesheet" type="text/css">
+
+<script src="https://apis.google.com/js/client:platform.js" async defer></script>
+<script>
+
+function signinCallback(authResult) {
+	  if (authResult['status']['signed_in']) {
+	    // Update the app to reflect a signed in user
+	    // Hide the sign-in button now that the user is authorized, for example:
+	    document.getElementById('signinButton').setAttribute('style', 'display: none');
+	    alert("successful");
+	  } else {
+	    // Update the app to reflect a signed out user
+	    // Possible error values:
+	    //   "user_signed_out" - User is signed-out
+	    //   "access_denied" - User denied access to your app
+	    //   "immediate_failed" - Could not automatically log in the user
+	    console.log('Sign-in state: ' + authResult['error']);
+	  }
+	}
+	
+function onSignInCallback(resp) {
+gapi.client.load('plus', 'v1', apiClientLoaded);
+}
+
+/**
+* Sets up an API call after the Google API client loads.
+*/
+function apiClientLoaded() {
+gapi.client.plus.people.get({userId: 'me'}).execute(handleEmailResponse);
+}
+
+/**
+* Response callback for when the API client receives a response.
+* @param resp The API response object with the user email and profile information.
+*/
+function handleEmailResponse(resp) {
+	
+var primaryEmail;
+for (var i=0; i < resp.emails.length; i++) {
+  if (resp.emails[i].type === 'account') primaryEmail = resp.emails[i].value;
+}
+$('#j_username').val(primaryEmail);
+$('#j_password').val('referral');
+
+sessionStorage.userId = primaryEmail;
+
+document.getElementById('login-form').submit();
+
+}
+	function logout()
+	{
+		gapi.auth.signOut();
+
+	}
+
+</script>
+
+
+
+</head>
+
+<body>
+	
+	<div class="navbar navbar-fixed-top">
+	
+	<div class="navbar-inner">
+		
+		<div class="container">
+			
+			<!-- <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			
+			<a class="brand" href="index.html">
+				Bootstrap Admin Template				
+			</a>	
+			 -->
+			<div class="custom-header"><img align="left"
+	             src="images/logo.png" alt="Nisum Technologies" width="100" height="100" 
+	             title="Nisum Technologies" id="logo" />
+	        </div>
+			<a class="brand" href="index.html">
+				Employee Refferal Portal				
+			</a>
+			
+			
+			<!-- <div class="nav-collapse">
+				<ul class="nav pull-right">
+					
+					<li class="">						
+						<a href="signup.html" class="">
+							Don't have an account?
+						</a>
+						
+					</li>
+					
+					<li class="">						
+						<a href="index.html" class="">
+							<i class="icon-chevron-left"></i>
+							Back to Homepage
+						</a>
+						
+					</li>
+				</ul>
+				
+			</div> --><!--/.nav-collapse -->	
+	
+		</div> <!-- /container -->
+		
+	</div> <!-- /navbar-inner -->
+	
+</div> <!-- /navbar -->
+
+
+
+<div class="account-container" style="width: 720px;">
+	
+	<div class="content clearfix">
+	
+	   <div style="float: left;">
+		<form action="#" method="post">
+		
+			<h1>Member Login</h1>		
+			
+			<div class="login-fields">
+				
+				<p>Please provide your details</p>
+				
+				<div class="field">
+					<label for="username">Username</label>
+					<input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" />
+				</div> <!-- /field -->
+				
+				<div class="field">
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
+				</div> <!-- /password -->
+				
+			</div> <!-- /login-fields -->
+			
+			<div class="login-actions">
+				
+				<span class="login-checkbox">
+					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
+					<label class="choice" for="Field">Keep me signed in</label>
+				</span>
+									
+				<button class="button btn btn-success btn-large">Sign In</button>
+				
+			</div> <!-- .actions -->
+		</form>
+		</div>
+		<div class="google-signin">
+		<div class="field">
+					
+				    <div style="display: none">
+						<form id="login-form" action="j_spring_security_check" method="post">
+							<div class="center">
+								<input type="text" name="j_username" id="j_username" maxlength="50" />
+								<input type="password" name="j_password" id="j_password"
+									maxlength="50" /> <input type="submit" value="Login"
+									id="login-submit" />
+							</div>
+						</form>
+					</div>
+					<div class="page-container">
+						<div class="loginDiv">
+							<button id="google-login-button" type="button"
+								data-callback="onSignInCallback"
+								data-clientid="609666609644-dd7hjkqfhb76ovst14l4gpf9pg8tpmk4.apps.googleusercontent.com"
+								data-cookiepolicy="single_host_origin" data-theme="dark"
+								data-scope="email" class="g-signin btn btn-primary">Sign
+								in with Google</button>
+						</div>
+					</div><!-- google button --> 
+		</div>
+	</div> <!-- /content -->
+	
+</div> <!-- /account-container -->
+
+
+
+<!-- <div class="login-extra">
+	<a href="#">Reset Password</a>
+</div> /login-extra
+
+ -->
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script src="js/signin.js"></script>
+
+</body>
+
+</html>
