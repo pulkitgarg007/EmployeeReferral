@@ -1,0 +1,49 @@
+body
+{
+	font-family: "Times New Roman", Times, serif;
+}
+
+.control-group{
+	width: 100%;
+	margin-left: 47%;
+}
+
+
+.field-control{
+	width:545px;
+	border: 0px solid black;
+	
+}
+
+.form-control{
+	margin-left: 16%;
+	width:380;
+	height:32;
+	border-radius: 7px;
+	border: 1px solid gray;
+	/* -moz-box-shadow: 0 0 1px 1px #888;
+	-webkit-box-shadow: 0 0 1px 1px#888;
+	box-shadow: 0 0 1px 1px #888; */
+	
+}
+
+textarea
+{
+	margin-left: 16%;
+	width:380;
+	border-radius: 7px;
+	border: 1px solid gray;
+/* 	-moz-box-shadow: 0 0 1px 1px #888;
+	-webkit-box-shadow: 0 0 1px 1px#888;
+	box-shadow: 0 0 1px 1px #888; */
+}
+
+.help-block
+{
+	color:red;
+}
+
+.lbl{
+	font-weight: bold;
+	font-size: 11pt;
+}
