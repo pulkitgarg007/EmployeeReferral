@@ -8,7 +8,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 
 @Getter
 @Setter

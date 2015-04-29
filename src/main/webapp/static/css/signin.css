@@ -243,5 +243,15 @@ span.login-checkbox > input[type='checkbox']:checked + label {
 		width: 204px;
 		padding-left: 6px;
 	}
-	
+		
+}
+
+.google-signin {
+   border-left: 1px solid #ccc;
+    float: left;
+    height: 160px;
+    margin-left: 26px;
+    margin-top: 60px;
+    padding-left: 95px;
+    padding-top: 77px;
 }

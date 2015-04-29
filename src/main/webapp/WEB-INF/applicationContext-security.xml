@@ -18,9 +18,10 @@
         <intercept-url pattern='/resources/log.html' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
         <intercept-url pattern='/index.html' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
         <intercept-url pattern='/resources/features' access='IS_AUTHENTICATED_ANONYMOUSLY'/>       
-        <intercept-url pattern='/css/**' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
+        
         <intercept-url pattern='/js/**' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
-        <intercept-url pattern='/images/**' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
+        <intercept-url pattern='/lib/**' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
+        <intercept-url pattern='/static/**' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
         <intercept-url pattern='/views/**' access='IS_AUTHENTICATED_ANONYMOUSLY'/>
         <intercept-url pattern='/**' access='ROLE_USER,ROLE_HR,ROLE_ADMIN'/>
         
