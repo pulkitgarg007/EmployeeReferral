@@ -23,6 +23,8 @@ public class Position extends AuditEntity{
 	String secondarySkills;
 	int noOfPositions;
 	String jobProfile;
+	String location;
+	String client;
 	
 
 }
