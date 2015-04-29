@@ -1,7 +1,6 @@
 var myApp = angular.module("erApp",[]);
 
 myApp.controller("createUserController",['$scope','$http','$window',function($scope, $http, $window){
-	alert("hello");
 	$scope.enableDisbleButton = true;
 	var base_url = window.location.origin;
 	/*if(sessionStorage.getItem('userId') != null && sessionStorage.getItem('userId') != ''){

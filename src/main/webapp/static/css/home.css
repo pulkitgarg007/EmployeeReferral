@@ -48,16 +48,19 @@ textarea
 	margin-left: -50%;
 }
 
+.lbl2{
+	font-weight: bold;
+	margin-left: -60%;
+	font-size: 11pt;
+	margin-top:25%;
+}
+
 .form-container{
 	position:relative;
 	width:700px;
 	border: 1px solid #d6d6d6;
 	background-color: #F0F0F0;
 	border-radius: 12px;
-}
-.td-class{
-	height: 49px;
-	width: 154px;
 }
 
 .gridStyle {
@@ -67,7 +70,7 @@ textarea
     height: 250px;
 }
 
-#designations, #name{
+#designations, #name, #candidateName{
 	color: black;
 	margin-left:-50%;
 }
