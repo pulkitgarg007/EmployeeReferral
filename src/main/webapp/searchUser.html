@@ -1,4 +1,4 @@
-<html lang="en" ng-app="erApp" ng-controller="searchPositionCtrl">
+<html lang="en" ng-app="erApp" ng-controller="searchUserCtrl">
 <head>
 <meta charset="utf-8">
 <title>Employee Referral Portal</title>
@@ -11,7 +11,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="lib/angular/css/ng-grid.css" />
 
-<script type="text/javascript" src="static/js/searchPosition.js"></script>
+<script type="text/javascript" src="static/js/searchUser.js"></script>
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="static/css/home.css" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
@@ -42,7 +42,7 @@
        <div class="widget widget-table action-table">
             <div class="form-container"><br>
             
-              <center><h1>Search Position</h1></center><br>
+              <center><h1>Search User</h1></center><br>
             
       
            
@@ -52,17 +52,16 @@
               	<table border="0" cellpadding="4">
               	
               	<tr><td>
-              	<div class="ui-widget control-group"
-							ng-class="{ 'has-error' : searchPosition.designations.$invalid && !searchPosition.designations.$pristine }">
-								<input name="designations" class="form-control input-sm" ng-change="changeEvent()" 
-								id="designations" ng-model="searchPosition.designations" placeholder="Enter Designation" required> <span
-								ng-show="searchPosition.designations.$invalid  && !searchPosition.designations.$pristine"
-								class="help-block" style="font: black">Designation is Required.</span>
-						</div></td><td>
-						
-					<input type="button" id="searchBtn" class="btn btn-info" ng-click="searchCandidate()" ng-disabled="enableDisbleButton" 
-						value="Search" name="get" align="center" />
-				</td></tr>		
+              	<div class="control-group">
+						 <input type="text" 
+							name="name" class="form-control input-sm" id="name"
+							placeholder="Enter First Name" ng-model="user.name" name="name" ng-change="changeEvent()" 
+							required>
+					</div></td><td>
+					<div class="control-group">
+					<input type="button" id="searchBtn" class="btn btn-info" ng-click="searchUser()" ng-disabled="enableDisbleButton"
+						value="Search" name="get" style="margin-left:-60%;margin-top:10%;" align="center" />
+						</div></td></tr>
               	</table>
               	<div class="gridStyle" ng-grid="gridOptions"></div>
             	</form>
