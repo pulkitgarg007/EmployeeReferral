@@ -59,3 +59,10 @@ textarea
 	height: 49px;
 	width: 154px;
 }
+
+.gridStyle {
+	margin-left:-3%;
+    border: 1px solid rgb(212,212,212);
+    width: 455px; 
+    height: 300px;
+}
