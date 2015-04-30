@@ -9,15 +9,15 @@
 <script src="lib/angular/js/angular-file-upload-shim.min.js"></script>
 <script src="lib/angular/js/angular-file-upload.js"></script>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="static/js/createCandidate.js"></script>
-<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="js/createCandidate.js"></script>
+<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="static/css/home.css" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
         rel="stylesheet">
-<link href="css/font-awesome.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/pages/dashboard.css" rel="stylesheet">
+<link href="lib/bootstrap/font/font-awesome.css" rel="stylesheet">
+<link href="static/css/style.css" rel="stylesheet">
+<link href="static/css/dashboard.css" rel="stylesheet">
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -51,10 +51,10 @@
               	<tr><td>
               	<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
-							<label class="lbl" for="candidateName">Candidate Name:</label></td><td> <input type="text" 
+							<label class="lbl" for="candidateName">Candidate Name:</label></td><td> <input style="margin-left:0%;" type="text" 
 								name="candidateName" class="form-control" id="candidateName" ng-change="changeEvent()"
 								ng-model="candidate.candidateName" placeholder="Enter Candidate Name" ng-pattern="/^[a-zA-Z _]*$/"
-								required></td></tr><tr><td></td><td> <span
+								required></td></tr><tr><td></td><td><span
 								ng-show="CreateCandidate.candidateName.$invalid  && !CreateCandidate.candidateName.$pristine"
 								class="help-block">Enter A Valid Name!</span>
 				</div></td></tr>
