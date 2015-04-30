@@ -1,7 +1,5 @@
 var app = angular.module("erApp", []);
 app.controller("createCandidateCtrl", ['$scope', '$http', function($scope, $http, $upload , $window) {
-
-    //alert("Hello");
 	
 	$scope.enableDisbleButton = true;
 	var uploadedFileName = null;

@@ -1,0 +1,169 @@
+<html lang="en" ng-app="erApp" ng-controller="editPositionCtrl">
+<head>
+<meta charset="utf-8">
+<title>Employee Referral Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script src="lib/angular/js/angular.min.js"></script>
+<script src="lib/angular/js/ng-grid-1.3.2.js"></script>
+<script src="lib/utility/js/jquery-1.11.2.min.js"></script>
+<script src="lib/angular/js/ng-grid.debug.js"></script>
+<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="lib/angular/css/ng-grid.css" />
+<script type="text/javascript" src="js/editPosition.js"></script>
+<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="static/css/home.css" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
+        rel="stylesheet">
+<link href="lib/bootstrap/font/font-awesome.css" rel="stylesheet">
+<link href="static/css/style.css" rel="stylesheet">
+<link href="static/css/dashboard.css" rel="stylesheet">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+</head>
+<body>
+
+<div id="wrapper">
+
+<!------------------------------------------------------ keep header here ---------------------------------------------->
+                                            <div ng-include="'header.html'"></div>
+<!------------------------------------------------------ --------------------------------------------------------------->
+<center>
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+        
+       <div class="widget widget-table action-table">
+            <div class="form-container"><br>
+            
+              <center><h1>Edit Position</h1></center><br>
+            
+      
+           
+     
+           <form action="#" name="createPosition" onvalidate>
+              	<form id="integerForm" role="form" class="form-horizontal">
+              	<table border="0" cellpadding="4">
+              	<tr><td>
+              	<div class="control-group"
+								ng-class="{ 'has-error' : createPosition.jobcode.$invalid && !createPosition.jobcode.$pristine }">
+								<label class="lbl" for="jobcode">Job Code :</label></td><td> <input type="text" name="jobcode" ng-init="enableDisableButton=true"
+									class="form-control" id="jobcode"
+									ng-model="position.jobcode" placeholder="Enter Job Code" ng-disabled="true" required required></td></tr><tr><td></td><td>
+								<span ng-show="createPosition.jobcode.$invalid  && !createPosition.jobcode.$pristine"
+									class="help-block">Job is required.</span>
+							</div></td></tr>
+							
+							<tr><td>
+							<div class="control-group"
+								ng-class="{'has-error' :createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine}">
+								<label class="lbl" for="experienceRequired">Experience Required :</label></td><td> <select
+									class="form-control" name="experienceRequired" ng-init="enableDisableButton=true"
+									ng-model="position.experienceRequired" id="experienceRequired" ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true">
+									<option value="1">0-2</option>
+									<option value="2">2-4</option>
+									<option value="3">4-6</option>
+									<option value="4">6 and above</option>
+								</select></td></tr><tr><td></td><td> <span class="help-block"
+									ng-show="createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine">City
+									is required.</span>
+							</div></td></tr>
+							
+							<tr><td>
+							<div class="ui-widget control-group"
+							ng-class="{ 'has-error' : createPosition.primarySkills.$invalid && !createPosition.primarySkills.$pristine }">
+							<label class="lbl" for="primarySkills">Primary Skills :</label></td><td> <input name="primarySkills" class="form-control"
+								id="primarySkills" ng-model="position.primarySkills" ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true" placeholder="Enter Primary Skills"
+								ng-pattern="/^[a-zA-Z _]*$/"
+								 required style="color: black"></td></tr><tr><td></td><td> <span
+								ng-show="createPosition.primarySkills.$invalid  && !createPosition.primarySkills.$pristine"
+								class="help-block" style="font: black">Enter Valid Primary Skills.</span>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="ui-widget control-group"
+							ng-class="{ 'has-error' : createPosition.secondarySkills.$invalid && !createPosition.secondarySkills.$pristine }">
+							<label class="lbl" for="secondarySkills">Secondary Skills :</label></td><td> <input
+								id="secondarySkills" name="secondarySkills"
+								ng-pattern="/^[a-zA-Z _]*$/"
+								class="form-control" ng-model="position.secondarySkills" ng-init="enableDisableButton=true"
+								placeholder="Enter Secondary Skills" ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true" required></td></tr><tr><td></td><td> <span
+								ng-show="createPosition.secondarySkills.$invalid  && !createPosition.secondarySkills.$pristine"
+								class="help-block">Enter Valid Secondary Skills.</span>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
+								<label class="lbl" for="name">No of Positions :</label></td><td> <input
+									type="number" name="noOfPositions" class="form-control" ng-init="enableDisableButton=true"
+									ng-pattern="^[0-9]*$" 
+									id="noOfPositions" ng-model="position.noOfPositions" ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true"
+									placeholder="Enter No of Positions" ngPattern="1234567890 " ng-maxlength="10" required> </td></tr><tr><td></td><td>
+								 <span class="help-block" ng-show="createPosition.noOfPositions.$error.required && !createPosition.noOfPositions.$pristine && !createPosition.noOfPositions.$error.number">Numbers should be entered</span>
+ 								 <span class="help-block" ng-show="createPosition.noOfPositions.$error.string">Invalid Value</span>  
+							</div></td></tr>
+							
+							<tr><td>
+							<div class="control-group" ng-class="{'has-error' :createPosition.jobProfile.$invalid && !createPosition.jobProfile.$pristine}">
+								<label class="lbl" for="name">Job Profile :</label></td><td>
+								<textarea cols="50" rows="5" class="form-control" name="jobProfile"
+									id="jobProfile" ng-model="position.jobProfile" ng-init="enableDisableButton=true"
+									placeholder="Enter Job Profile" ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true" required></textarea></td></tr><tr><td></td><td>
+								<span ng-show="createPosition.jobProfile.$invalid  && !createPosition.jobProfile.$pristine"
+									class="help-block">Job Profile is required.</span>
+							</div></td></tr>
+							
+							<tr><td>
+							<div class="control-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
+								<label class="lbl" for="name">Designation :</label></td><td> <input type="text" name="designation" ng-init="enableDisableButton=true"
+									ng-pattern="/^[a-zA-Z _]*$/"
+									class="form-control" id="designation" ng-model="position.designation"
+									placeholder="Enter Designation"  ng-disabled="enableDisableButton" required ng-init="enableDisableButton=true" required></td></tr><tr><td></td><td>
+								<span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"
+									class="help-block">A Valid Designation is required.</span>
+							</div></td></tr>
+							
+							<tr><td></td><td>
+							<div class="control-group">
+							<input type="button" class="btn btn-info" ng-click="editPosition()" value=Edit ng-disabled="disableEditButton" ng-init="disableEditButton=false" name="post" align="center" style="color: 0000FF;width: 80px;margin-left:-47%;"/>
+							<input type="button" class="btn btn-info" ng-click="updatePositionDetails()" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true" value=Update name="post" align="center" style="color: 0000FF"/>
+							<input type="button" class="btn btn-info" ng-click="cancel()" value=Cancel name="post" align="center" style="color: 0000FF"/>
+							</div>
+							</td></tr>
+              		
+              	</table>
+              
+            	</form>
+            </form>
+            </div>
+
+          </div>
+         
+         
+         </div>
+        <!-- /span12 --> 
+      </div>
+      <!-- /row --> 
+      
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /main-inner --> 
+</div>
+
+<!-- /main -->
+
+<!------------------------------------------------------ keep footer here ---------------------------------------------->
+                                            <div ng-include="'footer.html'">footer</div>
+<!----------------------------------------------------------------------- ---------------------------------------------->
+
+
+</div>
+</center>
+</body>
+</html>
