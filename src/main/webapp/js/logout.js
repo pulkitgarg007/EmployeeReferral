@@ -1,6 +1,5 @@
 var app = angular.module("myApp", []);
-app.controller("myContoler", ['$scope', '$http', function($scope, $http, $upload , $window) {
-	
+app.controller("myContoler", ['$scope', '$http', function($scope, $http) {
 	var logout = function() {
 		var url=window.location.href;
 		var navigate=url.substring(0,url.lastIndexOf("/"));

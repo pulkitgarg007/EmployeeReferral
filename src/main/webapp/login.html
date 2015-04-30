@@ -23,6 +23,12 @@
 
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript" src="lib/utility/js/google-plus-signin.js"></script>
+<script src="lib/utility/js/jquery-1.11.2.min.js"></script>
+
+<link href="lib/utility/css/bootstrap-social.css" rel="stylesheet" type="text/css">
+<link href="lib/utility/css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="lib/utility/css/docs.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="lib/utility/js/docs.js"></script>
 
 </head>
 
@@ -87,9 +93,10 @@
 								name="Field" type="checkbox" class="field login-checkbox"
 								value="First Choice" tabindex="4" /> <label class="choice"
 								for="Field">Keep me signed in</label>
-							</span>
-
-							<button class="button btn btn-success btn-large">Sign In</button>
+							</span><table><tr align="right">
+							<td><button class="button btn btn-success btn-large">Sign In</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td><button class="button btn btn-success btn-large">Sign Up</button>&nbsp;&nbsp;</td>
+							</tr></table>
 
 						</div>
 						<!-- .actions -->
@@ -112,7 +119,9 @@
 						<div ng-app="directive.g+signin">
 							<google-plus-signin
 								clientid="609666609644-dd7hjkqfhb76ovst14l4gpf9pg8tpmk4.apps.googleusercontent.com">
-							<button class="btn btn-danger">Sign in with Google</button>
+							<a class="btn btn-block btn-social btn-google"> <i
+							class="fa fa-google-plus"></i> Sign in with google
+						</a>
 							</google-plus-signin>
 						</div>
 						</div>
@@ -125,7 +134,7 @@
 		<!-- /account-container -->
 
 
-		<script src="lib/utility/js/jquery-1.11.2.min.js"></script>
+		
 		<script src="lib/bootstrap/js/bootstrap.js"></script>
 
 		<script src="js/signin.js"></script>
