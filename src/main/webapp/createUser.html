@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <script src="lib/angular/js/angular.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="lib/utility/js/jquery-1.11.2.min.js"></script>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="js/createUser.js"></script>
 <link rel="stylesheet" type="text/css" href="lib/angular/css/ng-tags-input.min.css">
@@ -12,7 +14,6 @@
 <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="static/css/home.css" rel="stylesheet">
 <link href="lib/bootstrap/font/google_font.css" rel="stylesheet">
-<script src="lib/utility/js/jquery-1.11.2.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <link href="lib/bootstrap/font/font-awesome.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet">
@@ -40,13 +41,16 @@
             <div class="form-container"><br>
             
               <center><h1>Create User</h1></center><br>
-					<form name="userForm" id="integerForm" role="form"
-						class="form-horizontal">
-						<table border="0">
+              
+              
+              
+					<form action="#" name="userForm" onvalidate>
+					<form id="integerForm" role="form" class="form-horizontal">
+						<table border="0" cellpadding="5">
 						<tr><td>
 						<div class="control-group"
 							ng-class="{ 'has-error' : userForm.userId.$invalid && !userForm.userId.$pristine &&! userForm.userId.$required}">
-							<label for="userId" class="lbl2">User Id:</label></td><td> <input type="email"
+							<label for="userId" class="lbl">User Id:</label></td><td> <input type="email"
 								name="userId" class="form-control input-sm" id="userId" ng-change="changeEvent()" 
 								ng-model="user.userId" placeholder="Enter user Id" required></td></tr><tr><td></td><td>
 							<span
@@ -58,7 +62,7 @@
 						<tr><td>
 						<div class="control-group"
 							ng-class="{ 'has-error' : userForm.userName.$invalid && !userForm.userName.$pristine }">
-							<label for="userName" class="lbl2">Name:</label></td><td> <input type="text" ng-change="changeEvent()"
+							<label for="userName" class="lbl">Name:</label></td><td> <input type="text" ng-change="changeEvent()"
 								name="userName" class="form-control input-sm" id="userName"
 								ng-model="user.name" placeholder="Enter name"
 								ng-pattern="/^[a-zA-Z _]*$/" required></td></tr><tr><td></td><td> <span
@@ -70,7 +74,7 @@
 						<tr><td>
 						<div class="control-group"
 							ng-class="{ 'has-error' : userForm.emplyoeeId.$invalid && !userForm.emplyoeeId.$pristine }">
-							<label for="emplyoeeId" class="lbl2">Employee Id:</label></td><td> <input
+							<label for="emplyoeeId" class="lbl">Employee Id:</label></td><td> <input
 								type="number" name="emplyoeeId" class="form-control input-sm" ng-change="changeEvent()" 
 								id="emplyoeeId" ng-model="user.empId"
 								ng-pattern="^[0-9]*$" 
@@ -86,7 +90,7 @@
 						<tr><td>
 						<div class="control-group"
 							ng-class="{ 'has-error' : userForm.experience.$invalid && !userForm.experience.$pristine }">
-							<label for="experience" class="lbl2">Experience:</label></td><td> <input type="number" ng-change="changeEvent()" 
+							<label for="experience" class="lbl">Experience:</label></td><td> <input type="number" ng-change="changeEvent()" 
 								name="experience" class="form-control input-sm" id="experience"
 								ng-model="user.experience" placeholder="Enter Experience"
 								ng-pattern="^[0-9]*$" 
@@ -99,7 +103,7 @@
 						<tr><td>
 						<div class="control-group"
 							ng-class="{ 'has-error' : userForm.mobileNo.$invalid && !userForm.mobileNo.$pristine }">
-							<label for="mobileNo" class="lbl2">Mobile No:</label></td><td> <input type="number" ng-change="changeEvent()" 
+							<label for="mobileNo" class="lbl">Mobile No:</label></td><td> <input type="number" ng-change="changeEvent()" 
 								ng-model="user.mobileNumber" name="mobileNo" id="mobileNo"
 								ngPattern="1234567890" ng-maxlength="10" class="form-control input-sm"
 								placeholder="Enter mobile number" required></td></tr><tr><td></td><td> <span
@@ -114,7 +118,7 @@
 						<tr><td>
 						<div class="control-group"
 							ng-class="{ 'has-error' : userForm.userDesignation.$invalid && !userForm.userDesignation.$pristine }">
-							<label for="userDesignation" class="lbl2">Designation:</label></td><td> <input
+							<label for="userDesignation" class="lbl">Designation:</label></td><td> <input
 								type="text" name="userDesignation" class="form-control input-sm" ng-change="changeEvent()" 
 								id="userDesignation" ng-model="user.designation"
 								ng-pattern="/^[a-zA-Z _]*$/"
@@ -124,19 +128,20 @@
 						</div></td></tr>
 						<tr><td>
 						<div class="control-group">
-							<label for="name" class="lbl2">Role:</label></td><td> <select class="form-control input-sm" ng-change="changeEvent()" 
+							<label for="name" class="lbl">Role:</label></td><td> <select class="form-control input-sm" ng-change="changeEvent()" 
 								ng-model="user.roles" name="roles">
 								<option selected="select">USER</option>
 								<option>Admin</option>
 								<option>HR</option>
 							</select>
 						</div><br></td></tr>
-						<tr><td>
+						<tr><td></td><td>
 						<div class="control-group">
 						<input type="submit" class="btn btn-info"
-							ng-click="submit()" value=Register name="post" align="center" ng-disabled="enableDisbleButton" style="margin-left: 57%" />
+							ng-click="submit()" value=Register name="post" align="center" ng-disabled="enableDisbleButton"  />
 							</div></td></tr>
 							</table>
+						</form>
 						</form>
 						</div>
 
