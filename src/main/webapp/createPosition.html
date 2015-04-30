@@ -49,7 +49,7 @@
               	
               	<tr>
               	<td><div class="control-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
-								<label class="lbl" for="name">Designation :</label> </td><td><select name="designation" ng-change="changeDesignation()" placeholder="Select Designation"
+								<label class="lbl" for="name">Designation*:</label> </td><td><select name="designation" ng-change="changeDesignation()" placeholder="Select Designation"
 									ng-model="selectedDesignation" ng-options = "o as o for o in options" class="form-control input-sm" id="designation" required style="color: black">
 								</select> <span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"
 									class="help-block">Enter Correct Designation.</span>
@@ -60,7 +60,7 @@
 							<td>
 							<div class="control-group"
 								ng-class="{ 'has-error' : createPosition.jobcode.$invalid && !createPosition.jobcode.$pristine }">
-								<label class="lbl" for="jobcode">Job Code :</label></td><td> <input type="text" name="jobcode"
+								<label class="lbl" for="jobcode">Job Code*:</label></td><td> <input type="text" name="jobcode"
 									class="form-control input-sm" id="jobcode" ng-change="changeEvent()" 
 									ng-model="position.jobcode" placeholder="Enter Job Code" required>
 								<span ng-show="createPosition.jobcode.$invalid  && !createPosition.jobcode.$pristine"
@@ -70,7 +70,7 @@
 							<td>
 							<div class="control-group"
 								ng-class="{'has-error' :createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine}">
-								<label class="lbl" for="experienceRequired">Experience Required :</label></td><td><select name="experience" ng-change="changeEvent()" placeholder="Select Experience"
+								<label class="lbl" for="experienceRequired">Experience Required*:</label></td><td><select name="experience" ng-change="changeEvent()" placeholder="Select Experience"
 									ng-model="selectedExperience" ng-options = "o as o for o in items" class="form-control input-sm" id="experience" required style="color: black">
 								</select>
 									
@@ -81,7 +81,7 @@
 							<tr>
 							<td>
 							<div class="control-group" >
-						<label class="lbl" for="primarySkills">Primary Skills:</label></td><td>
+						<label class="lbl" for="primarySkills">Primary Skills*:</label></td><td>
 						<tags-input ng-model="position.primarySkills" class="field-control" placeholder="Enter Skills"> <auto-complete id="sk"
 							source="loadTags($query)" class="field-control"></auto-complete> </tags-input></div></td></tr>
 						
@@ -114,7 +114,7 @@
 							<tr>
 							<td>
 						<div class="control-group" ng-class="{'has-error' :createPosition.jobProfile.$invalid && !createPosition.jobProfile.$pristine}">
-								<label class="lbl" for="name">Job Profile :</label></td><td>
+								<label class="lbl" for="name">Job Description*:</label></td><td>
 								<textarea cols="50" rows="5" ng-change="changeEvent()" name="jobProfile"
 									id="jobProfile" ng-model="position.jobProfile"
 									placeholder="Enter Job Profile" required></textarea>

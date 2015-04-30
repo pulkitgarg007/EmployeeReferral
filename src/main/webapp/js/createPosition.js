@@ -32,19 +32,19 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	})
 	$http.get(Designation_URL).success(function(data, status, headers, config) {
 		$scope.options = data;
-		
+		$scope.selectedDesignation = $scope.options[0];
 	}).error(function(data, status, headers, config) {
 		alert('error');
 	})
 	$http.get(Location_URL).success(function(data, status, headers, config) {
 		$scope.locations = data;
-		
+		$scope.selectedLocation = $scope.locations[0];
 	}).error(function(data, status, headers, config) {
 		alert('error');
 	})
 	$http.get(Experience_URL).success(function(data, status, headers, config) {
 		$scope.items = data;
-		
+		$scope.selectedExperience = $scope.items[0];
 	}).error(function(data, status, headers, config) {
 		alert('error');
 	})
