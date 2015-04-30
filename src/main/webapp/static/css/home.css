@@ -1,13 +1,13 @@
 .control-group{
 	width: 100%;
-	margin-left: 47%;
+	/* margin-left: 47%; */
 }
 
 
-.field-control{
+/* .field-control{
 	width:380px;
 	
-}
+} */
 
 .form-control{
 	/* margin-left: 16%; */
@@ -40,7 +40,10 @@ textarea
 .lbl{
 	font-weight: bold;
 	font-size: 11pt;
-	margin-left: -50%;
+	/* margin-left: -50%; */
+	p/* osition:absolute; */
+	/* top:97px;
+	left:30px; */
 }
 
 .lbl2{
@@ -100,3 +103,8 @@ textarea
 	background-color: #F0F0F0;
 	border-radius: 12px;
 }
+
+/* #designation{
+	position:absolute;
+	right:50px;
+} */

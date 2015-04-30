@@ -52,7 +52,7 @@
               	<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
 							<label class="lbl" for="candidateName">Candidate Name:</label></td><td> <input style="margin-left:0%;" type="text" 
-								name="candidateName" class="form-control" id="candidateName" ng-change="changeEvent()"
+								name="candidateName" class="form-control"  ng-change="changeEvent()"
 								ng-model="candidate.candidateName" placeholder="Enter Candidate Name" ng-pattern="/^[a-zA-Z _]*$/"
 								required></td></tr><tr><td></td><td><span
 								ng-show="CreateCandidate.candidateName.$invalid  && !CreateCandidate.candidateName.$pristine"
@@ -182,7 +182,7 @@
 						<div class="control-group">
 						<input type="button" ng-click="submit()" value=Register ng-disabled="enableDisbleButton" 
 							name="post" align="right" class="btn btn-info"
-							ng-disabled="restroForm.$invalid" style="margin-left:-46%;" />
+							ng-disabled="restroForm.$invalid" />
 							</div></td></tr>
 						
               	</table>
