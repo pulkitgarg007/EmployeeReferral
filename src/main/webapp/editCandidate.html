@@ -1,0 +1,229 @@
+<html lang="en" ng-app="erApp" ng-controller="editCandidateCtrl">
+<head>
+<meta charset="utf-8">
+<title>Employee Referral Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script src="lib/angular/js/angular.min.js"></script>
+<script src="lib/angular/js/ng-grid-1.3.2.js"></script>
+<script src="lib/utility/js/jquery-1.11.2.min.js"></script>
+<script src="lib/angular/js/ng-grid.debug.js"></script>
+<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="lib/angular/css/ng-grid.css" />
+<script type="text/javascript" src="js/editCandidate.js"></script>
+<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="static/css/home.css" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
+        rel="stylesheet">
+<link href="lib/bootstrap/font/font-awesome.css" rel="stylesheet">
+<link href="static/css/style.css" rel="stylesheet">
+<link href="static/css/dashboard.css" rel="stylesheet">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+</head>
+<body>
+
+<div id="wrapper">
+
+<!------------------------------------------------------ keep header here ---------------------------------------------->
+                                            <div ng-include="'header.html'"></div>
+<!------------------------------------------------------ --------------------------------------------------------------->
+<center>
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+        
+       <div class="widget widget-table action-table">
+            <div class="form-container"><br>
+            
+              <center><h1>Edit Candidate</h1></center><br>
+            
+      
+           
+     
+           <form action="#" name="createPosition" onvalidate>
+              	<form id="integerForm" role="form" class="form-horizontal">
+              	<table border="0" cellpadding="4">
+              	<tr><td>
+              	<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
+							<label class="lbl" for="candidateName">Candidate Name:</label></td><td> <input type="text" style="margin-left:0%;" ng-pattern="/^[a-zA-Z _]*$/"
+								name="candidateName" class="form-control" id="candidateName" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+								ng-model="candidate.candidateName" placeholder="Enter Candidate Name"
+								required></td></tr><tr><td></td><td> <span
+								ng-show="CreateCandidate.candidateName.$invalid  && !CreateCandidate.candidateName.$pristine"
+								class="help-block">Valid Candidate Name is required.</span>
+						</div>
+						</td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
+							<label class="lbl" for="qualification">Qualification:</label></td><td> <input
+								type="text" name="qualification" class="form-control" ng-pattern="/^[a-zA-Z _]*$/" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+								id="qualification" ng-model="candidate.qualification"
+								placeholder="Enter qualification" required></td></tr><tr><td></td><td> <span
+								ng-show="CreateCandidate.qualification.$invalid  && !CreateCandidate.qualification.$pristine"
+								class="help-block">Valid Qualification is required.</span>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.emailId.$invalid && !CreateCandidate.emailId.$pristine }">
+							<label class="lbl" for="emailId">Email Id:</label></td><td> <input type="text"
+								name="emailId" class="form-control" id="emailId" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+								ng-model="candidate.emailId" placeholder="Enter Email Id."
+								required></td></tr><tr><td></td><td>
+							<span
+								ng-show="CreateCandidate.emailId.$dirty && CreateCandidate.emailId.$invalid">
+								<span
+								ng-show="CreateCandidate.emailId.$invalid  && !CreateCandidate.emailId.$pristine"
+								class="help-block">Email Id is required.</span> <span
+								class="error" ng-show="CreateCandidate.emailId.$error.email">
+									Not valid email!</span>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine }">
+							<label class="lbl" class="positionName" for="selectbasic">Position
+								Name</label></td><td>
+							<div class="controls">
+								<select id="selectbasic" name="positionName" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+									ng-model="candidate.positionName" class="form-control" required style="color: black">
+									<option>Entry Level Engineer</option>
+									<option>Jr.Software Developer</option>
+									<option>Sr.Software Developer</option>
+									<option>Team Lead</option>
+								</select></td></tr><tr><td></td><td> <span class="help-block"
+									ng-show="CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine">Position
+									Name is required.</span>
+							</div>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
+							<label class="lbl" for="Skills">Skills:</label></td><td> <input type="text" ng-pattern="/^[a-zA-Z _]*$/"
+								name="Skills" class="form-control" id="Skills" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+								ng-model="candidate.skills" placeholder="Enter Skills." required></td></tr><tr><td></td><td>
+							<span
+								ng-show="CreateCandidate.Skills.$invalid  && !CreateCandidate.Skills.$pristine"
+								class="help-block">Skills are required.</span>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.firstName.$invalid && !restroForm.restroname.$pristine }">
+							<label class="lbl" class="control-label" for="filebutton">Upload
+								Resume</label></td><td>
+							<div class="controls">
+								<input id="filebutton" name="filebutton" class="input-file" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+									type="file">
+							</div>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{'has-error' :CreateCandidate.mobileNo.$invalid && !CreateCandidate.mobileNo.$pristine}">
+							<label class="lbl" for="mobileNo">MobileNo*:</label></td><td> <input type="number" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+								ng-model="candidate.mobileNo" name="mobileNo" id="mobileNo"
+								ngPattern="1234567890 " ng-maxlength="10" class="form-control"
+								placeholder="Enter mobileNo" required></td></tr><tr><td></td><td> <span
+								class="help-block"
+								ng-show="CreateCandidate.mobileNo.$error.required && !CreateCandidate.mobileNo.$pristine && !CreateCandidate.mobileNo.$error.number">Mobile
+								Number is required.</span> <span class="help-block"
+								ng-show="CreateCandidate.mobileNo.$error.number">Invalid
+								mobileNo!!</span> <span class="help-block"
+								ng-show="CreateCandidate.mobileNo.$error.maxlength">Mobile
+								Number is too long</span>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.presentLocation.$invalid && !CreateCandidate.presentLocation.$pristine }">
+							<label class="lbl" for="presentLocation">Present Location:</label></td><td> <input
+								type="text" name="presentLocation" class="form-control" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+								id="presentLocation" ng-model="candidate.presentLocation"
+								placeholder="Enter Present Location" required></td></tr><tr><td></td><td> <span
+								ng-show="CreateCandidate.presentLocation.$invalid  && !CreateCandidate.presentLocation.$pristine"
+								class="help-block">Present Location is required.</span>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.pancardNo.$invalid && !CreateCandidate.pancardNo.$pristine }">
+							<label class="lbl" for="pancardNo">Pancard No:</label></td><td> <input type="text"
+								class="form-control" id="pancardNo" name="pancardNo" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+								ng-model="candidate.pancardNo" placeholder="Enter Pancard No."
+								required></td></tr><tr><td></td><td> <span
+								ng-show="CreateCandidate.pancardNo.$invalid  && !CreateCandidate.pancardNo.$pristine"
+								class="help-block">Pancard Number is required.</span>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.experience.$invalid && !CreateCandidate.experience.$pristine }">
+							<label class="lbl" for="experience">Experience:</label></td><td> <input type="text" 
+								name="experience" class="form-control" id="experience" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+								ng-model="candidate.experience" placeholder="Enter Experience"
+								required></td></tr><tr><td></td><td> <span
+								ng-show="CreateCandidate.experience.$invalid  && !CreateCandidate.experience.$pristine"
+								class="help-block">Experience is required.</span>
+						</div></td></tr>
+						
+						<tr><td>
+						<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.passportNo.$invalid && !CreateCandidate.passportNo.$pristine }">
+							<label class="lbl" for="passportNo">Passport No.:</label></td><td> <input type="text"
+								name="passportNo" class="form-control" id="passportNo" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true"
+								ng-model="candidate.passportNo" placeholder="Enter Passport No."
+								required></td></tr><tr><td></td><td> <span
+								ng-show="CreateCandidate.passportNo.$invalid  && !CreateCandidate.passportNo.$pristine"
+								class="help-block">Passport Number is required.</span>
+						</div></td></tr>
+						
+						<tr><td></td>
+						<td>
+						<div class="control-group">
+						<input type="button" class="btn btn-info" ng-click="editCandidate()" value=Edit ng-disabled="disableEditButton" ng-init="disableEditButton=false" name="post" align="center" style="color: 0000FF;width: 80px;margin-left:-47%;"/>
+						<input type="button" class="btn btn-info" ng-click="updateCandidate()" ng-disabled="enableDisableButton" ng-init="enableDisableButton=true" value=Update name="post" align="center" style="color: 0000FF" />		
+						<input type="button" class="btn btn-info" ng-click="reset()" value=Cancel value=Cancel name="post" align="center" style="color: 0000FF"/>
+						</div></td></tr>
+						
+              	</table>
+              
+            	</form>
+            </form>
+            </div>
+
+          </div>
+         
+         
+         </div>
+        <!-- /span12 --> 
+      </div>
+      <!-- /row --> 
+      
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /main-inner --> 
+</div>
+
+<!-- /main -->
+
+<!------------------------------------------------------ keep footer here ---------------------------------------------->
+                                            <div ng-include="'footer.html'">footer</div>
+<!----------------------------------------------------------------------- ---------------------------------------------->
+
+
+</div>
+</center>
+</body>
+</html>
