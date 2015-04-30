@@ -2,18 +2,67 @@ var app = angular.module("erApp", ['ngTagsInput']);
 app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http) {
 
     $scope.position ={};
-	   $scope.position.primarySkills = {};
-	   $scope.primarySkills ={};
+	$scope.position.primarySkills = {};
+	$scope.primarySkills ={};
+	$scope.devskills = {};
+	$scope.qeskills = {};
+	$scope.selectedDesignation = "";
+	$scope.selectedExperience = "";
+	$scope.selectedLocation = "";
+	$scope.position.designation = "";
+	$scope.position.experienceRequired = "";
+	$scope.position.location = "";
 	$scope.enableDisbleButton = true;
 	var base_url = window.location.origin;
-	var URL = base_url + '/EmployeeReferral/resources/skill';
+	var Skills_URL = base_url + '/EmployeeReferral/resources/skill/skills';
+	var Designation_URL = base_url + '/EmployeeReferral/resources/skill/designations';
+	var Experience_URL = base_url + '/EmployeeReferral/resources/skill/experience';
+	var DeveloperSkills_URL = base_url + '/EmployeeReferral/resources/skill/developerskills';
+	var QESkills_URL = base_url + '/EmployeeReferral/resources/skill/qeskills';
+	var Location_URL = base_url + '/EmployeeReferral/resources/skill/location';
 	$scope.data = {};
-	$http.get(URL).success(function(data, status, headers, config) {
+	$scope.options = {};
+	$scope.items = {};
+	$scope.locations = {};
+	$http.get(Skills_URL).success(function(data, status, headers, config) {
 		$scope.data = data;
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
 	})
+	$http.get(Designation_URL).success(function(data, status, headers, config) {
+		$scope.options = data;
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	$http.get(Location_URL).success(function(data, status, headers, config) {
+		$scope.locations = data;
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	$http.get(Experience_URL).success(function(data, status, headers, config) {
+		$scope.items = data;
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
+	$http.get(DeveloperSkills_URL).success(function(data, status, headers, config) {
+		$scope.devskills = data;
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
+	$http.get(QESkills_URL).success(function(data, status, headers, config) {
+		$scope.qeskills = data;
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
 	$scope.loadTags = function(query) {
 		
 		return $scope.data;
@@ -30,6 +79,9 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 				 skills.push(value.text);
 				});
 			 $scope.position.primarySkills = skills;
+			 $scope.position.designation = $scope.selectedDesignation;
+		     $scope.position.experienceRequired	= $scope.selectedExperience;
+		     $scope.position.location = $scope.selectedLocation;
 			$http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position)
 		}
 	}
@@ -42,5 +94,15 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	else
 		$scope.enableDisbleButton = false;
 	}
-	
+	$scope.changeDesignation = function(){
+		if($scope.selectedDesignation == "Developer"){
+		$scope.position.primarySkills = $scope.devskills;
+		}
+		else if ($scope.selectedDesignation == "Quality Engineer"){
+			$scope.position.primarySkills = $scope.qeskills;
+		}
+		else{
+			$scope.position.primarySkills = {};
+		}
+	}
 }]);

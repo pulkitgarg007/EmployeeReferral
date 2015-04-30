@@ -12,6 +12,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Skills")
 public class SkillsEntity {
 	
+	List<String> Designations;
+	List<String> DeveloperSkills;
+	List<String> ExperienceRequired;
+	List<String> QESkills;
 	List<String> Skills;
+	List<String> Locations;
 	
 }

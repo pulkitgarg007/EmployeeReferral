@@ -49,11 +49,8 @@
               	
               	<tr>
               	<td><div class="control-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
-								<label class="lbl" for="name">Designation :</label> </td><td><select name="designation" ng-change="changeEvent()" placeholder="Select Designation"
-									ng-model="position.designation" class="form-control input-sm" id="designation" required style="color: black">
-									<option>Developer</option>
-									<option>Quality Engineer</option>
-									<option>System Engineer</option>
+								<label class="lbl" for="name">Designation :</label> </td><td><select name="designation" ng-change="changeDesignation()" placeholder="Select Designation"
+									ng-model="selectedDesignation" ng-options = "o as o for o in options" class="form-control input-sm" id="designation" required style="color: black">
 								</select> <span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"
 									class="help-block">Enter Correct Designation.</span>
 							</div></td>
@@ -73,13 +70,10 @@
 							<td>
 							<div class="control-group"
 								ng-class="{'has-error' :createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine}">
-								<label class="lbl" for="experienceRequired">Experience Required :</label></td><td><select
-									class="form-control input-sm" name="experienceRequired" ng-change="changeEvent()" 
-									ng-model="position.experienceRequired" id="experienceRequired">
-									<option value="1">0-2</option>
-									<option value="2">2-4</option>
-									<option value="3">4-6</option>
-									<option value="4">6 and above</option>
+								<label class="lbl" for="experienceRequired">Experience Required :</label></td><td><select name="experience" ng-change="changeEvent()" placeholder="Select Experience"
+									ng-model="selectedExperience" ng-options = "o as o for o in items" class="form-control input-sm" id="experience" required style="color: black">
+								</select>
+									
 								</select> <span class="help-block"
 									ng-show="createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine">City
 									is required.</span>
@@ -131,15 +125,11 @@
 							<tr>
 							<td>
 							<div class="control-group" ng-class="{'has-error' :createPosition.location.$invalid && !createPosition.location.$pristine}">
-								<label class="lbl" for="name">Location :</label></td><td> <input type="text" name="location" ng-change="changeEvent()" 
-									class="form-control input-sm" id="location" ng-model="position.location"
-									ng-pattern="/^[a-zA-Z _]*$/" 
-									placeholder="Enter Job Location" required>
-								<span ng-show="createPosition.location.$invalid  && !createPosition.location.$pristine"
-									class="help-block">Enter Correct Location.</span>
+								<label class="lbl" for="name">Location :</label></td><td><select name="location" ng-change="changeEvent()" placeholder="Select Location"
+									ng-model="selectedLocation" ng-options = "o as o for o in locations" class="form-control input-sm" id="location" required style="color: black">
+								</select> <span ng-show="createPosition.location.$invalid  && !createPosition.location.$pristine" class="help-block">Enter Correct Location.</span>
 							</div>
 							</td></tr>
-							
 							<tr>
 							<td>
 							<div class="control-group" ng-class="{'has-error' :createPosition.client.$invalid && !createPosition.client.$pristine}">
