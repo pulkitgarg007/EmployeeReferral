@@ -2,7 +2,10 @@ var myApp = angular.module("erApp",[]);
 
 myApp.controller("createUserController",['$scope','$http','$window',function($scope, $http, $window){
 	$scope.enableDisbleButton = true;
+	$scope.options = {};
+	$scope.selectedRole = "";
 	var base_url = window.location.origin;
+	var URL = base_url + '/EmployeeReferral/resources/skill/userrole';
 	/*if(sessionStorage.getItem('userId') != null && sessionStorage.getItem('userId') != ''){
 		var URL = base_url + '/EmployeeReferral/resources/user/searchUserBasedOnUserId?userId=' + sessionStorage.getItem('userId');
 		$http.get(URL).success(function(data, status, headers, config) {
@@ -19,6 +22,13 @@ myApp.controller("createUserController",['$scope','$http','$window',function($sc
        $scope.reset = function() {
        $scope.user = angular.copy($scope.master);
    };
+   $http.get(URL).success(function(data, status, headers, config) {
+	   $scope.options = data;
+		$scope.selectedRole = $scope.options[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
    $scope.submit = function() {
    if($scope.user !== undefined){
        $http.post(base_url+'/EmployeeReferral/resources/user/register', $scope.user) 
