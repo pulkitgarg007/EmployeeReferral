@@ -57,8 +57,8 @@ app.controller('positionCtrl',['$scope', '$http','$q', '$window', function($scop
    		 footerTemplate:false,
    		 columnDefs: [
    		    //{field:'select', displayName: 'Select', width:"100", cellTemplate:'<input type="checkbox" style="position:absolute;top:10px;" />'},
-   		    {field:'btn', displayName: 'Delete', width:"75", cellTemplate:'<input type="button" class="btn btn-info" ng-click="deletePosition(row)" value="Del" name="post" style="position:absolute;right:15px;top:2px;height:25px;color: fff;"/>'},
-   		    {field:'btn', displayName: 'Edit', width:"75", cellTemplate:'<input type="button" class="btn btn-info" ng-click="editPosition(row)" value="Edit" name="post" style="position:absolute;right:15;top:2px;height:25px;color: fff;"/>'},
+   		    {field:'btn', displayName: 'Del', width:"50", cellTemplate:'<img src="static/images/del.png" height="20" width="15" ng-click="deletePosition(row)" style="position:absolute;top:5px;right:16px;" />'},
+   		    {field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<img src="static/images/edit.png" height="27" width="27" ng-click="editPosition(row)" style="position:absolute;top:2px;right:14px;" />'},
 		    {field:'jobcode', displayName:'Job Code', width: "73", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcode\')}}</a></div>'}, 
 		    {field:'designation', displayName:'Designation', width: "125"}, 
 		    {field:'experienceRequired', displayName:'Experience', width: "75"}, 
