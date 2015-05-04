@@ -50,4 +50,11 @@ public class PositionController {
 		return (null == positionsDetail) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<Position>(positionsDetail, HttpStatus.OK);
 	} 
+	
+	@RequestMapping(value = "/deletePositionBasedOnJC", method = RequestMethod.GET)
+	public ResponseEntity<?> deletePositionBasedOnJC(@RequestParam(value = "jobcode", required = true) String jobcode) {
+		Position positionsDetail = positionService.deletePositionBasedOnJC(jobcode);
+		return (null == positionsDetail) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<Position>(positionsDetail, HttpStatus.OK);
+	} 
 }
