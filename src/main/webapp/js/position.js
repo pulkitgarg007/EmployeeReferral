@@ -5,7 +5,8 @@ app.config( ['$routeProvider', function($routeProvider) {
 					templateUrl: 'routeCreatePosition.html'
 				})
 				.when('/pos', {
-					templateUrl: 'routeIndex.html'
+					templateUrl: 'routeIndex.html',
+					controller: 'positionCtrl'
 				})
 				.otherwise({
 					redirectTo: '/pos'
@@ -33,7 +34,6 @@ app.controller('positionCtrl',['$scope', '$http','$q', '$window', function($scop
 	});	
 	
 	$scope.searchCandidate = function() {
-		alert("Hello");
 		var URL = base_url + '/EmployeeReferral/resources/searchPositionsBasedOnDesignation?designation='+$scope.searchPosition.designations;
 		$http.get(URL).success(function(data, status, headers, config) {
 			$scope.data.gridSkills = data;
