@@ -89,11 +89,7 @@
 								Name</label></td><td>
 							<div class="controls">
 								<select id="selectbasic" name="positionName" ng-change="changeEvent()"
-									ng-model="candidate.positionName" class="form-control" required style="color: black">
-									<option>Entry Level Engineer</option>
-									<option>Jr.Software Developer</option>
-									<option>Sr.Software Developer</option>
-									<option>Team Lead</option>
+									ng-model="selectedPosition" class="form-control" required style="color: black" ng-options = "o as o for o in options">
 								</select></td></tr><tr><td></td><td> <span class="help-block"
 									ng-show="CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine">Position
 									Name is required.</span>

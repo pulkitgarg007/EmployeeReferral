@@ -129,10 +129,7 @@
 						<tr><td>
 						<div class="control-group">
 							<label for="name" class="lbl">Role:</label></td><td> <select class="form-control input-sm" ng-change="changeEvent()" 
-								ng-model="user.roles" name="roles">
-								<option selected="select">USER</option>
-								<option>Admin</option>
-								<option>HR</option>
+								ng-model="selectedRole" name="roles" ng-options = "o as o for o in options">
 							</select>
 						</div><br></td></tr>
 						<tr><td></td><td>
