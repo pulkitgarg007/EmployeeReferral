@@ -28,7 +28,7 @@
     <![endif]-->
    
 </head>
-<body ng-init="bckDisabled=true">
+<body>
 
 <div id="wrapper">
 
@@ -44,14 +44,13 @@
         
         <div class="form-container-mg">
               <center><h1 style="margin-top:1%;">Position Management</h1></center>
-              <input type="button" class="btn btn-info" onclick="location.href='#searchPosition';" ng-click="bckDisabled=false;hide();" ng-disabled="enableDisableButton" value="Create" name="post" align="center" style="position:absolute;right:390px;top:200px;color: fff;"/>
-              <input type="button" class="btn btn-info" onclick="location.href='#pos';" ng-click="bckDisabled=true;show();" ng-disabled="bckDisabled" value="Back" name="post" align="center" style="position:absolute;left:390px;top:200px;color: fff;"/>
               
             </div>
             
             
               	<div ng-view>
               	</div>
+         
               
 
          </div>

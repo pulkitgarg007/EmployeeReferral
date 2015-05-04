@@ -55,7 +55,7 @@ textarea
 
 .form-container{
 	position:relative;
-	width:700px;
+	width:1000px;
 	border: 1px solid #d6d6d6;
 	background-color: #F0F0F0;
 	border-radius: 12px;
@@ -64,15 +64,17 @@ textarea
 .gridStyle {
 	
     border: 1px solid rgb(212,212,212);
-    width: 570px; 
+    width: 885px;
     height: 250px;
 }
 
 #designations, #name{
 	color: black;
 	position:absolute;
-	left:64px;
-	top:70px;
+	left:57px;
+	top:72px;
+	width:180px;
+	height:30px;
 }
 
 #candidateName{
@@ -84,8 +86,10 @@ textarea
 
 #searchBtn{
 	position:absolute;
-	top:72px;
-	right:180px;
+	top:34px;
+	left:184px;
+	width:60px;
+	height:30px;
 
 }
 
@@ -97,8 +101,8 @@ textarea
 
 .form-container-mg{
 	/* position:relative; */
-	width:700px;
-	height:90px;
+	width:1000px;
+	height:55px;
 	border: 1px solid #d6d6d6;
 	background-color: #F0F0F0;
 	border-radius: 12px;
@@ -108,3 +112,9 @@ textarea
 	position:absolute;
 	right:50px;
 } */
+
+#rsBtn{
+	position:absolute;
+	top:35px;
+	left:259px;
+}

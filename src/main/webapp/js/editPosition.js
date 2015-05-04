@@ -29,7 +29,7 @@ app.controller("editPositionCtrl", ['$scope', '$http', '$q', '$location', '$wind
 	$scope.updatePositionDetails = function() {
 		if ($scope.position !== undefined) {
 			$http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position)
-			$window.location.href = 'searchPosition.html';
+			//$window.location.href = 'searchPosition.html';
 		}
 	}
 	

@@ -10,7 +10,6 @@
 <script src="lib/angular/js/ng-grid.debug.js"></script>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="lib/angular/css/ng-grid.css" />
-
 <script type="text/javascript" src="js/position.js"></script>
 <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="static/css/home.css" rel="stylesheet">
@@ -58,9 +57,12 @@
 								class="help-block" style="font: black">Designation is Required.</span>
 						</div></td><td>
 						
-					<input type="button" id="searchBtn" style="position:absolute;top:36px;" class="btn btn-info" ng-click="searchCandidate()" ng-disabled="enableDisbleButton" 
+					<input type="button" id="searchBtn" class="btn btn-info" ng-click="searchCandidate()" ng-disabled="enableDisbleButton" 
 						value="Search" name="get" align="center" />
-				</td></tr>		
+				</td>
+				<td><input type="button" id="rsBtn" class="btn btn-info" onclick="location.href='#searchPosition';" ng-click="bckDisabled=false;" ng-disabled="enableDisableButton" value="Create" name="post" align="center" style="color: fff;"/>
+				</td>
+				</tr>		
               	</table>
               	<div class="gridStyle" ng-grid="gridOptions"></div>
             	</form>
