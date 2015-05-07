@@ -9,10 +9,13 @@
 <script src="lib/utility/js/jquery-1.11.2.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/angular/js/ng-grid.debug.js"></script>
+<!-- <script src="lib/angular/js/ng-grid-flexible-height.js"></script> -->
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="lib/angular/css/ng-grid.css" />
 <script src="lib/angular/js/angular-route.js"></script>
-<script type="text/javascript" src="js/position.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/position/searchPosition.js"></script>
+<script type="text/javascript" src="js/position/createPosition.js"></script>
 <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="lib/angular/css/ng-tags-input.min.css">
 <script src="lib/bootstrap/js/ng-tags-input.min.js"></script>
@@ -30,48 +33,22 @@
 </head>
 <body>
 
-<div id="wrapper">
 
 <!------------------------------------------------------ keep header here ---------------------------------------------->
                                             <div ng-include="'header.html'"></div>
 <!------------------------------------------------------ --------------------------------------------------------------->
-<center>
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12">
-        
-        <div class="form-container-mg">
-              <center><h1 style="margin-top:1%;">Position Management</h1></center>
+
+              <center><h1><b>Position Management</b></h1><br>
               
-            </div>
-            
-            
               	<div ng-view>
-              	</div>
-         
-              
-
-         </div>
-        <!-- /span12 --> 
-      </div>
-      <!-- /row --> 
-      
-    </div>
-    <!-- /container -->
-  </div>
-  <!-- /main-inner --> 
-</div>
-
-<!-- /main -->
+              	</div></center><br><br><br>
+    </body>
+</html> 	         	
 
 <!------------------------------------------------------ keep footer here ---------------------------------------------->
                                             <div ng-include="'footer.html'">footer</div>
 <!----------------------------------------------------------------------- ---------------------------------------------->
 
 
-</div>
-</center>
-</body>
-</html>
+
+

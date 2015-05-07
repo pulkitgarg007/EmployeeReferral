@@ -1,4 +1,4 @@
-<html lang="en" ng-app="erApp" ng-controller="searchPositionCtrl">
+<html lang="en" ng-app="erApp" ng-controller="positionCtrl">
 <head>
 <meta charset="utf-8">
 <title>Employee Referral Portal</title>
@@ -10,8 +10,6 @@
 <script src="lib/angular/js/ng-grid.debug.js"></script>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="lib/angular/css/ng-grid.css" />
-
-<script type="text/javascript" src="js/searchPosition.js"></script>
 <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="static/css/home.css" rel="stylesheet">
 <link href="lib/bootstrap/font/google_font.css" rel="stylesheet">
@@ -27,27 +25,8 @@
 </head>
 <body>
 
-<div id="wrapper">
-
-<!------------------------------------------------------ keep header here ---------------------------------------------->
-                                            <div ng-include="'header.html'"></div>
-<!------------------------------------------------------ --------------------------------------------------------------->
-<center>
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12">
-        
-       <div class="widget widget-table action-table">
             <div class="form-container"><br>
-            
-              <center><h1>Search Position</h1><br></center><br>
-            
-      
-           
-     
-           <form action="#" name="createPosition" onvalidate>
+      <form action="#" name="createPosition" onvalidate>
               	<form id="integerForm" role="form" class="form-horizontal">
               	<table border="0" cellpadding="4">
               	
@@ -55,42 +34,28 @@
               	<div class="ui-widget control-group"
 							ng-class="{ 'has-error' : searchPosition.designations.$invalid && !searchPosition.designations.$pristine }">
 								<input name="designations" class="form-control input-sm" ng-change="changeEvent()" 
+								style="position:absolute;top:34px;"
 								id="designations" ng-model="searchPosition.designations" placeholder="Enter Designation" required> <span
 								ng-show="searchPosition.designations.$invalid  && !searchPosition.designations.$pristine"
 								class="help-block" style="font: black">Designation is Required.</span>
 						</div></td><td>
-						
-					<input type="button" id="searchBtn" class="btn btn-info" ng-click="searchCandidate()" ng-disabled="enableDisbleButton" 
-						value="Search" name="get" align="center" />
-				</td></tr>		
+					<a href="" id="searchBtn" class="btn btn-info btn-lg" ng-click="searchPosition()">
+         		 <span class="glyphicon glyphicon-search" style="position:aboslute;top:1px;"></span> Search
+       			 </a>
+				</td>
+				<td>
+				<a id="rsBtn" href="#createPosition" class="btn btn-info btn-lg">
+         		 <span class="glyphicon glyphicon-plus" style="position:aboslute;top:1px;"></span> Create
+       			 </a>
+				</td>
+				</tr>		
               	</table>
+              	<br><br><br>
               	<div class="gridStyle" ng-grid="gridOptions"></div>
             	</form>
             </form>
             </div>
 
-          </div>
          
-         
-         </div>
-        <!-- /span12 --> 
-      </div>
-      <!-- /row --> 
-      
-    </div>
-    <!-- /container -->
-  </div>
-  <!-- /main-inner --> 
-</div>
-
-<!-- /main -->
-
-<!------------------------------------------------------ keep footer here ---------------------------------------------->
-                                            <div ng-include="'footer.html'">footer</div>
-<!----------------------------------------------------------------------- ---------------------------------------------->
-
-
-</div>
-</center>
 </body>
 </html>
