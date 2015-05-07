@@ -85,14 +85,16 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		          		    {field: '', width: "41", cellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>'},
 		          		    {field:'jobcode', displayName:'Job Code', width: "73", cellTemplate: '<p style="position:absolute;top:3px;left:15px;">{{row.getProperty(\'jobcode\')}}</p>'}, 
 		          		    {field:'designation', displayName:'Designation', width: "125"}, 
-		          		    {field:'experienceRequired', displayName:'Experience', width: "75"}, 
+		          		    {field:'experienceRequired', displayName:'Experience', width: "90"}, 
 		          		    {field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
-		          			{field:'noOfPositions', displayName:'No Of Positions', width: "50"}, 
+		          			{field:'noOfPositions', displayName:'No Of Positions', width: "110"}, 
 		          			{field:'jobProfile', displayName:'Job Profile', width: "100"},
 		          			{field:'location', displayName:'Location', width: "100"},
 		          			{field:'client', displayName:'Client', width: "100"},
-		          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<img src="static/images/edit.png" height="27" width="27" ng-click="editPosition(row)" style="position:absolute;top:2px;right:14px;" />'},
-		          			{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<img src="static/images/del.png" height="20" width="15" ng-click="deletePosition(row)" style="position:absolute;top:5px;right:16px;" />'}
+		          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editPosition(row)" style="position:absolute;left:18px;top:7px;"></span>'},
+		          			//{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<img src="static/images/edit.png" height="27" width="27" ng-click="editPosition(row)" style="position:absolute;top:2px;right:14px;" />'},
+		          			//{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<img src="static/images/del.png" height="20" width="15" ng-click="deletePosition(row)" style="position:absolute;top:5px;right:16px;" />'}
+		          			{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" ng-click="deletePosition(row)" style="position:absolute;left:18px;top:7px;"></span>'}
 		          		    ]
 		    };
 	

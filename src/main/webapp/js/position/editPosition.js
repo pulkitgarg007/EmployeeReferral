@@ -103,9 +103,5 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
          $scope.disableEditButton = true;
          $scope.Done = true;
  }
-	
-	$scope.cancel = function() {
-		location.href = '#pos'
-}
 
 }]);

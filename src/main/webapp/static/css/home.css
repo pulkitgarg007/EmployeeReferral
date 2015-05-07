@@ -56,7 +56,7 @@ textarea
 
 .form-container{
 	position:relative;
-	width:1000px;
+	width:1050px;
 	border: 1px solid #d6d6d6;
 	background-color: #F0F0F0;
 	border-radius: 12px;
@@ -65,14 +65,14 @@ textarea
 .gridStyle {
 	
     border: 1px solid rgb(212,212,212);
-    width: 914px;
+    width: 988px;
     height: 318px
 }
 
 #designations, #name{
 	color: black;
 	position:absolute;
-	left:43px;
+	left:30px;
 	top:72px;
 	width:153px;
 	height:30px;
@@ -88,7 +88,7 @@ textarea
 #searchBtn{
 	position:absolute;
 	top:34px;
-	left:179px;
+	left:165px;
 	width:90px;
 	border-top-left-radius:2px;
 	border-bottom-left-radius:2px;
@@ -114,13 +114,13 @@ textarea
 #rsBtn{
 	position:absolute;
 	top:34px;
-	left:288px;
+	left:273px;
 }
 
 #approveBtn{
 	position:absolute;
 	top:34px;
-	left:393px;
+	left:377px;
 }
 
 .positionMg{
@@ -137,7 +137,7 @@ textarea
 	font-weight:bold;
 }
 
-#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client{
+#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #experience{
 	width:250px;
 }
 .tableTd{
@@ -146,4 +146,10 @@ textarea
 
 #tdid{
 	padding-top: 20px;
+}
+
+#footer{
+	position: fixed;
+    bottom: 0;
+    width: 100%;
 }
