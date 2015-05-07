@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <script src="lib/angular/js/angular.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.js"></script>
-<script src="lib/utility/js/jquery-1.11.2.min.js"></script>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="js/createPosition.js"></script>
+<script src="js/position/createPosition.js"></script>
 <link rel="stylesheet" type="text/css" href="lib/angular/css/ng-tags-input.min.css">
 <script src="lib/bootstrap/js/ng-tags-input.min.js"></script>
 <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -24,147 +22,155 @@
     <![endif]-->
 </head>
 <body>
-
-<div id="wrapper">
-
-<!------------------------------------------------------ keep header here ---------------------------------------------->
-                                            <div ng-include="'header.html'"></div>
-<!------------------------------------------------------ --------------------------------------------------------------->
-<center>
-<div class="main">
-  <div class="main-inner">
-    <div class="container">
-      <div class="row">
-        <div class="span12">
+<h1><b>Position Management - Create</b></h1><br>
+<!-- ----------------------------------alert Message--------------------------------------------------------- -->
+            <div class="bs-example">
+               <div class="alert alert-success" style="display:none" id="success-alert">
+	               <a href="" class="close" data-dismiss="alert">&times;</a>
+	               <strong>Success!</strong> Your message has been sent successfully.
+               </div>
+               <div class="alert alert-danger" style="display:none" id="fail-alert">
+	               <a href="" class="close" data-dismiss="alert">&times;</a>
+	               <strong>Failed!</strong> Try again.
+               </div>
+               
+               
+            </div>
+            
             <div class="form-container"><br>
+             
             
-              <center><h1>Create Position</h1></center><br>
-            
-      
-          
+            <!-- ----------------------------------alert Message--------------------------------------------------------- -->
+         
+ 
            <form action="#" name="createPosition" onvalidate>
               	<form id="integerForm" role="form" class="form-horizontal">
-              	<table border="0" cellpadding="4">
-              	
-              	<tr><td>
+              	<table>
+              	<tr>
+              	<td class="tableTd">
               	<div class="control-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
-								<label class="lbl" for="name">Designation*:</label></td><td><select name="designation" ng-change="changeDesignation()" placeholder="Select Designation"
-									ng-model="selectedDesignation" ng-options = "o as o for o in options" class="form-control input-sm" id="designation" required style="color: black">
-								</select> <span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"
-									class="help-block">Enter Correct Designation.</span>
-							</div></td></tr>
-							
-				<tr><td>
+								<label class="lbl" for="name">Designation*:</label></td>
+
+				<td class="tableTd"><select name="designation" ng-change="changeDesignation()" placeholder="Select Designation"
+									ng-model="selectedDesignation" ng-options = "o as o for o in options" class="form-control input-sm" id="designation" required style="color: black"></select>
+									</div>
+				</td>
+				<td class="tableTd">
 				<div class="control-group"
 								ng-class="{ 'has-error' : createPosition.jobcode.$invalid && !createPosition.jobcode.$pristine }">
-								<label class="lbl" for="jobcode">Job Code*:</label></td><td> <input type="text" name="jobcode"
+								<label class="lbl" for="jobcode">Job Code*:</label></td>
+								<td>
+								<input type="text" name="jobcode"
 									class="form-control input-sm" id="jobcode" ng-change="changeEvent()" 
-									ng-model="position.jobcode" placeholder="Enter Job Code" required></td><tr><td></td><td>
-								<span ng-show="createPosition.jobcode.$invalid  && !createPosition.jobcode.$pristine"
-									class="help-block">Job is required.</span>
-							</div></td></tr>
-							
-							<tr><td>
-				<div class="control-group"
+									ng-model="position.jobcode" placeholder="Enter Job Code" required>
+									</td>
+				</div>
+				</tr>
+				<tr><td></td><td></td><td></td><td><span ng-show="createPosition.jobcode.$invalid  && !createPosition.jobcode.$pristine"
+									class="help-block">Job is required.</span></td></tr>
+				<tr>
+				<td id="tdid" class="tableTd"><div class="control-group"
 								ng-class="{'has-error' :createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine}">
-								<label class="lbl" for="experienceRequired">Experience Required*:</label></td><td><select name="experience" ng-change="changeEvent()" placeholder="Select Experience"
+								<label class="lbl" for="experienceRequired">Experience Required*:</label>
+								
+				</td>
+				<td id="tdid"><select name="experience" id="exp" ng-change="changeEvent()" placeholder="Select Experience"
 									ng-model="selectedExperience" ng-options = "o as o for o in items" class="form-control input-sm" id="experience" required style="color: black">
-								</select></td></tr><tr><td></td><td>
-									 <span class="help-block"
-									ng-show="createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine">City
-									is required.</span>
-							</div></td></tr>
-							
-							<tr><td>
-							<div class="control-group" >
-						<label class="lbl" for="primarySkills">Primary Skills*:</label></td><td>
-						<tags-input ng-model="position.primarySkills" placeholder="Enter Skills"> <auto-complete id="sk"
-							source="loadTags($query)" c"></auto-complete> </tags-input></div>
-							</td></tr>
-							
-							<tr><td>
-							<div class="ui-widget control-group"
+								</select></td>
+				</div>
+
+				<td id="tdid" class="tableTd"><div class="control-group" >
+						<label class="lbl" for="primarySkills">Primary Skills*:</label></td>
+						<td id="tdid">
+						<tags-input ng-model="position.primarySkills" class="field-control" placeholder="Enter Skills"> <auto-complete id="sk"
+							source="loadTags($query)" class="field-control"></auto-complete> </tags-input>
+							</td>
+						</div>
+              	</tr>
+              	<tr>
+              	<td id="tdid" class="tableTd"><div class="ui-widget control-group"
 							ng-class="{ 'has-error' : createPosition.secondarySkills.$invalid && !createPosition.secondarySkills.$pristine }">
-							<label class="lbl" for="secondarySkills">Secondary Skills :</label></td><td> <input
+							<label class="lbl" for="secondarySkills">Secondary Skills :</label>
+							</td>
+							<td id="tdid"><input
 								id="secondarySkills" ng-change="changeEvent()" name="secondarySkills"
 								class="form-control input-sm" ng-model="position.secondarySkills"
 								ng-pattern="/^[a-zA-Z _]*$/" 
-								placeholder="Enter Secondary Skills" required></td></tr><tr><td></td><td> <span
-								ng-show="createPosition.secondarySkills.$invalid  && !createPosition.secondarySkills.$pristine"
-								class="help-block">Enter Correct Secondary Skills.</span>
-						</div></td></tr>
-						
-						<tr>
-						<td>
-						<div class="control-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
-								<label class="lbl" for="name">No of Positions :</label></td><td> <input
+								placeholder="Enter Secondary Skills" required></div>
+								</td>
+							
+							<td id="tdid" class="tableTd">
+							<div class="control-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
+								<label class="lbl" for="name">No of Positions :</label>
+								</td>
+								<td id="tdid" class="tableTd">
+								<input
 									type="number" ng-change="changeEvent()" name="noOfPositions" class="form-control input-sm"
 									id="noOfPositions" ng-model="position.noOfPositions" 
 									ng-pattern="^[0-9]*$" 
-									placeholder="Enter No of Positions" ng-maxlength="10" required> </td></tr><tr><td></td><td>
-								 
- 								 <span ng-show="createPosition.noOfPositions.$invalid  && !createPosition.noOfPositions.$pristine"
-									class="help-block">Enter Valid Number</span> 
-							</div></td></tr>
-							
-						<tr><td>
-						<div class="control-group" ng-class="{'has-error' :createPosition.jobProfile.$invalid && !createPosition.jobProfile.$pristine}">
-								<label class="lbl" for="name">Job Description*:</label></td><td>
-								<textarea cols="50" rows="5" ng-change="changeEvent()" name="jobProfile"
+									placeholder="Enter No of Positions" ng-maxlength="10" required>
+								</td>
+								</div>
+              	</tr>
+              	<tr><td></td><td><span
+								ng-show="createPosition.secondarySkills.$invalid  && !createPosition.secondarySkills.$pristine"
+								class="help-block">Enter Correct Secondary Skills.</span></td><td></td><td><span ng-show="createPosition.noOfPositions.$invalid  && !createPosition.noOfPositions.$pristine"
+									class="help-block">Enter Valid Number</span></td></tr>
+				
+				<tr>
+				<td id="tdid" class="tableTd">
+              	<div class="control-group" ng-class="{'has-error' :createPosition.jobProfile.$invalid && !createPosition.jobProfile.$pristine}">
+								<label class="lbl" for="name">Job Description*:</label>
+								</td>
+				<td id="tdid" class="tableTd">
+				<textarea cols="50" rows="5" ng-change="changeEvent()" name="jobProfile"
 									id="jobProfile" ng-model="position.jobProfile"
-									placeholder="Enter Job Profile" required></textarea></td></tr><tr><td></td><td>
-								<span ng-show="createPosition.jobProfile.$invalid  && !createPosition.jobProfile.$pristine"
-									class="help-block">Job Profile is required.</span>
-							</div></td></tr>
-							
-							<tr><td>
-							<div class="control-group" ng-class="{'has-error' :createPosition.location.$invalid && !createPosition.location.$pristine}">
-								<label class="lbl" for="name">Location :</label></td><td><select name="location" ng-change="changeEvent()" placeholder="Select Location"
+									placeholder="Enter Job Profile" required></textarea>
+									</div></td>
+				<td id="tdid" class="tableTd">
+				<div class="control-group" ng-class="{'has-error' :createPosition.location.$invalid && !createPosition.location.$pristine}">
+								<label class="lbl" for="name">Location :</label>
+				</td>
+				<td id="tdid" class="tableTd">
+				<select name="location" ng-change="changeEvent()" placeholder="Select Location"
 									ng-model="selectedLocation" ng-options = "o as o for o in locations" class="form-control input-sm" id="location" required style="color: black">
-								</select></td></tr><tr><td></td><td> <span ng-show="createPosition.location.$invalid  && !createPosition.location.$pristine" class="help-block">Enter Correct Location.</span>
-							</div></td></tr>
-							
-							<tr><td>
-							<div class="control-group" ng-class="{'has-error' :createPosition.client.$invalid && !createPosition.client.$pristine}">
-								<label class="lbl" for="name">Client :</label> </td><td><input type="text" name="client" ng-change="changeEvent()" 
+								</select>
+				</td>
+				</tr>
+		
+				<tr><td></td><td><span ng-show="createPosition.jobProfile.$invalid  && !createPosition.jobProfile.$pristine"
+									class="help-block">Job Profile is required.</span>
+									</td><td></td><td><span ng-show="createPosition.location.$invalid  && !createPosition.location.$pristine" class="help-block">Enter Correct Location.</span></td></tr>
+								
+				<tr>
+				<td id="tdid" class="tableTd">
+				<div class="control-group" ng-class="{'has-error' :createPosition.client.$invalid && !createPosition.client.$pristine}">
+								<label class="lbl" for="name">Client :</label>
+				</td>	
+				<td id="tdid" class="tableTd">
+				<input type="text" name="client" ng-change="changeEvent()" 
 									class="form-control input-sm" id="client" ng-model="position.client"
 									ng-pattern="/^[a-zA-Z _]*$/" 
-									placeholder="Enter Client" required></td></tr><tr><td></td><td>
-								<span ng-show="createPosition.client.$invalid  && !createPosition.client.$pristine"
+									placeholder="Enter Client" required>
+				</td><td></td><td></td></tr>	
+				<tr><td></td><td><span ng-show="createPosition.client.$invalid  && !createPosition.client.$pristine"
 									class="help-block">Enter Correct Client.</span>
-							</div></td></tr>
-							
-							<tr><td></td><td>
-							<div class="control-group">
-							<input type="button" class="btn btn-primary" ng-click="submit()" value=Register name="post" align="center" style="color: fff;"  />
-							</div></td></tr>
-              	
+									</td><td></td><td></td></tr>
+				<tr>
+				<td></td>
+				<td id="tdid" class="tableTd">
+				<input type="button" class="btn btn-info" ng-click="submit()" value=Register name="post" align="center" style="color: fff;"  />
+				<a href="#pos" class="btn btn-info btn-lg">
+         		 <span class="glyphicon glyphicon-remove"></span> Cancel
+       			 </a>
+				</td>
+				</tr>
+				
               	</table>
             	</form>
             </form>
             </div>
-<br>
-         
-         
-         </div>
-        <!-- /span12 --> 
-      </div>
-      <!-- /row --> 
-      
-    </div>
-    <!-- /container -->
-  </div>
-  <!-- /main-inner --> 
-</div>
-
-<!-- /main -->
-
-<!------------------------------------------------------ keep footer here ---------------------------------------------->
-                                            <div ng-include="'footer.html'">footer</div>
-<!----------------------------------------------------------------------- ---------------------------------------------->
 
 
-</div>
-</center>
 </body>
 </html>

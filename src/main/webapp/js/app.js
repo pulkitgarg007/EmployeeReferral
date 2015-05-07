@@ -2,7 +2,7 @@ var app = angular.module('erApp', ['ngTagsInput','ngGrid','ngRoute']);
 app.config( ['$routeProvider', function($routeProvider) {
 			$routeProvider
 				.when('/createPosition', {
-					templateUrl: 'routeCreatePosition.html',
+					templateUrl: 'createPosition.html',
 					controller: 'createPositionCtrl'
 				})
 				.when('/pos', {

@@ -1,13 +1,10 @@
 app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window', function($scope, $http, $q, $window) {
 	
+	$scope.approveBtnDisable=true;
+	$scope.errorHide = true;
 	$scope.data = {};
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/searchAllPosition'; 
-	$http.get(URL).success(function(data, status, headers, config) {
-		$scope.myData = data;
-	}).error(function(data, status, headers, config) {
-		alert('error');
-	});	
 	
 	$scope.searchPosition = function() {
 		var URL = base_url + '/EmployeeReferral/resources/searchPositionsBasedOnDesignation?designation='+$scope.searchPosition.designations;
@@ -18,7 +15,7 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window', function
 		});	
 	};
 	
-	
+	$scope.title = "Search";
 	$scope.pagingOptions = {
 		      pageSizes: [7],
 		      pageSize: 7,
@@ -34,7 +31,6 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window', function
 		      }
 		    };
 		    var URLL = 'http://localhost:8080/EmployeeReferral/resources/searchAllPosition';
-		    
 		    $scope.getPagedDataAsync = function (pageSize, page, searchText) {
 		      setTimeout(function () {
 		        var data2;
@@ -49,7 +45,11 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window', function
 		        } else {
 		          $http.get(URLL).success(function (largeLoad) {
 		            $scope.setPagingData(largeLoad,page,pageSize);
-		          });
+		          }).error(function(data, status, headers, config) {
+		        	  console.log(data);
+		        	  $scope.errorHide = false;
+		        	  $scope.errorMsg = "Something Went Wrong! Please Try Again!";
+		  		});
 		        }
 		      }, 100);
 		    };
@@ -82,7 +82,7 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window', function
 		      enableColumnResize:true,
 		      enableHorizontalScrollbar:0,
 		      columnDefs: [
-		          		    //{field: 'rowNumber', displayName: 'Row Number', width: "50", cellTemplate: '<div>{{row.rowIndex + 1}}</div>'},
+		          		    {field: '', width: "41", cellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>'},
 		          		    {field:'jobcode', displayName:'Job Code', width: "73", cellTemplate: '<p style="position:absolute;top:3px;left:15px;">{{row.getProperty(\'jobcode\')}}</p>'}, 
 		          		    {field:'designation', displayName:'Designation', width: "125"}, 
 		          		    {field:'experienceRequired', displayName:'Experience', width: "75"}, 

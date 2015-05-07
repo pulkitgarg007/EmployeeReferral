@@ -4,10 +4,10 @@
 }
 
 
-/* .field-control{
-	width:380px;
+.field-control{
+	width:250px;
 	
-} */
+}
 
 .form-control{
 	/* margin-left: 16%; */
@@ -24,12 +24,13 @@
 textarea
 {
 	/* margin-left: 16%; */
-	width:380;
+	width:250;
 	border-radius: 7px;
 	border: 1px solid gray;
 /* 	-moz-box-shadow: 0 0 1px 1px #888;
 	-webkit-box-shadow: 0 0 1px 1px#888;
 	box-shadow: 0 0 1px 1px #888; */
+	height:70px;
 }
 
 .help-block
@@ -64,14 +65,14 @@ textarea
 .gridStyle {
 	
     border: 1px solid rgb(212,212,212);
-    width: 870px;
+    width: 914px;
     height: 318px
 }
 
 #designations, #name{
 	color: black;
 	position:absolute;
-	left:64px;
+	left:43px;
 	top:72px;
 	width:153px;
 	height:30px;
@@ -87,7 +88,7 @@ textarea
 #searchBtn{
 	position:absolute;
 	top:34px;
-	left:190px;
+	left:179px;
 	width:90px;
 	border-top-left-radius:2px;
 	border-bottom-left-radius:2px;
@@ -109,17 +110,40 @@ textarea
 	border-radius: 12px;
 }
 
-/* #designation{
-	position:absolute;
-	right:50px;
-} */
 
 #rsBtn{
 	position:absolute;
 	top:34px;
-	left:300px;
+	left:288px;
+}
+
+#approveBtn{
+	position:absolute;
+	top:34px;
+	left:393px;
 }
 
 .positionMg{
 	padding-bottom: 100px;
+}
+
+.ngPagerButton{
+	width:50px;
+	border:1px solid gray;
+	border-radius:10px;
+}
+
+.ngGridMaxPagesNumber{
+	font-weight:bold;
+}
+
+#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client{
+	width:250px;
+}
+.tableTd{
+	padding-right: 20px;
+}
+
+#tdid{
+	padding-top: 20px;
 }

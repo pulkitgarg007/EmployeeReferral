@@ -1,8 +1,9 @@
-var app = angular.module("erApp", ['ngTagsInput']);
 app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http) {
-
+	
     $scope.position ={};
+   
 	$scope.position.primarySkills = {};
+	
 	$scope.primarySkills ={};
 	$scope.devskills = {};
 	$scope.qeskills = {};
@@ -13,6 +14,8 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	$scope.position.experienceRequired = "";
 	$scope.position.location = "";
 	$scope.enableDisbleButton = true;
+	
+	
 	var base_url = window.location.origin;
 	var Skills_URL = base_url + '/EmployeeReferral/resources/skill/skills';
 	var Designation_URL = base_url + '/EmployeeReferral/resources/skill/designations';
@@ -82,9 +85,27 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 			 $scope.position.designation = $scope.selectedDesignation;
 		     $scope.position.experienceRequired	= $scope.selectedExperience;
 		     $scope.position.location = $scope.selectedLocation;
-			$http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position)
+			/*$http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position)
+			*/
+		     
+		     
+		     $http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position).
+			  success(function(data, status, headers, config) {
+			    console.log("success============================="+data);
+			    document.getElementById("success-alert").style.display = "block";
+			  }).
+			  error(function(data, status, headers, config) {
+				  console.log("failed============================="+data);
+				  document.getElementById("fail-alert").style.display = "block";
+			  });
 		}
+		$scope.reset();
 	}
+	
+	
+	
+	
+	
 	$scope.reset();
 	$scope.submit();
 	
