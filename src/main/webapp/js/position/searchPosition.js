@@ -1,4 +1,4 @@
-app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window', function($scope, $http, $q, $window) {
+app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeService1', function($scope, $http, $q, $window,jobCodeService1) {
 	
 	$scope.approveBtnDisable=true;
 	$scope.errorHide = true;
@@ -100,7 +100,8 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window', function
 	
 	$scope.editPosition = function(row) {
 		window.console && console.log(row.entity);
-		$window.location.href = 'editPosition.html#?target='+row.entity.jobcode;
+		jobCodeService1.setjobCode(row.entity.jobcode);
+		location.href='#editPosition';
 	};
 	
 	$scope.deletePosition = function(row) {

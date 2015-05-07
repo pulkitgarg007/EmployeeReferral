@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.nisum.employee.ref.domain.Position;
 import com.nisum.employee.ref.repository.IPositionRepository;
 
+
 @Service
 public class PositionService {
 
@@ -25,16 +26,18 @@ public class PositionService {
 	public void preparePosition(Position position) {
 		positionRepository.save(position);
 	}
+	
+	public void updatePosition(Position position) {
+		positionRepository.update(position);
+	}
 
 	public List<Position> retrieveAllPositions() {
-
 		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
 		List<Position> positionDatails = mongoOperations.findAll(Position.class);
 		return positionDatails;
 	}
 
 	public List<Position> retrievePositionsbasedOnDesignation(String designation) {
-
 		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
 		Query query = new Query();
 		query.addCriteria(Criteria.where("designation").regex(Pattern.compile(designation, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE)));
@@ -43,7 +46,6 @@ public class PositionService {
 	}
 	
 	public Position retrievePositionsbasedOnJobCode(String jobcode) {
-
 		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
 		Query query = new Query();
 		query.addCriteria(Criteria.where("_id").regex(jobcode));
@@ -52,7 +54,6 @@ public class PositionService {
 	}
 	
 	public Position deletePositionBasedOnJC(String jobcode) {
-
 		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
 		Query query = new Query();
 		query.addCriteria(Criteria.where("_id").regex(jobcode));

@@ -30,6 +30,13 @@ public class PositionController {
 		//return new ResponseEntity<String>("Request Success", HttpStatus.OK);
 		return new ResponseEntity<Position>(position, HttpStatus.OK);
 	}
+
+	@RequestMapping(value="/position-update", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<String> updatePosition(@RequestBody Position position) {
+		positionService.updatePosition(position);
+		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
+	}
 	
 	@RequestMapping(value = "/searchAllPosition", method = RequestMethod.GET)
 	public ResponseEntity<?> retrieveAllPositions() {
