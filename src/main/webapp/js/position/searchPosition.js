@@ -110,13 +110,9 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		          			{field:'location', displayName:'Location', width: "100"},
 		          			{field:'client', displayName:'Client', width: "100"},
 		          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editPosition(row)" style="position:absolute;left:18px;top:7px;"></span>'},
-		          			//{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<img src="static/images/edit.png" height="27" width="27" ng-click="editPosition(row)" style="position:absolute;top:2px;right:14px;" />'},
-		          			//{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<img src="static/images/del.png" height="20" width="15" ng-click="deletePosition(row)" style="position:absolute;top:5px;right:16px;" />'}
-		          			{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" ng-click="deletePosition(row)" style="position:absolute;left:18px;top:7px;"></span>'}
+		          			{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deletePosition(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
 		          		    ]
 		    };
-	
-
 	
 	$scope.editPosition = function(row) {
 		window.console && console.log(row.entity);
@@ -128,17 +124,27 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		window.console && console.log(row.entity);
 		var URL_DEL = base_url + '/EmployeeReferral/resources/deletePositionBasedOnJC?jobcode='+row.entity.jobcode;
 		$http.get(URL_DEL).success(function(data, status, headers, config) {
-			
+			alert("Deleted!");	
+			location.href= "#pos"
 		}).error(function(data, status, headers, config) {
 			console.log(data);
 		});
-		var URL = base_url + '/EmployeeReferral/resources/getPosition';
-		$http.get(URL).success(function(data, status, headers, config) {
-			$scope.myData = data;
-		}).error(function(data, status, headers, config) {
-			console.log(data);
-		});	
 	};
 	
 	
 }]);
+
+app.directive('ngConfirmClick', [
+                                 function(){
+                                     return {
+                                         link: function (scope, element, attr) {
+                                             var msg = attr.ngConfirmClick || "Are you sure?";
+                                             var clickAction = attr.confirmedClick;
+                                             element.bind('click',function (event) {
+                                                 if ( window.confirm(msg) ) {
+                                                     scope.$eval(clickAction)
+                                                 }
+                                             });
+                                         }
+                                     };
+                             }])

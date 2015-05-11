@@ -32,5 +32,6 @@ app.config( ['$routeProvider', function($routeProvider) {
 }]);
 
 app.controller('positionCtrl',['$scope', '$http', function($scope, $http) {
+	
 
 }]);
