@@ -38,11 +38,21 @@ public class PositionController {
 		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/searchAllPosition", method = RequestMethod.GET)
-	public ResponseEntity<?> retrieveAllPositions() {
-		List<Position> allPositionsDetails = positionService.retrieveAllPositions();
-		return (null == allPositionsDetails) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
-				: new ResponseEntity<List<Position>>(allPositionsDetails, HttpStatus.OK);
+	@RequestMapping(value = "/getPosition", method = RequestMethod.GET)
+	public ResponseEntity<?> retrievePositionByClient(@RequestParam(value = "client", required = false) String client) {
+		if(client != null)
+		{
+			List<Position> allPositionsDetails = allPositionsDetails = positionService.retrievePositionByClient(client);
+			return (null == allPositionsDetails) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
+					: new ResponseEntity<List<Position>>(allPositionsDetails, HttpStatus.OK);
+		}
+		else
+		{
+			List<Position> allPositionsDetails = allPositionsDetails = positionService.retrieveAllPositions();
+			return (null == allPositionsDetails) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
+					: new ResponseEntity<List<Position>>(allPositionsDetails, HttpStatus.OK);
+		}
+		
 	}
 	
 	@RequestMapping(value = "/searchPositionsBasedOnDesignation", method = RequestMethod.GET)

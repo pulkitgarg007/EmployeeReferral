@@ -31,6 +31,14 @@ public class PositionService {
 		positionRepository.update(position);
 	}
 
+	public List<Position> retrievePositionByClient(String client) {
+		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("client").regex(Pattern.compile(client, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE)));
+		List<Position> positionDatails = mongoOperations.find(query, Position.class);
+		return positionDatails;
+	}
+	
 	public List<Position> retrieveAllPositions() {
 		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
 		List<Position> positionDatails = mongoOperations.findAll(Position.class);

@@ -1,18 +1,36 @@
 app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeService1', function($scope, $http, $q, $window,jobCodeService1) {
+	$scope.cl = "GAP";
 	
-	$scope.approveBtnDisable=true;
+	$scope.searchDisable = true;
+	$scope.approveBtnDisable = true;
 	$scope.errorHide = true;
 	$scope.data = {};
 	var base_url = window.location.origin;
-	var URL = base_url + '/EmployeeReferral/resources/searchAllPosition'; 
+	var URL = base_url + '/EmployeeReferral/resources/getPosition'; 
+	
+	$scope.disableSearch = function(){
+		if($scope.searchPosition.designations == null){
+			$scope.searchDisable = true;
+		}
+		else{
+			$scope.searchDisable = false;
+		}
+		
+	}
 	
 	$scope.searchPosition = function() {
-		var URL = base_url + '/EmployeeReferral/resources/searchPositionsBasedOnDesignation?designation='+$scope.searchPosition.designations;
-		$http.get(URL).success(function(data, status, headers, config) {
-			$scope.myData = data;
-		}).error(function(data, status, headers, config) {
-			alert('error');
-		});	
+		
+		if($scope.searchPosition.designations != null)
+			{
+			var URL = base_url + '/EmployeeReferral/resources/searchPositionsBasedOnDesignation?designation='+$scope.searchPosition.designations;
+			$http.get(URL).success(function(data, status, headers, config) {
+				$scope.myData = data;
+			}).error(function(data, status, headers, config) {
+				alert('error');
+			});	
+			}else{
+			}
+		
 	};
 	
 	$scope.title = "Search";
@@ -30,7 +48,7 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		        $scope.$apply();
 		      }
 		    };
-		    var URLL = 'http://localhost:8080/EmployeeReferral/resources/searchAllPosition';
+		    var URLL = 'http://localhost:8080/EmployeeReferral/resources/getPosition?client='+$scope.cl;
 		    $scope.getPagedDataAsync = function (pageSize, page, searchText) {
 		      setTimeout(function () {
 		        var data2;
@@ -112,13 +130,13 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		$http.get(URL_DEL).success(function(data, status, headers, config) {
 			
 		}).error(function(data, status, headers, config) {
-			//alert('error');
+			console.log(data);
 		});
-		var URL = base_url + '/EmployeeReferral/resources/searchAllPosition';
+		var URL = base_url + '/EmployeeReferral/resources/getPosition';
 		$http.get(URL).success(function(data, status, headers, config) {
 			$scope.myData = data;
 		}).error(function(data, status, headers, config) {
-			//alert('error');
+			console.log(data);
 		});	
 	};
 	

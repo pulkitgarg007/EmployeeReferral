@@ -21,8 +21,8 @@
 <link rel="stylesheet" type="text/css" href="lib/angular/css/ng-tags-input.min.css">
 <script src="lib/bootstrap/js/ng-tags-input.min.js"></script>
 <link href="static/css/home.css" rel="stylesheet">
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
-        rel="stylesheet">
+<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
+        rel="stylesheet"> -->
 <link href="lib/bootstrap/font/font-awesome.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet">
 <link href="static/css/dashboard.css" rel="stylesheet">
@@ -33,23 +33,39 @@
    
 </head>
 <body>
-
+<div id="wrapper">
 
 <!------------------------------------------------------ keep header here ---------------------------------------------->
                                             <div ng-include="'header.html'"></div>
 <!------------------------------------------------------ --------------------------------------------------------------->
-
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
               
               <center>
               	<div ng-view>
               	</div></center>
-    </body>
-</html> 	         	
+              	
+              	</div>
+        <!-- /span12 --> 
+      </div>
+      <!-- /row --> 
+      
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /main-inner --> 
+</div>
+              	
+	         	
 
 <!------------------------------------------------------ keep footer here ---------------------------------------------->
                                             <div id="footer" ng-include="'footer.html'">footer</div>
 <!----------------------------------------------------------------------- ---------------------------------------------->
 
 
-
-
+</div>
+ </body>
+</html> 
