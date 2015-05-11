@@ -83,4 +83,11 @@ public class SkillsController {
 		ArrayList<String> userRole = (ArrayList<String>) skills.get(0).getUserRoles();
         return (null == userRole) ? new ResponseEntity<String>("No skills found for the value ", HttpStatus.NOT_FOUND) : new ResponseEntity <ArrayList<String>>(userRole, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/client",method = RequestMethod.GET)
+	public ResponseEntity<?> retrieveClient() {
+		ArrayList<SkillsEntity> skills = retrieveData();
+		ArrayList<String> client = (ArrayList<String>) skills.get(0).getClient();
+        return (null == client) ? new ResponseEntity<String>("No skills found for the value ", HttpStatus.NOT_FOUND) : new ResponseEntity <ArrayList<String>>(client, HttpStatus.OK);
+	}
 }

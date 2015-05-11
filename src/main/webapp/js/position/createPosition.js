@@ -1,6 +1,12 @@
 app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http) {
-	
+	$scope.jbDisabled = true;
     $scope.position ={};
+    $scope.disableRegister = true;
+    
+    var dev = "DEV";
+    var qe = "QE";
+    var se = "SE";
+	var ran = Math.floor((Math.random()*999)+1);
    
 	$scope.position.primarySkills = {};
 	
@@ -8,12 +14,15 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	$scope.devskills = {};
 	$scope.qeskills = {};
 	$scope.seskills = {};
+	$scope.client = {};
 	$scope.selectedDesignation = "";
 	$scope.selectedExperience = "";
 	$scope.selectedLocation = "";
+	$scope.selectedClient = "";
 	$scope.position.designation = "";
 	$scope.position.experienceRequired = "";
 	$scope.position.location = "";
+	$scope.position.client = "";
 	$scope.enableDisbleButton = true;
 	
 	
@@ -25,10 +34,12 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	var QESkills_URL = base_url + '/EmployeeReferral/resources/skill/qeskills';
 	var SESkills_URL = base_url + '/EmployeeReferral/resources/skill/seskills';
 	var Location_URL = base_url + '/EmployeeReferral/resources/skill/location';
+	var client_URL = base_url + '/EmployeeReferral/resources/skill/client';
 	$scope.data = {};
 	$scope.options = {};
 	$scope.items = {};
 	$scope.locations = {};
+	$scope.clients = {};
 	$http.get(Skills_URL).success(function(data, status, headers, config) {
 		$scope.data = data;
 		
@@ -75,6 +86,14 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 		alert('error');
 	})
 	
+	$http.get(client_URL).success(function(data, status, headers, config) {
+		$scope.clients = data;
+		$scope.selectedClient = $scope.clients[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
 	$scope.loadTags = function(query) {
 		
 		return $scope.data;
@@ -94,6 +113,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 			 $scope.position.designation = $scope.selectedDesignation;
 		     $scope.position.experienceRequired	= $scope.selectedExperience;
 		     $scope.position.location = $scope.selectedLocation;
+		     $scope.position.client = $scope.selectedClient;
 			/*$http.post(base_url + '/EmployeeReferral/resources/position-create', $scope.position)
 			*/
 		     
@@ -119,20 +139,45 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	$scope.submit();
 	
 	$scope.changeEvent = function(){
-		if($scope.position.jobcode == null || $scope.position.jobcode == '' || $scope.position.experienceRequired == null || $scope.position.experienceRequired == '' || $scope.position.primarySkills == null || $scope.position.primarySkills == '' || $scope.position.secondarySkills == null || $scope.position.secondarySkills == '' || $scope.position.noOfPositions == null || $scope.position.noOfPositions == '' || $scope.position.jobProfile == null || $scope.position.jobProfile == '' || $scope.position.designation == null || $scope.position.designation == '')
-		$scope.enableDisbleButton = true;
+		if($scope.position.jobcode == null || $scope.position.jobcode == '' || $scope.position.primarySkills == null || $scope.position.primarySkills == '' || $scope.position.secondarySkills == null || $scope.position.secondarySkills == '' || $scope.position.jobProfile == null || $scope.position.jobProfile == '' || $scope.position.noOfPositions == null || $scope.position.noOfPositions == '' || $scope.selectedDesignation == "Select Designation" || $scope.selectedExperience == "Select Experience" || $scope.selectedLocation == "Select Locations" || $scope.selectedClient == "Select Client")
+		$scope.disableRegister = true;
 	else
-		$scope.enableDisbleButton = false;
+		$scope.disableRegister = false;
 	}
+	
 	$scope.changeDesignation = function(){
 		if($scope.selectedDesignation == "Developer"){
+			var dt = new Date();
+			var curr_date = dt.getDate();
+		    var curr_month = dt.getMonth() + 1; //Months are zero based
+		    var curr_year = dt.getFullYear();
+		    var curr_hour = dt.getHours();
+		    var curr_min = dt.getMinutes();
+		    var curr_sec = dt.getSeconds();
 		$scope.position.primarySkills = $scope.devskills;
+		$scope.position.jobcode = dev + "_" + ran + "_" + curr_date + "-" + curr_month + "-" + curr_year + "_" + curr_hour + "-" + curr_min + "-" + curr_sec;
 		}
 		else if ($scope.selectedDesignation == "Quality Engineer"){
+			var dt = new Date();
+			var curr_date = dt.getDate();
+		    var curr_month = dt.getMonth() + 1; //Months are zero based
+		    var curr_year = dt.getFullYear();
+		    var curr_hour = dt.getHours();
+		    var curr_min = dt.getMinutes();
+		    var curr_sec = dt.getSeconds();
 			$scope.position.primarySkills = $scope.qeskills;
+			$scope.position.jobcode = qe + "_" + ran + "_" + curr_date + "-" + curr_month + "-" + curr_year + "_" + curr_hour + "-" + curr_min + "-" + curr_sec;
 		}
 		else{
+			var dt = new Date();
+			var curr_date = dt.getDate();
+		    var curr_month = dt.getMonth() + 1; //Months are zero based
+		    var curr_year = dt.getFullYear();
+		    var curr_hour = dt.getHours();
+		    var curr_min = dt.getMinutes();
+		    var curr_sec = dt.getSeconds();
 			$scope.position.primarySkills = $scope.seskills;
+			$scope.position.jobcode = se + "_" + ran + "_" + curr_date + "-" + curr_month + "-" + curr_year + "_" + curr_hour + "-" + curr_min + "-" + curr_sec;
 		}
 	}
 }]);
