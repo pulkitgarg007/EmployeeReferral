@@ -48,7 +48,7 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		        $scope.$apply();
 		      }
 		    };
-		    var URLL = 'http://localhost:8080/EmployeeReferral/resources/getPosition?client='+$scope.cl;
+		    var URLL = base_url + '/EmployeeReferral/resources/getPosition?client='+$scope.cl;
 		    $scope.getPagedDataAsync = function (pageSize, page, searchText) {
 		      setTimeout(function () {
 		        var data2;

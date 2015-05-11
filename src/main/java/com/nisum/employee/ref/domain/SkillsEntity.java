@@ -16,6 +16,7 @@ public class SkillsEntity {
 	List<String> DeveloperSkills;
 	List<String> ExperienceRequired;
 	List<String> QESkills;
+	List<String> SysESkills;
 	List<String> Skills;
 	List<String> Locations;
 	List<String> Positions;

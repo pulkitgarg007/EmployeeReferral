@@ -7,6 +7,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	$scope.primarySkills ={};
 	$scope.devskills = {};
 	$scope.qeskills = {};
+	$scope.seskills = {};
 	$scope.selectedDesignation = "";
 	$scope.selectedExperience = "";
 	$scope.selectedLocation = "";
@@ -22,6 +23,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	var Experience_URL = base_url + '/EmployeeReferral/resources/skill/experience';
 	var DeveloperSkills_URL = base_url + '/EmployeeReferral/resources/skill/developerskills';
 	var QESkills_URL = base_url + '/EmployeeReferral/resources/skill/qeskills';
+	var SESkills_URL = base_url + '/EmployeeReferral/resources/skill/seskills';
 	var Location_URL = base_url + '/EmployeeReferral/resources/skill/location';
 	$scope.data = {};
 	$scope.options = {};
@@ -61,6 +63,13 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	
 	$http.get(QESkills_URL).success(function(data, status, headers, config) {
 		$scope.qeskills = data;
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
+	$http.get(SESkills_URL).success(function(data, status, headers, config) {
+		$scope.seskills = data;
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -123,7 +132,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 			$scope.position.primarySkills = $scope.qeskills;
 		}
 		else{
-			$scope.position.primarySkills = {};
+			$scope.position.primarySkills = $scope.seskills;
 		}
 	}
 }]);
