@@ -32,6 +32,7 @@ import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.nisum.employee.ref.controller.MongoConfig;
 import com.nisum.employee.ref.domain.Candidate;
+import com.nisum.employee.ref.domain.Position;
 import com.nisum.employee.ref.service.CandidateService;
 
 
@@ -49,7 +50,8 @@ public class CandidateController {
 	@ResponseBody
 	public ResponseEntity<?> registerUser(@RequestBody Candidate candidate) {
 		candidateService.prepareCandidate(candidate); 
-		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
+		//return new ResponseEntity<String>("Request Success", HttpStatus.OK);
+		return new ResponseEntity<Candidate>(candidate, HttpStatus.OK);
 	}
 	
 	

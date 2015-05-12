@@ -15,7 +15,6 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	$scope.devskills = {};
 	$scope.qeskills = {};
 	$scope.seskills = {};
-	$scope.client = {};
 	$scope.selectedDesignation = "";
 	$scope.selectedExperience = "";
 	$scope.selectedLocation = "";

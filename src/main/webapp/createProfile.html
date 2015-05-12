@@ -26,6 +26,18 @@
 </head>
 <body>
 <h1><b>Profile Management - Create</b></h1><br>
+<!-- ----------------------------------alert Message--------------------------------------------------------- -->
+            <div class="bs-example">
+               <div style="width:990px;display:none" class="alert alert-success" id="success-alert">
+	               <a href="" class="close" data-dismiss="alert">&times;</a>
+	               <strong>Success!</strong> Position Details Stored Successfully!
+               </div>
+               <div style="width:1050px;display:none" class="alert alert-danger" id="fail-alert">
+	               <a href="" class="close" data-dismiss="alert">&times;</a>
+	               <strong>Failed!</strong> Try again.
+               </div>
+               
+<!-- ----------------------------------alert Message--------------------------------------------------------- -->
 <div id="wrapper">
 <center>
 <div class="main">
@@ -87,12 +99,11 @@
 				<td id="tdid" class="tableTd">
 				<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine }">
-							<label class="lbl" class="positionName" for="selectbasic">Position
-								Name</label>
+							<label class="lbl" class="positionName" for="selectbasic">Employee's Position:</label>
 				</td>
 						<td id="tdid">
-						<select id="selectbasic" name="positionName" ng-change="changeEvent()"
-									ng-model="selectedPosition" class="form-control" required style="color: black" ng-options = "o as o for o in options">
+						<select name="pso" ng-change="changeEvent()" placeholder="Select Emp Position"
+									ng-model="selectedempPosition" ng-options = "o as o for o in empPositions" class="form-control input-sm" id="location" required style="color: black">
 								</select>
 							</td>
 						</div>
@@ -225,7 +236,6 @@
        			 </a>
 				</td>
 				</tr>
-	
               	</table>
               	
             	</form>

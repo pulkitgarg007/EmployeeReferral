@@ -1,6 +1,7 @@
 app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, $upload , $window) {
 	
-	$scope.enableDisbleButton = true;
+	$scope.candidate = {};
+	$scope.disableRegister = true;
 	var uploadedFileName = null;
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/fileUpload';
@@ -8,6 +9,20 @@ app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, 
 	$scope.options = {};
 	$scope.selectedPosition = "";
 	var uploadedFile = null;
+
+	$scope.selectedempPosition = "";
+	$scope.candidate.positionName = "";
+	var empPosition_URL = base_url + '/EmployeeReferral/resources/skill/empPosition';
+	$scope.empPositions = {};
+	
+	$http.get(empPosition_URL).success(function(data, status, headers, config) {
+		$scope.empPositions = data;
+		$scope.selectedempPosition = $scope.empPositions[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
 	
 	$http.get(Position_URL).success(function(data, status, headers, config) {
 		$scope.position = data;
@@ -18,7 +33,15 @@ app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, 
 	
 	 $scope.submit = function() {
 		    if($scope.candidate !== undefined){
-		    	$http.post(base_url+'/EmployeeReferral/resources/candidate-create ', $scope.candidate);
+		    	$scope.candidate.positionName = $scope.selectedempPosition;
+		    	$http.post(base_url+'/EmployeeReferral/resources/candidate-create ', $scope.candidate).
+		    	success(function(data, status, headers, config) {
+				    document.getElementById("success-alert").style.display = "block";
+				  }).
+				  error(function(data, status, headers, config) {
+					  console.log("Failed!!! ---> "+data);
+					  document.getElementById("fail-alert").style.display = "block";
+				  });
 		        $scope.uploadFileIntoDB($scope.uploadedFile);
 		    }
 		  }
@@ -56,5 +79,12 @@ app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, 
 		$scope.uploadedFileName = files[0].name;
 		$scope.uploadedFile = files;
 	};
+	
+	$scope.changeEvent = function(){
+		if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '' || $scope.candidate.qualification == null || $scope.candidate.qualification == '' || $scope.candidate.emailId == null || $scope.candidate.emailId == '' || $scope.candidate.skills == null || $scope.candidate.skills == '' || $scope.candidate.mobileNo == null || $scope.candidate.mobileNo == '' || $scope.candidate.presentLocation == null || $scope.candidate.presentLocation == '' || $scope.candidate.experience == null || $scope.candidate.experience == '')
+		$scope.disableRegister = true;
+	else
+		$scope.disableRegister = false;
+	}
 	
 }]);
