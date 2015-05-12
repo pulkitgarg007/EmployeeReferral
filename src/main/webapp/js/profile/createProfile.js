@@ -1,5 +1,4 @@
-var app = angular.module("erApp", []);
-app.controller("createCandidateCtrl", ['$scope', '$http', function($scope, $http, $upload , $window) {
+app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, $upload , $window) {
 	
 	$scope.enableDisbleButton = true;
 	var uploadedFileName = null;

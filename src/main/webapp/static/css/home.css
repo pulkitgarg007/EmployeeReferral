@@ -137,7 +137,7 @@ textarea
 	font-weight:bold;
 }
 
-#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #experience{
+#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #experience, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId{
 	width:250px;
 }
 .tableTd{
