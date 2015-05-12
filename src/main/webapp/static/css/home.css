@@ -70,7 +70,7 @@ textarea
     height: 318px
 }
 
-#designations, #name{
+#designations, #candidateName{
 	color: black;
 	position:absolute;
 	left:30px;

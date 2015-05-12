@@ -17,7 +17,7 @@ public class Candidate extends AuditEntity{
 	String skills;
 	String experience;
 	String uploadedFileName;
-	int mobileNo;
+	String mobileNo;
 	String presentLocation;
 	String pancardNo;
 	String passportNo;

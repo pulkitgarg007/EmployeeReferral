@@ -1,7 +1,8 @@
-var app = angular.module('erApp', ['ngGrid']);
-app.controller('searchCandidateCtrl',['$scope', '$http','$q', '$window', function($scope, $http, $q, $window) {
-
+app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window', function($scope, $http, $q, $window) {
+	
+	$scope.srchproDis = true;
 	$scope.enableDisbleButton = true;
+	$scope.approveBtnDisable = true;
 	$scope.data = {};
 	$scope.searchCandidate = function() {
 		$scope.loading = true;
@@ -28,16 +29,14 @@ app.controller('searchCandidateCtrl',['$scope', '$http','$q', '$window', functio
    		 footerVisible: false,
    		 footerTemplate:false,
    		 columnDefs: [
-		    {field:'candidateName', displayName:'Name', width: "100", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editCandidate(row)">{{row.getProperty(\'candidateName\')}}</a></div>'}, 
-		    {field:'emailId', displayName:'Email-ID', width: "130"}, 
+		    {field:'candidateName', displayName:'Name', width: "120", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editCandidate(row)">{{row.getProperty(\'candidateName\')}}</a></div>'}, 
+		    {field:'emailId', displayName:'Email-ID', width: "144"}, 
 		    {field:'qualification', displayName:'Qualification', width: "100"}, 
-		    {field:'positionName', displayName:'Position', width: "100"}, 
-   			{field:'skills', displayName:'Skills', width: "200"},
-   			{field:'experience', displayName:'Experience', width: "100"}, 
+		    {field:'positionName', displayName:'Position', width: "170"}, 
+   			{field:'skills', displayName:'Skills', width: "150"},
+   			{field:'experience', displayName:'Experience', width: "80"}, 
    			{field:'mobileNo', displayName:'Mobile No', width: "100"},
-   			{field:'presentLocation', displayName:'Current Location', width: "100"}, 
-   			{field:'pancardNo', displayName:'Pancard No', width: "100"},
-   			{field:'passportNo', displayName:'Passport No', width: "110"}
+   			{field:'presentLocation', displayName:'Current Location', width: "120"}
    		    ]
     };
 	$scope.editCandidate = function(row) {

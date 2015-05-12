@@ -26,9 +26,21 @@ app.config( ['$routeProvider', function($routeProvider) {
 					templateUrl: 'editPosition.html',
 					controller: 'editPositionCtrl'
 				})
+				.when('/pro', {
+					templateUrl: 'searchProfile.html',
+					controller: 'searchProfileCtrl'
+				})
+				.when('/createProfile', {
+					templateUrl: 'createProfile.html',
+					controller: 'createProfileCtrl'
+				})
+				.when('/editProfile', {
+					templateUrl: 'editProfile.html',
+					controller: 'editProfileCtrl'
+				})/*
 				.otherwise({
 					redirectTo: '/pos'
-				});
+				})*/;
 }]);
 
 app.controller('positionCtrl',['$scope', '$http', function($scope, $http) {

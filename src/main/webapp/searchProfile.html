@@ -10,7 +10,7 @@
 <script src="lib/angular/js/ng-grid.debug.js"></script>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="lib/angular/css/ng-grid.css" />
-<script type="text/javascript" src="js/searchCandidate.js"></script>
+<script src="js/profile/searchProfile.js"></script>
 <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="static/css/home.css" rel="stylesheet">
 <link href="lib/bootstrap/font/google_font.css" rel="stylesheet">
@@ -25,12 +25,8 @@
    
 </head>
 <body>
-
+<h1><b>Profile Management - Search</b></h1><br>
 <div id="wrapper">
-
-<!------------------------------------------------------ keep header here ---------------------------------------------->
-                                            <div ng-include="'header.html'"></div>
-<!------------------------------------------------------ --------------------------------------------------------------->
 <center>
 <div class="main">
   <div class="main-inner">
@@ -40,29 +36,41 @@
         
        <div class="widget widget-table action-table">
             <div class="form-container"><br>
-            
-              <center><h1>Search Candidate</h1><br></center><br>
-            
-      
-           
-     
+          
            <form action="#" name="createPosition" onvalidate>
               	<form id="integerForm" role="form" class="form-horizontal">
+              	
+              	
+              	
+              	
+              	
               	<table border="0" cellpadding="4">
+              	
               	<tr><td>
               	<div class="control-group">
 						<input type="text"
-							name="candidateName" class="form-control" id="candidateName"
-							placeholder="Enter Name" ng-model="candidate.candidateName" ng-change="changeEvent()" 
+							name="candidateName" class="form-control" id="candidateName" style="position:absolute;top:35px;left:30px;"
+							placeholder="Enter Name" ng-model="candidate.candidateName" ng-change="srchproDis=false" 
 							name="candidateName" required>
-					</div></td>
-					<td><div class="control-group">
-						<input type="button" class="btn btn-info" id="searcCanhBtn"
-							ng-click="searchCandidate()" value="Search" name="get" ng-disabled="enableDisbleButton"
-							align="center" style="margin-left:-60%;margin-top:9%;" />
-					</div></td></tr>
-              		
+					</div></td><td>
+					<a href="" id="searchBtn" ng-disabled="srchproDis" class="btn btn-success" ng-click="searchCandidate()">
+         		 <span class="glyphicon glyphicon-search" style="position:aboslute;top:1px;"></span> Search
+       			 </a>
+				</td>
+				<td>
+				<a id="rsBtn" href="#createProfile" class="btn btn-success">
+         		 <span class="glyphicon glyphicon-plus" style="position:aboslute;top:1px;"></span> Create
+       			 </a>
+				</td>
+				<td>
+				<a id="approveBtn" href="" class="btn btn-success" ng-disabled="approveBtnDisable">
+         		 <span class="glyphicon glyphicon-ok" style="position:aboslute;top:1px;"></span> Approve
+       			 </a>
+
+				</td>
+				</tr>		
               	</table>
+              	<br><br><br>
               	<div class="gridStyle" ng-grid="gridOptions"></div>
             	</form>
             </form>
@@ -83,12 +91,6 @@
 </div>
 
 <!-- /main -->
-
-<!------------------------------------------------------ keep footer here ---------------------------------------------->
-                                            <div ng-include="'footer.html'">footer</div>
-<!----------------------------------------------------------------------- ---------------------------------------------->
-
-
 </div>
 </center>
 </body>
