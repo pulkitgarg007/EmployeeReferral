@@ -31,7 +31,7 @@
 <!------------------------------------------------------ keep header here ---------------------------------------------->
   <!--                                           <div ng-include="'header.html'"></div> -->
 <!------------------------------------------------------ --------------------------------------------------------------->
-<h1><b>Position Management - Edit</b></h1><br>
+<h1><b>Position Management - Edit jobcode: <span ng-bind="position.jobcode"></span></b></h1><br>
 <center>
 <div class="main">
   <div class="main-inner">
@@ -55,24 +55,22 @@
 									ng-model="position.selectedDesignation" ng-disabled="enableDisableButton" ng-options = "o as o for o in options" class="form-control input-sm" ng-init="enableDisableButton=true" id="designation" required style="color: black">
 								</select></div>
 				</td>
-				<td class="tableTd">
-				<div class="control-group"
-								ng-class="{ 'has-error' : createPosition.jobcode.$invalid && !createPosition.jobcode.$pristine }">
-								<label class="lbl" for="jobcode">Job Code*:</label>
-								
-								</td>
-				<td class="tableTd">
-				<input type="text" name="jobcode"
-									class="form-control input-sm" ng-init="enableDisableButton=true" id="jobcode" ng-change="changeEvent()" 
-									ng-model="position.jobcode" ng-disabled="enableDisableButton" placeholder="Enter Job Code" required>
-				</div></td>
+				<td id="tdid" class="tableTd">
+				<div class="control-group" ng-class="{'has-error' :createPosition.location.$invalid && !createPosition.location.$pristine}">
+								<label class="lbl" for="name">Location :</label>
+				</td>
+				<td id="tdid" class="tableTd">
+				<select name="location" ng-change="changeEvent()" placeholder="Select Location"
+									ng-model="selectedLocation" ng-options = "o as o for o in locations" class="form-control input-sm" id="location" required style="color: black">
+								</select>
+				</td>
 				</tr>
 				
 				<tr>
 				<td></td><td><span ng-show="createPosition.designation.$invalid  && !createPosition.designation.$pristine"
 									class="help-block">Enter Correct Designation.</span></td>
-									<td></td><td><span ng-show="createPosition.jobcode.$invalid  && !createPosition.jobcode.$pristine"
-									class="help-block">Job is required.</span></td></tr>
+									<td></td><td><span ng-show="createPosition.selectedLocation.$invalid  && !createPosition.selectedLocation.$pristine"
+									class="help-block">location is required.</span></td></tr>
 				<tr>
 				<td id="tdid" class="tableTd">
 				<div class="control-group"
@@ -85,15 +83,35 @@
 								</select>
 				</td>		
 				<td id="tdid" class="tableTd">
-				<div class="control-group" >
-						<label class="lbl" for="primarySkills">Primary Skills*:</label>
+				<div class="control-group" ng-class="{'has-error' :createPosition.client.$invalid && !createPosition.client.$pristine}">
+								<label class="lbl" for="name">Client :</label>
+								</div>
 				</td>
 				<td id="tdid" class="tableTd">
-				<tags-input ng-model="position.primarySkills" ng-disabled="enableDisableButton" class="field-control" placeholder="Enter Skills"> <auto-complete id="sk"
-							source="loadTags($query)" class="field-control" ng-init="enableDisableButton=true"></auto-complete> </tags-input>
-				</td></tr>
+				<input type="text" name="client" ng-change="changeEvent()" 
+									class="form-control input-sm" id="client" ng-init="enableDisableButton=true" ng-model="position.client"
+									ng-disabled="enableDisableButton" ng-pattern="/^[a-zA-Z _]*$/" 
+									placeholder="Enter Client" required>
+				</td>
+				<tr>
+				<td></td><td><span ng-show="createPosition.client.$invalid  && !createPosition.client.$pristine"
+									class="help-block">Enter Correct Client.</span></td><td></td><td></td></tr>
+				</tr>
 				
 				<tr>
+				<td id="tdid" class="tableTd">
+				<div class="ui-widget control-group"
+							ng-class="{ 'has-error' : createPosition.primarySkills.$invalid && !createPosition.primarySkills.$pristine }">
+							<label class="lbl" for="secondarySkills">Primary Skills :</label>
+				</td>			
+				<td id="tdid" class="tableTd">
+				<input
+								id="secondarySkills" ng-change="changeEvent()" name="primarySkills"
+								class="form-control input-sm" ng-init="enableDisableButton=true" ng-model="position.primarySkills" ng-disabled="enableDisableButton"
+								ng-pattern="/^[a-zA-Z _]*$/" 
+								placeholder="Enter primary Skills" required>
+				</div>
+				</td>
 				<td id="tdid" class="tableTd">
 				<div class="ui-widget control-group"
 							ng-class="{ 'has-error' : createPosition.secondarySkills.$invalid && !createPosition.secondarySkills.$pristine }">
@@ -106,6 +124,19 @@
 								ng-pattern="/^[a-zA-Z _]*$/" 
 								placeholder="Enter Secondary Skills" required>
 				</div></td>	
+				
+				</tr>
+							
+				<tr>					
+				<td id="tdid" class="tableTd">
+				<div class="control-group" ng-class="{'has-error' :createPosition.jobProfile.$invalid && !createPosition.jobProfile.$pristine}">
+								<label class="lbl" for="name">Job Description*:</label>
+				</td>
+				<td id="tdid" class="tableTd">
+				<textarea cols="50" rows="5" ng-change="changeEvent()" name="jobProfile"
+									id="jobProfile" ng-init="enableDisableButton=true" ng-model="position.jobProfile"
+									ng-disabled="enableDisableButton" placeholder="Enter Job Profile" required></textarea>
+				</td>
 				<td id="tdid" class="tableTd">
 				<div class="control-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
 								<label class="lbl" for="name">No of Positions :</label>
@@ -118,50 +149,11 @@
 									placeholder="Enter No of Positions" ng-maxlength="10" required>
 				</td></tr>
 				<tr>
-				<td></td><td><span
-								ng-show="createPosition.secondarySkills.$invalid  && !createPosition.secondarySkills.$pristine"
-								class="help-block">Enter Correct Secondary Skills.</span></td><td></td><td><span ng-show="createPosition.noOfPositions.$invalid  && !createPosition.noOfPositions.$pristine"
-									class="help-block">Enter Valid Number</span></td></tr>	
-									
-				<tr>					
-				<td id="tdid" class="tableTd">
-				<div class="control-group" ng-class="{'has-error' :createPosition.jobProfile.$invalid && !createPosition.jobProfile.$pristine}">
-								<label class="lbl" for="name">Job Description*:</label>
-				</td>
-				<td id="tdid" class="tableTd">
-				<textarea cols="50" rows="5" ng-change="changeEvent()" name="jobProfile"
-									id="jobProfile" ng-init="enableDisableButton=true" ng-model="position.jobProfile"
-									ng-disabled="enableDisableButton" placeholder="Enter Job Profile" required></textarea>
-				</td>
-				<td id="tdid" class="tableTd">
-				<div class="control-group" ng-class="{'has-error' :createPosition.location.$invalid && !createPosition.location.$pristine}">
-								<label class="lbl" for="name">Location :</label>
-				</td>
-				<td id="tdid" class="tableTd">
-				<select name="location" ng-change="changeEvent()" placeholder="Select Location"
-									ng-model="selectedLocation" ng-disabled="enableDisableButton" ng-options = "o as o for o in locations" class="form-control input-sm" ng-init="enableDisableButton=true" id="location" required style="color: black">
-								</select>
-				</td></tr>
-				<tr>
 				<td></td><td><span ng-show="createPosition.jobProfile.$invalid  && !createPosition.jobProfile.$pristine"
 									class="help-block">Job Description is required.</span></td>
 				<td></td><td><span ng-show="createPosition.location.$invalid  && !createPosition.location.$pristine" class="help-block">Enter Correct Location.</span></td></tr>
 				
-				<tr>		
-				<td id="tdid" class="tableTd">
-				<div class="control-group" ng-class="{'has-error' :createPosition.client.$invalid && !createPosition.client.$pristine}">
-								<label class="lbl" for="name">Client :</label>
-				</td>
-				<td id="tdid" class="tableTd">
-				<input type="text" name="client" ng-change="changeEvent()" 
-									class="form-control input-sm" id="client" ng-init="enableDisableButton=true" ng-model="position.client"
-									ng-disabled="enableDisableButton" ng-pattern="/^[a-zA-Z _]*$/" 
-									placeholder="Enter Client" required>
-				</td>
-				<td></td><td></td></tr>
 				<tr>
-				<td></td><td><span ng-show="createPosition.client.$invalid  && !createPosition.client.$pristine"
-									class="help-block">Enter Correct Client.</span></td><td></td><td></td></tr>
 								
               	<tr>
               	<td></td>
