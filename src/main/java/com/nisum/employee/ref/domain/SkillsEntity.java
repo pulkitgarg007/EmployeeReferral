@@ -21,5 +21,6 @@ public class SkillsEntity {
 	List<String> Locations;
 	List<String> Positions;
 	List<String> UserRoles;
+	List<String> Client;
 	
 }
