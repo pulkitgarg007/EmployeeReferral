@@ -55,11 +55,11 @@
 									ng-model="position.selectedDesignation" ng-disabled="enableDisableButton" ng-options = "o as o for o in options" class="form-control input-sm" ng-init="enableDisableButton=true" id="designation" required style="color: black">
 								</select></div>
 				</td>
-				<td id="tdid" class="tableTd">
+				<td class="tableTd">
 				<div class="control-group" ng-class="{'has-error' :createPosition.location.$invalid && !createPosition.location.$pristine}">
 								<label class="lbl" for="name">Location :</label>
 				</td>
-				<td id="tdid" class="tableTd">
+				<td class="tableTd">
 				<select name="location" ng-change="changeEvent()" placeholder="Select Location"
 									ng-model="selectedLocation" ng-options = "o as o for o in locations" class="form-control input-sm" id="location" required style="color: black">
 								</select>
@@ -159,13 +159,13 @@
               	<td></td>
               	<td id="tdid" class="tableTd">
               	<div class="control-group">
-              	<a href="" class="btn btn-info btn-lg" ng-click="editPosition()">
+              	<a href="" class="btn btn-success" ng-click="editPosition()">
          		 <span class="glyphicon glyphicon-edit"></span> Edit
        			 </a>
-       			 <a href="" class="btn btn-info btn-lg" ng-click="updatePositionDetails()">
+       			 <a href="" class="btn btn-success" ng-click="updatePositionDetails()">
          		 <span class="glyphicon glyphicon-ok"></span> Update
        			 </a>
-				<a href="#pos" class="btn btn-info btn-lg">
+				<a href="#pos" class="btn btn-success">
          		 <span class="glyphicon glyphicon-remove"></span> Cancel
        			 </a>
 							</div>

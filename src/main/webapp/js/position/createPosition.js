@@ -1,12 +1,13 @@
 app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http) {
 	$scope.jbDisabled = true;
+	$scope.disLocation = true;
     $scope.position ={};
     $scope.disableRegister = true;
     
-    var dev = "DEV";
-    var qe = "QE";
-    var se = "SE";
-	var ran = Math.floor((Math.random()*999)+1);
+    var ran = Math.floor((Math.random()*999)+1);
+    var desgn = "";
+    var sclient = "";
+    var sloc = "";
    
 	$scope.position.primarySkills = {};
 	
@@ -147,37 +148,92 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	
 	$scope.changeDesignation = function(){
 		if($scope.selectedDesignation == "Developer"){
-			var dt = new Date();
-			var curr_date = dt.getDate();
-		    var curr_month = dt.getMonth() + 1; //Months are zero based
-		    var curr_year = dt.getFullYear();
-		    var curr_hour = dt.getHours();
-		    var curr_min = dt.getMinutes();
-		    var curr_sec = dt.getSeconds();
+			desg = "DEV";
+			if($scope.selectedClient != "Select Client"){
+				$scope.disLocation = false;
+			}else{
+				$scope.disLocation = true;
+			}
 		$scope.position.primarySkills = $scope.devskills;
-		$scope.position.jobcode = dev + "_" + ran + "_" + curr_date + "-" + curr_month + "-" + curr_year + "_" + curr_hour + "-" + curr_min + "-" + curr_sec;
 		}
 		else if ($scope.selectedDesignation == "Quality Engineer"){
-			var dt = new Date();
-			var curr_date = dt.getDate();
-		    var curr_month = dt.getMonth() + 1; //Months are zero based
-		    var curr_year = dt.getFullYear();
-		    var curr_hour = dt.getHours();
-		    var curr_min = dt.getMinutes();
-		    var curr_sec = dt.getSeconds();
+			desg = "QE";
+			if($scope.selectedClient != "Select Client"){
+				$scope.disLocation = false;
+			}else{
+				$scope.disLocation = true;
+			}
 			$scope.position.primarySkills = $scope.qeskills;
-			$scope.position.jobcode = qe + "_" + ran + "_" + curr_date + "-" + curr_month + "-" + curr_year + "_" + curr_hour + "-" + curr_min + "-" + curr_sec;
+		}
+		else if($scope.selectedDesignation == "Select Designation"){
+			$scope.disLocation = true;
 		}
 		else{
-			var dt = new Date();
-			var curr_date = dt.getDate();
-		    var curr_month = dt.getMonth() + 1; //Months are zero based
-		    var curr_year = dt.getFullYear();
-		    var curr_hour = dt.getHours();
-		    var curr_min = dt.getMinutes();
-		    var curr_sec = dt.getSeconds();
+			desg = "SE";
+			if($scope.selectedClient != "Select Client"){
+				$scope.disLocation = false;
+			}else{
+				$scope.disLocation = true;
+			}
 			$scope.position.primarySkills = $scope.seskills;
-			$scope.position.jobcode = se + "_" + ran + "_" + curr_date + "-" + curr_month + "-" + curr_year + "_" + curr_hour + "-" + curr_min + "-" + curr_sec;
 		}
 	}
+	
+	$scope.changeClient = function(){
+		if($scope.selectedClient == "GAP"){
+			sclient = "GAP";
+			if($scope.selectedDesignation != "Select Designation"){
+				$scope.disLocation = false;
+			}else{
+				$scope.disLocation = true;
+			}
+		}
+		else if($scope.selectedClient == "Macys"){
+			sclient = "Macys";
+			if($scope.selectedDesignation != "Select Designation"){
+				$scope.disLocation = false;
+			}else{
+				$scope.disLocation = true;
+			}
+		}
+		else if($scope.selectedClient == "Select Client"){
+			$scope.disLocation = true;
+		}
+		else{
+			sclient = "Others";
+			if($scope.selectedDesignation != "Select Designation"){
+				$scope.disLocation = false;
+			}else{
+				$scope.disLocation = true;
+			}
+		}
+	}
+	
+	$scope.changeLocation = function(){
+		if($scope.selectedLocation == "Hyderabad"){
+			sloc = "HYD";
+			var dt = new Date();
+			var curr_date = dt.getDate();
+		    var curr_month = dt.getMonth() + 1;
+		    var curr_year = dt.getFullYear();
+		    $scope.position.jobcode = desg + "_" + sclient + "_" + sloc + "_" + curr_date + curr_month + curr_year + "_" + ran;
+		}
+		else if($scope.selectedLocation == "Pune"){
+			sloc = "PUNE";
+			var dt = new Date();
+			var curr_date = dt.getDate();
+		    var curr_month = dt.getMonth() + 1;
+		    var curr_year = dt.getFullYear();
+		    $scope.position.jobcode = desg + "_" + sclient + "_" + sloc + "_" + curr_date + curr_month + curr_year + "_" + ran;
+		}
+		else if($scope.selectedLocation == "Bengaluru"){
+			sloc = "BLG";
+			var dt = new Date();
+			var curr_date = dt.getDate();
+		    var curr_month = dt.getMonth() + 1;
+		    var curr_year = dt.getFullYear();
+		    $scope.position.jobcode = desg + "_" + sclient + "_" + sloc + "_" + curr_date + curr_month + curr_year + "_" + ran;
+		}
+	}
+	
 }]);

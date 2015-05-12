@@ -76,7 +76,7 @@ textarea
 	left:30px;
 	top:72px;
 	width:153px;
-	height:30px;
+	height:32px;
 }
 
 #candidateName{
@@ -93,7 +93,6 @@ textarea
 	width:90px;
 	/* border-top-left-radius:2px;
 	border-bottom-left-radius:2p */x;
-	height:30.5px;
 }
 
 
@@ -161,4 +160,8 @@ textarea
 	background:black;
 	width:100%;
 	height:10%;
+}
+
+.ngRowCountPicker{
+	display: none;
 }
