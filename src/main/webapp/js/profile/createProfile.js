@@ -1,7 +1,7 @@
 app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, $upload , $window) {
 	
 	$scope.candidate = {};
-	$scope.disableRegister = true;
+	$scope.disableProBtn = true;
 	var uploadedFileName = null;
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/fileUpload';
@@ -9,20 +9,6 @@ app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, 
 	$scope.options = {};
 	$scope.selectedPosition = "";
 	var uploadedFile = null;
-
-	$scope.selectedempPosition = "";
-	$scope.candidate.positionName = "";
-	var empPosition_URL = base_url + '/EmployeeReferral/resources/skill/empPosition';
-	$scope.empPositions = {};
-	
-	$http.get(empPosition_URL).success(function(data, status, headers, config) {
-		$scope.empPositions = data;
-		$scope.selectedempPosition = $scope.empPositions[0];
-		
-	}).error(function(data, status, headers, config) {
-		alert('error');
-	})
-	
 	
 	$http.get(Position_URL).success(function(data, status, headers, config) {
 		$scope.position = data;
@@ -31,9 +17,38 @@ app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, 
 		alert('error');
 	})
 	
+	$scope.selectedQualification = "";
+	$scope.candidate.qualification = "";
+	var qualification_URL = base_url + '/EmployeeReferral/resources/skill/qualification';
+	$scope.qualifications = {};
+	
+	$scope.selectedpLocation = "";
+	$scope.candidate.plocation = "";
+	var plocation_URL = base_url + '/EmployeeReferral/resources/skill/plocation';
+	$scope.plocations = {};
+	
+	
+	$http.get(qualification_URL).success(function(data, status, headers, config) {
+		$scope.qualifications = data;
+		$scope.selectedQualification = $scope.qualifications[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
+	$http.get(plocation_URL).success(function(data, status, headers, config) {
+		$scope.plocations = data;
+		$scope.selectedpLocation = $scope.plocations[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
+	
 	 $scope.submit = function() {
 		    if($scope.candidate !== undefined){
-		    	$scope.candidate.positionName = $scope.selectedempPosition;
+		    	$scope.candidate.qualification = $scope.selectedQualification;
+		    	$scope.candidate.plocation = $scope.selectedpLocation;
 		    	$http.post(base_url+'/EmployeeReferral/resources/candidate-create ', $scope.candidate).
 		    	success(function(data, status, headers, config) {
 				    document.getElementById("success-alert").style.display = "block";
@@ -41,13 +56,13 @@ app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, 
 				  error(function(data, status, headers, config) {
 					  console.log("Failed!!! ---> "+data);
 					  document.getElementById("fail-alert").style.display = "block";
-				  });
+				  });;
 		        $scope.uploadFileIntoDB($scope.uploadedFile);
 		    }
 		  }
 	 
 	 $scope.changeEvent = function(){
-			if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '' || $scope.candidate.qualification == null || $scope.candidate.qualification == '' || $scope.candidate.emailId == null || $scope.candidate.emailId == '' || $scope.candidate.positionName == null || $scope.candidate.positionName == '' || $scope.candidate.skills == null || $scope.candidate.skills == '' || $scope.candidate.mobileNo == null || $scope.candidate.mobileNo == '' ||  $scope.candidate.presentLocation == null || $scope.candidate.presentLocation == '' || $scope.candidate.pancardNo == null || $scope.candidate.pancardNo == '' || $scope.candidate.experience == null || $scope.candidate.experience == '' || $scope.candidate.passportNo == null || $scope.candidate.passportNo == '')	
+			if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '' || $scope.candidate.qualification == null || $scope.candidate.qualification == '' || $scope.candidate.emailId == null || $scope.candidate.emailId == '' || $scope.candidate.positionName == null || $scope.candidate.positionName == '' || $scope.candidate.skills == null || $scope.candidate.skills == '' || $scope.candidate.mobileNo == null || $scope.candidate.mobileNo == '' ||  $scope.candidate.presentLocation == null || $scope.candidate.presentLocation == '' || $scope.candidate.pancardNo == null || $scope.candidate.pancardNo == '' || $scope.candidate.experience == null || $scope.candidate.experience == '' || $scope.candidate.passportNo == null || $scope.candidate.passportNo == '' || $scope.candidate.address == null || $scope.candidate.address == '')	
 	    	$scope.enableDisbleButton = true;
 		else
 			$scope.enableDisbleButton = false;
@@ -80,11 +95,13 @@ app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, 
 		$scope.uploadedFile = files;
 	};
 	
-	$scope.changeEvent = function(){
-		if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '' || $scope.candidate.qualification == null || $scope.candidate.qualification == '' || $scope.candidate.emailId == null || $scope.candidate.emailId == '' || $scope.candidate.skills == null || $scope.candidate.skills == '' || $scope.candidate.mobileNo == null || $scope.candidate.mobileNo == '' || $scope.candidate.presentLocation == null || $scope.candidate.presentLocation == '' || $scope.candidate.experience == null || $scope.candidate.experience == '')
-		$scope.disableRegister = true;
-	else
-		$scope.disableRegister = false;
+	$scope.toggleProDisable = function(){
+		if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '' || $scope.selectedQualification == "Select Qualification" || $scope.candidate.emailId == null || $scope.candidate.emailId == '' || $scope.candidate.mobileNo == null || $scope.candidate.mobileNo == '' || $scope.candidate.currentEmployer == null || $scope.candidate.currentEmployer == '' || $scope.candidate.experience == null || $scope.candidate.experience == '' || $scope.candidate.skills == null || $scope.candidate.skills == ''){
+			$scope.disableProBtn = true;
+		}
+		else{
+			$scope.disableProBtn = false;
+		}
 	}
 	
 }]);

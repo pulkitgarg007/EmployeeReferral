@@ -139,7 +139,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http)
 	$scope.submit();
 	
 	$scope.changeEvent = function(){
-		if($scope.position.jobcode == null || $scope.position.jobcode == '' || $scope.position.primarySkills == null || $scope.position.primarySkills == '' || $scope.position.secondarySkills == null || $scope.position.secondarySkills == '' || $scope.position.jobProfile == null || $scope.position.jobProfile == '' || $scope.position.noOfPositions == null || $scope.position.noOfPositions == '' || $scope.selectedDesignation == "Select Designation" || $scope.selectedExperience == "Select Experience" || $scope.selectedLocation == "Select Locations" || $scope.selectedClient == "Select Client")
+		if($scope.selectedDesignation == "Select Designation" || $scope.selectedClient == "Select Client" || $scope.selectedExperience == "Select Experience" || $scope.position.noOfPositions == null || $scope.position.noOfPositions == '' || $scope.position.jobProfile == null || $scope.position.jobProfile == '')
 		$scope.disableRegister = true;
 	else
 		$scope.disableRegister = false;

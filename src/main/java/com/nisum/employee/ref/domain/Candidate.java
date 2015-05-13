@@ -13,13 +13,16 @@ public class Candidate extends AuditEntity{
 	@Id
 	String emailId;
 	String qualification;
-	String positionName;
 	String skills;
 	String experience;
 	String uploadedFileName;
 	String mobileNo;
-	String presentLocation;
+	String pLocation;
 	String pancardNo;
 	String passportNo;
-
+	String stream;
+	String address;
+	String notes;
+	String altmobileNo;
+	String currentEmployer;
 }

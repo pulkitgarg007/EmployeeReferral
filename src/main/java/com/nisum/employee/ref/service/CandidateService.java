@@ -51,8 +51,8 @@ public class CandidateService {
 		update.set("mobileNo", candidate.getMobileNo());
 		update.set("pancardNo", candidate.getPancardNo());
 		update.set("passportNo", candidate.getPassportNo());
-		update.set("positionName", candidate.getPositionName());
-		update.set("presentLocation", candidate.getPresentLocation());
+		//update.set("positionName", candidate.getPositionName());
+		update.set("presentLocation", candidate.getPLocation());
 		update.set("skills", candidate.getSkills());
 		mongoOperations.updateFirst(updateQuery, update, Candidate.class);
 	}
