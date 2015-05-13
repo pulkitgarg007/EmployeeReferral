@@ -37,23 +37,19 @@
        <div class="widget widget-table action-table">
             <div class="form-container"><br>
           
-           <form action="#" name="createPosition" onvalidate>
+           <form action="#" name="searchProfile" onvalidate>
               	<form id="integerForm" role="form" class="form-horizontal">
-              	
-              	
-              	
-              	
-              	
               	<table border="0" cellpadding="4">
-              	
               	<tr><td>
-              	<div class="control-group">
-						<input type="text"
-							name="candidateName" class="form-control" id="candidateName" style="position:absolute;top:35px;left:30px;"
-							placeholder="Enter Name" ng-model="candidate.candidateName" ng-change="srchproDis=false" 
-							name="candidateName" required>
-					</div></td><td>
-					<a href="" id="searchBtn" ng-disabled="srchproDis" class="btn btn-success" ng-click="searchCandidate()">
+              	<div class="ui-widget control-group"
+							ng-class="{ 'has-error' : searchProfile.candidateName.$invalid && !searchProfile.candidateName.$pristine }">
+								<input name="candidateName" class="form-control input-sm" ng-change="searchDisable=false;disableSearch()" 
+								style="position:absolute;top:35px;"
+								id="candidateName" ng-model="candidate.candidateName" placeholder="Enter Name" required> <span
+								ng-show="searchProfile.candidateName.$invalid  && !searchProfile.candidateName.$pristine"
+								class="help-block" style="font: black">Candidate Name is Required</span>
+						</div></td><td>
+					<a href="" id="searchBtn" ng-disabled="searchDisable" class="btn btn-success" ng-click="searchCandidate()">
          		 <span class="glyphicon glyphicon-search" style="position:aboslute;top:1px;"></span> Search
        			 </a>
 				</td>
@@ -71,7 +67,7 @@
 				</tr>		
               	</table>
               	<br><br><br>
-              	<div class="gridStyle" ng-grid="gridOptions"></div>
+              	<div class="gridStyleProfile" ng-grid="gridOptions"></div>
             	</form>
             </form>
             </div>

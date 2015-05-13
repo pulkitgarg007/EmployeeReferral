@@ -70,6 +70,12 @@ textarea
     height: 318px
 }
 
+.gridStyleProfile{
+	border: 1px solid rgb(212,212,212);
+    width: 988px;
+    height: 318px
+}
+
 #designations, #candidateName{
 	color: black;
 	position:absolute;
@@ -77,13 +83,6 @@ textarea
 	top:72px;
 	width:153px;
 	height:32px;
-}
-
-#candidateName{
-	color: black;
-	position:absolute;
-	left:64px;
-	top:70px;
 }
 
 #searchBtn{
