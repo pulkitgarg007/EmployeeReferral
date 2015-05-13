@@ -1,4 +1,4 @@
-app.controller("createPositionCtrl", ['$scope', '$http', function($scope, $http) {
+app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($scope, $http, $upload) {
 	$scope.jbDisabled = true;
 	$scope.disLocation = true;
     $scope.position ={};
