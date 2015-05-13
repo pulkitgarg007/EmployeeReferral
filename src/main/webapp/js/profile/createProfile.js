@@ -1,4 +1,4 @@
-app.controller("createProfileCtrl", ['$scope', '$http', function($scope, $http, $upload , $window) {
+app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', function($scope, $http, $upload , $window) {
 	
 	$scope.candidate = {};
 	$scope.disableProBtn = true;

@@ -1,4 +1,4 @@
-var app = angular.module('erApp', ['ngTagsInput','ngGrid','ngRoute']);
+var app = angular.module('erApp', ['ngTagsInput','ngGrid','ngRoute','angularFileUpload']);
 app.service('jobCodeService1', function() {
 	var jobCode;
 	
