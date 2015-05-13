@@ -68,6 +68,13 @@ public class CandidateController {
 		candidateService.updateCandidate(candidate); 
 		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
 	}
+	@RequestMapping(value = "/deleteProfileBasedOnEmailId", method = RequestMethod.GET)
+	public ResponseEntity<?> deleteProfileBasedOnEmailId(@RequestParam(value = "emailId", required = true) String emailId) {
+		Candidate profileDetails = candidateService.deleteProfileBasedOnEmailId(emailId);
+		return (null == profileDetails) ? new ResponseEntity<String>( "profile are not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<Candidate>(profileDetails, HttpStatus.OK);
+	} 
+	
 	
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/fileUpload", method = RequestMethod.POST)

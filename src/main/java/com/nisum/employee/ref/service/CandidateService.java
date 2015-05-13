@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import com.nisum.employee.ref.domain.Candidate;
+import com.nisum.employee.ref.domain.Position;
 import com.nisum.employee.ref.domain.UserInfo;
 import com.nisum.employee.ref.repository.ICandidateRepository;
 
@@ -55,5 +56,13 @@ public class CandidateService {
 		update.set("presentLocation", candidate.getPresentLocation());
 		update.set("skills", candidate.getSkills());
 		mongoOperations.updateFirst(updateQuery, update, Candidate.class);
+	}
+  public Candidate deleteProfileBasedOnEmailId(String emailId) {
+		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").regex(emailId));
+		Candidate profileDetail = mongoOperations.findOne(query, Candidate.class);
+		mongoOperations.remove(profileDetail);
+		return profileDetail;
 	}
 }

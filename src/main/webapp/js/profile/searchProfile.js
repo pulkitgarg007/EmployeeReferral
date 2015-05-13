@@ -199,8 +199,9 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 		};
 		
 		$scope.deleteProfile = function(row) {
+			alert("hi");
 			window.console && console.log(row.entity);
-			var URL_DEL = base_url + '/EmployeeReferral/resources/deleteCandidateBasedOnEmail?emailId='+row.entity.emailId;
+			var URL_DEL = base_url + '/EmployeeReferral/resources/deleteProfileBasedOnEmailId?emailId='+row.entity.emailId;
 			$http.get(URL_DEL).success(function(data, status, headers, config) {
 				alert("Deleted!");	
 				location.href= "#pro"
