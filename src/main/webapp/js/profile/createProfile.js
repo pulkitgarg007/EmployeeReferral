@@ -6,17 +6,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	var uploadedFileName = null;
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/fileUpload';
-	var Position_URL = base_url + '/EmployeeReferral/resources/skill/position';
-	$scope.options = {};
-	$scope.selectedPosition = "";
 	var uploadedFile = null;
-	
-	$http.get(Position_URL).success(function(data, status, headers, config) {
-		$scope.position = data;
-		$scope.selectedPosition = $scope.options[0];
-	}).error(function(data, status, headers, config) {
-		alert('error');
-	})
 	
 	$scope.selectedQualification = "";
 	$scope.candidate.qualification = "";
@@ -128,12 +118,12 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		}
 	}
 	
-	$scope.startBlock = function() {
-	    blockUI.start();
+	/*$scope.startBlock = function() {
+		blockUI.start("My custom message");;
 
 	    $timeout(function() {
 	      blockUI.stop();
 	    }, 2000);
-	  };
+	  };*/
 	
 }]);

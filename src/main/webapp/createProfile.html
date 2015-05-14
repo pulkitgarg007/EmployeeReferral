@@ -21,10 +21,6 @@
 <link href="static/css/style.css" rel="stylesheet">
 <link href="static/css/dashboard.css" rel="stylesheet">
 <script src="lib/bootstrap/js/bootstrap.js"></script>
-<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 </head>
 <body>
 <h1><b>Profile Management - Create</b></h1><br>
@@ -108,9 +104,6 @@
 						<input type="text" ng-change="changeEvent()" ng-pattern="/^[a-zA-Z _]*$/"
 								name="stream" class="form-control" id="stream"
 								ng-model="candidate.stream" placeholder="Enter Stream" required></div>
-						<!-- <select name="pso" ng-change="changeEvent()" placeholder="Select Emp Position"
-									ng-model="selectedempPosition" ng-options = "o as o for o in empPositions" class="form-control input-sm" id="location" required style="color: black">
-								</select> -->
 							</td>
               	</tr>
               	<tr>
@@ -312,7 +305,6 @@
 				<td id="tdid" class="tableTd">
 				</td>
 				<td id="tdid" class="tableTd">
-				<input type="button" value="Block!!!" ng-click="startBlock()" />
 				</td>
 				</tr>
               	</table>
