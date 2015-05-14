@@ -1,6 +1,8 @@
 app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', function($scope, $http, $upload , $window) {
 	
+	$scope.profilecreatedBy = sessionStorage.userId;
 	$scope.candidate = {};
+	$scope.candidate.uploadedFileName = "";
 	$scope.disableProBtn = true;
 	var uploadedFileName = null;
 	var base_url = window.location.origin;
@@ -27,6 +29,11 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', func
 	var plocation_URL = base_url + '/EmployeeReferral/resources/skill/plocation';
 	$scope.plocations = {};
 	
+	$scope.selectedreferredBy = "";
+	$scope.candidate.referredBy = "";
+	var referredBy_URL = base_url + '/EmployeeReferral/resources/skill/referredBy';
+	$scope.referredBys = {};
+	
 	
 	$http.get(qualification_URL).success(function(data, status, headers, config) {
 		$scope.qualifications = data;
@@ -44,11 +51,29 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', func
 		alert('error');
 	})
 	
+	$http.get(referredBy_URL).success(function(data, status, headers, config) {
+		$scope.referredBys = data;
+		$scope.selectedreferredBy = $scope.referredBys[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
 	
 	 $scope.submit = function() {
 		    if($scope.candidate !== undefined){
+		    	var dt = new Date();
+		    	var curr_date = dt.getDate();
+		        var curr_month = dt.getMonth();
+		        var curr_year = dt.getFullYear();
+		        var timeStamp = curr_date + "-" + curr_month + "-" + curr_year;
+			    
+		    	$scope.candidate.profilecreatedBy = sessionStorage.userId;
 		    	$scope.candidate.qualification = $scope.selectedQualification;
 		    	$scope.candidate.plocation = $scope.selectedpLocation;
+		    	$scope.candidate.referredBy = $scope.selectedreferredBy;
+		    	$scope.candidate.profileTimeStamp = timeStamp;
+		    	$scope.candidate.uploadedFileName = $scope.candidate.emailId + "_" + $scope.uploadedFileName;
 		    	$http.post(base_url+'/EmployeeReferral/resources/candidate-create ', $scope.candidate).
 		    	success(function(data, status, headers, config) {
 				    document.getElementById("success-alert").style.display = "block";

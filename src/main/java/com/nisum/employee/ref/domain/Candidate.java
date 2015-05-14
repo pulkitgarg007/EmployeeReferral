@@ -25,4 +25,7 @@ public class Candidate extends AuditEntity{
 	String notes;
 	String altmobileNo;
 	String currentEmployer;
+	String profilecreatedBy;
+	String profileTimeStamp;
+	String referredBy;
 }

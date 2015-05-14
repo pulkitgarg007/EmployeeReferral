@@ -136,7 +136,7 @@ textarea
 	font-weight:bold;
 }
 
-#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #experience, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId, #stream, #altmobileNo, #currentEmployee, #plocation, #currentEmployer{
+#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #experience, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId, #stream, #altmobileNo, #currentEmployee, #plocation, #currentEmployer, #profilecreatedBy, #referredBy{
 	width:250px;
 }
 

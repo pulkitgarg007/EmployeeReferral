@@ -87,7 +87,8 @@ public class CandidateController {
 
 			metaData.put("extra1", "anything 1");
 
-			gridOperations.store(multipartFile.getInputStream(), multipartFile.getOriginalFilename(), multipartFile.getContentType(), metaData);
+			gridOperations.store(multipartFile.getInputStream(), "abc" + multipartFile.getOriginalFilename(), multipartFile.getContentType(), metaData);
+			//gridOperations.store(multipartFile.getInputStream(), "abc", multipartFile.getContentType(), metaData);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

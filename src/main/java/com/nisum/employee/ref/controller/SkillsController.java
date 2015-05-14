@@ -97,6 +97,13 @@ public class SkillsController {
         return (null == plocation) ? new ResponseEntity<String>("No skills found for the value ", HttpStatus.NOT_FOUND) : new ResponseEntity <ArrayList<String>>(plocation, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/referredBy",method = RequestMethod.GET)
+	public ResponseEntity<?> retrievereferredBy() {
+		ArrayList<SkillsEntity> skills = retrieveData();
+		ArrayList<String> referredBy = (ArrayList<String>) skills.get(0).getReferredBy();
+        return (null == referredBy) ? new ResponseEntity<String>("No skills found for the value ", HttpStatus.NOT_FOUND) : new ResponseEntity <ArrayList<String>>(referredBy, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value="/userrole",method = RequestMethod.GET)
 	public ResponseEntity<?> retrieveUserRole() {
 		ArrayList<SkillsEntity> skills = retrieveData();

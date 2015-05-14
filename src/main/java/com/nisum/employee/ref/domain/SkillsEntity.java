@@ -25,5 +25,6 @@ public class SkillsEntity {
 	List<String> empPosition;
 	List<String> qualification;
 	List<String> plocation;
+	List<String> referredBy;
 	
 }

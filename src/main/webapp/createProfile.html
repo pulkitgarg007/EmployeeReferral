@@ -278,15 +278,14 @@
 								
 				<tr>
               	<td id="tdid" class="tableTd">
+              	<label class="lbl" for="referredBy">Referred By*:</label>
 				</td>
-							<td id="tdid">
-							<a href="" class="btn btn-success" ng-click="submit()" ng-disabled="disableProBtn">
-         		 <span class="glyphicon glyphicon-ok-circle"></span> Register
-       			 </a>
-				<a href="#pro" class="btn btn-success">
-         		 <span class="glyphicon glyphicon-remove"></span> Cancel
-       			 </a>
-								</td>
+				<td id="tdid" class="tableTd">
+				<select name="referredBy" ng-change="toggleProDisable()" 
+									ng-model="selectedreferredBy" ng-options = "o as o for o in referredBys" class="form-control input-sm" id="referredBy" required style="color: black">
+								</select>	
+				</td>
+				
 							
 							<td id="tdid" class="tableTd">
 							<div class="control-group">
@@ -294,11 +293,22 @@
 								Resume:</label>
 								</td>
 								<td id="tdid" class="tableTd">
-							<input id="uploadFile" type="file" class="custom-file-input" ng-file-select="upload($files)"/> 
+							<input id="uploadFile" type="file" class="custom-file-input" ng-file-select="upload($files)"/> </div>
 								</td>
               	</tr>
           		<tr>
-				<td></td>
+				<td id="tdid" class="tableTd">
+				</td>
+				<td id="tdid" class="tableTd">
+				<a href="" class="btn btn-success" ng-click="submit()" ng-disabled="disableProBtn">
+         		 <span class="glyphicon glyphicon-ok-circle"></span> Register
+       			 </a>
+				<a href="#pro" class="btn btn-success">
+         		 <span class="glyphicon glyphicon-remove"></span> Cancel
+       			 </a>
+				</td>
+				<td id="tdid" class="tableTd">
+				</td>
 				<td id="tdid" class="tableTd">
 				</td>
 				</tr>
