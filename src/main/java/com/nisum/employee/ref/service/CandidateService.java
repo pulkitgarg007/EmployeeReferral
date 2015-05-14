@@ -39,6 +39,12 @@ public class CandidateService {
 		return candidateDetails;
 	}
   
+  public List<Candidate> retrieveAllProfiles() {
+		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
+		List<Candidate> profileDetails = mongoOperations.findAll(Candidate.class);
+		return profileDetails;
+	}
+  
   public void  updateCandidate(Candidate candidate){
 		MongoOperations mongoOperations = (MongoOperations)mongoTemplate;
 		Query updateQuery = new Query();

@@ -68,6 +68,7 @@ public class CandidateController {
 		candidateService.updateCandidate(candidate); 
 		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
 	}
+	
 	@RequestMapping(value = "/deleteProfileBasedOnEmailId", method = RequestMethod.GET)
 	public ResponseEntity<?> deleteProfileBasedOnEmailId(@RequestParam(value = "emailId", required = true) String emailId) {
 		Candidate profileDetails = candidateService.deleteProfileBasedOnEmailId(emailId);
@@ -75,7 +76,15 @@ public class CandidateController {
 				: new ResponseEntity<Candidate>(profileDetails, HttpStatus.OK);
 	} 
 	
-	
+	@RequestMapping(value = "/getProfile", method = RequestMethod.GET)
+	public ResponseEntity<?> retrieveProfile(@RequestParam(value = "client", required = false) String client) {
+		
+			List<Candidate> allPositionsDetails =  candidateService.retrieveAllProfiles();
+			return (null == allPositionsDetails) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
+					: new ResponseEntity<List<Candidate>>(allPositionsDetails, HttpStatus.OK);
+		
+		
+	}
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
 	public ResponseEntity<String> uploadOndemandOrder(HttpServletRequest request, Model model, @RequestParam("file") MultipartFile multipartFile) throws Exception {

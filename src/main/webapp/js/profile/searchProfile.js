@@ -5,7 +5,13 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 	$scope.approveBtnDisable = true;
 	$scope.data = {};
 	var base_url = window.location.origin;
+	var URL = base_url + '/EmployeeReferral/resources/getProfile'
 	
+	$http.get(URL).success(function(data, status, headers, config) {
+		$scope.myData = data;
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	});
 	$scope.disableSearch = function(){
 		if($scope.candidate.candidateName == null){
 			$scope.searchDisable = true;
@@ -126,7 +132,7 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 			        $scope.$apply();
 			      }
 			    };
-			    var URLL = base_url + '/EmployeeReferral/resources/getPosition?client='+$scope.cl;
+			    var URLL = base_url + '/EmployeeReferral/resources/getProfile';
 			    $scope.getPagedDataAsync = function (pageSize, page, searchText) {
 			      setTimeout(function () {
 			        var data2;
@@ -179,14 +185,14 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 			      enableHorizontalScrollbar:0,
 			      columnDefs: [
 			          		    {field: '', width: "41", cellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>'},
-			          		  {field:'candidateName', displayName:'Name', width: "100", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editCandidate(row)">{{row.getProperty(\'candidateName\')}}</a></div>'}, 
-			      		    {field:'emailId', displayName:'Email-ID', width: "144"}, 
-			      		    {field:'qualification', displayName:'Qualification', width: "100"}, 
-			      		    {field:'positionName', displayName:'Position', width: "100"}, 
+			          		    {field:'candidateName', displayName:'Name', width: "110", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editCandidate(row)">{{row.getProperty(\'candidateName\')}}</a></div>'}, 
+			          		    {field:'emailId', displayName:'Email-ID', width: "144"}, 
+			      		    	{field:'qualification', displayName:'Qualification', width: "100"}, 
 			         			{field:'skills', displayName:'Skills', width: "100"},
 			         			{field:'experience', displayName:'Experience', width: "80"}, 
 			         			{field:'mobileNo', displayName:'Mobile No', width: "100"},
-			         			{field:'presentLocation', displayName:'Current Location', width: "120"},
+			         			{field:'currentEmployer', displayName:'Current Employer', width: "100"},
+			         			{field:'address', displayName:'Address', width: "110"},
 			          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editProfile(row)" style="position:absolute;left:18px;top:7px;"></span>'},
 			          			{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deleteProfile(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
 			          		    ]
