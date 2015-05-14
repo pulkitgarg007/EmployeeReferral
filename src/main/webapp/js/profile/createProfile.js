@@ -1,6 +1,5 @@
-app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', function($scope, $http, $upload , $window) {
+app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blockUI', function($scope, $http, $upload , $window, blockUI) {
 	
-	$scope.profilecreatedBy = sessionStorage.userId;
 	$scope.candidate = {};
 	$scope.candidate.uploadedFileName = "";
 	$scope.disableProBtn = true;
@@ -112,7 +111,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', func
 	                });
 	            }
 	        }
-	 
+	        
 		};
 	
 	$scope.upload = function (files) {
@@ -128,5 +127,13 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', func
 			$scope.disableProBtn = false;
 		}
 	}
+	
+	$scope.startBlock = function() {
+	    blockUI.start();
+
+	    $timeout(function() {
+	      blockUI.stop();
+	    }, 2000);
+	  };
 	
 }]);
