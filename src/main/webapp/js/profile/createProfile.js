@@ -63,7 +63,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		    	$scope.candidate.referredBy = $scope.selectedreferredBy;
 		    	$scope.candidate.profileTimeStamp = timeStamp;
 		    	$scope.candidate.uploadedFileName = $scope.candidate.emailId + "_" + $scope.uploadedFileName;
-		    	$http.post(base_url+'/EmployeeReferral/resources/candidate-create ', $scope.candidate).
+		    	$http.post(base_url+'/EmployeeReferral/resources/profile', $scope.candidate).
 		    	success(function(data, status, headers, config) {
 				    document.getElementById("success-alert").style.display = "block";
 				  }).

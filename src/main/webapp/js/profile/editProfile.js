@@ -5,7 +5,7 @@ app.controller("editCandidateCtrl", ['$scope', '$http', '$q', '$location', '$win
 	$scope.candidate = {};
 	$scope.candidateName = $location.search().target;
 	var base_url = window.location.origin;
-	var URL = base_url + '/EmployeeReferral/resources/searchCandidate?candidateName='+$scope.candidateName;
+	var URL = base_url + '/EmployeeReferral/resources/profile?candidateName='+$scope.candidateName;
 	
 	$http.get(URL).success(function(data, status, headers, config) {
 		$scope.candidate =data[0];
@@ -22,7 +22,7 @@ app.controller("editCandidateCtrl", ['$scope', '$http', '$q', '$location', '$win
 		alert("Hello");
 		if($scope.candidate !== undefined){
 		var base_url = window.location.origin;
-		var URL = base_url + '/EmployeeReferral/resources/candidate-update'+$scope.candidate;
+		var URL = base_url + '/EmployeeReferral/resources/profile'+$scope.candidate;
 	}
 	}
 	$scope.reset = function() {

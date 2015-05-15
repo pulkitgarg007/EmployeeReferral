@@ -8,8 +8,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @Document(collection = "Candidate")
-public class Candidate extends AuditEntity{
-	String candidateName ;
+public class Profile extends AuditEntity{
+	String profileId ;
 	@Id
 	String emailId;
 	String qualification;
