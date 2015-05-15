@@ -30,44 +30,51 @@ import org.springframework.web.multipart.MultipartFile;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFSDBFile;
-import com.nisum.employee.ref.controller.MongoConfig;
-import com.nisum.employee.ref.domain.Candidate;
-import com.nisum.employee.ref.domain.Position;
-import com.nisum.employee.ref.service.CandidateService;
+import com.nisum.employee.ref.domain.Profile;
+import com.nisum.employee.ref.service.ProfileService;
 
 
 @Controller
-public class CandidateController {
+public class ProfileController {
 
 	@Autowired
-	private CandidateService  candidateService;
+	private ProfileService  profileService;
 	
 	@Autowired
 	private MongoConfig mongoConfig;
 	
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	public ResponseEntity<?> retrieveProfile(@RequestParam(value = "candidateName", required = false) String candidateName) {
+		List<Profile> positionsDetails = null;	
+		if(candidateName != null && !candidateName.isEmpty()){
+				positionsDetails = profileService.retrieveCandidateDetails(candidateName);
+		}else{
+			positionsDetails =  profileService.retrieveAllProfiles();
+		}
+		return (null == positionsDetails) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
+					: new ResponseEntity<List<Profile>>(positionsDetails, HttpStatus.OK);
+	}
 
-	@RequestMapping(value="/candidate-create", method = RequestMethod.POST)
+	@RequestMapping(value="/profile", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> registerUser(@RequestBody Candidate candidate) {
-		candidateService.prepareCandidate(candidate); 
-		//return new ResponseEntity<String>("Request Success", HttpStatus.OK);
-		return new ResponseEntity<Candidate>(candidate, HttpStatus.OK);
+	public ResponseEntity<?> registerUser(@RequestBody Profile candidate) {
+		profileService.prepareCandidate(candidate); 
+		return new ResponseEntity<Profile>(candidate, HttpStatus.OK);
 	}
 	
-	
-	@RequestMapping(value = "/searchCandidate", method = RequestMethod.GET)
-	public ResponseEntity<?> retrieveCandidateDetails(@RequestParam(value = "candidateName", required = true) String candidateName) {
-		List<Candidate> candidateDetails = candidateService.retrieveCandidateDetails(candidateName);
-		return (null == candidateDetails) ? new ResponseEntity<String>( "Candidate with given argument is not found", HttpStatus.NOT_FOUND)
-				: new ResponseEntity<List<Candidate>>(candidateDetails, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value="/candidate-update", method = RequestMethod.POST)
+	@RequestMapping(value="/profile", method = RequestMethod.PUT)
 	@ResponseBody
-	public ResponseEntity<?> updateUser(@RequestBody Candidate candidate) {
-		candidateService.updateCandidate(candidate); 
+	public ResponseEntity<?> updateUser(@RequestBody Profile candidate) {
+		profileService.updateCandidate(candidate); 
 		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/profile", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteProfileBasedOnEmailId(@RequestParam(value = "emailId", required = true) String emailId) {
+		Profile profileDetails = profileService.deleteProfileBasedOnEmailId(emailId);
+		return (null == profileDetails) ? new ResponseEntity<String>( "profile are not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<Profile>(profileDetails, HttpStatus.OK);
+	} 
 	
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
@@ -80,7 +87,8 @@ public class CandidateController {
 
 			metaData.put("extra1", "anything 1");
 
-			gridOperations.store(multipartFile.getInputStream(), multipartFile.getOriginalFilename(), multipartFile.getContentType(), metaData);
+			gridOperations.store(multipartFile.getInputStream(), "abc" + multipartFile.getOriginalFilename(), multipartFile.getContentType(), metaData);
+			//gridOperations.store(multipartFile.getInputStream(), "abc", multipartFile.getContentType(), metaData);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

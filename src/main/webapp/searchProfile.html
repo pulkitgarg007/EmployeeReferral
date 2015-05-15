@@ -45,11 +45,9 @@
 							ng-class="{ 'has-error' : searchProfile.candidateName.$invalid && !searchProfile.candidateName.$pristine }">
 								<input name="candidateName" class="form-control input-sm" ng-change="searchDisable=false;disableSearch()" 
 								style="position:absolute;top:35px;"
-								id="candidateName" ng-model="candidate.candidateName" placeholder="Enter Name" required> <span
-								ng-show="searchProfile.candidateName.$invalid  && !searchProfile.candidateName.$pristine"
-								class="help-block" style="font: black">Candidate Name is Required</span>
+								id="candidateName" ng-model="filterOptions.filterText" placeholder="Enter Name" required> 
 						</div></td><td>
-					<a href="" id="searchBtn" ng-disabled="searchDisable" class="btn btn-success" ng-click="searchCandidate()">
+					<a href="" id="searchBtn" ng-disabled="searchDisable" class="btn btn-success" >
          		 <span class="glyphicon glyphicon-search" style="position:aboslute;top:1px;"></span> Search
        			 </a>
 				</td>

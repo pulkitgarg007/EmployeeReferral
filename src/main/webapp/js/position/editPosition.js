@@ -48,17 +48,9 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
 		alert('error');
 	})
 	
-	$http.get(skillURL).success(function(data, status, headers, config) {
-		$("#primarySkills").autocomplete({
-			source : data
-		});
-		$("#secondarySkills").autocomplete({
-			source : data
-		});
-	}).error(function(data, status, headers, config) {
-		alert('error');
-	});
-	
+	$scope.loadTags = function(query) {
+		return $scope.data;
+	};	
 	var URL = base_url + '/EmployeeReferral/resources/searchPositionsBasedOnJobCode?jobcode='+$scope.jobcode;
 	
 	$http.get(URL).success(function(data, status, headers, config) {
@@ -73,8 +65,8 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
 	});	
 	
 	$scope.updatePositionDetails = function() {
-		var skills =[];
 		var position1={};
+		var skills =[];
 		if ($scope.position !== undefined) {
 			 angular.forEach($scope.position.primarySkills, function(value, key) {
 				 skills.push(value.text);

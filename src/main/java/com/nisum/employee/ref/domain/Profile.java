@@ -8,18 +8,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @Document(collection = "Candidate")
-public class Candidate extends AuditEntity{
-	String candidateName ;
+public class Profile extends AuditEntity{
+	String profileId ;
 	@Id
 	String emailId;
 	String qualification;
-	String positionName;
 	String skills;
 	String experience;
 	String uploadedFileName;
 	String mobileNo;
-	String presentLocation;
+	String pLocation;
 	String pancardNo;
 	String passportNo;
-
+	String stream;
+	String address;
+	String notes;
+	String altmobileNo;
+	String currentEmployer;
+	String profilecreatedBy;
+	String profileTimeStamp;
+	String referredBy;
 }

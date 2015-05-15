@@ -7,22 +7,20 @@
 <script src="lib/angular/js/angular.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/utility/js/jquery-1.11.2.min.js"></script>
+<link href="lib/angular/css/angular-block-ui.min.css" rel="stylesheet">
+<script src="js/masks.js"></script>
 <script src="lib/angular/js/angular-file-upload-shim.min.js"></script>
 <script src="lib/angular/js/angular-file-upload.js"></script>
+<script src="lib/angular/js/angular-block-ui.min.js"></script>
 <script src="js/profile/createProfile.js"></script>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="js/createCandidate.js"></script>
 <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <link href="static/css/home.css" rel="stylesheet">
 <link href="lib/bootstrap/font/google_font.css" rel="stylesheet">
-<link href="lib/bootstrap/font/font-awesome.css" rel="stylesheet">
+<link href="lib/bootstrap/font/font-awesome.min.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet">
 <link href="static/css/dashboard.css" rel="stylesheet">
 <script src="lib/bootstrap/js/bootstrap.js"></script>
-<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 </head>
 <body>
 <h1><b>Profile Management - Create</b></h1><br>
@@ -32,7 +30,7 @@
 	               <a href="" class="close" data-dismiss="alert">&times;</a>
 	               <strong>Success!</strong> Position Details Stored Successfully!
                </div>
-               <div style="width:1050px;display:none" class="alert alert-danger" id="fail-alert">
+               <div style="width:990px;display:none" class="alert alert-danger" id="fail-alert">
 	               <a href="" class="close" data-dismiss="alert">&times;</a>
 	               <strong>Failed!</strong> Try again.
                </div>
@@ -57,23 +55,23 @@
               	<td class="tableTd">
               	<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
-							<label class="lbl" for="candidateName">Candidate Name:</label></td>
+							<label class="lbl" for="candidateName">Candidate Name*:</label></td>
 
 				<td class="tableTd"><input style="margin-left:0%;" type="text" id="cname"
-								name="candidateName" class="form-control"  ng-change="changeEvent()"
+								name="candidateName" class="form-control"  ng-change="toggleProDisable()"
 								ng-model="candidate.candidateName" placeholder="Enter Candidate Name" ng-pattern="/^[a-zA-Z _]*$/"
 								required></div>
 				</td>
 				<td class="tableTd">
 				<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
-							<label class="lbl" for="qualification">Qualification:</label>
+							<label class="lbl" for="qualification">Qualification*:</label>
 				</td>
 								<td>
-								<input
-								type="text" ng-change="changeEvent()" name="qualification" class="form-control" ng-pattern="/^[a-zA-Z _]*$/"
-								id="qualification" ng-model="candidate.qualification"
-								placeholder="Enter qualification" required></div>
+								<select name="pso" ng-change="toggleProDisable()" placeholder="Select Qualification"
+									ng-model="selectedQualification" ng-options = "o as o for o in qualifications" class="form-control input-sm" id="qualification" required style="color: black">
+								</select>
+							</div>
 									</td>
 				</div>
 				</tr>
@@ -86,11 +84,11 @@
 				<td id="tdid" class="tableTd">
 				<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.emailId.$invalid && !CreateCandidate.emailId.$pristine }">
-							<label class="lbl" for="emailId">Email Id:</label>
+							<label class="lbl" for="emailId">Email Id*:</label>
 								
 				</td>
 				<td id="tdid">
-				<input type="email" ng-change="changeEvent()"
+				<input type="email" ng-change="toggleProDisable()"
 								name="emailId" class="form-control" id="emailId" 
 								ng-model="candidate.emailId" placeholder="Enter Email Id."
 								required></td>
@@ -98,15 +96,15 @@
 
 				<td id="tdid" class="tableTd">
 				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine }">
-							<label class="lbl" class="positionName" for="selectbasic">Employee's Position:</label>
+							ng-class="{ 'has-error' : CreateCandidate.stream.$invalid && !CreateCandidate.stream.$pristine }">
+				<label class="lbl" class="stream" for="stream">Stream</label>
+							<!-- <label class="lbl" class="positionName" for="selectbasic">Employee's Position:</label> -->
 				</td>
 						<td id="tdid">
-						<select name="pso" ng-change="changeEvent()" placeholder="Select Emp Position"
-									ng-model="selectedempPosition" ng-options = "o as o for o in empPositions" class="form-control input-sm" id="location" required style="color: black">
-								</select>
+						<input type="text" ng-change="changeEvent()" ng-pattern="/^[a-zA-Z _]*$/"
+								name="stream" class="form-control" id="stream"
+								ng-model="candidate.stream" placeholder="Enter Stream" required></div>
 							</td>
-						</div>
               	</tr>
               	<tr>
               	<td></td><td><span
@@ -116,34 +114,8 @@
 									Valid Email-id is required</span></td>
 				<td></td>
 				<td><span class="help-block"
-									ng-show="CreateCandidate.positionName.$invalid && !CreateCandidate.positionName.$pristine">Position
-									Name is required.</span></td>
+									ng-show="CreateCandidate.stream.$invalid && !CreateCandidate.stream.$pristine">Valid Stream is required.</span></td>
               	</tr>
-              	<tr>
-              	<td id="tdid" class="tableTd">
-              	<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
-							<label class="lbl" for="Skills">Skills:</label>
-							</td>
-							<td id="tdid">
-							<input type="text" ng-change="changeEvent()" ng-pattern="/^[a-zA-Z _]*$/"
-								name="Skills" class="form-control" id="Skills"
-								ng-model="candidate.skills" placeholder="Enter Skills." required>
-							</div>
-								</td>
-							
-							<td id="tdid" class="tableTd">
-							<div class="control-group">
-							<label class="lbl" for="filebutton">Upload
-								Resume:</label>
-								</td>
-								<td id="tdid" class="tableTd">
-								<input id="uploadFile" type="file" ng-file-select="upload($files)"/> 
-								</td>
-              	</tr>
-              	<tr><td></td><td><span
-								ng-show="CreateCandidate.Skills.$invalid  && !CreateCandidate.Skills.$pristine"
-								class="help-block">Valid Skills are required.</span></td><td></td><td></td></tr>
 				
 				<tr>
 				<td id="tdid" class="tableTd">
@@ -152,21 +124,20 @@
 							<label class="lbl" for="mobileNo">MobileNo*:</label>
 								</td>
 				<td id="tdid" class="tableTd">
-				<input type="number" ng-change="changeEvent()" 
+				<input type="text" ng-change="toggleProDisable()" maxlength="15"
 								ng-model="candidate.mobileNo" name="mobileNo" id="mobileNo"
-								ngPattern="1234567890 " ng-maxlength="10" class="form-control"
-								placeholder="Enter mobileNo" required>
+								ngPattern="1234567890 " class="form-control"
+								placeholder="Enter mobileNo" ui-br-phone-number required>
 									</div></td>
 				<td id="tdid" class="tableTd">
 				<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.presentLocation.$invalid && !CreateCandidate.presentLocation.$pristine }">
-							<label class="lbl" for="presentLocation">Present Location:</label>
+							<label class="lbl" for="plocation">Preferred Location:</label>
 				</td>
 				<td id="tdid" class="tableTd">
-				<input
-								type="text" name="presentLocation" class="form-control" ng-change="changeEvent()"
-								id="presentLocation" ng-model="candidate.presentLocation" ng-pattern="/^[a-zA-Z _]*$/"
-								placeholder="Enter Present Location" required>
+				<select name="plocation" ng-change="changeEvent()" placeholder="Select Location"
+									ng-model="selectedpLocation" ng-options = "o as o for o in plocations" class="form-control input-sm" id="plocation" required style="color: black">
+								</select>
 				</td>
 				</tr>
 		
@@ -181,7 +152,45 @@
 									</td><td></td><td><span
 								ng-show="CreateCandidate.presentLocation.$invalid  && !CreateCandidate.presentLocation.$pristine"
 								class="help-block">Enter Valid Location</span></td></tr>	
+								
+				<tr>	
+				<td id="tdid" class="tableTd">
+				<div class="control-group"
+							ng-class="{'has-error' :CreateCandidate.altmobileNo.$invalid && !CreateCandidate.altmobileNo.$pristine}">
+							<label class="lbl" for="altmobileNo">Alt. MobileNo:</label>
+				</td>
+				<td id="tdid" class="tableTd">
+				<input type="text" ng-change="changeEvent()" 
+								ng-model="candidate.altmobileNo" name="altmobileNo" id="altmobileNo"
+								ngPattern="1234567890 " ng-maxlength="15" class="form-control"
+								placeholder="Enter Alt Mobile No." ui-br-phone-number required>
+									</div>
+				</td>
+				<td id="tdid" class="tableTd">
+				<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.currentEmployer.$invalid && !CreateCandidate.currentEmployer.$pristine }">
+							<label class="lbl" for="currentEmployer">Current Employer*:</label>
+				</td>
+				<td id="tdid" class="tableTd">
+				<input
+								type="text" name="currentEmployer" class="form-control" ng-change="toggleProDisable()"
+								id="currentEmployer" ng-model="candidate.currentEmployer" ng-pattern="/^[a-zA-Z _]*$/"
+								placeholder="Enter Current Company" required></div>
+				</td>
+				</tr>
 				
+				<tr>
+				<td></td><td><span
+								class="help-block"
+								ng-show="CreateCandidate.altmobileNo.$error.required && !CreateCandidate.altmobileNo.$pristine && !CreateCandidate.altmobileNo.$error.number">Mobile
+								Number is required.</span> <span class="help-block"
+								ng-show="CreateCandidate.altmobileNo.$error.number">Invalid
+								mobileNo!!</span> <span class="help-block"
+								ng-show="CreateCandidate.altmobileNo.$error.maxlength">Mobile
+								Number is too long</span></td><td></td><td></td>
+				</tr>
+								
+				<tr>
 				<td id="tdid" class="tableTd">
 				<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.pancardNo.$invalid && !CreateCandidate.pancardNo.$pristine }">
@@ -196,14 +205,14 @@
 				<td id="tdid" class="tableTd">
 				<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.experience.$invalid && !CreateCandidate.experience.$pristine }">
-							<label class="lbl" for="experience">Experience:</label>
+							<label class="lbl" for="experience">Experience*:</label>
 				</td>
 				<td id="tdid" class="tableTd">
-				<input type="text" ng-change="changeEvent()" 
+				<input type="text" ng-change="toggleProDisable()" 
 								name="experience" class="form-control" id="experience" ng-pattern="^[0-9]*$" 
 								ng-model="candidate.experience" placeholder="Enter Experience"
 								required>
-				</td>
+				</td></tr>
 				<tr><td></td><td><span
 								ng-show="CreateCandidate.pancardNo.$invalid  && !CreateCandidate.pancardNo.$pristine"
 								class="help-block">Pancard Number is required.</span></td><td></td><td><span
@@ -221,19 +230,81 @@
 								ng-model="candidate.passportNo" placeholder="Enter Passport No."
 								required>
 				</td>
-				<td></td><td></td></tr>
+				<td id="tdid" class="tableTd">
+				<div class="control-group"
+							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
+							<label class="lbl" for="Skills">Skills*:</label>
+				</td>
+				<td id="tdid" class="tableTd">
+				<input type="text" ng-change="toggleProDisable()" ng-pattern="/^[a-zA-Z _]*$/"
+								name="Skills" class="form-control" id="Skills"
+								ng-model="candidate.skills" placeholder="Enter Skills." required>
+							</div>
+				</td>
+				</tr>
+				
+				<tr>
+				<td></td><td></td><td></td><td><span
+								ng-show="CreateCandidate.Skills.$invalid  && !CreateCandidate.Skills.$pristine"
+								class="help-block">Valid Skills are required.</span></td></tr>
+				
+				<tr>
+				<td id="tdid" class="tableTd">
+				<label class="lbl" for="notes">Current Address*:</label>
+				</td>
+				<td id="tdid" class="tableTd">
+				<textarea cols="50" rows="5" ng-change="toggleProDisable()" name="address"
+									id="address" ng-model="candidate.address"
+									placeholder="Enter Current Address." required></textarea>
+				</td>
+				<td id="tdid" class="tableTd">
+				<label class="lbl" for="notes">Additional Notes:</label>
+				</td>
+				<td id="tdid" class="tableTd">
+				<textarea cols="50" rows="5" ng-change="changeEvent()" name="notes"
+									id="notes" ng-model="candidate.notes"
+									placeholder="Enter any additional notes..." required></textarea>
+				</td>
+				</tr>
+				
 				<tr><td></td><td><span
 								ng-show="CreateCandidate.passportNo.$invalid  && !CreateCandidate.passportNo.$pristine"
 								class="help-block">Passport Number is required.</span></td><td></td><td></td></tr>
+								
 				<tr>
-				<td></td>
+              	<td id="tdid" class="tableTd">
+              	<label class="lbl" for="referredBy">Referred By*:</label>
+				</td>
 				<td id="tdid" class="tableTd">
-				<a href="" class="btn btn-success" ng-click="submit()" ng-disabled="disableRegister">
+				<select name="referredBy" ng-change="toggleProDisable()" 
+									ng-model="selectedreferredBy" ng-options = "o as o for o in referredBys" class="form-control input-sm" id="referredBy" required style="color: black">
+								</select>	
+				</td>
+				
+							
+							<td id="tdid" class="tableTd">
+							<div class="control-group">
+							<label class="lbl" for="filebutton">Upload
+								Resume:</label>
+								</td>
+								<td id="tdid" class="tableTd">
+							<input id="uploadFile" type="file" class="custom-file-input" ng-file-select="upload($files)"/> </div>
+								</td>
+              	</tr>
+          		<tr>
+				<td id="tdid" class="tableTd">
+				</td>
+				<td id="tdid" class="tableTd">
+				<a href="" class="btn btn-success" ng-click="submit()" ng-disabled="disableProBtn">
          		 <span class="glyphicon glyphicon-ok-circle"></span> Register
        			 </a>
 				<a href="#pro" class="btn btn-success">
          		 <span class="glyphicon glyphicon-remove"></span> Cancel
        			 </a>
+				</td>
+				<td id="tdid" class="tableTd">
+				</td>
+				<td id="tdid" class="tableTd">
 				</td>
 				</tr>
               	</table>
@@ -241,10 +312,7 @@
             	</form>
             </form>
             </div>
-
           </div>
-         
-         
          </div>
         <!-- /span12 --> 
       </div>
