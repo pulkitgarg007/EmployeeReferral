@@ -1352,10 +1352,10 @@ if (objectTypes[typeof module]) {
 	.directive('uiBrPhoneNumber',function() {
 		/**
 		 * FIXME: all numbers will have 9 digits after 2016.
-		 * see http://portal.embratel.com.br/embratel/9-digito/
+		 * see http://portal.embratel.comDI.br/embratel/9-digito/
 		 */
 		var phoneMask8D = new StringMask('(00) 0000-0000'),
-			phoneMask9D = new StringMask('(00) 00000-0000');
+			phoneMask10D = new StringMask('(00) 000-000-0000');
 
 		function clearValue (value) {
 			if(!value) {
@@ -1374,7 +1374,7 @@ if (objectTypes[typeof module]) {
 			if(value.length < 11){
 				formatedValue = phoneMask8D.apply(value);
 			}else{
-				formatedValue = phoneMask9D.apply(value);
+				formatedValue = phoneMask10D.apply(value);
 			}
 
 			return formatedValue.trim().replace(/[^0-9]$/, '');
