@@ -9,9 +9,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Document(collection = "Candidate")
 public class Candidate extends AuditEntity{
-	String candidateName ;
+	
 	@Id
 	String emailId;
+	String candidateName;
 	String qualification;
 	String skills;
 	String experience;

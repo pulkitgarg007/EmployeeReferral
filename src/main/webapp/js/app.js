@@ -1,6 +1,6 @@
 var app = angular.module('erApp', ['ngTagsInput','ngGrid','ngRoute','angularFileUpload','blockUI', 'ui.utils.masks']);
 app.service('jobCodeService1', function() {
-	var jobCode;
+var profileUserId;
 	
 	return {
         setjobCode: function(code) {
@@ -8,6 +8,13 @@ app.service('jobCodeService1', function() {
         },
         getjobCode: function() {
         	return jobCode;
+     },
+        
+        setprofileUserId: function(code) {
+        	profileUserId=code;
+        },
+        getprofileUserId: function() {
+        	return profileUserId;
      }
     };	
 });

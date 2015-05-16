@@ -113,7 +113,7 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 		
 		$scope.editProfile = function(row) {
 			window.console && console.log(row.entity);
-			jobCodeService1.setjobCode(row.entity.jobcode);
+			jobCodeService1.setprofileUserId(row.entity.emailId);
 			location.href='#editProfile';
 		};
 		

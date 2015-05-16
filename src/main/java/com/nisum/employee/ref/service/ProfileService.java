@@ -29,11 +29,11 @@ public class ProfileService {
 		profileRepository.save(candidate);
 	}
   
-  public List<Profile> retrieveCandidateDetails(String candidateName) {
+  public List<Profile> retrieveCandidateDetails(String emailId) {
 		
-		 MongoOperations mongoOperations = (MongoOperations)mongoTemplate;
+		MongoOperations mongoOperations = (MongoOperations)mongoTemplate;
 		Query query = new Query();
-		query.addCriteria(Criteria.where("candidateName").regex(Pattern.compile(candidateName, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE)));
+		query.addCriteria(Criteria.where("emailId").regex(Pattern.compile(emailId, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE)));
 		List<Profile> candidateDetails = mongoOperations.find(query, Profile.class);
 		
 		return candidateDetails;
@@ -52,14 +52,23 @@ public class ProfileService {
 		Profile candidate1 = mongoOperations.findOne(updateQuery, Profile.class);
 		candidate1.equals(candidate) ;
 		Update update = new Update();
-		update.set("candidateName", candidate.getProfileId());
+		update.set("candidateName", candidate.getCandidateName());
 		update.set("qualification", candidate.getQualification());
 		update.set("experience", candidate.getExperience());
 		update.set("mobileNo", candidate.getMobileNo());
 		update.set("pancardNo", candidate.getPancardNo());
 		update.set("passportNo", candidate.getPassportNo());
-		update.set("presentLocation", candidate.getPLocation());
+		update.set("pLocation", candidate.getPLocation());
 		update.set("skills", candidate.getSkills());
+		
+		update.set("stream", candidate.getStream());
+		update.set("address", candidate.getAddress());
+		update.set("notes", candidate.getNotes());
+		update.set("altmobileNo", candidate.getAltmobileNo());
+		update.set("currentEmployer", candidate.getCurrentEmployer());
+		update.set("profileModifiedTimeStamp", candidate.getProfileModifiedTimeStamp());
+		
+		
 		mongoOperations.updateFirst(updateQuery, update, Profile.class);
 	}
   public Profile deleteProfileBasedOnEmailId(String emailId) {

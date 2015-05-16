@@ -33,53 +33,54 @@ import com.mongodb.gridfs.GridFSDBFile;
 import com.nisum.employee.ref.domain.Profile;
 import com.nisum.employee.ref.service.ProfileService;
 
-
 @Controller
 public class ProfileController {
 
 	@Autowired
-	private ProfileService  profileService;
-	
+	private ProfileService profileService;
+
 	@Autowired
 	private MongoConfig mongoConfig;
-	
+
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
-	public ResponseEntity<?> retrieveProfile(@RequestParam(value = "candidateName", required = false) String candidateName) {
-		List<Profile> positionsDetails = null;	
-		if(candidateName != null && !candidateName.isEmpty()){
-				positionsDetails = profileService.retrieveCandidateDetails(candidateName);
-		}else{
-			positionsDetails =  profileService.retrieveAllProfiles();
+	public ResponseEntity<?> retrieveProfile(@RequestParam(value = "emailId", required = false) String emailId) {
+		List<Profile> positionsDetails = null;
+		if (emailId != null && !emailId.isEmpty()) {
+			positionsDetails = profileService.retrieveCandidateDetails(emailId);
+		} else {
+			positionsDetails = profileService.retrieveAllProfiles();
 		}
-		return (null == positionsDetails) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
-					: new ResponseEntity<List<Profile>>(positionsDetails, HttpStatus.OK);
+		return (null == positionsDetails) ? new ResponseEntity<String>("Positions are not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<List<Profile>>(positionsDetails, HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/profile", method = RequestMethod.POST)
+	@RequestMapping(value = "/profile", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> registerUser(@RequestBody Profile candidate) {
-		profileService.prepareCandidate(candidate); 
+		profileService.prepareCandidate(candidate);
 		return new ResponseEntity<Profile>(candidate, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value="/profile", method = RequestMethod.PUT)
+
+	@RequestMapping(value = "/profile", method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<?> updateUser(@RequestBody Profile candidate) {
-		profileService.updateCandidate(candidate); 
+		profileService.updateCandidate(candidate);
 		return new ResponseEntity<String>("Request Success", HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "/profile", method = RequestMethod.DELETE)
-	public ResponseEntity<?> deleteProfileBasedOnEmailId(@RequestParam(value = "emailId", required = true) String emailId) {
+	public ResponseEntity<?> deleteProfileBasedOnEmailId(
+			@RequestParam(value = "emailId", required = true) String emailId) {
 		Profile profileDetails = profileService.deleteProfileBasedOnEmailId(emailId);
-		return (null == profileDetails) ? new ResponseEntity<String>( "profile are not found", HttpStatus.NOT_FOUND)
+		return (null == profileDetails) ? new ResponseEntity<String>("profile are not found", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<Profile>(profileDetails, HttpStatus.OK);
-	} 
-	
+	}
+
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
-	public ResponseEntity<String> uploadOndemandOrder(HttpServletRequest request, Model model, @RequestParam("file") MultipartFile multipartFile) throws Exception {
-		
+	public ResponseEntity<String> uploadOndemandOrder(HttpServletRequest request, Model model,
+			@RequestParam("file") MultipartFile multipartFile) throws Exception {
+
 		InputStream inputStream = null;
 		DBObject metaData = new BasicDBObject();
 		try {
@@ -87,16 +88,16 @@ public class ProfileController {
 
 			metaData.put("extra1", "anything 1");
 
-			gridOperations.store(multipartFile.getInputStream(), "abc" + multipartFile.getOriginalFilename(), multipartFile.getContentType(), metaData);
-			//gridOperations.store(multipartFile.getInputStream(), "abc", multipartFile.getContentType(), metaData);
+			gridOperations.store(multipartFile.getInputStream(), "abc" + multipartFile.getOriginalFilename(),
+					multipartFile.getContentType(), metaData);
+			// gridOperations.store(multipartFile.getInputStream(), "abc",
+			// multipartFile.getContentType(), metaData);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} 
-		catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			if (inputStream != null) {
 				try {
 					inputStream.close();
@@ -106,30 +107,26 @@ public class ProfileController {
 			}
 		}
 		return new ResponseEntity<String>("Succesfully Stored the image", HttpStatus.OK);
-		}
-	
-	
+	}
+
 	@RequestMapping(value = "/getFile", method = RequestMethod.GET, produces = "application/pdf")
-	public ResponseEntity<byte[]> getLocalImage(@PathVariable("fileName") String fileName)  {
+	public ResponseEntity<byte[]> getLocalImage(@PathVariable("fileName") String fileName) {
 		byte[] byteResponse = getFile(fileName);
 
-		if(byteResponse != null)
-		{
+		if (byteResponse != null) {
 			return new ResponseEntity<byte[]>(byteResponse, HttpStatus.OK);
-		}
-		else
+		} else
 			return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
 	}
-	
-	public byte[] getFile(String fileName)
-	{
+
+	public byte[] getFile(String fileName) {
 		try {
 			GridFsOperations gridOperations = mongoConfig.gridFsTemplate();
 
 			fileName = fileName.concat(".pdf");
 
-			List<GridFSDBFile> files = gridOperations.find(new Query().addCriteria(Criteria.where(
-					"metadata.extra1").is("anything 1")));
+			List<GridFSDBFile> files = gridOperations.find(new Query().addCriteria(Criteria.where("metadata.extra1")
+					.is("anything 1")));
 			for (GridFSDBFile file : files) {
 				BufferedImage img = ImageIO.read(file.getInputStream());
 

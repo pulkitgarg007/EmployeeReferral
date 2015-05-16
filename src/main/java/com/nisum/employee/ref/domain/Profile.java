@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Document(collection = "Candidate")
 public class Profile extends AuditEntity{
-	String profileId ;
+	String candidateName ;
 	@Id
 	String emailId;
 	String qualification;
@@ -27,5 +27,6 @@ public class Profile extends AuditEntity{
 	String currentEmployer;
 	String profilecreatedBy;
 	String profileTimeStamp;
+	String profileModifiedTimeStamp;
 	String referredBy;
 }
