@@ -3,6 +3,7 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 	$scope.searchDisable = true;
 	$scope.enableDisbleButton = true;
 	$scope.approveBtnDisable = true;
+	$scope.errorHide = true;
 	$scope.data = {};
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/profile'
