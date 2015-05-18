@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
-@Document(collection = "Candidate")
+@Document(collection = "Profile")
 public class Profile extends AuditEntity{
 	String candidateName ;
 	@Id
