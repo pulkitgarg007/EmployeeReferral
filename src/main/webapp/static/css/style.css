@@ -1405,7 +1405,7 @@ input, button, select, textarea {
 }
 
 .navbar-inner {
-	padding: 7px 0;
+	padding: 0%;
 	background: #F0EDED !important;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
@@ -1620,8 +1620,8 @@ input, button, select, textarea {
 */
 .footer {
 	margin-top: 0;
-	height: 53px;
-	border-top: 1px solid #292929;
+	height: 35px;
+	border-top: 1px solid #6FA4CB;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -1629,14 +1629,14 @@ input, button, select, textarea {
 }
 
 .footer-inner {
-	padding: 15px 0;
-	font-size: 12px;
-	background: #111;
-	color: #999;
+	padding: 6px 0;
+	font-size: 11px;
+	background: #6FA4CB;
+	color: #111;
 }
 
 .footer a {
-	color: #999;
+	color: #111;
 }
 
 .footer a:hover {
@@ -2672,14 +2672,9 @@ table.fc-border-separate {
 	color: #064C87;
 	position: absolute;
 	top: 10%;
-	left: 10%;
+	left: 8%;
 }
 
-.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
-	color: white;
-	text-decoration: none;
-	background-color: #F5F5F5;
-}
 
 .acc:hover {
 	text-decoration: none;
@@ -2687,20 +2682,11 @@ table.fc-border-separate {
 }
 
 .dropdown-toggle{
-	padding-top: 10px;
-	padding-right: 15px;
-	padding-bottom: 20px;
-	padding-left: 10px;
+	padding: 11px;
+	border-radius: 5px;
 }
 
-.acc:visited{
-	text-decoration: none;
-	color: white;
-}
 
-a:hover.dropdown {
-	color: white;
-	text-decoration: none;
-}
+
 
 

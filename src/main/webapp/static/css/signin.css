@@ -229,8 +229,8 @@ span.login-checkbox>input[type='checkbox']:checked+label {
 .logoheader{
 	color: white;
 	font-size: 250%;
-	position: relative;
-	top: 40%;
+	position: absolute;
+	top: 4%;
 }
 
 
