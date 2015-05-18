@@ -186,45 +186,55 @@ textarea
 .custom-file-input:hover::before {
   border-color: black;
 }
-.headerclass{
-	position:absolute;
-	top:150px;
-	left:400px;
-}
+
 .searchprofile-container{
 	position:absolute;
 	top:220px;
-	left:115px;
+	left:240px;
 	width:1050px;
 	border: 1px solid #d6d6d6;
-	background-color: #EBFAEB;
+	background-color: #E0EEEE;
 	border-radius: 12px;
 }
 .searchposition-container{
 	position:absolute;
 	top:220px;
-	left:115px;
+	left:240px;
 	width:1050px;
 	border: 1px solid #d6d6d6;
-	background-color: #EBFAEB;
+	background-color: #E0EEEE;
 	border-radius: 12px;
 }
 .createprofile-container{
 	position:absolute;
 	top:220px;
-	left:115px;
+	left:240px;
 	height: 580px;
 	width:1050px;
 	border: 1px solid #d6d6d6;
-	background-color: #EBFAEB;
+	background-color: #E0EEEE;
 	border-radius: 12px;
 }
 .createposition-container{
 	position:absolute;
 	top:250px;
-	left:115px;
+	left:240px;
 	width:1050px;
 	border: 1px solid #d6d6d6;
-	background-color: #EBFAEB;
+	background-color: #E0EEEE;
 	border-radius: 12px;
+}
+
+.editprofile-container{
+	position:relative;
+	width:1050px;
+	border: 1px solid #d6d6d6;
+	/* background-color: #F0F0F0; */
+	background-color: #E0EEEE;
+	border-radius: 12px;
+}
+
+.headerclass{
+	position:relative;
+	top:-20px;
 }

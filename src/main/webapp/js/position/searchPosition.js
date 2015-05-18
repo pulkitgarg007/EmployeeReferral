@@ -199,7 +199,7 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 	$scope.editPosition = function(row) {
 		window.console && console.log(row.entity);
 		jobCodeService1.setjobCode(row.entity.jobcode);
-		location.href='#editPosition';
+		location.href='editPosition';
 	};
 	
 	$scope.deletePosition = function(row) {

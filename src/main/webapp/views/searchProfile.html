@@ -25,7 +25,7 @@
    
 </head>
 <body>
-<h2 class = "headerclass"><b>Profile Management - Search</b></h2>
+<h2 class="headerclass"><b>Profile Management - Search</b></h2>
 <div style="width:1050px;" class="alert alert-danger" role="alert" ng-hide="errorHide"><p style="font-size:3ex;"><b>{{errorMsg}}</b></p></div>
             <div class="searchprofile-container"><br>
            <form action="#" name="searchProfile" onvalidate>
@@ -38,17 +38,17 @@
 								style="position:absolute;top:35px;"
 								id="candidateName" ng-model="filterOptions.filterText" placeholder="Enter Name" required> 
 						</div></td><td>
-					<a href="" id="searchBtn" ng-disabled="searchDisable" class="btn btn-success" >
+					<a href="" id="searchBtn" ng-disabled="searchDisable" class="btn btn-primary" >
          		 <span class="glyphicon glyphicon-search" style="position:aboslute;top:1px;"></span> Search
        			 </a>
 				</td>
 				<td>
-				<a id="rsBtn" href="#createProfile" class="btn btn-success">
+				<a id="rsBtn" ui-sref="createProfile" class="btn btn-primary">
          		 <span class="glyphicon glyphicon-plus" style="position:aboslute;top:1px;"></span> Create
        			 </a>
 				</td>
 				<td>
-				<a id="approveBtn" href="" class="btn btn-success" ng-disabled="approveBtnDisable">
+				<a id="approveBtn" href="" class="btn btn-primary" ng-disabled="approveBtnDisable">
          		 <span class="glyphicon glyphicon-ok" style="position:aboslute;top:1px;"></span> Approve
        			 </a>
 
@@ -60,5 +60,6 @@
             	</form>
             </form>
             </div>
+            <div id="footer" ui-view="footer"></div>
 </body>
 </html>
