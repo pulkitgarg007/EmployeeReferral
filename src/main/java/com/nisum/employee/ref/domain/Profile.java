@@ -1,4 +1,6 @@
 package com.nisum.employee.ref.domain;
+import java.util.ArrayList;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +15,7 @@ public class Profile extends AuditEntity{
 	@Id
 	String emailId;
 	String qualification;
-	String skills;
+	ArrayList<String> primarySkills;
 	String expYear;
 	String expMonth;
 	String uploadedFileName;

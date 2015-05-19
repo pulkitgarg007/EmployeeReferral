@@ -1,11 +1,16 @@
 app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blockUI', function($scope, $http, $upload , $window, blockUI) {
 	
 	$scope.candidate = {};
+	$scope.position = {};
+	$scope.candidate.primarySkills = {};
+	$scope.primarySkills ={};
 	$scope.candidate.uploadedFileName = "";
 	$scope.disableProBtn = true;
 	var uploadedFileName = null;
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/fileUpload';
+	var Skills_URL = base_url + '/EmployeeReferral/resources/skill/skills';
+	$scope.data = {};
 	var uploadedFile = null;
 	
 	$scope.selectedQualification = "";
@@ -33,6 +38,12 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	var expMonth_URL = base_url + '/EmployeeReferral/resources/skill/expMonths';
 	$scope.expMonths = {};
 	
+	$http.get(Skills_URL).success(function(data, status, headers, config) {
+		$scope.data = data;
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
 	
 	$http.get(qualification_URL).success(function(data, status, headers, config) {
 		$scope.qualifications = data;
@@ -74,6 +85,11 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		alert('error');
 	})
 	
+	$scope.loadTags = function(query) {
+		
+		return $scope.data;
+	};
+	
 	
 	 $scope.submit = function() {
 		    if($scope.candidate !== undefined){
@@ -82,6 +98,14 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		        var curr_month = dt.getMonth();
 		        var curr_year = dt.getFullYear();
 		        var timeStamp = curr_date + "-" + curr_month + "-" + curr_year;
+		        
+		        var skills =[];
+				if ($scope.candidate !== undefined) {
+					angular.forEach($scope.position.primarySkills, function(value, key) {
+						 skills.push(value.text);
+						});
+					 $scope.candidate.primarySkills = skills;
+				}
 			    
 		    	$scope.candidate.profilecreatedBy = sessionStorage.userId;
 		    	$scope.candidate.qualification = $scope.selectedQualification;
@@ -138,7 +162,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	};
 	
 	$scope.toggleProDisable = function(){
-		if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '' || $scope.selectedQualification == "Select Qualification" || $scope.candidate.emailId == null || $scope.candidate.emailId == '' || $scope.candidate.mobileNo == null || $scope.candidate.mobileNo == '' || $scope.candidate.currentEmployer == null || $scope.candidate.currentEmployer == '' || $scope.candidate.skills == null || $scope.candidate.skills == '' || $scope.selectedExperience == 'Select Years' || $scope.selectedExpMonths == 'Select Months'){
+		if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '' || $scope.selectedQualification == "Select Qualification" || $scope.candidate.emailId == null || $scope.candidate.emailId == '' || $scope.candidate.mobileNo == null || $scope.candidate.mobileNo == '' || $scope.candidate.currentEmployer == null || $scope.candidate.currentEmployer == '' || $scope.candidate.skills == '' || $scope.selectedExpYears == 'Select Years' || $scope.selectedExpMonths == 'Select Months'){
 			$scope.disableProBtn = true;
 		}
 		else{

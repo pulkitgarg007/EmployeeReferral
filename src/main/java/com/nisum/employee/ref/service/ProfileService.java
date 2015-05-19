@@ -59,7 +59,6 @@ public class ProfileService {
 		update.set("pancardNo", candidate.getPancardNo());
 		update.set("passportNo", candidate.getPassportNo());
 		update.set("pLocation", candidate.getPLocation());
-		update.set("skills", candidate.getSkills());
 		
 		update.set("stream", candidate.getStream());
 		update.set("address", candidate.getAddress());
