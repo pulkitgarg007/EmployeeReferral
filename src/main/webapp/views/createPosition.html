@@ -130,18 +130,15 @@
 				<td id="tdid" class="tableTd">
 				<textarea cols="50" rows="5" ng-change="changeEvent()" name="jobProfile"
 									id="jobProfile" ng-model="position.jobProfile"
-									placeholder="Enter Job Profile" required></textarea>
+									placeholder="Enter Job Description" required></textarea>
 									</div></td>
 				<td id="tdid" class="tableTd">
 				<div class="control-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
-								<label class="lbl" for="name">No of Positions :</label>
+								<label class="lbl" for="name">Interview Rounds</label>
 				</td>
 				<td id="tdid" class="tableTd">
-				<input
-									type="number" ng-change="changeEvent()" name="noOfPositions" class="form-control input-sm"
-									id="noOfPositions" ng-model="position.noOfPositions" 
-									ng-pattern="^[0-9]*$" 
-									placeholder="Enter No of Positions" ng-maxlength="10" required>
+				<tags-input ng-model="position.InterviewRounds" ng-change="changeEvent()" class="field-control" placeholder="Enter InterviewRounds"> <auto-complete id="ir"
+							source="loadRounds($query)" class="field-control"></auto-complete> </tags-input>
 				</td>
 				</tr>
 		

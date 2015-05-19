@@ -10,7 +10,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
     var sloc = "";
    
 	$scope.position.primarySkills = {};
-	
+	$scope.position.InterviewRounds = {};
 	$scope.primarySkills ={};
 	$scope.devskills = {};
 	$scope.qeskills = {};
@@ -28,6 +28,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	
 	var base_url = window.location.origin;
 	var Skills_URL = base_url + '/EmployeeReferral/resources/skill/skills';
+	var IR_URL = base_url + '/EmployeeReferral/resources/skill/IR';
 	var Designation_URL = base_url + '/EmployeeReferral/resources/skill/designations';
 	var Experience_URL = base_url + '/EmployeeReferral/resources/skill/experience';
 	var DeveloperSkills_URL = base_url + '/EmployeeReferral/resources/skill/developerskills';
@@ -36,12 +37,19 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	var Location_URL = base_url + '/EmployeeReferral/resources/skill/location';
 	var client_URL = base_url + '/EmployeeReferral/resources/skill/client';
 	$scope.data = {};
+	$scope.rounds = {};
 	$scope.options = {};
 	$scope.items = {};
 	$scope.locations = {};
 	$scope.clients = {};
 	$http.get(Skills_URL).success(function(data, status, headers, config) {
 		$scope.data = data;
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	$http.get(IR_URL).success(function(data, status, headers, config) {
+		$scope.rounds = data;
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -97,6 +105,11 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	$scope.loadTags = function(query) {
 		
 		return $scope.data;
+	};
+	
+    $scope.loadRounds = function(query) {
+		
+		return $scope.rounds;
 	};
 	
 	$scope.reset = function() {
