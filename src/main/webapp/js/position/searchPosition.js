@@ -199,7 +199,7 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 	$scope.editPosition = function(row) {
 		window.console && console.log(row.entity);
 		jobCodeService1.setjobCode(row.entity.jobcode);
-		location.href='editPosition';
+		location.href='#editPosition';
 	};
 	
 	$scope.deletePosition = function(row) {
@@ -207,9 +207,7 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		var URL_DEL = base_url + '/EmployeeReferral/resources/deletePositionBasedOnJC?jobcode='+row.entity.jobcode;
 		$http.get(URL_DEL).success(function(data, status, headers, config) {
 			alert("Deleted!");	
-			location.href= "#pos"
-		}).error(function(data, status, headers, config) {
-			console.log(data);
+			location.reload();
 		});
 	};
 	

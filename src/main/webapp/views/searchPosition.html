@@ -25,7 +25,7 @@
    
 </head>
 <body>
-<h2 class="headerclass"><b>Position Management - Search</b></h2>
+<h2 class="headerclass-searchPosiiton"><b>Position Management - Search</b></h2>
 <!-- 			<div class="alert alert-success" role="alert"></div> -->
 <!-- 			<div class="alert alert-info" role="alert">...</div> -->
 			<div style="width:1050px;" class="alert alert-danger" role="alert" ng-hide="errorHide"><p style="font-size:3ex;"><b>{{errorMsg}}</b></p></div>
@@ -43,17 +43,17 @@
 								ng-show="searchPosition.designations.$invalid  && !searchPosition.designations.$pristine"
 								class="help-block" style="font: black">Designation is Required.</span>
 						</div></td><td>
-					<a href="" id="searchBtn" ng-disabled="searchDisable" class="btn btn-success" ng-click="searchPosition()">
+					<a href="" id="searchBtn" ng-disabled="searchDisable" class="btn btn-primary" ng-click="searchPosition()">
          		 <span class="glyphicon glyphicon-search" style="position:aboslute;top:1px;"></span> Search
        			 </a>
 				</td>
 				<td>
-				<a id="rsBtn" href="#createPosition" class="btn btn-success">
+				<a id="rsBtn" href="#createPosition" class="btn btn-primary">
          		 <span class="glyphicon glyphicon-plus" style="position:aboslute;top:1px;"></span> Create
        			 </a>
 				</td>
 				<td>
-				<a id="approveBtn" href="" class="btn btn-success" ng-disabled="approveBtnDisable">
+				<a id="approveBtn" href="" class="btn btn-primary" ng-disabled="approveBtnDisable">
          		 <span class="glyphicon glyphicon-ok" style="position:aboslute;top:1px;"></span> Approve
        			 </a>
 

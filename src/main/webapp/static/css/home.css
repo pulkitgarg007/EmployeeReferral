@@ -196,9 +196,8 @@ textarea
 	border-radius: 12px;
 }
 .searchposition-container{
-	position:absolute;
-	top:220px;
-	left:240px;
+	position:relative;
+	top:-40px;
 	width:1050px;
 	border: 1px solid #d6d6d6;
 	background-color: #E0EEEE;
@@ -213,9 +212,7 @@ textarea
 	border-radius: 12px;
 }
 .createposition-container{
-	position:absolute;
-	top:250px;
-	left:240px;
+	position:relative;
 	width:1050px;
 	border: 1px solid #d6d6d6;
 	background-color: #E0EEEE;
@@ -237,6 +234,11 @@ textarea
 }
 
 .headerclass-searchProfile{
+	position:relative;
+	top:-40px;
+}
+
+.headerclass-searchPosiiton{
 	position:relative;
 	top:-40px;
 }
