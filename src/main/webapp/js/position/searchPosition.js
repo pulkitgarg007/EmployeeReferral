@@ -100,13 +100,13 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 				          		    {field:'jobcode', displayName:'Job Code', width: "73", cellTemplate: '<p style="position:absolute;top:3px;left:15px;">{{row.getProperty(\'jobcode\')}}</p>'}, 
 				          		    {field:'designation', displayName:'Designation', width: "125"}, 
 				          		    {field:'experienceRequired', displayName:'Experience', width: "90"}, 
-				          		    {field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
-				          			{field:'noOfPositions', displayName:'No Of Positions', width: "110"}, 
+				          		    //{field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
+				          			//{field:'noOfPositions', displayName:'No Of Positions', width: "110"}, 
 				          			{field:'jobProfile', displayName:'Job Profile', width: "100"},
 				          			{field:'location', displayName:'Location', width: "100"},
 				          			{field:'client', displayName:'Client', width: "100"},
-				          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editPosition(row)" style="position:absolute;left:18px;top:7px;"></span>'},
-				          			{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deletePosition(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
+				          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editPosition(row)" style="position:absolute;left:18px;top:7px;"></span>'}
+				          			//{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deletePosition(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
 				          		    ]
 				    };
 	
@@ -183,16 +183,16 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		      enableHorizontalScrollbar:0,
 		      columnDefs: [
 		          		    {field: '', width: "41", cellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>'},
-		          		    {field:'jobcode', displayName:'Job Code', width: "73", cellTemplate: '<p style="position:absolute;top:3px;left:15px;">{{row.getProperty(\'jobcode\')}}</p>'}, 
-		          		    {field:'designation', displayName:'Designation', width: "125"}, 
+		          		    {field:'jobcode', displayName:'Job Code', width: "150", cellTemplate: '<p style="position:absolute;top:3px;left:15px;">{{row.getProperty(\'jobcode\')}}</p>'}, 
+		          		    {field:'designation', displayName:'Designation', width: "255"}, 
 		          		    {field:'experienceRequired', displayName:'Experience', width: "90"}, 
-		          		    {field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
-		          			{field:'noOfPositions', displayName:'No Of Positions', width: "110"}, 
-		          			{field:'jobProfile', displayName:'Job Profile', width: "100"},
-		          			{field:'location', displayName:'Location', width: "100"},
-		          			{field:'client', displayName:'Client', width: "100"},
-		          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editPosition(row)" style="position:absolute;left:18px;top:7px;"></span>'},
-		          			{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deletePosition(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
+		          		    //{field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
+		          			//{field:'noOfPositions', displayName:'No Of Positions', width: "110"}, 
+		          			{field:'jobProfile', displayName:'Job Profile', width: "200"},
+		          			{field:'location', displayName:'Location', width: "90"},
+		          			{field:'client', displayName:'Client', width: "90"},
+		          			{field:'btn', displayName: 'Edit', width:"70", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editPosition(row)" style="position:absolute;left:18px;top:7px;"></span>'}
+		          			//{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deletePosition(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
 		          		    ]
 		    };
 	
