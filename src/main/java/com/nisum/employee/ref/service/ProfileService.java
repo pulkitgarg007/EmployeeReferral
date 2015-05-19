@@ -54,7 +54,7 @@ public class ProfileService {
 		Update update = new Update();
 		update.set("candidateName", candidate.getCandidateName());
 		update.set("qualification", candidate.getQualification());
-		update.set("experience", candidate.getExperience());
+		update.set("experience", candidate.getExpYear());
 		update.set("mobileNo", candidate.getMobileNo());
 		update.set("pancardNo", candidate.getPancardNo());
 		update.set("passportNo", candidate.getPassportNo());

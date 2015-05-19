@@ -14,7 +14,8 @@ public class Profile extends AuditEntity{
 	String emailId;
 	String qualification;
 	String skills;
-	String experience;
+	String expYear;
+	String expMonth;
 	String uploadedFileName;
 	String mobileNo;
 	String pLocation;

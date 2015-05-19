@@ -200,7 +200,10 @@
 				</td>
 				<td id="tdid" class="tableTd">
 				<select name="experience" id="experience" ng-change="toggleProDisable()" placeholder="Select Experience"
-									ng-model="selectedExperience" ng-options = "o as o for o in experiences" class="form-control input-sm" id="experience" required style="color: black">
+									ng-model="selectedExpYears" ng-options = "o as o for o in expYears" class="form-control input-sm" id="experience" required style="color: black">
+								</select>
+				<select name="expMonths" id="expMonths" ng-change="toggleProDisable()" placeholder="Select Experience"
+									ng-model="selectedExpMonths" ng-options = "o as o for o in expMonths" class="form-control input-sm" id="experience" required style="color: black">
 								</select>
 				</td></tr>
 				<tr><td></td><td><span

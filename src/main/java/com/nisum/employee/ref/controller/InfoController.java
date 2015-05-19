@@ -128,7 +128,7 @@ public class InfoController {
 	@RequestMapping(value="/expMonths",method = RequestMethod.GET)
 	public ResponseEntity<?> retrieveexpMonths() {
 		ArrayList<InfoEntity> skills = retrieveData();
-		ArrayList<String> expMonths = (ArrayList<String>) skills.get(0).getClient();
+		ArrayList<String> expMonths = (ArrayList<String>) skills.get(0).getExpMonths();
         return (null == expMonths) ? new ResponseEntity<String>("No skills found for the value ", HttpStatus.NOT_FOUND) : new ResponseEntity <ArrayList<String>>(expMonths, HttpStatus.OK);
 	}
 }

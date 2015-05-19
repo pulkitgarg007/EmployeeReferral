@@ -136,8 +136,19 @@ textarea
 	font-weight:bold;
 }
 
-#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #experience, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId, #stream, #altmobileNo, #currentEmployee, #plocation, #currentEmployer, #profilecreatedBy, #referredBy{
+#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId, #stream, #altmobileNo, #currentEmployee, #plocation, #currentEmployer, #profilecreatedBy, #referredBy{
 	width:250px;
+}
+
+#experience{
+	width:120px;
+}
+
+#expMonths{
+	width:120px;
+	position:absolute;
+	top:231px;
+	right:150px;
 }
 
 .tableTd{
