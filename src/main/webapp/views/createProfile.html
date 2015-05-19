@@ -88,7 +88,7 @@
 				<td id="tdid" class="tableTd">
 				<div class="control-group"
 							ng-class="{ 'has-error' : CreateCandidate.stream.$invalid && !CreateCandidate.stream.$pristine }">
-				<label class="lbl" class="stream" for="stream">Stream</label>
+				<label class="lbl" class="stream" for="stream">Specialization: </label>
 							<!-- <label class="lbl" class="positionName" for="selectbasic">Employee's Position:</label> -->
 				</td>
 						<td id="tdid">
@@ -199,10 +199,9 @@
 							<label class="lbl" for="experience">Experience*:</label>
 				</td>
 				<td id="tdid" class="tableTd">
-				<input type="text" ng-change="toggleProDisable()" 
-								name="experience" class="form-control" id="experience" ng-pattern="^[0-9]*$" 
-								ng-model="candidate.experience" placeholder="Enter Experience"
-								required>
+				<select name="experience" id="experience" ng-change="toggleProDisable()" placeholder="Select Experience"
+									ng-model="selectedExperience" ng-options = "o as o for o in experiences" class="form-control input-sm" id="experience" required style="color: black">
+								</select>
 				</td></tr>
 				<tr><td></td><td><span
 								ng-show="CreateCandidate.pancardNo.$invalid  && !CreateCandidate.pancardNo.$pristine"
@@ -264,7 +263,7 @@
 								
 				<tr>
               	<td id="tdid" class="tableTd">
-              	<label class="lbl" for="referredBy">Referred By*:</label>
+              	<label class="lbl" for="referredBy">Source*:</label>
 				</td>
 				<td id="tdid" class="tableTd">
 				<select name="referredBy" ng-change="toggleProDisable()" 

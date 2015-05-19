@@ -9,8 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
-@Document(collection = "Skills")
-public class SkillsEntity {
+@Document(collection = "Info")
+public class InfoEntity {
 	
 	List<String> Designations;
 	List<String> DeveloperSkills;
@@ -26,5 +26,6 @@ public class SkillsEntity {
 	List<String> qualification;
 	List<String> plocation;
 	List<String> referredBy;
-	
+	List<String> expMonths;
+	List<String> expYears;
 }

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nisum.employee.ref.domain.SkillsEntity;
+import com.nisum.employee.ref.domain.InfoEntity;
 
 @Repository
-public interface ISkillsRequired  extends CrudRepository<SkillsEntity, String>{
+public interface InfoRequired  extends CrudRepository<InfoEntity, String>{
 
 }

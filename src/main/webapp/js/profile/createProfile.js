@@ -23,6 +23,11 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	var referredBy_URL = base_url + '/EmployeeReferral/resources/skill/referredBy';
 	$scope.referredBys = {};
 	
+	$scope.selectedExperience = "";
+	$scope.candidate.experience = "";
+	var experience_URL = base_url + '/EmployeeReferral/resources/skill/expYears';
+	$scope.experiences = {};
+	
 	
 	$http.get(qualification_URL).success(function(data, status, headers, config) {
 		$scope.qualifications = data;
@@ -48,6 +53,14 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		alert('error');
 	})
 	
+	$http.get(experience_URL).success(function(data, status, headers, config) {
+		$scope.experiences = data;
+		$scope.selectedExperience = $scope.experiences[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
 	
 	 $scope.submit = function() {
 		    if($scope.candidate !== undefined){
@@ -61,6 +74,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		    	$scope.candidate.qualification = $scope.selectedQualification;
 		    	$scope.candidate.plocation = $scope.selectedpLocation;
 		    	$scope.candidate.referredBy = $scope.selectedreferredBy;
+		    	$scope.candidate.experience = $scope.selectedExperience;
 		    	$scope.candidate.profileTimeStamp = timeStamp;
 		    	$scope.candidate.uploadedFileName = $scope.candidate.emailId + "_" + $scope.uploadedFileName;
 		    	$http.post(base_url+'/EmployeeReferral/resources/profile', $scope.candidate).
