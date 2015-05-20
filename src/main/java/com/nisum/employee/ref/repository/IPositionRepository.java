@@ -33,7 +33,7 @@ public class IPositionRepository {
 		update.set("experienceRequired",position.getExperienceRequired());
 		update.set("primarySkills", position.getPrimarySkills());
 		update.set("secondarySkills",position.getSecondarySkills());
-		update.set("noOfPositions",position.getNoOfPositions());
+		update.set("interviewRounds",position.getInterviewRounds());
 		update.set("jobProfile",position.getJobProfile());
 		update.set("location",position.getLocation());
 		update.set("client",position.getClient());
