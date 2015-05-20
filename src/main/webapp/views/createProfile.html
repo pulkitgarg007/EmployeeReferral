@@ -128,7 +128,7 @@
 							<label class="lbl" for="plocation">Preferred Location:</label>
 				</td>
 				<td id="tdid" class="tableTd">
-				<select name="plocation" ng-change="changeEvent()" placeholder="Select Location"
+				<select name="plocation" ng-change="jobCodeSelect()" placeholder="Select Location"
 									ng-model="selectedpLocation" ng-options = "o as o for o in plocations" class="form-control input-sm" id="plocation" required style="color: black">
 								</select>
 				</td>
@@ -201,7 +201,7 @@
 							<label class="lbl" for="experience">Experience*:</label>
 				</td>
 				<td id="tdid" class="tableTd">
-				<select name="experience" id="experience" ng-change="toggleProDisable()" placeholder="Select Experience"
+				<select name="experience" id="experience" ng-change="toggleProDisable()" 
 									ng-model="selectedExpYears" ng-options = "o as o for o in expYears" class="form-control input-sm" id="experience" required style="color: black">
 								</select>
 				<select name="expMonths" id="expMonths" ng-change="toggleProDisable()" placeholder="Select Experience"
@@ -252,12 +252,12 @@
 									placeholder="Enter Current Address." required></textarea>
 				</td>
 				<td id="tdid" class="tableTd">
-				<label class="lbl" for="notes">Additional Notes:</label>
+				<label class="lbl" for="jc">Select Job Code:</label> 
 				</td>
 				<td id="tdid" class="tableTd">
-				<textarea cols="50" rows="5" ng-change="changeEvent()" name="notes"
-									id="notes" ng-model="candidate.notes"
-									placeholder="Enter any additional notes..." required></textarea>
+				<select name="jc"
+					ng-model="selectedJC" ng-options = "o as o for o in JobCodes" class="form-control input-sm" id="jc" required style="color: black">
+								</select>
 				</td>
 				</tr>
 				
@@ -297,8 +297,12 @@
        			 </a>
 				</td>
 				<td id="tdid" class="tableTd">
+				<label class="lbl" for="notes">Additional Notes:</label>
 				</td>
 				<td id="tdid" class="tableTd">
+				<textarea cols="50" rows="5" ng-change="changeEvent()" name="notes"
+									id="notes" ng-model="candidate.notes"
+									placeholder="Enter any additional notes..." required></textarea>
 				</td>
 				</tr>
               	</table>

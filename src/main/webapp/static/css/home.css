@@ -136,7 +136,7 @@ textarea
 	font-weight:bold;
 }
 
-#designation, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId, #stream, #altmobileNo, #currentEmployee, #plocation, #currentEmployer, #profilecreatedBy, #referredBy{
+#designation, #jc, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId, #stream, #altmobileNo, #currentEmployee, #plocation, #currentEmployer, #profilecreatedBy, #referredBy{
 	width:250px;
 }
 
@@ -178,7 +178,7 @@ textarea
 }
 
 .custom-file-input {
-  color: transparent;
+  color: black;
 }
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;

@@ -38,6 +38,11 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	var expMonth_URL = base_url + '/EmployeeReferral/resources/skill/expMonths';
 	$scope.expMonths = {};
 	
+	$scope.selectedJC = "";
+	$scope.candidate.jobcodeProfile = "";
+	$scope.JCs = {};
+	$scope.JobCodes = {};
+	
 	$http.get(Skills_URL).success(function(data, status, headers, config) {
 		$scope.data = data;
 		
@@ -90,6 +95,29 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		return $scope.data;
 	};
 	
+	$scope.jobCodeSelect = function(){
+		var jobcode_url = base_url + '/EmployeeReferral/resources/searchPositionBasedOnLocation?location='+$scope.selectedpLocation;
+		
+		$http.get(jobcode_url).success(function(data, status, headers, config) {
+			$scope.JCs = data;
+			
+			var jobcodes = [];
+			var i = 0;
+			if ($scope.candidate !== undefined) {
+				angular.forEach($scope.JCs[i].jobcode, function() {
+					jobcodes.push($scope.JCs[i].jobcode);
+					$scope.JobCodes = jobcodes;
+					i++;
+				});
+			}
+			
+			
+			
+		}).error(function(data, status, headers, config) {
+			alert('error');
+		})
+	}
+	
 	
 	 $scope.submit = function() {
 		    if($scope.candidate !== undefined){
@@ -113,6 +141,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		    	$scope.candidate.referredBy = $scope.selectedreferredBy;
 		    	$scope.candidate.expYear = $scope.selectedExpYears;
 		    	$scope.candidate.expMonth = $scope.selectedExpMonths;
+		    	$scope.candidate.jobcodeProfile = $scope.selectedJC;
 		    	$scope.candidate.profileTimeStamp = timeStamp;
 		    	$scope.candidate.uploadedFileName = $scope.candidate.emailId + "_" + $scope.uploadedFileName;
 		    	$http.post(base_url+'/EmployeeReferral/resources/profile', $scope.candidate).
@@ -169,6 +198,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 			$scope.disableProBtn = false;
 		}
 	}
+	
 	
 	/*$scope.startBlock = function() {
 		blockUI.start("My custom message");;

@@ -70,4 +70,12 @@ public class PositionService {
 		return positionDetail;
 	}
 	
+	public List<Position> retrievePositionbasedOnLocation(String location) {
+		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("location").regex(location));
+		List<Position> positionDetail = mongoOperations.find(query, Position.class);
+		return positionDetail;
+	}
+	
 }

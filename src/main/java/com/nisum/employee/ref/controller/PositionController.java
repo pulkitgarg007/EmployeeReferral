@@ -73,4 +73,11 @@ public class PositionController {
 		return (null == positionsDetail) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<Position>(positionsDetail, HttpStatus.OK);
 	} 
+	
+	@RequestMapping(value = "/searchPositionBasedOnLocation", method = RequestMethod.GET)
+	public ResponseEntity<?> retrievesearchPositionbasedOnLocation(@RequestParam(value = "location", required = true) String location,@RequestParam(value = "expYear", required = false) String expYear,@RequestParam(value = "primarySkills", required = false) String primarySkills) {
+		List<Position> positionsDetail = positionService.retrievePositionbasedOnLocation(location);
+		return (null == positionsDetail) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<List<Position>>(positionsDetail, HttpStatus.OK);
+	} 
 }

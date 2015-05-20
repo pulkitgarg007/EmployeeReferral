@@ -32,4 +32,5 @@ public class Profile extends AuditEntity{
 	String profileTimeStamp;
 	String profileModifiedTimeStamp;
 	String referredBy;
+	String jobcodeProfile;
 }
