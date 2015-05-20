@@ -102,8 +102,8 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 			          		    {field:'candidateName', displayName:'Name', width: "20%", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editProfile(row)">{{row.getProperty(\'candidateName\')}}</a></div>'}, 
 			          		    {field:'emailId', displayName:'Email-ID', width: "20%"}, 
 			      		    	/*{field:'qualification', displayName:'Qualification', width: "20%"},*/ 
-			         			{field:'skills', displayName:'Skills', width: "20%"},
-			         			{field:'experience', displayName:'Experience', width: "10%"}, 
+			         			{field:'primarySkills', displayName:'Skills', width: "20%"},
+			         			{field:'expYear', displayName:'Experience', width: "10%"}, 
 			         			/*{field:'mobileNo', displayName:'Mobile No', width: "100"},*/
 			         			{field:'currentEmployer', displayName:'Current Employer', width: "15%"},
 			         			{field:'address', displayName:'Address', width: "15%"}

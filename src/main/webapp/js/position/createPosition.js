@@ -124,10 +124,10 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 				 skills.push(value.text);
 				});
 			 $scope.position.primarySkills = skills;
-			 angular.forEach($scope.position.InterviewRounds, function(value, key) {
+			 angular.forEach($scope.position.interviewRounds, function(value, key) {
 				 rounds.push(value.text);
 				});
-			 $scope.position.InterviewRounds = skills;
+			 $scope.position.interviewRounds = rounds;
 			 $scope.position.designation = $scope.selectedDesignation;
 		     $scope.position.experienceRequired	= $scope.selectedExperience;
 		     $scope.position.location = $scope.selectedLocation;
@@ -157,7 +157,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	$scope.submit();
 	
 	$scope.changeEvent = function(){
-		if($scope.selectedDesignation == "Select Designation" || $scope.selectedClient == "Select Client" || $scope.selectedExperience == "Select Experience" || $scope.position.jobProfile == null || $scope.position.jobProfile == '')
+		if($scope.selectedDesignation == "Select Designation" || $scope.selectedClient == "Select Client" || $scope.selectedExperience == "Select Experience")
 		$scope.disableRegister = true;
 	else
 		$scope.disableRegister = false;

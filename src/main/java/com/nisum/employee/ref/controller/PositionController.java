@@ -26,7 +26,6 @@ public class PositionController {
 	@ResponseBody
 	public ResponseEntity<?> createPosition(@RequestBody Position position) {
 		positionService.preparePosition(position);
-		//return new ResponseEntity<String>("Request Success", HttpStatus.OK);
 		return new ResponseEntity<Position>(position, HttpStatus.OK);
 	}
 
