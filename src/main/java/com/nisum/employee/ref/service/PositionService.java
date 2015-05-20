@@ -1,5 +1,6 @@
 package com.nisum.employee.ref.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -70,12 +71,26 @@ public class PositionService {
 		return positionDetail;
 	}
 	
-	public List<Position> retrievePositionbasedOnLocation(String location) {
+	/*public List<Position> retrievePositionbasedOnLocation(String location) {
 		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
 		Query query = new Query();
 		query.addCriteria(Criteria.where("location").regex(location));
 		List<Position> positionDetail = mongoOperations.find(query, Position.class);
 		return positionDetail;
+	}*/
+	
+	public List<String> retrievePositionbasedOnLocation(String location) {
+		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("location").regex(location));
+		List<Position> positionDetail = mongoOperations.find(query, Position.class);
+		List<String> jccc = new ArrayList();
+		int i = 0;
+		for(Position jcc:positionDetail){
+			jccc.add(positionDetail.get(i).getJobcode().toString());
+			i++;
+		}
+		return jccc;
 	}
 	
 }

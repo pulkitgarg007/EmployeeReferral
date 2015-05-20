@@ -95,7 +95,8 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		return $scope.data;
 	};
 	
-	$scope.jobCodeSelect = function(){
+	
+	$scope.jobCodeSl = function(){
 		var jobcode_url = base_url + '/EmployeeReferral/resources/searchPositionBasedOnLocation?location='+$scope.selectedpLocation;
 		
 		$http.get(jobcode_url).success(function(data, status, headers, config) {
@@ -104,11 +105,13 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 			var jobcodes = [];
 			var i = 0;
 			if ($scope.candidate !== undefined) {
-				angular.forEach($scope.JCs[i].jobcode, function() {
-					jobcodes.push($scope.JCs[i].jobcode);
+				angular.forEach($scope.JCs[i], function() {
+					jobcodes.push($scope.JCs[i]);
 					$scope.JobCodes = jobcodes;
 					i++;
 				});
+				
+			
 			}
 			
 			

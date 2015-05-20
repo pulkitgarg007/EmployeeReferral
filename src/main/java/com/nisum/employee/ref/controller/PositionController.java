@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.nisum.employee.ref.domain.Position;
 import com.nisum.employee.ref.service.PositionService;
 
@@ -76,8 +77,8 @@ public class PositionController {
 	
 	@RequestMapping(value = "/searchPositionBasedOnLocation", method = RequestMethod.GET)
 	public ResponseEntity<?> retrievesearchPositionbasedOnLocation(@RequestParam(value = "location", required = true) String location,@RequestParam(value = "expYear", required = false) String expYear,@RequestParam(value = "primarySkills", required = false) String primarySkills) {
-		List<Position> positionsDetail = positionService.retrievePositionbasedOnLocation(location);
+		List<String> positionsDetail = positionService.retrievePositionbasedOnLocation(location);
 		return (null == positionsDetail) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
-				: new ResponseEntity<List<Position>>(positionsDetail, HttpStatus.OK);
+				: new ResponseEntity<List<String>>(positionsDetail, HttpStatus.OK);
 	} 
 }
