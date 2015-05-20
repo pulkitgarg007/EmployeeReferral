@@ -25,6 +25,6 @@ public class Position extends AuditEntity{
 	String jobProfile;
 	String location;
 	String client;
-	
+	String InterviewRounds;
 
 }
