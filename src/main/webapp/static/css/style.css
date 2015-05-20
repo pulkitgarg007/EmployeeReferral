@@ -70,7 +70,6 @@ input, button, select, textarea {
 */
 .navbar .container {
 	position: relative;
-	color: #37aeca;
 }
 
 .navbar-inner {
@@ -87,12 +86,20 @@ input, button, select, textarea {
 
 .navbar .nav a {
 	font-size: 11px;
+	color: white;
 }
 
 .nav a:hover {
 	color: white;
 }
 
+.navbar .nav .dropdown-menu a{
+	color: #004C7F;
+}
+.navbar .nav .dropdown-menu a:hover{
+	color: white;
+	background: #004C7F;
+}
 .navbar .brand {
 	font-weight: 600;
 	position: relative;
@@ -129,7 +136,7 @@ input, button, select, textarea {
 }
 
 .subnavbar-inner {
-	height: 60px;
+	height: 11%;
 	background: #fff;
 	border-bottom: 1px solid #d6d6d6;
 }
@@ -345,7 +352,7 @@ input, button, select, textarea {
 	margin-right: 3em;
 	font-size: 14px;
 	font-weight: 800;
-	color: #525252;
+	color: #0C4F81;
 	line-height: 18px;
 	text-shadow: 1px 1px 2px rgba(255, 255, 255, .5);
 }
@@ -355,7 +362,7 @@ input, button, select, textarea {
 	margin-left: 13px;
 	margin-right: -2px;
 	font-size: 16px;
-	color: #555;
+	color: #0C4F81;
 	vertical-align: middle;
 }
 
@@ -1406,12 +1413,12 @@ input, button, select, textarea {
 
 .navbar-inner {
 	padding: 0%;
-	background: #F0EDED !important;
+	background: #004C7F !important;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	border-radius: 0;
-	border-bottom: 7px solid #6FA4CB;
-	border-top: 7px solid #6FA4CB;
+	/* border-bottom: 7px solid #6FA4CB;
+	border-top: 7px solid #6FA4CB; */
 }
 
 .navbar-fixed-top {
@@ -1420,15 +1427,16 @@ input, button, select, textarea {
 
 .navbar .nav a {
 	font-size: 15px;
+	color: white;
 }
 
 .navbar .nav a:hover {
-	background-color: #6FA4CB;
+	background-color: none;
 	color: white;
 }
 
 .navbar .nav a:visited {
-	background: #6FA4CB !important;
+	background: #004C7F;
 }
 
 .navbar .nav>li>a {
@@ -1471,14 +1479,14 @@ input, button, select, textarea {
 }
 
 .subnavbar-inner {
-	height: 60px;
+	height: 11%;
 	background: #fff;
 	border-bottom: 1px solid #d6d6d6;
 }
 
 .subnavbar .container>ul {
 	display: inline-block;
-	height: 80px;
+	height: 20px;
 	padding: 0;
 	margin: 0;
 }
@@ -1486,8 +1494,8 @@ input, button, select, textarea {
 .subnavbar .container>ul>li {
 	float: left;
 	min-width: 90px;
-	height: 60px;
-	padding: 0;
+	padding-top: 1%;
+	padding-bottom: 1%
 	margin: 0;
 	text-align: center;
 	list-style: none;
@@ -1495,8 +1503,8 @@ input, button, select, textarea {
 }
 
 .subnavbar .container>ul>li>a {
-	display: block;
-	height: 100%;
+	display: inline;
+	height: 50%;
 	padding: 0 15px;
 	font-size: 12px;
 	font-weight: bold;
@@ -1509,7 +1517,7 @@ input, button, select, textarea {
 }
 
 .subnavbar .container>ul>li>a>i {
-	display: inline-block;
+	display: inline;
 	width: 24px;
 	height: 24px;
 	margin-top: 11px;
@@ -1518,7 +1526,7 @@ input, button, select, textarea {
 }
 
 .subnavbar .container>ul>li>a>span {
-	display: block;
+	display: inline;
 }
 
 .subnavbar .container>ul>li.active>a {
@@ -1631,12 +1639,12 @@ input, button, select, textarea {
 .footer-inner {
 	padding: 6px 0;
 	font-size: 11px;
-	background: #6FA4CB;
-	color: #111;
+	background: #004C7F;
+	color: white;
 }
 
 .footer a {
-	color: #111;
+	color: white;
 }
 
 .footer a:hover {
@@ -1653,6 +1661,7 @@ input, button, select, textarea {
 	width: auto;
 	margin-bottom: 2em;
 	overflow: hidden;
+	margin-left: 10%;
 }
 
 .widget-header {
@@ -1681,13 +1690,13 @@ input, button, select, textarea {
 
 .widget-header h3 {
 	position: relative;
-	top: 2px;
-	left: 10px;
+	top: -25%;
+	left: 2%;
 	display: inline-block;
 	margin-right: 3em;
 	font-size: 14px;
 	font-weight: 800;
-	color: #525252;
+	color: #0C4F81;
 	line-height: 18px;
 	text-shadow: 1px 1px 2px rgba(255, 255, 255, .5);
 }
@@ -1697,8 +1706,10 @@ input, button, select, textarea {
 	margin-left: 13px;
 	margin-right: -2px;
 	font-size: 16px;
-	color: #555;
+	color: #0C4F81;
 	vertical-align: middle;
+	position: relative;
+	top: -25%;
 }
 
 .widget-content {
@@ -2594,7 +2605,6 @@ table.fc-border-separate {
 	}
 	.subnavbar .container>ul>li {
 		width: 33%;
-		height: 70px;
 		margin-bottom: 0;
 		border: none;
 	}
@@ -2669,24 +2679,72 @@ table.fc-border-separate {
 
 .nameheader {
 	font-size: 250%;
-	color: #064C87;
+	color: white;
 	position: absolute;
 	top: 10%;
 	left: 8%;
 }
+.logoheader{
+	color: white;
+	font-size: 250%;
+	position: absolute;
+	top: 4%;
+}
 
-
+acc{
+	color: white;
+}
 .acc:hover {
 	text-decoration: none;
 	color: white;
 }
 
 .dropdown-toggle{
+	position: relative;
+	top: -6px;
 	padding: 11px;
 	border-radius: 5px;
 }
 
+.font-class{
+	font-family: 'Font Name', serif;
+}
 
+.notification{
+	text-decoration: none;
+	float: right;
+	font-size: 90%;
+	margin-right: 10%;
+	padding: 3%;
+	border-radius: 10%;
+}
 
+.nav-tab{
+	margin-left: 13%;
+	margin-right: 7%;
+	height: 6%;
+	width: 100%;
+	margin-bottom: 3.5em;
+	background-color: white;
+}
+.nav-tabs{
+	border: none;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+	color: #ff8000;
+	background-color: #F7F7F7;
+	}
+	
+.nav-tabs>li{
+	background-color: white;
+}
+.nav-tabs>li>a{
+	color: #024F87;
+}
+.nav-tabs>li>a:hover{
+	color: black;
+}
 
-
+.nav .acc >li>a{
+	color: white;
+}

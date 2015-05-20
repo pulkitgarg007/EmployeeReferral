@@ -203,7 +203,6 @@ textarea
 	top:-40px;
 	width:1050px;
 	border: 1px solid #d6d6d6;
-	background-color: #E0EEEE;
 	border-radius: 12px;
 }
 .searchposition-container{
@@ -211,7 +210,6 @@ textarea
 	top:-40px;
 	width:1050px;
 	border: 1px solid #d6d6d6;
-	background-color: #E0EEEE;
 	border-radius: 12px;
 }
 .createprofile-container{
@@ -219,14 +217,12 @@ textarea
 	height: 580px;
 	width:1050px;
 	border: 1px solid #d6d6d6;
-	background-color: #E0EEEE;
 	border-radius: 12px;
 }
 .createposition-container{
 	position:relative;
 	width:1050px;
 	border: 1px solid #d6d6d6;
-	background-color: #E0EEEE;
 	border-radius: 12px;
 }
 
@@ -239,17 +235,34 @@ textarea
 	border-radius: 12px;
 }
 
-.headerclass{
+.headerclass-createPosition{
 	position:relative;
 	top:-20px;
+	left: -28%;
+	font-size: 200%;
+	color: #08497F;
+}
+.headerclass-createProfile{
+	position:relative;
+	top:-20px;
+	left: -29%;
+	font-size: 200%;
+	color: #08497F;
 }
 
 .headerclass-searchProfile{
 	position:relative;
 	top:-40px;
+	left: -29%;
+	color: #004E89;
+	font-size: 200%;
 }
+
 
 .headerclass-searchPosiiton{
 	position:relative;
 	top:-40px;
+	left: -28%;
+	color: #004E89;
+	font-size: 200%;
 }
