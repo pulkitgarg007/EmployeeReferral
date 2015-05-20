@@ -20,11 +20,11 @@ public class Position extends AuditEntity{
 	String designation;
 	String experienceRequired;
 	ArrayList<String> primarySkills;
+	ArrayList<String> interviewRounds;
 	String secondarySkills;
-	int noOfPositions;
 	String jobProfile;
 	String location;
 	String client;
-	String InterviewRounds;
+	
 
 }

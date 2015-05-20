@@ -28,5 +28,5 @@ public class InfoEntity {
 	List<String> referredBy;
 	List<String> expMonths;
 	List<String> expYears;
-	List<String> InterviewRounds;
+	List<String> interviewRounds;
 }

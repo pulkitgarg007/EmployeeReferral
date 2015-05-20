@@ -10,7 +10,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
     var sloc = "";
    
 	$scope.position.primarySkills = {};
-	$scope.position.InterviewRounds = {};
+	$scope.position.interviewRounds = {};
 	$scope.primarySkills ={};
 	$scope.devskills = {};
 	$scope.qeskills = {};
@@ -157,7 +157,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	$scope.submit();
 	
 	$scope.changeEvent = function(){
-		if($scope.selectedDesignation == "Select Designation" || $scope.selectedClient == "Select Client" || $scope.selectedExperience == "Select Experience" || $scope.position.noOfPositions == null || $scope.position.jobProfile == null || $scope.position.jobProfile == '')
+		if($scope.selectedDesignation == "Select Designation" || $scope.selectedClient == "Select Client" || $scope.selectedExperience == "Select Experience" || $scope.position.jobProfile == null || $scope.position.jobProfile == '')
 		$scope.disableRegister = true;
 	else
 		$scope.disableRegister = false;
