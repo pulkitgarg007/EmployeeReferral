@@ -1,0 +1,208 @@
+<h1>
+	<b>Profile Management - Edit</b>
+</h1>
+<br>
+<div class="widget widget-table action-table">
+	<div class="editprofile-container">
+		<br>
+
+<!-- 			<form id="integerForm" role="form" class="form-horizontal" action="#" name="CreateCandidate" onvalidate  editable-form> -->
+
+				<table>
+					<tr>
+						<td class="tableTd">
+							<div class="control-group"
+								ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
+								<label class="lbl" for="candidateName">Candidate Name*:</label>
+							</div>	
+						</td>
+
+						<td class="tableTd">
+							<div>
+							  <a href="#" editable-text="candidate.candidateName" onbeforesave="updateUser($data)">{{ candidate.candidateName || "empty" }}</a>
+							</div>
+							<!-- <edit-in-place value="contact.name"></edit-in-place>{{candidate.candidateName}} -->
+						</td>
+
+
+						<td class="tableTd">
+						
+							<div class="control-group"
+								ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
+								<label class="lbl" for="qualification">Qualification*:</label>
+							</div>	
+						</td>
+						<td><div>
+						<a href="#" editable-select="candidate.qualification" e-ng-options="o as o for o in qualifications">
+        					{{ candidate.qualification }}
+      					</a></div>
+						</td>
+						
+
+
+					</tr>
+					
+					<tr>
+						<td id="tdid" class="tableTd">
+							<div class="control-group"
+								ng-class="{ 'has-error' : CreateCandidate.emailId.$invalid && !CreateCandidate.emailId.$pristine }">
+								<label class="lbl" for="emailId">Email Id*:</label>
+							</div>	
+						</td>
+						<td id="tdid">
+						<div>
+							  <a href="#" editable-text="candidate.emailId">{{ candidate.emailId || "empty" }}</a>
+							</div>
+						</td>
+						
+
+						<td id="tdid" class="tableTd">
+							<div class="control-group"
+								ng-class="{ 'has-error' : CreateCandidate.stream.$invalid && !CreateCandidate.stream.$pristine }">
+								<label class="lbl" class="stream" for="stream">Stream</label>
+							</div>
+						</td>
+						<td id="tdid">
+							<div>
+							  <a href="#" editable-text="candidate.stream">{{ candidate.stream || "empty" }}</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td id="tdid" class="tableTd">
+							<div class="control-group"
+								ng-class="{'has-error' :CreateCandidate.mobileNo.$invalid && !CreateCandidate.mobileNo.$pristine}">
+								<label class="lbl" for="mobileNo">MobileNo*:</label>
+							</div>	
+						</td>
+						<td id="tdid" class="tableTd">
+							<div>
+							  <a href="#" editable-text="candidate.mobileNo">{{ candidate.mobileNo || "empty" }}</a>
+							</div>
+						</td>
+						<td id="tdid" class="tableTd">
+							<div class="control-group"
+								ng-class="{ 'has-error' : CreateCandidate.pLocation.$invalid && !CreateCandidate.pLocation.$pristine }">
+								<label class="lbl" for="plocation">Preferred Location:</label>
+							</div>	
+						</td>
+
+						<td id="tdid" class="tableTd">
+							<div>
+								<a href="#" editable-select="candidate.plocation" e-ng-options="o as o for o in plocations">
+	        						{{ candidate.plocation }}
+	      						</a>
+	      					</div>
+						</td>
+
+					</tr>
+					<tr>
+						<td id="tdid" class="tableTd">
+							<div class="control-group"
+								ng-class="{'has-error' :CreateCandidate.altmobileNo.$invalid && !CreateCandidate.altmobileNo.$pristine}">
+								<label class="lbl" for="altmobileNo">Alt. MobileNo:</label>
+							</div>	
+						</td>
+						<td id="tdid" class="tableTd">
+							<div>
+							  <a href="#" editable-text="candidate.altmobileNo">{{ candidate.altmobileNo || "empty" }}</a>
+							</div>
+						</td>
+						<td id="tdid" class="tableTd">
+							<div class="control-group"
+								ng-class="{ 'has-error' : CreateCandidate.currentEmployer.$invalid && !CreateCandidate.currentEmployer.$pristine }">
+								<label class="lbl" for="currentEmployer">Current
+									Employer*:</label>
+							</div>		
+						</td>
+						<td id="tdid" class="tableTd">
+							<div>
+							  <a href="#" editable-text="candidate.currentEmployer">{{ candidate.currentEmployer || "empty" }}</a>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td id="tdid" class="tableTd">
+							<div class="control-group"
+								ng-class="{ 'has-error' : CreateCandidate.experience.$invalid && !CreateCandidate.experience.$pristine }">
+								<label class="lbl" for="experience">Experience*:</label>
+							</div>	
+						</td>
+						<td id="tdid" class="tableTd">
+							
+						{{candidate.experience}}</td>
+					</tr>
+					<tr>
+						<td id="tdid" class="tableTd">
+							<div class="control-group"
+								ng-class="{ 'has-error' : CreateCandidate.passportNo.$invalid && !CreateCandidate.passportNo.$pristine }">
+								<label class="lbl" for="passportNo">Passport No.:</label>
+							</div>	
+						</td>
+						<td id="tdid" class="tableTd">
+							<div>
+							  <a href="#" editable-text="candidate.passportNo">{{ candidate.passportNo || "empty" }}</a>
+							</div>
+						</td>
+						<td id="tdid" class="tableTd">
+							<div class="control-group"
+								ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
+								<label class="lbl" for="Skills">Skills*:</label>
+							</div>	
+						</td>
+						<td id="tdid" class="tableTd">
+							<div>
+							  <a href="#" editable-text="candidate.skills">{{ candidate.skills || "empty" }}</a>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td id="tdid" class="tableTd"><label class="lbl" for="notes">Current
+								Address*:</label></td>
+						<td id="tdid" class="tableTd">
+							<div>
+							  <a href="#" editable-text="candidate.address">{{ candidate.address || "empty" }}</a>
+							</div>
+						</td>
+						<td id="tdid" class="tableTd"><label class="lbl" for="notes">Additional
+								Notes:</label></td>
+						<td id="tdid" class="tableTd">
+							<div>
+							  <a href="#" editable-text="candidate.notes">{{ candidate.notes || "empty" }}</a>
+							</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td id="tdid" class="tableTd">
+						<td id="tdid" class="tableTd">
+							<div class="control-group">
+								<a ui-sref="editProfile" class="btn btn-primary">
+									<span class="glyphicon glyphicon-ok"></span> Update
+								</a> 
+								<a ui-sref="searchProfile" class="btn btn-primary"> <span
+									class="glyphicon glyphicon-remove"></span> Cancel
+								</a>
+							</div>
+						</td>
+						<!-- <td id="tdid" class="tableTd">
+							<div class="control-group">
+								<label class="lbl" for="filebutton">Upload Resume:</label>
+						</td>
+						<td id="tdid" class="tableTd"><input id="uploadFile"
+							type="file" class="custom-file-input"
+							ng-file-select="upload($files)" /></td> -->
+					</tr>
+					<tr>
+						<td></td>
+						<td id="tdid" class="tableTd"></td>
+					</tr>
+				</table>
+
+<!-- 			</form> -->
+	</div>
+
+</div>
+

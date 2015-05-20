@@ -11,7 +11,6 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	var plocation_URL = base_url + '/EmployeeReferral/resources/skill/location';
 	var URL = base_url + '/EmployeeReferral/resources/profile?emailId='+$scope.emailId;
 	
-	
 	$http.get(qualification_URL).success(function(data, status, headers, config) {
 		$scope.qualifications = data;
 		$scope.selectedQualification = $scope.qualifications[0];
@@ -38,6 +37,26 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
         $scope.disableEditButton = true;
         $scope.Done = true;
 	}
+	
+	$scope.updateUser = function(data) {
+		//alert("in:"+data);
+		if(data!=="abc")
+		return "Username should be `awesome` or `error`";
+	  //  return $http.post('/updateUser', {id: $scope.user.id, name: data});
+	  };
+
+	// mock `/updateUser` request
+	/*app.run(function($httpBackend) {
+	  $httpBackend.whenPOST(/\/updateUser/).respond(function(method, url, data) {
+	    data = angular.fromJson(data);
+	    if(data.name === 'error') {
+	      return [500, 'Error message']; 
+	    } else {
+	      return [200, {status: 'ok'}]; 
+	    }
+	  });
+	});*/
+	
 	$scope.updateProfileDetails = function() {
 		if($scope.candidate !== undefined){
 			var dt = new Date();
@@ -52,5 +71,6 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 		location.href = '#pro';
 		}
 	}
-
+	
+	  
 }]);

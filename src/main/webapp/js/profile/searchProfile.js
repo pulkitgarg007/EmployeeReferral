@@ -98,24 +98,25 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 			      enableColumnResize:true,
 			      enableHorizontalScrollbar:0,
 			      columnDefs: [
-			          		    {field: '', width: "41", cellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>'},
-			          		    {field:'candidateName', displayName:'Name', width: "110", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editCandidate(row)">{{row.getProperty(\'candidateName\')}}</a></div>'}, 
-			          		    {field:'emailId', displayName:'Email-ID', width: "144"}, 
-			      		    	{field:'qualification', displayName:'Qualification', width: "100"}, 
-			         			{field:'skills', displayName:'Skills', width: "100"},
-			         			{field:'experience', displayName:'Experience', width: "80"}, 
-			         			{field:'mobileNo', displayName:'Mobile No', width: "100"},
-			         			{field:'currentEmployer', displayName:'Current Employer', width: "100"},
-			         			{field:'address', displayName:'Address', width: "110"},
-			          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editProfile(row)" style="position:absolute;left:18px;top:7px;"></span>'},
+			                   /*{field: '', width: "41", cellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>'}*/
+			          		    {field:'candidateName', displayName:'Name', width: "20%", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editProfile(row)">{{row.getProperty(\'candidateName\')}}</a></div>'}, 
+			          		    {field:'emailId', displayName:'Email-ID', width: "20%"}, 
+			      		    	/*{field:'qualification', displayName:'Qualification', width: "20%"},*/ 
+			         			{field:'skills', displayName:'Skills', width: "20%"},
+			         			{field:'experience', displayName:'Experience', width: "10%"}, 
+			         			/*{field:'mobileNo', displayName:'Mobile No', width: "100"},*/
+			         			{field:'currentEmployer', displayName:'Current Employer', width: "15%"},
+			         			{field:'address', displayName:'Address', width: "15%"}
+/*			          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editProfile(row)" style="position:absolute;left:18px;top:7px;"></span>'},
 			          			{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deleteProfile(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
-			          		    ]
+*/			          		    ],
+				//rowTemplate:'<div><a ng-click="editProfile(row)></a></div>"'
 			    };
 		
 		$scope.editProfile = function(row) {
 			window.console && console.log(row.entity);
 			jobCodeService1.setprofileUserId(row.entity.emailId);
-			location.href='#editProfile';
+			location.href='#viewProfile';
 		};
 		
 		$scope.deleteProfile = function(row) {
