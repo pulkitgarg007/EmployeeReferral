@@ -10,7 +10,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
     var sloc = "";
    
 	$scope.position.primarySkills = {};
-	
+	$scope.position.InterviewRounds = {};
 	$scope.primarySkills ={};
 	$scope.devskills = {};
 	$scope.qeskills = {};
@@ -28,6 +28,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	
 	var base_url = window.location.origin;
 	var Skills_URL = base_url + '/EmployeeReferral/resources/skill/skills';
+	var IR_URL = base_url + '/EmployeeReferral/resources/skill/IR';
 	var Designation_URL = base_url + '/EmployeeReferral/resources/skill/designations';
 	var Experience_URL = base_url + '/EmployeeReferral/resources/skill/experience';
 	var DeveloperSkills_URL = base_url + '/EmployeeReferral/resources/skill/developerskills';
@@ -36,12 +37,19 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	var Location_URL = base_url + '/EmployeeReferral/resources/skill/location';
 	var client_URL = base_url + '/EmployeeReferral/resources/skill/client';
 	$scope.data = {};
+	$scope.rounds = {};
 	$scope.options = {};
 	$scope.items = {};
 	$scope.locations = {};
 	$scope.clients = {};
 	$http.get(Skills_URL).success(function(data, status, headers, config) {
 		$scope.data = data;
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	$http.get(IR_URL).success(function(data, status, headers, config) {
+		$scope.rounds = data;
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -99,17 +107,27 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 		return $scope.data;
 	};
 	
+    $scope.loadRounds = function(query) {
+		
+		return $scope.rounds;
+	};
+	
 	$scope.reset = function() {
 		$scope.position = angular.copy($scope.master);
 	}
 
 	$scope.submit = function() {
 		var skills =[];
+		var rounds =[];
 		if ($scope.position !== undefined) {
 			 angular.forEach($scope.position.primarySkills, function(value, key) {
 				 skills.push(value.text);
 				});
 			 $scope.position.primarySkills = skills;
+			 angular.forEach($scope.position.InterviewRounds, function(value, key) {
+				 rounds.push(value.text);
+				});
+			 $scope.position.InterviewRounds = skills;
 			 $scope.position.designation = $scope.selectedDesignation;
 		     $scope.position.experienceRequired	= $scope.selectedExperience;
 		     $scope.position.location = $scope.selectedLocation;
@@ -139,7 +157,7 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	$scope.submit();
 	
 	$scope.changeEvent = function(){
-		if($scope.selectedDesignation == "Select Designation" || $scope.selectedClient == "Select Client" || $scope.selectedExperience == "Select Experience" || $scope.position.noOfPositions == null || $scope.position.noOfPositions == '' || $scope.position.jobProfile == null || $scope.position.jobProfile == '')
+		if($scope.selectedDesignation == "Select Designation" || $scope.selectedClient == "Select Client" || $scope.selectedExperience == "Select Experience" || $scope.position.noOfPositions == null || $scope.position.jobProfile == null || $scope.position.jobProfile == '')
 		$scope.disableRegister = true;
 	else
 		$scope.disableRegister = false;
