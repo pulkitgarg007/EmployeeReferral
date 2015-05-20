@@ -101,14 +101,17 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		
 		$http.get(jobcode_url).success(function(data, status, headers, config) {
 			$scope.JCs = data;
-			
+			var count = 0;
 			var jobcodes = [];
 			var i = 0;
 			if ($scope.candidate !== undefined) {
 				angular.forEach($scope.JCs[i], function() {
-					jobcodes.push($scope.JCs[i]);
-					$scope.JobCodes = jobcodes;
-					i++;
+					if(count < $scope.JCs.length){
+						jobcodes.push($scope.JCs[i]);
+						$scope.JobCodes = jobcodes;
+						i++;
+					}
+					count = count + 1;
 				});
 				
 			
