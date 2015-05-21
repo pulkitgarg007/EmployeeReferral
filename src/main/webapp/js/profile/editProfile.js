@@ -5,15 +5,45 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	$scope.selectedpLocation={};
 	$scope.qualifications={};
 	$scope.plocations={};
+	$scope.expYears = {};
+	$scope.expMonths = {};
+	$scope.referredBys = {};
 	$scope.emailId = jobCodeService1.getprofileUserId();
 	var base_url = window.location.origin;
 	var qualification_URL = base_url + '/EmployeeReferral/resources/skill/qualification';
+	var expYears_URL = base_url + '/EmployeeReferral/resources/skill/expYears';
+	var expMonths_URL = base_url + '/EmployeeReferral/resources/skill/expMonths';
+	var referredBy_URL = base_url + '/EmployeeReferral/resources/skill/referredBy';
 	var plocation_URL = base_url + '/EmployeeReferral/resources/skill/location';
 	var URL = base_url + '/EmployeeReferral/resources/profile?emailId='+$scope.emailId;
 	
 	$http.get(qualification_URL).success(function(data, status, headers, config) {
 		$scope.qualifications = data;
 		$scope.selectedQualification = $scope.qualifications[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
+	$http.get(expYears_URL).success(function(data, status, headers, config) {
+		$scope.expYears = data;
+		//$scope.selectedQualification = $scope.qualifications[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
+	$http.get(expMonths_URL).success(function(data, status, headers, config) {
+		$scope.expMonths = data;
+		//$scope.selectedQualification = $scope.qualifications[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
+	$http.get(referredBy_URL).success(function(data, status, headers, config) {
+		$scope.referredBys = data;
+		//$scope.selectedQualification = $scope.qualifications[0];
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');

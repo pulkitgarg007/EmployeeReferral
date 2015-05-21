@@ -106,11 +106,8 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 			         			{field:'expYear', displayName:'Experience', width: "10%"}, 
 			         			/*{field:'mobileNo', displayName:'Mobile No', width: "100"},*/
 			         			{field:'currentEmployer', displayName:'Current Employer', width: "15%"},
-			         			{field:'address', displayName:'Address', width: "15%"}
-/*			          			{field:'btn', displayName: 'Edit', width:"50", cellTemplate:'<span class="glyphicon glyphicon-edit" ng-click="editProfile(row)" style="position:absolute;left:18px;top:7px;"></span>'},
-			          			{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deleteProfile(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
-*/			          		    ],
-				//rowTemplate:'<div><a ng-click="editProfile(row)></a></div>"'
+			         			{field:'jobcodeProfile', displayName:'Assigned Job Code', width: "15%"}
+		          		    ],
 			    };
 		
 		$scope.editProfile = function(row) {
@@ -119,22 +116,10 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 			location.href='#viewProfile';
 		};
 		
-		$scope.deleteProfile = function(row) {
-			window.console && console.log(row.entity);
-			var URL_DEL = base_url + '/EmployeeReferral/resources/profile?emailId='+row.entity.emailId;
-			$http.delete(URL_DEL).success(function(data, status, headers, config) {
-				alert("Deleted!");
-				location.reload();
-			}).error(function(data, status, headers, config) {
-				console.log(data);
-			});
-		};
-		
 		
 	}]);
 
-
-	app.directive('ngConfirmClick', [
+app.directive('ngConfirmClick', [
 	                                 function(){
 	                                     return {
 	                                         link: function (scope, element, attr) {

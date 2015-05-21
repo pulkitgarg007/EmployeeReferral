@@ -131,7 +131,17 @@
 						</td>
 						<td id="tdid" class="tableTd">
 							
-						{{candidate.experience}}</td>
+						<a href="#" editable-select="candidate.expYear" e-ng-options="o as o for o in expYears">{{candidate.expYear || "empty"}}</a>
+						<a href="#" editable-select="candidate.expMonth" e-ng-options="o as o for o in expMonths">{{candidate.expMonth || "empty"}}</a></td>
+						
+						<td id="tdid" class="tableTd">
+						<label class="lbl" for="pancardNo">Pancard No.: </label>
+						</td>
+						<td id="tdid" class="tableTd">
+						<div>
+							  <a href="#" editable-text="candidate.pancardNo">{{ candidate.pancardNo || "empty" }}</a>
+							</div>
+						</td>
 					</tr>
 					<tr>
 						<td id="tdid" class="tableTd">
@@ -153,7 +163,7 @@
 						</td>
 						<td id="tdid" class="tableTd">
 							<div>
-							  <a href="#" editable-text="candidate.skills">{{ candidate.skills || "empty" }}</a>
+							  {{ candidate.primarySkills || "empty" }}
 							</div>
 						</td>
 					</tr>
@@ -171,6 +181,21 @@
 						<td id="tdid" class="tableTd">
 							<div>
 							  <a href="#" editable-text="candidate.notes">{{ candidate.notes || "empty" }}</a>
+							</div>
+						</td>
+					</tr>
+					
+					<tr>
+						<td id="tdid" class="tableTd"><label class="lbl" for="notes">Source: </label></td>
+						<td id="tdid" class="tableTd">
+							<div>
+							  <a href="#" editable-select="candidate.referredBy" e-ng-options="o as o for o in referredBys">{{ candidate.referredBy || "empty" }}</a>
+							</div>
+						</td>
+						<td id="tdid" class="tableTd"><label class="lbl" for="notes">Profile Job Code: </label></td>
+						<td id="tdid" class="tableTd">
+							<div>
+							  {{ candidate.jobcodeProfile || "empty" }}
 							</div>
 						</td>
 					</tr>

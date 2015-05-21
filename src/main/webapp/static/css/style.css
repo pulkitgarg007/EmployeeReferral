@@ -13,7 +13,7 @@ html {
 }
 
 body {
-	background: #f9f6f1;
+	background: url(../../static/images/body-bg.png);
 	font: 13px/1.7em 'Open Sans';
 	margin: 0;
 	padding: 0;
@@ -1352,7 +1352,7 @@ html {
 }
 
 body {
-	background: #f9f6f1;
+	background: url(../../static/images/body-bg.png);
 	font: 13px/1.7em 'Open Sans';
 	margin: 0;
 	padding: 0;

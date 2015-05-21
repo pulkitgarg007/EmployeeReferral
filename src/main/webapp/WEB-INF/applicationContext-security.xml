@@ -28,8 +28,8 @@
 
         <form-login
                 login-page='/login.html'
-                default-target-url='/index.html'
-                always-use-default-target='false'
+                default-target-url='/main.html'
+                always-use-default-target='true'
                 authentication-failure-handler-ref="exceptionStatusCodeMappingBean"/>
                 
         <logout  logout-success-url="/login.html"/>
