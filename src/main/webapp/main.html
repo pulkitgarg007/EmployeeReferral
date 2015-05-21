@@ -35,6 +35,16 @@
 <link href="lib/angular-xeditable/css/xeditable.css" rel="stylesheet">
 <script src="lib/angular-xeditable/js/xeditable.js"></script>
 
+<script>
+	function onlyChar(val){
+		return (/^[a-zA-Z _]*$/.test(val));
+	}
+	
+	function onlyNum(val){
+		return (/^[0-9]*$/.test(val));
+	}
+</script>
+
 <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
         rel="stylesheet"> -->
 <link href="lib/bootstrap/font/font-awesome.css" rel="stylesheet">
