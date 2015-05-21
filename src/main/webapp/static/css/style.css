@@ -5,7 +5,7 @@ Bootstrap Admin Template by EGrappler.com
 ------------------------------------------------------------------*/
 	/*------------------------------------------------------------------
 [1. Global]
-*/    
+*/     
 html {
 	margin: 0;
 	padding: 0;
@@ -93,13 +93,15 @@ input, button, select, textarea {
 	color: white;
 }
 
-.navbar .nav .dropdown-menu a{
+.navbar .nav .dropdown-menu a {
 	color: #004C7F;
 }
-.navbar .nav .dropdown-menu a:hover{
+
+.navbar .nav .dropdown-menu a:hover {
 	color: white;
 	background: #004C7F;
 }
+
 .navbar .brand {
 	font-weight: 600;
 	position: relative;
@@ -1134,8 +1136,7 @@ table.fc-border-separate {
 
 .fc .ui-draggable-dragging .fc-event-bg, .fc-select-helper .fc-event-bg
 	{
-	display: none\9
-
+	display: none\9
 }
 
 .fc-event-vert .ui-resizable-s {
@@ -1417,6 +1418,9 @@ input, button, select, textarea {
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	border-radius: 0;
+	margin-bottom: 3.5em;
+	border-bottom: 1px;
+
 	/* border-bottom: 7px solid #6FA4CB;
 	border-top: 7px solid #6FA4CB; */
 }
@@ -1440,7 +1444,18 @@ input, button, select, textarea {
 }
 
 .navbar .nav>li>a {
-	color: #064C87 !important;
+	color: white !important;
+	background: #004C7F;
+}
+
+.navbar .nav>li>a:hover {
+	background: #7AA8D0 !important;
+	color: #004C7F;
+}
+
+.navbar .nav>li>a:visited {
+	background: white !important;
+	color: #004C7F;
 }
 
 .navbar .brand {
@@ -1495,8 +1510,7 @@ input, button, select, textarea {
 	float: left;
 	min-width: 90px;
 	padding-top: 1%;
-	padding-bottom: 1%
-	margin: 0;
+	padding-bottom: 1% margin: 0;
 	text-align: center;
 	list-style: none;
 	border-left: 1px solid #d9d9d9;
@@ -2480,8 +2494,7 @@ table.fc-border-separate {
 
 .fc .ui-draggable-dragging .fc-event-bg, .fc-select-helper .fc-event-bg
 	{
-	display: none\9
-
+	display: none\9
 }
 
 .fc-event-vert .ui-resizable-s {
@@ -2682,35 +2695,38 @@ table.fc-border-separate {
 	color: white;
 	position: absolute;
 	top: 10%;
-	left: 8%;
+	left: 12%;
 }
-.logoheader{
+
+.logoheader {
 	color: white;
 	font-size: 250%;
 	position: absolute;
 	top: 4%;
+	left: 5%;
 }
 
-acc{
+acc {
 	color: white;
 }
+
 .acc:hover {
 	text-decoration: none;
 	color: white;
 }
 
-.dropdown-toggle{
+.dropdown-toggle {
 	position: relative;
 	top: -6px;
 	padding: 11px;
 	border-radius: 5px;
 }
 
-.font-class{
+.font-class {
 	font-family: 'Font Name', serif;
 }
 
-.notification{
+.notification {
 	text-decoration: none;
 	float: right;
 	font-size: 90%;
@@ -2719,31 +2735,32 @@ acc{
 	border-radius: 10%;
 }
 
-.nav-tab{
+.nav-tab {
 	margin-left: 13%;
 	margin-right: 7%;
 	height: 6%;
 	margin-bottom: 3.5em;
 	background-color: white;
 }
-.nav-tabs{
+
+.nav-tabs {
 	border: none;
+	position: relative;
+	left: 12%;
 }
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-	color: #ff8000;
-	background-color: #F7F7F7;
-	}
-	
-.nav-tabs>li{
-	background-color: white;
+
+.nav>li.active {
+	border: collaspe;
 }
-.nav-tabs>li>a{
+
+.nav-tabs>li>a {
 	color: #024F87;
 }
-.nav-tabs>li>a:hover{
+
+.nav-tabs>li>a:hover {
 	color: black;
 }
 
-.nav .acc >li>a{
+.nav .acc>li>a {
 	color: white;
 }
