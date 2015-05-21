@@ -2747,3 +2747,9 @@ acc{
 .nav .acc >li>a{
 	color: white;
 }
+.span-new{
+	height:580px;
+}
+.main-inner{
+	height: 600px;
+}
