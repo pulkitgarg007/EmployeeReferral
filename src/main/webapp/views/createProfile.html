@@ -46,9 +46,9 @@
               	<table>
               	<tr>
               	<td class="tableTd">
-              	<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.candidateName.$invalid && !CreateCandidate.candidateName.$pristine }">
-							<label class="lbl" for="candidateName">Candidate Name*:</label></td>
+              	<span class="input-group-addon inner-color" id="basic-addon1">Candidate Name &nbsp; <i
+										class="glyphicon glyphicon-user"></i>
+									</span></td>
 
 				<td class="tableTd"><input style="margin-left:0%;" type="text" id="cname"
 								name="candidateName" class="form-control"  ng-change="toggleProDisable()"
@@ -56,10 +56,9 @@
 								required></div>
 				</td>
 				<td class="tableTd">
-				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.qualification.$invalid && !CreateCandidate.qualification.$pristine }">
-							<label class="lbl" for="qualification">Qualification*:</label>
-				</td>
+				<span class="input-group-addon inner-color" id="basic-addon1">Qualification &nbsp; <i
+										class="glyphicon glyphicon-education"></i>
+									</span></td>
 								<td>
 								<select name="pso" ng-change="toggleProDisable()" placeholder="Select Qualification"
 									ng-model="selectedQualification" ng-options = "o as o for o in qualifications" class="form-control input-sm" id="qualification" required style="color: black">
@@ -75,23 +74,21 @@
 								class="help-block">Enter A Valid Qualification!</span></td></tr>
 				<tr>
 				<td id="tdid" class="tableTd">
-				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.emailId.$invalid && !CreateCandidate.emailId.$pristine }">
-							<label class="lbl" for="emailId">Email Id*:</label>
-								
-				</td>
-				<td id="tdid">
-				<input type="email" ng-change="toggleProDisable()"
+			<span class="input-group-addon inner-color" id="basic-addon1">Email Id &nbsp; <i
+										class="glyphicon glyphicon-envelope"></i>
+									</span></td>
+	<td id="tdid">
+				<span><input type="email" ng-change="toggleProDisable()"
 								name="emailId" class="form-control" id="emailId" 
 								ng-model="candidate.emailId" placeholder="Enter Email Id."
-								required></td>
+								required></span></td>
 				</div>
 
 				<td id="tdid" class="tableTd">
-				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.stream.$invalid && !CreateCandidate.stream.$pristine }">
-				<label class="lbl" class="stream" for="stream">Specialization: </label>
-							<!-- <label class="lbl" class="positionName" for="selectbasic">Employee's Position:</label> -->
+				<span class="input-group-addon inner-color" id="basic-addon1">Specialisation &nbsp;&nbsp; <i
+										class="glyphicon glyphicon-book"></i>
+									</span></td>
+
 				</td>
 						<td id="tdid">
 						<input type="text" ng-change="changeEvent()" ng-pattern="/^[a-zA-Z _]*$/"
@@ -112,10 +109,10 @@
 				
 				<tr>
 				<td id="tdid" class="tableTd">
-              	<div class="control-group"
-							ng-class="{'has-error' :CreateCandidate.mobileNo.$invalid && !CreateCandidate.mobileNo.$pristine}">
-							<label class="lbl" for="mobileNo">MobileNo*:</label>
-								</td>
+              	<span class="input-group-addon inner-color" id="basic-addon1">Mobile No &nbsp; <i
+										class="glyphicon glyphicon-phone"></i>
+									</span></td>
+
 				<td id="tdid" class="tableTd">
 				<input type="text" ng-change="toggleProDisable()" maxlength="18"
 								ng-model="candidate.mobileNo" name="mobileNo" id="mobileNo"
@@ -123,12 +120,12 @@
 								placeholder="Enter mobileNo" ui-br-phone-number required>
 									</div></td>
 				<td id="tdid" class="tableTd">
-				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.presentLocation.$invalid && !CreateCandidate.presentLocation.$pristine }">
-							<label class="lbl" for="plocation">Preferred Location:</label>
-				</td>
+				<span class="input-group-addon inner-color" id="basic-addon1">Preferred location &nbsp; <i
+										class="glyphicon glyphicon-map-marker"></i>
+									</span></td>
+
 				<td id="tdid" class="tableTd">
-				<select name="plocation" ng-change="jobCodeSl()" placeholder="Select Location"
+				<select name="plocation" ng-change="jobCodeSelect()" placeholder="Select Location"
 									ng-model="selectedpLocation" ng-options = "o as o for o in plocations" class="form-control input-sm" id="plocation" required style="color: black">
 								</select>
 				</td>
@@ -148,10 +145,9 @@
 								
 				<tr>	
 				<td id="tdid" class="tableTd">
-				<div class="control-group"
-							ng-class="{'has-error' :CreateCandidate.altmobileNo.$invalid && !CreateCandidate.altmobileNo.$pristine}">
-							<label class="lbl" for="altmobileNo">Alt. MobileNo:</label>
-				</td>
+				<span  class="input-group-addon inner-color" id="basic-addon1">Alt. Mobile No &nbsp;&nbsp; <i
+										class="glyphicon glyphicon-phone-alt"></i>
+									</span></td></div>
 				<td id="tdid" class="tableTd">
 				<input type="text" ng-change="changeEvent()" 
 								ng-model="candidate.altmobileNo" name="altmobileNo" id="altmobileNo"
@@ -160,10 +156,9 @@
 									</div>
 				</td>
 				<td id="tdid" class="tableTd">
-				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.currentEmployer.$invalid && !CreateCandidate.currentEmployer.$pristine }">
-							<label class="lbl" for="currentEmployer">Current Employer*:</label>
-				</td>
+				<span class="input-group-addon inner-color" id="basic-addon1">Current Employer &nbsp; <i
+										class="glyphicon glyphicon-briefcase"></i>
+									</span></td>
 				<td id="tdid" class="tableTd">
 				<input
 								type="text" name="currentEmployer" class="form-control" ng-change="toggleProDisable()"
@@ -185,10 +180,9 @@
 								
 				<tr>
 				<td id="tdid" class="tableTd">
-				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.pancardNo.$invalid && !CreateCandidate.pancardNo.$pristine }">
-							<label class="lbl" for="pancardNo">Pancard No:</label>
-				</td>
+				<span class="input-group-addon inner-color" id="basic-addon1">Pancard No &nbsp; <i
+										class="glyphicon glyphicon-credit-card"></i>
+									</span></td>
 				<td id="tdid" class="tableTd">
 				<input type="text" ng-change="changeEvent()" 
 								class="form-control" id="pancardNo" name="pancardNo"
@@ -196,10 +190,10 @@
 								required></div>
 				</td>
 				<td id="tdid" class="tableTd">
-				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.experience.$invalid && !CreateCandidate.experience.$pristine }">
-							<label class="lbl" for="experience">Experience*:</label>
-				</td>
+				<span class="input-group-addon inner-color" id="basic-addon1">Experience &nbsp; <i
+										class="glyphicon glyphicon-time"></i>
+									</span></td>
+				
 				<td id="tdid" class="tableTd">
 				<select name="experience" id="experience" ng-change="toggleProDisable()" 
 									ng-model="selectedExpYears" ng-options = "o as o for o in expYears" class="form-control input-sm" id="experience" required style="color: black">
@@ -215,10 +209,9 @@
 								class="help-block">Experience is required.</span></td></tr>
 				<tr>				
 				<td id="tdid" class="tableTd">
-				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.passportNo.$invalid && !CreateCandidate.passportNo.$pristine }">
-							<label class="lbl" for="passportNo">Passport No.:</label>
-				</td>
+				<span class="input-group-addon inner-color" id="basic-addon1">Passport No &nbsp; <i
+										class="glyphicon glyphicon-plane"></i>
+									</span></td>
 				<td id="tdid" class="tableTd">
 				<input type="text" ng-change="changeEvent()" 
 								name="passportNo" class="form-control" id="passportNo"
@@ -226,11 +219,10 @@
 								required>
 				</td>
 				<td id="tdid" class="tableTd">
-				<div class="control-group"
-							ng-class="{ 'has-error' : CreateCandidate.Skills.$invalid && !CreateCandidate.Skills.$pristine }">
-							<label class="lbl" for="Skills">Skills*:</label>
-				</td>
-				<td id="tdid" class="tableTd">
+				<span class="input-group-addon inner-color" id="basic-addon1">Skills &nbsp; <i
+										class="glyphicon glyphicon-book"></i>
+									</span></td>
+									<td id="tdid" class="tableTd">
 				<tags-input ng-model="position.primarySkills"  class="field-control" placeholder="Enter Skills"> <auto-complete id="sk"
 							source="loadTags($query)" class="field-control"></auto-complete> </tags-input>
 							</div>
@@ -244,16 +236,19 @@
 				
 				<tr>
 				<td id="tdid" class="tableTd">
-				<label class="lbl" for="notes">Current Address*:</label>
-				</td>
+				<span class="input-group-addon inner-color" id="basic-addon1">Current Address &nbsp; <i
+										class="glyphicon glyphicon-home"></i>
+									</span></td>
 				<td id="tdid" class="tableTd">
 				<textarea cols="50" rows="5" ng-change="toggleProDisable()" name="address"
 									id="address" ng-model="candidate.address"
 									placeholder="Enter Current Address." required></textarea>
 				</td>
 				<td id="tdid" class="tableTd">
-				<label class="lbl" for="jc">Select Job Code:</label> 
-				</td>
+				<span class="input-group-addon inner-color" id="basic-addon1">Select Jobcode &nbsp; <i
+										class="glyphicon glyphicon-barcode"></i>
+									</span></td>
+				
 				<td id="tdid" class="tableTd">
 				<select name="jc"
 					ng-model="selectedJC" ng-options = "o as o for o in JobCodes" class="form-control input-sm" id="jc" required style="color: black">
@@ -267,8 +262,10 @@
 								
 				<tr>
               	<td id="tdid" class="tableTd">
-              	<label class="lbl" for="referredBy">Source*:</label>
-				</td>
+              	<span class="input-group-addon inner-color" id="basic-addon1">Referred By &nbsp; <i
+										class="glyphicon glyphicon-registration-mark"></i>
+									</span></td>
+				
 				<td id="tdid" class="tableTd">
 				<select name="referredBy" ng-change="toggleProDisable()" 
 									ng-model="selectedreferredBy" ng-options = "o as o for o in referredBys" class="form-control input-sm" id="referredBy" required style="color: black">
@@ -277,10 +274,9 @@
 				
 							
 							<td id="tdid" class="tableTd">
-							<div class="control-group">
-							<label class="lbl" for="filebutton">Upload
-								Resume:</label>
-								</td>
+							<span class="input-group-addon inner-color" id="basic-addon1">Upload Resume &nbsp; <i
+										class="glyphicon glyphicon-open "></i>
+									</span></td>
 								<td id="tdid" class="tableTd">
 							<input id="uploadFile" type="file" class="custom-file-input" ng-file-select="upload($files)"/> </div>
 								</td>
@@ -297,8 +293,9 @@
        			 </a>
 				</td>
 				<td id="tdid" class="tableTd">
-				<label class="lbl" for="notes">Additional Notes:</label>
-				</td>
+				<span class="input-group-addon inner-color" id="basic-addon1">Additional Notes &nbsp; <i
+										class="glyphicon glyphicon-pencil "></i>
+									</span></td>
 				<td id="tdid" class="tableTd">
 				<textarea cols="50" rows="5" ng-change="changeEvent()" name="notes"
 									id="notes" ng-model="candidate.notes"
