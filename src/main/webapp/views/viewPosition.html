@@ -1,0 +1,136 @@
+<html lang="en" ng-app="erApp" ng-controller="editPositionCtrl">
+<h1>
+	<b>Position Management - Edit jobcode: <span ng-bind="position.jobcode"></span></b>
+</h1>
+<br>
+        
+       <div class="widget widget-table action-table">
+            <div class="form-container"><br>
+
+              	<!-- <form id="integerForm" role="form" class="form-horizontal" action="#" name="createPosition" onvalidate>
+              	  -->
+              	<!-- <table border="0" cellpadding="4"> -->
+              	<table>
+              	<tr>
+              	<td class="tableTd">
+              		<div class="control-group" ng-class="{'has-error' :createPosition.designation.$invalid && !createPosition.designation.$pristine}">
+						<label class="lbl" for="name">Designation*:</label>
+					</div>	
+				</td>
+				<td><div><a href="#" editable-select="position.designation" e-ng-options="o as o for o in options">
+                                               {{ position.designation }}
+                                             </a></div></td>
+										
+				
+				<td class="tableTd">
+					<div class="control-group" ng-class="{'has-error' :createPosition.location.$invalid && !createPosition.location.$pristine}">
+								<label class="lbl" for="name">Location :</label>
+					</div>			
+				</td>
+				<td><div><a href="#" editable-select="position.location" e-ng-options="o as o for o in locations">
+                                               {{position.location}}
+                                             </a></div></td>
+										
+				</tr>
+				
+				
+				<tr>
+				<td id="tdid" class="tableTd">
+					<div class="control-group"
+						ng-class="{'has-error' :createPosition.experienceRequired.$invalid && !createPosition.experienceRequired.$pristine}">
+						<label class="lbl" for="experienceRequired">Experience Required*:</label>
+					</div>				
+				</td>	
+				<td><div><a href="#" editable-select="position.experienceRequired" e-ng-options="o as o for o in items">
+                                               {{position.experienceRequired}}
+                                             </a></div></td>
+										
+				</td>		
+				<td  class="tableTd">
+					<div class="control-group" ng-class="{'has-error' :createPosition.client.$invalid && !createPosition.client.$pristine}">
+						<label class="lbl" for="name">Client :</label>
+					</div>
+				</td>
+				<td><div><a href="#" editable-select="position.client" e-ng-options="o as o for o in clients">
+                                               {{ position.client  }}
+                                             </a></div></td>
+										
+				
+				</tr>
+				 <tr>
+					<td id="tdid" class="tableTd">
+						<div class="control-group" >
+							<label class="lbl" for="primarySkills">Primary Skills*:</label>
+						</div>	
+					</td> 
+					<td class="tableTd">
+							  <div>
+							  <a href="#" .editable-hide="position.primarySkills">{{position.primarySkills || "empty" }}</a>
+							</div> 
+									 	
+						</td>
+					
+					<td id="tdid" class="tableTd">
+						<div class="ui-widget control-group" ng-form="subForm"
+							ng-class="{ 'has-error' : createPosition.secondarySkills.$invalid && !createPosition.secondarySkills.$pristine }">
+							<label class="lbl" for="secondarySkills">Secondary Skills :</label>
+						</div>
+						
+					</td>
+					<td class="tableTd">
+							<div>
+							  <a href="#" editable-text="position.secondarySkills">{{position.secondarySkills || "empty" }}</a>
+							</div>
+						</td>
+						 <td id="tdid" class="tableTd">
+				<div class="control-group" ng-class="{'has-error' :createPosition.noOfPositions.$invalid && !createPosition.noOfPositions.$pristine}">
+								<label class="lbl" for="name">Interview Rounds</label>
+								</div>
+								</td>
+								<td><div><a href="#" editable-select="position.InterviewRounds" e-ng-options="o as o for o in rounds">
+                                               {{position.InterviewRounds  }}
+                                             </a></div></td>
+								
+								</tr>
+							
+				<tr>					
+					<td id="tdid" class="tableTd">
+						<div class="control-group" ng-class="{'has-error' :createPosition.jobProfile.$invalid && !createPosition.jobProfile.$pristine}">
+								<label class="lbl" for="name">Job Description*:</label>
+						</div>		
+					</td>
+					<td class="tableTd">
+							<div>
+							  <a href="#" editable-text="position.jobProfile">{{position.jobProfile || "empty" }}</a>
+							</div>
+						</td>
+					
+					
+					</tr>
+				
+				<tr>				
+	              	<td></td>
+	              	<td id="tdid" class="tableTd">
+	              		<div class="control-group">
+	              			<a href="" class="btn btn-primary" ng-click="updatePositionDetails()">
+	         		 			<span class="glyphicon glyphicon-ok"></span> save
+	       			 		</a>
+	       			 		<!-- <a ui-sref="searchPosition" class="btn btn-success" ng-click="updatePositionDetails()">
+	         		 			<span class="glyphicon glyphicon-ok"></span> Update
+	       			 		</a> -->
+							<a ui-sref="searchPosition" class="btn btn-success">
+	         		 			<span class="glyphicon glyphicon-remove"></span> Cancel
+	       			 		</a>
+						</div>
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+              	</table>
+              
+            	<!-- </form> -->
+
+            </div>
+
+          </div>
+          </html>
