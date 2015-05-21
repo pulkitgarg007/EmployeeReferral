@@ -28,11 +28,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('createProfile', {url:'/createProfile', views: {'': {templateUrl: 'views/createProfile.html', controller: 'createProfileCtrl'}}})
     .state('searchProfile', {url:'/searchProfile', views: {'': {templateUrl: 'views/searchProfile.html', controller: 'searchProfileCtrl'}}})
     .state('editProfile', {url:'/editProfile', views: {'': {templateUrl: 'views/editProfile.html', controller: 'editProfileCtrl'}}})
-    .state('viewProfile', {url:'/viewProfile', views: {'': {templateUrl: 'views/viewProfile.html', controller: 'editProfileCtrl'}}})
+     .state('viewProfile', {url:'/viewProfile', views: {'': {templateUrl: 'views/viewProfile.html', controller: 'editProfileCtrl'}}})
     
     .state('createPosition', {url:'/createPosition', views: {'': {templateUrl: 'views/createPosition.html', controller: 'createPositionCtrl'}}})
     .state('searchPosition', {url:'/searchPosition', views: {'': {templateUrl: 'views/searchPosition.html', controller: 'searchPositionCtrl'}}})
-    .state('editPosition', {url:'/editPosition', views: {'': {templateUrl: 'views/editPosition.html', controller: 'editPositionCtrl'}}})
+    .state('viewPosition', {url:'/viewPosition', views: {'': {templateUrl: 'views/viewPosition.html', controller: 'editPositionCtrl'}}})
+     .state('interviewManagement', {url:'/interviewManagement', views: {'': {templateUrl: 'views/interviewManagement.html', controller: 'interviewManagementCtrl'}}})
         
 }]);
 
@@ -47,30 +48,10 @@ app.config(function(blockUIConfig) {
 	});
 
 app.run(function(editableOptions) {
-	  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
-	});
-
+  editableOptions.theme = 'bs3';
+});
 
 app.controller('positionCtrl',['$scope', '$http', function($scope, $http) {
 	
 
 }]);
-
-
-app.directive("productTabs", function() {
-	return {
-		restrict : "E",
-		controller : function() {
-			this.tab = 1;
-
-			this.isSet = function(checkTab) {
-				return this.tab === checkTab;
-			};
-
-			this.setTab = function(activeTab) {
-				this.tab = activeTab;
-			};
-		},
-		controllerAs : "tab"
-	};
-});

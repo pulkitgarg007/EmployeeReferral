@@ -1,6 +1,6 @@
 app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', function($scope, $http,jobCodeService1) {
-	//$scope.page = "Edit Position";
-	//$scope.enableDisableButton = true;
+	$scope.page = "Edit Position";
+	$scope.enableDisableButton = true;
 	$scope.data = {};
 	$scope.position ={};
 	$scope.position.primarySkills = {};
@@ -16,19 +16,29 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
 	var Skills_URL = base_url + '/EmployeeReferral/resources/skill/skills';
 	var Designation_URL = base_url + '/EmployeeReferral/resources/skill/designations';
 	var Experience_URL = base_url + '/EmployeeReferral/resources/skill/experience';
-	var DeveloperSkills_URL = base_url + '/EmployeeReferral/resources/skill/developerskills';
-	var QESkills_URL = base_url + '/EmployeeReferral/resources/skill/qeskills';
+	//var DeveloperSkills_URL = base_url + '/EmployeeReferral/resources/skill/developerskills';
+	//var QESkills_URL = base_url + '/EmployeeReferral/resources/skill/qeskills';
 	var Location_URL = base_url + '/EmployeeReferral/resources/skill/location';
+	var client_URL = base_url + '/EmployeeReferral/resources/skill/client';
 	$scope.data = {};
 	$scope.options = {};
 	$scope.items = {};
 	$scope.locations = {};
+	$scope.clients = {};
 	$http.get(Skills_URL).success(function(data, status, headers, config) {
 		$scope.data = data;
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
 	})
+	$http.get(client_URL).success(function(data, status, headers, config) {
+		$scope.clients = data;
+		$scope.client = $scope.clients[0];
+		
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
 	$http.get(Designation_URL).success(function(data, status, headers, config) {
 		$scope.options = data;
 		$scope.selectedDesignation = $scope.options[0];
@@ -59,6 +69,8 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
 		$scope.selectedExperience = $scope.position.experienceRequired;
 		$scope.position.selectedDesignation = $scope.position.designation;
 		$scope.selectedLocation = $scope.position.location;
+		$scope.position.client =  $scope.position.client;
+		
 		//console.log("2------->"+angular.toJson($scope.position));
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -66,27 +78,29 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
 	
 	$scope.updatePositionDetails = function() {
 		var position1={};
-		var skills =[];
+		//var skills =[];
+		  console.log($scope.position);
 		if ($scope.position !== undefined) {
-			 angular.forEach($scope.position.primarySkills, function(value, key) {
+			 /*angular.forEach($scope.position.primarySkills, function(value, key) {
 				 skills.push(value.text);
-				});
-			 $scope.position.primarySkills = skills;
-		     $scope.position.experienceRequired	= $scope.selectedExperience;
+				});*/
+			 //$scope.position.primarySkills = skills;
+		   /*  $scope.position.experienceRequired	= $scope.selectedExperience;
 		     $scope.position.location = $scope.selectedLocation;
-	 
+	 */
 		     position1.jobcode=$scope.position.jobcode;
-		     position1.designation=$scope.position.selectedDesignation;
+		     position1.designation=$scope.position.designation;
 		     position1.experienceRequired=$scope.position.experienceRequired;
-		     position1.primarySkills=$scope.position.primarySkills;
+		     //position1.primarySkills=$scope.position.primarySkills;
 		     position1.secondarySkills=$scope.position.secondarySkills;
-		     position1.noOfPositions=$scope.position.noOfPositions;
+		   //  position1.InterviewRoundss=$scope.position.InterviewRounds;
 		     position1.jobProfile=$scope.position.jobProfile;
 		     position1.location=$scope.position.location;
 		     position1.client=$scope.position.client;
-
+		     alert("updated position details");
+         
 			$http.post(base_url + '/EmployeeReferral/resources/position-update', position1);
-			location.href = '#pos';
+			location.href = '#searchPosition';
 		}
 	}
 	

@@ -93,7 +93,7 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 				      totalServerItems: 'totalServerItems',
 				      pagingOptions: $scope.pagingOptions2,
 				      filterOptions: $scope.filterOptions,
-				      enableColumnResize:true,
+				      enableColumnResize:false,
 				      enableHorizontalScrollbar:0,
 				      columnDefs: [
 				          		    {field: '', width: "41", cellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>'},
@@ -179,11 +179,11 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		      totalServerItems: 'totalServerItems',
 		      pagingOptions: $scope.pagingOptions,
 		      filterOptions: $scope.filterOptions,
-		      enableColumnResize:true,
+		      enableColumnResize:false,
 		      enableHorizontalScrollbar:0,
 		      columnDefs: [
 		          		    {field: '', width: "41", cellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>'},
-		          		    {field:'jobcode', displayName:'Job Code', width: "150", cellTemplate: '<p style="position:absolute;top:3px;left:15px;">{{row.getProperty(\'jobcode\')}}</p>'}, 
+		          		    {field:'jobcode', displayName:'Job Code', width: "150", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcode\')}}</a></div>'},  
 		          		    {field:'designation', displayName:'Designation', width: "255"}, 
 		          		    {field:'experienceRequired', displayName:'Experience', width: "90"}, 
 		          		    //{field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
@@ -199,7 +199,7 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 	$scope.editPosition = function(row) {
 		window.console && console.log(row.entity);
 		jobCodeService1.setjobCode(row.entity.jobcode);
-		location.href='#editPosition';
+		location.href='#viewPosition';
 	};
 	
 	$scope.deletePosition = function(row) {

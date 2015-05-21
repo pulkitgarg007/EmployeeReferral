@@ -65,7 +65,7 @@
 				<td id="tdid" class="tableTd">
 					<input type="text" name="client" ng-change="changeEvent()" 
 						class="form-control input-sm" id="client" ng-init="enableDisableButton=true" ng-model="position.client"
-						ng-disabled="enableDisableButton" ng-pattern="/^[a-zA-Z _]*$/" 
+						ng-disabled="enableDisableButton"  ng-options = "o as o for o in items" ng-pattern="/^[a-zA-Z _]*$/" 
 						placeholder="Enter Client" required>
 				</td>
 				<tr>
@@ -84,10 +84,10 @@
 						</div>	
 					</td>
 					<td id="tdid">
-							<tags-input ng-model="position.primarySkills" ng-change="changeEvent()" class="field-control" placeholder="Enter Skills">
+							<!-- <tags-input ng-model="position.primarySkills" ng-change="changeEvent()" class="field-control" placeholder="Enter Skills">
 								 <auto-complete id="sk"
 									source="loadTags($query)" class="field-control"></auto-complete>
-							 </tags-input>
+							 </tags-input> -->
 					</td>
 					<td id="tdid" class="tableTd">
 						<div class="ui-widget control-group"
