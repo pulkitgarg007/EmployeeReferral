@@ -38,24 +38,22 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
         $scope.Done = true;
 	}
 	
-	$scope.updateUser = function(data) {
-		//alert("in:"+data);
-		if(data!=="abc")
-		return "Username should be `awesome` or `error`";
-	  //  return $http.post('/updateUser', {id: $scope.user.id, name: data});
+	$scope.validateName = function(data) {
+		//var regexp="/^[a-zA-Z _]*$/";
+		if(onlyChar(data)){
+			return true;	
+		}
+		else
+			return "Candidate name only in cha..";
 	  };
-
-	// mock `/updateUser` request
-	/*app.run(function($httpBackend) {
-	  $httpBackend.whenPOST(/\/updateUser/).respond(function(method, url, data) {
-	    data = angular.fromJson(data);
-	    if(data.name === 'error') {
-	      return [500, 'Error message']; 
-	    } else {
-	      return [200, {status: 'ok'}]; 
-	    }
-	  });
-	});*/
+	  
+	  $scope.validatePhNo = function(data) {
+			if(onlyNum(data)){
+				return true;	
+			}
+			else
+				return "Mobile number is numberic..";
+		  };
 	
 	$scope.updateProfileDetails = function() {
 		if($scope.candidate !== undefined){
@@ -68,7 +66,7 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 		var base_url = window.location.origin;
 		var URL = base_url + '/EmployeeReferral/resources/profile';
 		$http.put(URL,$scope.candidate);
-		location.href = '#pro';
+		location.href = '#searchProfile';
 		}
 	}
 	
