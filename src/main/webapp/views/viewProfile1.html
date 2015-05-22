@@ -11,8 +11,8 @@
              </div>  
 <!-- ----------------------------------alert Message--------------------------------------------------------- -->
 
-<form id="integerForm" role="form" class="form-horizontal" action="#" name="CreateCandidate" onvalidate>
-<div ng-controller="createProfileCtrl" align="left">
+<!-- <form id="integerForm" role="form" class="form-horizontal" action="#" name="CreateCandidate" onvalidate> -->
+<div ng-controller="editProfileCtrl" align="left">
  
   <accordion close-others=false>
     
@@ -28,9 +28,7 @@
 					<label class="lbl" for="candidateName"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;Candidate Name*</label>
 				</div>
 				<div class="col-md-3" style="display: inline;">
-					<input style="margin-left:0%;" type="text" id="cname" name="candidateName" class="form-control"  ng-change="toggleProDisable()"
-				   ng-model="candidate.candidateName" placeholder="Enter Candidate Name" ng-pattern="/^[a-zA-Z _]*$/" required>
-				   
+						<a href="#" editable-text="candidate.candidateName" onbeforesave="validateName($data)">{{ candidate.candidateName || "empty" }}</a>
 				</div>   
 			</div>	
 				
@@ -39,8 +37,7 @@
 					 	<label class="lbl" for="emailId"><i class="glyphicon glyphicon-envelope"></i>&nbsp;&nbsp;Email Id*:</label>
 					</div>
 					<div class="col-md-3">	
-						<input type="email" ng-change="toggleProDisable()" name="emailId" class="form-control" id="emailId" 
-								ng-model="candidate.emailId" placeholder="Enter Email Id." required>			
+						<a href="#" editable-text="candidate.emailId">{{ candidate.emailId || "empty" }}</a>			
 					</div>					
 				</div>
         </div>
@@ -75,8 +72,7 @@
 						<label class="lbl" for="mobileNo"><i class="glyphicon glyphicon-phone"></i>&nbsp;&nbsp;MobileNo*:</label>
 					</div>
 					<div class="col-md-3">
-						<input type="text" ng-change="toggleProDisable()" maxlength="18" ng-model="candidate.mobileNo" name="mobileNo" id="mobileNo"
-									ngPattern="1234567890 " class="form-control" placeholder="Enter mobileNo" ui-br-phone-number required>
+						<a href="#" editable-text="candidate.mobileNo" onbeforesave="validatePhNo($data)">{{ candidate.mobileNo || "empty" }}</a>
 					</div>
 			</div>   
 				
@@ -85,8 +81,7 @@
 				 	<label class="lbl" for="altmobileNo"><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;&nbsp;Alt. MobileNo:</label>
 				</div>
 				<div class="col-md-3">	
-					<input type="text" ng-change="changeEvent()" ng-model="candidate.altmobileNo" name="altmobileNo" id="altmobileNo"
-								ngPattern="1234567890 " ng-maxlength="18" class="form-control" placeholder="Enter Alt Mobile No." ui-br-phone-number required>			
+					<a href="#" editable-text="candidate.altmobileNo">{{ candidate.altmobileNo || "empty" }}</a>			
 				</div>					
 			</div>
         </div>
@@ -127,10 +122,7 @@
 						<label class="lbl" for="passportNo"><i class="glyphicon glyphicon-plane"></i>&nbsp;&nbsp;Passport No.:</label>
 					</div>
 					<div class="col-md-3">
-						<input type="text" ng-change="changeEvent()" 
-								name="passportNo" class="form-control" id="passportNo"
-								ng-model="candidate.passportNo" placeholder="Enter Passport No."
-								required>
+						<a href="#" editable-text="candidate.passportNo">{{ candidate.passportNo || "empty" }}</a>
 					</div>
 			</div>   
 				
@@ -139,9 +131,7 @@
 				 	<label class="lbl" for="notes"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Current Address*:</label>
 				</div>
 				<div class="col-md-3">	
-					<textarea cols="50" rows="5" ng-change="toggleProDisable()" name="address"
-									id="address" ng-model="candidate.address"
-									placeholder="Enter Current Address." ></textarea>			
+					 <a href="#" editable-text="candidate.address">{{ candidate.address || "empty" }}</a>			
 				</div>					
 			</div>
         </div>
@@ -160,9 +150,10 @@
 					<label class="lbl" for="qualification"><i class="glyphicon glyphicon-education"></i>&nbsp;&nbsp;Qualification*:</label>
 				</div>
 				<div class="col-md-3">
-				<select name="pso" ng-change="toggleProDisable()" placeholder="Select Qualification"
-									ng-model="selectQul.Qualification" ng-options = "o as o for o in qualifications" class="form-control input-sm" id="qualification" required style="color: black">
-				</select>
+				<a href="#" editable-select="candidate.qualification" e-ng-options="o as o for o in qualifications">
+        					{{ candidate.qualification }}
+      			</a>
+				
 				</div>   
 			</div>	
 				
@@ -171,9 +162,7 @@
 					 	<label class="lbl" for="Specialisation"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;Specialisation</label>
 					</div>
 					<div class="col-md-3">	
-						<input type="text" ng-change="changeEvent()" ng-pattern="/^[a-zA-Z _]*$/"
-								name="stream" class="form-control" id="stream"
-								ng-model="candidate.stream" placeholder="Enter Stream" required>			
+						<a href="#" editable-text="candidate.stream">{{ candidate.stream || "empty" }}</a>			
 					</div>					
 				</div>
         </div>
@@ -186,9 +175,10 @@
 						<label class="lbl" for="Plocation"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;&nbsp;Preferred location*</label>
 					</div>
 					<div class="col-md-3">
-						<select name="plocation" ng-change="jobCodeSl()" placeholder="Select Location"
-									ng-model="selection.pLocation" ng-options = "o as o for o in plocations" class="form-control input-sm" id="plocation" required style="color: black">
-								</select>
+						<a href="#" editable-select="candidate.plocation" e-ng-options="o as o for o in plocations">
+	        						{{ candidate.plocation }}
+	    				</a>
+
 					</div>
 			</div>   
 				
@@ -197,9 +187,7 @@
 				 	<label class="lbl" for="CurrentEmp"><i class="glyphicon glyphicon-briefcase"></i>&nbsp;&nbsp;Current Employer</label>
 				</div>
 				<div class="col-md-3">	
-					<input type="text" name="currentEmployer" class="form-control" ng-change="toggleProDisable()"
-						id="currentEmployer" ng-model="candidate.currentEmployer" ng-pattern="/^[a-zA-Z _]*$/"
-						placeholder="Enter Current Company" required>			
+					<a href="#" editable-text="candidate.currentEmployer">{{ candidate.currentEmployer || "empty" }}</a>			
 				</div>					
 			</div>
         </div>
@@ -213,30 +201,21 @@
 					</div>
 					<div class="col-md-3">
 						<div class="col-md-6">
-							<select name="experience" id="experience" ng-change="toggleProDisable()" 
-									ng-model="selectExpY.ExpYears" ng-options = "o as o for o in expYears" 
-									class="form-control input-sm" id="experience" required style="color: black">
-							<option>1</option>
-							</select>
+							<a href="#" editable-select="candidate.expYear" e-ng-options="o as o for o in expYears">{{candidate.expYear || "empty"}}</a>
 							
 						</div>
 						<div class="col-md-6">
-							<select name="expMonths" id="experience" ng-change="toggleProDisable()" 
-								ng-model="selectExpM.ExpMonths" ng-options = "o as o for o in expMonths" 
-								class="form-control input-sm" required style="color: black">		
-							</select>
+							<a href="#" editable-select="candidate.expMonth" e-ng-options="o as o for o in expMonths">{{candidate.expMonth || "empty"}}</a></td>
 						</div>
 					</div>
 			</div>   
 				
 			<div class="control-group">
 				<div class="col-md-2" align="right">
-				 	<label class="lbl" for="notes"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;Skills</label>
+				 	<label class="lbl" for="skills"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;Skills</label>
 				</div>
 				<div class="col-md-3">	
-					<tags-input ng-model="position.primarySkills"  class="field-control" placeholder="Enter Skills"> 
-						<auto-complete id="sk" source="loadTags($query)" class="field-control"></auto-complete>
-					</tags-input>			
+					<a href="#" editable-text="candidate.primarySkills">{{ candidate.primarySkills || "empty" }}</a>			
 				</div>					
 			</div>
         </div>
@@ -249,9 +228,7 @@
 						<label class="lbl" for="ReferredBy"><i class="glyphicon glyphicon-registration-mark"></i>&nbsp;&nbsp;Referred By</label>
 					</div>
 					<div class="col-md-3">
-							<select name="referredBy" ng-change="toggleProDisable()" 
-									ng-model="selectRef.referredBy" ng-options = "o as o for o in referredBys" class="form-control input-sm" id="referredBy" required style="color: black">
-								</select>
+						 <a href="#" editable-select="candidate.referredBy" e-ng-options="o as o for o in referredBys">{{ candidate.referredBy || "empty" }}</a>
 					</div>
 			</div>   
 				
@@ -260,9 +237,7 @@
 				 	<label class="lbl" for="jobcode"><i class="glyphicon glyphicon-barcode"></i>&nbsp;&nbsp;Select Jobcode</label>
 				</div>
 				<div class="col-md-3">	
-					<select name="jc"
-					ng-model="selectedJC.jobCode" ng-options = "o as o for o in JobCodes" class="form-control input-sm" id="jc" required style="color: black">
-								</select>			
+					<a href="#" editable-select="candidate.jobcodeProfile">{{ candidate.jobcodeProfile || "empty" }}</a>			
 				</div>					
 			</div>
         </div>
@@ -275,9 +250,7 @@
 						<label class="lbl" for="additionalNotes"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp;Additional Notes</label>
 					</div>
 					<div class="col-md-3">
-							<textarea cols="50" rows="5" ng-change="changeEvent()" name="notes"
-									id="notes" ng-model="candidate.notes"
-									placeholder="Enter any additional notes..." required></textarea>
+							<a href="#" editable-text="candidate.notes">{{ candidate.notes || "empty" }}</a>
 					</div>
 			</div>   
 				
@@ -288,8 +261,8 @@
 	</accordion-group>
   </accordion>
   <div align="center">
-<a href="" class="btn btn-primary" ng-click="submit()">
-         <span class="glyphicon glyphicon-ok-circle"></span> Create
+<a href="" class="btn btn-primary" ng-click="updateProfileDetails()">
+         <span class="glyphicon glyphicon-ok"></span> Update
     </a>&nbsp;&nbsp;&nbsp;&nbsp;
 	<a ui-sref="searchProfile" class="btn btn-primary">
          <span class="glyphicon glyphicon-remove"></span> Cancel

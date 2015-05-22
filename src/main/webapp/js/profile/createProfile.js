@@ -6,6 +6,11 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	$scope.primarySkills ={};
 	$scope.candidate.uploadedFileName = "";
 	$scope.disableProBtn = true;
+	$scope.selection={};
+	$scope.selectQul={};
+	$scope.selectExpY={};
+	$scope.selectExpM={};
+	$scope.selectRef={};
 	var uploadedFileName = null;
 	var base_url = window.location.origin;
 	var URL = base_url + '/EmployeeReferral/resources/fileUpload';
@@ -13,32 +18,32 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	$scope.data = {};
 	var uploadedFile = null;
 	
-	$scope.selectedQualification = "";
+	//$scope.selectQul = "";
 	$scope.candidate.qualification = "";
 	var qualification_URL = base_url + '/EmployeeReferral/resources/skill/qualification';
 	$scope.qualifications = {};
 	
-	$scope.selectedpLocation = "";
+	//$scope.selectedpLocation = "";
 	$scope.candidate.plocation = "";
 	var plocation_URL = base_url + '/EmployeeReferral/resources/skill/plocation';
 	$scope.plocations = {};
 	
-	$scope.selectedreferredBy = "";
+	$scope.selectRef.referredBy = {};
 	$scope.candidate.referredBy = "";
 	var referredBy_URL = base_url + '/EmployeeReferral/resources/skill/referredBy';
 	$scope.referredBys = {};
 	
-	$scope.selectedExpYears = "";
+	//$scope.selectedExpYears = "";
 	$scope.candidate.expYear = "";
 	var expYear_URL = base_url + '/EmployeeReferral/resources/skill/expYears';
-	$scope.expYears = {};
+	$scope.selectExpY.expYears = {};
 	
-	$scope.selectedExpMonths = "";
+	//$scope.selectedExpMonths = "";
 	$scope.candidate.expMonth = "";
 	var expMonth_URL = base_url + '/EmployeeReferral/resources/skill/expMonths';
-	$scope.expMonths = {};
+	$scope.selectExpM.expMonths = {};
 	
-	$scope.selectedJC = "";
+	$scope.selectedJC = {};
 	$scope.candidate.jobcodeProfile = "";
 	$scope.JCs = {};
 	$scope.JobCodes = {};
@@ -52,7 +57,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	
 	$http.get(qualification_URL).success(function(data, status, headers, config) {
 		$scope.qualifications = data;
-		$scope.selectedQualification = $scope.qualifications[0];
+		$scope.selectQul.Qualification = $scope.qualifications[0];
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -60,7 +65,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	
 	$http.get(plocation_URL).success(function(data, status, headers, config) {
 		$scope.plocations = data;
-		$scope.selectedpLocation = $scope.plocations[0];
+		$scope.selection.pLocation = $scope.plocations[0];
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -68,7 +73,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	
 	$http.get(referredBy_URL).success(function(data, status, headers, config) {
 		$scope.referredBys = data;
-		$scope.selectedreferredBy = $scope.referredBys[0];
+		$scope.selectRef.referredBy = $scope.referredBys[0];
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -76,7 +81,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	
 	$http.get(expYear_URL).success(function(data, status, headers, config) {
 		$scope.expYears = data;
-		$scope.selectedExpYears = $scope.expYears[0];
+		$scope.selectExpY.ExpYears = $scope.expYears[0];
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -84,7 +89,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	
 	$http.get(expMonth_URL).success(function(data, status, headers, config) {
 		$scope.expMonths = data;
-		$scope.selectedExpMonths = $scope.expMonths[0];
+		$scope.selectExpM.ExpMonths = $scope.expMonths[0];
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -97,7 +102,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	
 	
 	$scope.jobCodeSl = function(){
-		var jobcode_url = base_url + '/EmployeeReferral/resources/searchPositionBasedOnLocation?location='+$scope.selectedpLocation;
+		var jobcode_url = base_url + '/EmployeeReferral/resources/searchPositionBasedOnLocation?location='+$scope.selection.pLocation;
 		
 		$http.get(jobcode_url).success(function(data, status, headers, config) {
 			$scope.JCs = data;
@@ -113,15 +118,11 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 					}
 					count = count + 1;
 				});
-				
 			
 			}
-			
-			
-			
 		}).error(function(data, status, headers, config) {
 			alert('error');
-		})
+		});
 	}
 	
 	
@@ -142,12 +143,12 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 				}
 			    
 		    	$scope.candidate.profilecreatedBy = sessionStorage.userId;
-		    	$scope.candidate.qualification = $scope.selectedQualification;
-		    	$scope.candidate.plocation = $scope.selectedpLocation;
-		    	$scope.candidate.referredBy = $scope.selectedreferredBy;
-		    	$scope.candidate.expYear = $scope.selectedExpYears;
-		    	$scope.candidate.expMonth = $scope.selectedExpMonths;
-		    	$scope.candidate.jobcodeProfile = $scope.selectedJC;
+		    	$scope.candidate.qualification = $scope.selectQul.Qualification;
+		    	$scope.candidate.plocation = $scope.selection.pLocation;
+		    	$scope.candidate.referredBy = $scope.selectRef.referredBy;
+		    	$scope.candidate.expYear = $scope.selectExpY.ExpYears;
+		    	$scope.candidate.expMonth = $scope.selectExpM.ExpMonths;
+		    	$scope.candidate.jobcodeProfile = $scope.selectedJC.jobCode;
 		    	$scope.candidate.profileTimeStamp = timeStamp;
 		    	$scope.candidate.uploadedFileName = $scope.candidate.emailId + "_" + $scope.uploadedFileName;
 		    	$http.post(base_url+'/EmployeeReferral/resources/profile', $scope.candidate).
@@ -197,7 +198,7 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 	};
 	
 	$scope.toggleProDisable = function(){
-		if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '' || $scope.selectedQualification == "Select Qualification" || $scope.candidate.emailId == null || $scope.candidate.emailId == '' || $scope.candidate.mobileNo == null || $scope.candidate.mobileNo == '' || $scope.candidate.currentEmployer == null || $scope.candidate.currentEmployer == '' || $scope.candidate.skills == '' || $scope.selectedExpYears == 'Select Years' || $scope.selectedExpMonths == 'Select Months'){
+		if($scope.candidate.candidateName == null || $scope.candidate.candidateName == '' || $scope.selectQul.Qualification == "Select Qualification" || $scope.candidate.emailId == null || $scope.candidate.emailId == '' || $scope.candidate.mobileNo == null || $scope.candidate.mobileNo == '' || $scope.candidate.currentEmployer == null || $scope.candidate.currentEmployer == '' || $scope.candidate.skills == '' || $scope.selectExpY.ExpYears == 'Select Years' || $scope.selectExpM.ExpMonths == 'Select Months'){
 			$scope.disableProBtn = true;
 		}
 		else{
@@ -205,7 +206,15 @@ app.controller("createProfileCtrl", ['$scope', '$http','$upload','$window', 'blo
 		}
 	}
 	
-	
+	$scope.status = {
+		    isFirstOpen: true,
+		    isFirstDisabled: false
+		  };
+		  
+	 $scope.status1 = {
+		    isFirstOpen: true,
+		    isFirstDisabled: false
+		  };
 	/*$scope.startBlock = function() {
 		blockUI.start("My custom message");;
 
