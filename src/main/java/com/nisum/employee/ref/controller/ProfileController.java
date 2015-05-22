@@ -1,5 +1,15 @@
 package com.nisum.employee.ref.controller;
 
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -10,6 +20,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -38,7 +49,7 @@ public class ProfileController {
 
 	@Autowired
 	private ProfileService profileService;
-
+	
 	@Autowired
 	private MongoConfig mongoConfig;
 
@@ -74,6 +85,13 @@ public class ProfileController {
 		Profile profileDetails = profileService.deleteProfileBasedOnEmailId(emailId);
 		return (null == profileDetails) ? new ResponseEntity<String>("profile are not found", HttpStatus.NOT_FOUND)
 				: new ResponseEntity<Profile>(profileDetails, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/sendMail", method = RequestMethod.GET)
+	public String sendMail(
+			@RequestParam(value="emailId", required = true) String emailId,@RequestParam(value="jobcode", required = true) String jobcode){
+		profileService.sendMail(emailId, jobcode);
+		return "Email Sent Successfully To: " + emailId;
 	}
 
 	@ResponseStatus(HttpStatus.OK)
