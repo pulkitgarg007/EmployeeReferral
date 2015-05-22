@@ -42,6 +42,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.nisum.employee.ref.domain.Profile;
+import com.nisum.employee.ref.service.NotificationService;
 import com.nisum.employee.ref.service.ProfileService;
 
 @Controller
@@ -49,6 +50,9 @@ public class ProfileController {
 
 	@Autowired
 	private ProfileService profileService;
+	
+	@Autowired
+	private NotificationService notificationService;
 	
 	@Autowired
 	private MongoConfig mongoConfig;
@@ -90,7 +94,7 @@ public class ProfileController {
 	@RequestMapping(value = "/sendMail", method = RequestMethod.GET)
 	public String sendMail(
 			@RequestParam(value="emailId", required = true) String emailId,@RequestParam(value="jobcode", required = true) String jobcode){
-		profileService.sendMail(emailId, jobcode);
+		notificationService.sendMail(emailId, jobcode);
 		return "Email Sent Successfully To: " + emailId;
 	}
 

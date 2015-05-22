@@ -266,3 +266,7 @@ textarea
 	color: #004E89;
 	font-size: 200%;
 }
+
+#typeOfInterview, #location, #skypeID{
+	width:250px;
+}
