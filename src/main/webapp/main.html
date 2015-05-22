@@ -39,10 +39,19 @@
 <link href="lib/bootstrap/font/font-awesome.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet">
 <link href="static/css/dashboard.css" rel="stylesheet">
-<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+
+<script src="js/example.js"></script>
+<script>
+	function onlyChar(val){
+		return (/^[a-zA-Z _]*$/.test(val));
+	}
+	
+	function onlyNum(val){
+		return (/^[0-9]*$/.test(val));
+	}
+</script>
    
 </head>
 <body>

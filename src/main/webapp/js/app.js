@@ -1,4 +1,4 @@
-var app = angular.module('erApp', ['ngTagsInput','ngGrid','ngRoute','angularFileUpload','blockUI', 'ui.utils.masks', 'ui.router','xeditable']);
+var app = angular.module('erApp', ['ngTagsInput','ngGrid','ngRoute','angularFileUpload','blockUI', 'ui.utils.masks', 'ui.router','xeditable','ui.bootstrap']);
 app.service('jobCodeService1', function() {
 var profileUserId;
 	
@@ -25,7 +25,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         
     $stateProvider
     .state('main', {url:'/', views: {'': {templateUrl: 'views/index.html',/*controller: 'searchProfileCtrl'*/}/*, 'footer@main': {templateUrl: 'footer.html', controller: 'scotchController'}*/}})
-    .state('createProfile', {url:'/createProfile', views: {'': {templateUrl: 'views/createProfile.html', controller: 'createProfileCtrl'}}})
+    .state('createProfile', {url:'/createProfile', views: {'': {templateUrl: 'views/createProfile1.html', controller: 'AccordionDemoCtrl'}}})
+    /*.state('createProfile', {url:'/createProfile', views: {'': {templateUrl: 'views/createProfile.html', controller: 'createProfileCtrl'}}})*/
     .state('searchProfile', {url:'/searchProfile', views: {'': {templateUrl: 'views/searchProfile.html', controller: 'searchProfileCtrl'}}})
     .state('editProfile', {url:'/editProfile', views: {'': {templateUrl: 'views/editProfile.html', controller: 'editProfileCtrl'}}})
      .state('viewProfile', {url:'/viewProfile', views: {'': {templateUrl: 'views/viewProfile.html', controller: 'editProfileCtrl'}}})
