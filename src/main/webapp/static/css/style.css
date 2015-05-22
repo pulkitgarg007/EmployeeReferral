@@ -1454,7 +1454,7 @@ input, button, select, textarea {
 }
 
 .navbar .nav>li>a:visited {
-	background: white !important;
+	background: #004C7F !important;
 	color: #004C7F;
 }
 
@@ -2747,6 +2747,7 @@ acc {
 	border: none;
 	position: relative;
 	left: 12%;
+	width:80%;
 }
 
 .nav>li.active {
