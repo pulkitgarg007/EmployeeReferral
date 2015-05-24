@@ -13,6 +13,9 @@ public class InterviewDetails {
 	String interviewerName;
 	String interviewerMobileNumber;
 	String skypeId;
-	String interviewDate;
+	String interviewDateTime;
 	String typeOfInterview;
+	String interviewLocation;
+	String interviewerEmailId;
+	String additionalNotes;
 }

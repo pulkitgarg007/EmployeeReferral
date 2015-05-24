@@ -136,7 +136,7 @@ textarea
 	font-weight:bold;
 }
 
-#designation, #jc, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId, #stream, #altmobileNo, #currentEmployee, #plocation, #currentEmployer, #profilecreatedBy, #referredBy{
+#designation, #intNotes, #dLabel, #typeOfInterview, #location, #skypeID, #emailIdInterviewer, #jc, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId, #stream, #altmobileNo, #currentEmployee, #plocation, #currentEmployer, #profilecreatedBy, #referredBy{
 	width:250px;
 }
 
@@ -265,8 +265,4 @@ textarea
 	left: -28%;
 	color: #004E89;
 	font-size: 200%;
-}
-
-#typeOfInterview, #location, #skypeID{
-	width:250px;
 }

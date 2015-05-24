@@ -93,8 +93,8 @@ public class ProfileController {
 	
 	@RequestMapping(value = "/sendMail", method = RequestMethod.GET)
 	public String sendMail(
-			@RequestParam(value="emailId", required = true) String emailId,@RequestParam(value="jobcode", required = true) String jobcode){
-		notificationService.sendMail(emailId, jobcode);
+			@RequestParam(value="emailId", required = true) String emailId,@RequestParam(value="jobcode", required = true) String jobcode,@RequestParam(value="emailIdInterviewer", required = true) String emailIdInterviewer,@RequestParam(value="cname", required = true) String cname){
+		notificationService.sendMail(emailId, jobcode, emailIdInterviewer, cname);
 		return "Email Sent Successfully To: " + emailId;
 	}
 

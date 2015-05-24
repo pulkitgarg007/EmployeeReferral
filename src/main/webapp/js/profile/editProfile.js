@@ -21,7 +21,7 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	  };
 
 	  $scope.status = {
-	    isFirstOpen: true,
+	    isFirstOpen: false,
 	    isFirstDisabled: false
 	  };
 	  
@@ -32,6 +32,7 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	
 	$scope.data = {};
 	$scope.candidate = {};
+	$scope.interview = {};
 	$scope.selectedpLocation={};
 	$scope.qualifications={};
 	$scope.plocations={};
@@ -131,7 +132,12 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	}
 	
 	$scope.schedule = function(){
-		
+		var Mail_URL = base_url + '/EmployeeReferral/resources/sendMail?emailId='+$scope.candidate.emailId+'&jobcode='+$scope.candidate.jobcodeProfile+'&emailIdInterviewer='+$scope.interview.emailIdInterviewer+'&cname='+$scope.candidate.candidateName;
+		$http.get(Mail_URL).success(function(data, status, headers, config) {
+			alert("Mails Sent Successfully!");
+		}).error(function(data, status, headers, config) {
+			alert("Failed To Send Mails!");
+		});
 	}
 	
 	  

@@ -183,8 +183,8 @@ app.controller('searchPositionCtrl',['$scope', '$http','$q', '$window','jobCodeS
 		      enableHorizontalScrollbar:0,
 		      columnDefs: [
 		          		    {field: '', width: "41", cellTemplate: '<div class="ngSelectionCell"><input tabindex="-1" class="ngSelectionCheckbox" type="checkbox" ng-checked="row.selected" /></div>'},
-		          		    {field:'jobcode', displayName:'Job Code', width: "150", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcode\')}}</a></div>'},  
-		          		    {field:'designation', displayName:'Designation', width: "255"}, 
+		          		    {field:'jobcode', displayName:'Job Code', width: "180", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcode\')}}</a></div>'},  
+		          		    {field:'designation', displayName:'Designation', width: "225"}, 
 		          		    {field:'experienceRequired', displayName:'Experience', width: "90"}, 
 		          		    //{field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
 		          			//{field:'noOfPositions', displayName:'No Of Positions', width: "110"}, 

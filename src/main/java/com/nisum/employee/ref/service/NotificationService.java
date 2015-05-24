@@ -21,9 +21,10 @@ public class NotificationService {
 	@Autowired
 	private MongoTemplate mongoTemplate;
 	
-	  public String sendMail(String emailId, String jobcode){
+	  public String sendMail(String emailId, String jobcode, String emailIdInterviewer, String cname){
 			
 	      String to = emailId;
+	      String toInterviewer = emailIdInterviewer;
 
 	      String from = "ositechportal@gmail.com";
 	      final String username = "ositechportal@gmail.com";
@@ -46,19 +47,26 @@ public class NotificationService {
 
 	      try {
 	         Message message = new MimeMessage(session);
+	         Message msgInterviewer = new MimeMessage(session);
 
 	         // Set From: header field of the header.
 	         message.setFrom(new InternetAddress(from));
+	         msgInterviewer.setFrom(new InternetAddress(from));
 
 	         // Set To: header field of the header.
 	         message.setRecipients(Message.RecipientType.TO,
 	         InternetAddress.parse(to));
+	         msgInterviewer.setRecipients(Message.RecipientType.TO,
+	    	         InternetAddress.parse(toInterviewer));
 
 	         message.setSubject("OSI Technologies");
-	         message.setText("OSI Recruitment Portal - Test! - Job Code: " + jobcode);
+	         msgInterviewer.setSubject("OSI Technologies - Interview Date");
+	         
+	         message.setContent("<h2>OSI Recruitment - Your Interview is set!</h2>", "text/html");
+	         msgInterviewer.setContent("<h3>Dear " + emailIdInterviewer + ", </h3><br><br>You need to take interview of <b>" + cname + "</b><br><br>Regards,<br>OSI Technologies.", "text/html");
+	         
 	         Transport.send(message);
-
-	         System.out.println("Sent message successfully....");
+	         Transport.send(msgInterviewer);
 
 	      } catch (MessagingException e) {
 	            throw new RuntimeException(e);

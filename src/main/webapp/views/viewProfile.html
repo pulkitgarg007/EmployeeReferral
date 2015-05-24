@@ -255,15 +255,17 @@
 				
 				<div class="control-group">
 					<div class="col-md-2" align="right">
-					 	<label class="lbl" for="emailId"><i class="glyphicon glyphicon-envelope"></i>&nbsp;&nbsp;Type Of Interview: </label>
+					 	<label class="lbl" for="date"><i class="glyphicon glyphicon-plane"></i>&nbsp;&nbsp;Interview Date: </label>
 					</div>
 					<div class="col-md-3">	
-						<select class="form-control" id="typeOfInterview">
-						<option>Select Interview Type</option>
-						<option>Telephonic</option>
-						<option>Skype</option>
-						<option>Face To Face</option>
-						</select>				
+					
+					       <div class="dropdown">
+       <input type="text" id="dLabel"  style="margin-top:5px;" data-ng-model="data.date" data-toggle="dropdown" data-target="#" placeholder="Click Here To Select Date..." class="dropdown-toggle form-control" />
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <datetimepicker data-ng-model="data.date"
+                        data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle' }"></datetimepicker>
+    </ul>
+</div>			
 					</div>					
 				</div>
         </div>
@@ -312,11 +314,39 @@
 				
 			<div class="control-group">
 				<div class="col-md-2" align="right">
-				 	<label class="lbl" for="date"><i class="glyphicon glyphicon-plane"></i>&nbsp;&nbsp;Interview Date: </label>
+				<label class="lbl" for="emailId"><i class="glyphicon glyphicon-envelope"></i>&nbsp;&nbsp;Type Of Interview: </label>
 				</div>
 				<div class="col-md-3">	
-					
-							
+						<select class="form-control" id="typeOfInterview">
+						<option>Select Interview Type</option>
+						<option>Telephonic</option>
+						<option>Skype</option>
+						<option>Face To Face</option>
+						</select>	
+				</div>					
+			</div>
+        </div>
+        
+        <br>
+        
+        <div class="row">
+        	<div align="right">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">			
+						<label class="lbl">Interviewer Email Id: </label>
+					</div>
+					<div class="col-md-3">
+						<input type="text" ng-change="" ng-model="interview.emailIdInterviewer" name="emailIdInterviewer" id="emailIdInterviewer"
+								 class="form-control" placeholder="Enter Email Id.." required>
+					</div>
+			</div>   
+				
+			<div class="control-group">
+				<div class="col-md-2" align="right">
+				 	<label class="lbl">Additional Notes: </label>
+				</div>
+				<div class="col-md-3">	
+						<textarea class="form-control" id="intNotes" ng-model="interview.notes"></textarea>	
 				</div>					
 			</div>
         </div>
@@ -339,7 +369,7 @@
 				 	
 				</div>
 				<div class="col-md-3">	
-					<a href="" class="btn btn-primary" ng-click="" ng-disabled="">
+					<a href="" class="btn btn-primary" ng-click="schedule()" ng-disabled="">
          <span class="glyphicon glyphicon-ok-circle"></span> Schedule
     </a>
 							
