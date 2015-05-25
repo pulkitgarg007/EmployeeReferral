@@ -29,4 +29,5 @@ public class InfoEntity {
 	List<String> expMonths;
 	List<String> expYears;
 	List<String> interviewRounds;
+	List<String> typeOfInterview;
 }

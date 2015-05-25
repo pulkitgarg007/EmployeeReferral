@@ -63,7 +63,7 @@ public class NotificationService {
 	         msgInterviewer.setSubject("OSI Technologies - Interview Date");
 	         
 	         message.setContent("<h2>OSI Recruitment - Your Interview is set!</h2>", "text/html");
-	         msgInterviewer.setContent("<h3>Dear " + emailIdInterviewer + ", </h3><br><br>You need to take interview of <b>" + cname + "</b><br><br>Regards,<br>OSI Technologies.", "text/html");
+	         msgInterviewer.setContent("<h3>Dear " + emailIdInterviewer + ", </h3><br>You need to take interview of <b>" + cname + "</b><br><br>Regards,<br>OSI Technologies.", "text/html");
 	         
 	         Transport.send(message);
 	         Transport.send(msgInterviewer);

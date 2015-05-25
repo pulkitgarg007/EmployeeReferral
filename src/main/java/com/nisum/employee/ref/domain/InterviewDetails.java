@@ -1,5 +1,6 @@
 package com.nisum.employee.ref.domain;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Getter;
@@ -16,6 +17,7 @@ public class InterviewDetails {
 	String interviewDateTime;
 	String typeOfInterview;
 	String interviewLocation;
-	String interviewerEmailId;
+	@Id
+	String emailIdInterviewer;
 	String additionalNotes;
 }

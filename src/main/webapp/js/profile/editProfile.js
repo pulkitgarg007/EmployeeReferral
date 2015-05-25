@@ -21,8 +21,9 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	  };
 
 	  $scope.status = {
-	    isFirstOpen: false,
-	    isFirstDisabled: false
+	    isFirstOpen: true,
+	    isFirstDisabled: false,
+	    isThirdOpen: false
 	  };
 	  
 	  $scope.status1 = {
@@ -31,6 +32,7 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 			  };
 	
 	$scope.data = {};
+	$scope.sel = {};
 	$scope.candidate = {};
 	$scope.interview = {};
 	$scope.selectedpLocation={};
@@ -39,6 +41,13 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	$scope.expYears = {};
 	$scope.expMonths = {};
 	$scope.referredBys = {};
+	$scope.sel.selectedLocation = "";
+	$scope.interview.interviewLocation = "";
+	$scope.locations = {};
+	$scope.sel.selectedtypeOfInterview = "";
+	$scope.interview.typeOfInterview = "";
+	$scope.typeOfInterviews = {};
+	$scope.interview.interviewDateTime = "";
 	$scope.emailId = jobCodeService1.getprofileUserId();
 	var base_url = window.location.origin;
 	var qualification_URL = base_url + '/EmployeeReferral/resources/skill/qualification';
@@ -47,6 +56,22 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	var referredBy_URL = base_url + '/EmployeeReferral/resources/skill/referredBy';
 	var plocation_URL = base_url + '/EmployeeReferral/resources/skill/location';
 	var URL = base_url + '/EmployeeReferral/resources/profile?emailId='+$scope.emailId;
+	var Location_URL = base_url + '/EmployeeReferral/resources/skill/location';
+	var typeOfInterview_URL = base_url + '/EmployeeReferral/resources/skill/typeOfInterview';
+	
+	$http.get(Location_URL).success(function(data, status, headers, config) {
+		$scope.locations = data;
+		$scope.sel.selectedLocation = $scope.locations[0];
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
+	
+	$http.get(typeOfInterview_URL).success(function(data, status, headers, config) {
+		$scope.typeOfInterviews = data;
+		$scope.sel.selectedtypeOfInterview = $scope.typeOfInterviews[0];
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
 	
 	$http.get(qualification_URL).success(function(data, status, headers, config) {
 		$scope.qualifications = data;
@@ -132,12 +157,25 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	}
 	
 	$scope.schedule = function(){
-		var Mail_URL = base_url + '/EmployeeReferral/resources/sendMail?emailId='+$scope.candidate.emailId+'&jobcode='+$scope.candidate.jobcodeProfile+'&emailIdInterviewer='+$scope.interview.emailIdInterviewer+'&cname='+$scope.candidate.candidateName;
-		$http.get(Mail_URL).success(function(data, status, headers, config) {
-			alert("Mails Sent Successfully!");
-		}).error(function(data, status, headers, config) {
-			alert("Failed To Send Mails!");
-		});
+		$scope.interview.typeOfInterview = $scope.sel.selectedtypeOfInterview;
+		$scope.interview.interviewLocation = $scope.sel.selectedLocation;
+		$scope.interview.interviewDateTime = $scope.data.date;
+		
+		$http.post(base_url + '/EmployeeReferral/resources/interview-create', $scope.interview).
+		  success(function(data, status, headers, config) {
+		    console.log("success============================="+data);
+		    var Mail_URL = base_url + '/EmployeeReferral/resources/sendMail?emailId='+$scope.candidate.emailId+'&jobcode='+$scope.candidate.jobcodeProfile+'&emailIdInterviewer='+$scope.interview.emailIdInterviewer+'&cname='+$scope.candidate.candidateName;
+			$http.get(Mail_URL).success(function(data, status, headers, config) {
+				alert("Mails Sent Successfully!");
+			}).error(function(data, status, headers, config) {
+				alert("Failed To Send Mails!");
+			});
+		  }).
+		  error(function(data, status, headers, config) {
+			  console.log("failed============================="+data);
+		  });
+		
+		
 	}
 	
 	  

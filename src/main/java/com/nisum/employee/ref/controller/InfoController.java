@@ -138,4 +138,11 @@ public class InfoController {
 		ArrayList<String> expMonths = (ArrayList<String>) info.get(0).getExpMonths();
         return (null == expMonths) ? new ResponseEntity<String>("No info found for the value ", HttpStatus.NOT_FOUND) : new ResponseEntity <ArrayList<String>>(expMonths, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/typeOfInterview",method = RequestMethod.GET)
+	public ResponseEntity<?> retrievetypeOfInterview() {
+		ArrayList<InfoEntity> info = retrieveData();
+		ArrayList<String> typeOfInterview = (ArrayList<String>) info.get(0).getTypeOfInterview();
+        return (null == typeOfInterview) ? new ResponseEntity<String>("No info found for the value ", HttpStatus.NOT_FOUND) : new ResponseEntity <ArrayList<String>>(typeOfInterview, HttpStatus.OK);
+	}
 }

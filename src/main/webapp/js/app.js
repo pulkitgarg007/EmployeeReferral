@@ -29,8 +29,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     /*.state('createProfile', {url:'/createProfile', views: {'': {templateUrl: 'views/createProfile.html', controller: 'createProfileCtrl'}}})*/
     .state('searchProfile', {url:'/searchProfile', views: {'': {templateUrl: 'views/searchProfile.html', controller: 'searchProfileCtrl'}}})
     .state('editProfile', {url:'/editProfile', views: {'': {templateUrl: 'views/editProfile.html', controller: 'editProfileCtrl'}}})
-     /*.state('viewProfile', {url:'/viewProfile', views: {'': {templateUrl: 'views/viewProfile.html', controller: 'editProfileCtrl'}}})*/
-     .state('viewProfile', {url:'/viewProfile', views: {'': {templateUrl: 'views/viewProfile1.html', controller: 'editProfileCtrl'}}})
+     .state('viewProfile', {url:'/viewProfile', views: {'': {templateUrl: 'views/viewProfile.html', controller: 'editProfileCtrl'}}})
     
     .state('createPosition', {url:'/createPosition', views: {'': {templateUrl: 'views/createPosition.html', controller: 'createPositionCtrl'}}})
     .state('searchPosition', {url:'/searchPosition', views: {'': {templateUrl: 'views/searchPosition.html', controller: 'searchPositionCtrl'}}})
