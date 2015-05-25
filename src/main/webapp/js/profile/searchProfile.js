@@ -106,7 +106,7 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 			         			{field:'expYear', displayName:'Experience', width: "10%"}, 
 			         			/*{field:'mobileNo', displayName:'Mobile No', width: "100"},*/
 			         			{field:'currentEmployer', displayName:'Current Employer', width: "15%"},
-			         			{field:'jobcodeProfile', displayName:'Assigned Job Code', width: "15%"}
+			         			{field:'jobcodeProfile', displayName:'Assigned Job Code', width: "15%", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcodeProfile\')}}</a></div>'}
 		          		    ],
 			    };
 		
@@ -115,7 +115,11 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 			jobCodeService1.setprofileUserId(row.entity.emailId);
 			location.href='#viewProfile';
 		};
-		
+		$scope.editPosition = function(row) {
+			window.console && console.log(row.entity);
+			jobCodeService1.setjobCode(row.entity.jobcodeProfile);
+			location.href='#viewPosition';
+		};
 		
 	}]);
 
