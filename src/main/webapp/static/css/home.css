@@ -98,6 +98,11 @@ textarea
 #rsBtn{
 	position:absolute;
 	top:34px;
+	left:296px;
+}
+#rsBtn1{
+	position:absolute;
+	top:34px;
 	left:196px;
 }
 
