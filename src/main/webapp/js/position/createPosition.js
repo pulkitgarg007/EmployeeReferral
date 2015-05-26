@@ -11,7 +11,6 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
    
 	$scope.position.primarySkills = {};
 	$scope.position.interviewRounds = {};
-	$scope.primarySkills ={};
 	$scope.devskills = {};
 	$scope.qeskills = {};
 	$scope.seskills = {};
@@ -37,19 +36,25 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	var Location_URL = base_url + '/EmployeeReferral/resources/skill/location';
 	var client_URL = base_url + '/EmployeeReferral/resources/skill/client';
 	$scope.data = {};
+	$scope.multipleDemo = {};
+	$scope.pskills = {};
+	$scope.irounds = {};
 	$scope.rounds = {};
 	$scope.options = {};
 	$scope.items = {};
+	$scope.sk = {};
+	$scope.ir = {};
 	$scope.locations = {};
 	$scope.clients = {};
 	$http.get(Skills_URL).success(function(data, status, headers, config) {
-		$scope.data = data;
+		 $scope.pskills = data;
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
 	})
 	$http.get(IR_URL).success(function(data, status, headers, config) {
-		$scope.rounds = data;
+		//$scope.rounds = data;
+		$scope.irounds = data;
 		
 	}).error(function(data, status, headers, config) {
 		alert('error');
@@ -104,12 +109,12 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	
 	$scope.loadTags = function(query) {
 		
-		return $scope.data;
+		return  $scope.pskills;
 	};
 	
     $scope.loadRounds = function(query) {
 		
-		return $scope.rounds;
+		return $scope.irounds; 
 	};
 	
 	$scope.reset = function() {
@@ -117,17 +122,9 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 	}
 
 	$scope.submit = function() {
-		var skills =[];
-		var rounds =[];
 		if ($scope.position !== undefined) {
-			 angular.forEach($scope.position.primarySkills, function(value, key) {
-				 skills.push(value.text);
-				});
-			 $scope.position.primarySkills = skills;
-			 angular.forEach($scope.position.interviewRounds, function(value, key) {
-				 rounds.push(value.text);
-				});
-			 $scope.position.interviewRounds = rounds;
+			 $scope.position.primarySkills = $scope.sk.primarySkills;
+			 $scope.position.interviewRounds = $scope.ir.interviewRounds;
 			 $scope.position.designation = $scope.selectedDesignation;
 		     $scope.position.experienceRequired	= $scope.selectedExperience;
 		     $scope.position.location = $scope.selectedLocation;
@@ -146,7 +143,6 @@ app.controller("createPositionCtrl", ['$scope', '$http', '$upload', function($sc
 				  document.getElementById("fail-alert").style.display = "block";
 			  });
 		}
-		$scope.reset();
 	}
 	
 	

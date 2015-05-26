@@ -1,4 +1,4 @@
-var app = angular.module('erApp', ['ngTagsInput','ngGrid','ngRoute','angularFileUpload','blockUI', 'ui.utils.masks', 'ui.router','xeditable','ui.bootstrap', 'ui.bootstrap.datetimepicker']);
+var app = angular.module('erApp', ['ngTagsInput','ngGrid','ngRoute','angularFileUpload','blockUI', 'ui.utils.masks', 'ui.router','xeditable','ui.bootstrap', 'ui.bootstrap.datetimepicker', 'ui.select']);
 app.service('jobCodeService1', function() {
 var profileUserId;
 	

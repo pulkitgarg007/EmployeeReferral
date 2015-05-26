@@ -97,9 +97,14 @@
 						<label class="lbl" for="primarySkills">Primary Skills*:</label>
 							</td>
 							<td id="tdid">
-							<tags-input ng-model="position.primarySkills" ng-change="changeEvent()" class="field-control" placeholder="Enter Skills"> <auto-complete id="sk"
-							source="loadTags($query)" class="field-control"></auto-complete> </tags-input>
 							</div>
+							
+							<ui-select multiple ng-model="sk.primarySkills" theme="select2" ng-disabled="disabled" style="width: 250px;">
+    <ui-select-match placeholder="Select Skills..">{{$item}}</ui-select-match>
+    <ui-select-choices repeat="color in pskills | filter:$select.search">
+      {{color}}
+    </ui-select-choices>
+  </ui-select>
 								</td>
 							
 							<td id="tdid" class="tableTd">
@@ -137,8 +142,12 @@
 								<label class="lbl" for="name">Interview Rounds</label>
 				</td>
 				<td id="tdid" class="tableTd">
-				<tags-input ng-model="position.interviewRounds" ng-change="changeEvent()" class="field-control" placeholder="Enter InterviewRounds"> <auto-complete id="ir"
-							source="loadRounds($query)" class="field-control"></auto-complete> </tags-input>
+				<ui-select multiple ng-model="ir.interviewRounds" theme="select2" ng-disabled="disabled" style="width: 250px;">
+    <ui-select-match placeholder="Select Rounds..">{{$item}}</ui-select-match>
+    <ui-select-choices repeat="color in irounds | filter:$select.search">
+      {{color}}
+    </ui-select-choices>
+  </ui-select>
 				</td>
 				</tr>
 		
