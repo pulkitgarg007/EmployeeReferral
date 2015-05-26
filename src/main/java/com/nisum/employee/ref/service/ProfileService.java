@@ -47,6 +47,15 @@ public class ProfileService {
 		return candidateDetails;
 	}
   
+  public List<Profile> retrieveProfileByJobCode(String jobcodeProfile) {
+		
+		MongoOperations mongoOperations = (MongoOperations)mongoTemplate;
+		Query query = new Query();
+		query.addCriteria(Criteria.where("jobcodeProfile").regex(Pattern.compile(jobcodeProfile, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE)));
+		List<Profile> candidateDetails = mongoOperations.find(query, Profile.class);
+		return candidateDetails;
+	}
+  
   public List<Profile> retrieveAllProfiles() {
 		MongoOperations mongoOperations = (MongoOperations) mongoTemplate;
 		List<Profile> profileDetails = mongoOperations.findAll(Profile.class);

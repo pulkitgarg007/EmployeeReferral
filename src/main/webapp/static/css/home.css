@@ -162,6 +162,7 @@ textarea {
 
 #tdid {
 	padding-top: 20px;
+	padding-right: 20px;
 }
 
 #footer {
@@ -287,4 +288,16 @@ textarea {
 .dropdown-toggle{
 		border-radius: 0px;
 
+}
+#interviewSearchBtn{
+	position:absolute;
+	top:231px;
+	right:20px;
+}
+.headerclass{
+	position: relative;
+	top: -20px;
+	left: -26%;
+	font-size: 200%;
+	color: #08497F;
 }

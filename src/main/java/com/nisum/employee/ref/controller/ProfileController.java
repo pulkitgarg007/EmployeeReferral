@@ -58,10 +58,12 @@ public class ProfileController {
 	private MongoConfig mongoConfig;
 
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
-	public ResponseEntity<?> retrieveProfile(@RequestParam(value = "emailId", required = false) String emailId) {
+	public ResponseEntity<?> retrieveProfile(@RequestParam(value = "emailId", required = false) String emailId,@RequestParam(value = "jobcodeProfile", required = false) String jobcodeProfile) {
 		List<Profile> positionsDetails = null;
 		if (emailId != null && !emailId.isEmpty()) {
 			positionsDetails = profileService.retrieveCandidateDetails(emailId);
+		} else if (jobcodeProfile != null && !jobcodeProfile.isEmpty()) {
+			positionsDetails = profileService.retrieveProfileByJobCode(jobcodeProfile);
 		} else {
 			positionsDetails = profileService.retrieveAllProfiles();
 		}
