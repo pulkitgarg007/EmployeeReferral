@@ -1,6 +1,12 @@
 app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', function($scope, $http,jobCodeService1) {
 	
-	
+	$scope.oneAtATime = false;
+	 $scope.status = {
+			    isFirstOpen: true,
+			    isFirstDisabled: false,
+			    isThirdOpen: false
+			  };
+
 	
 	$scope.page = "Edit Position";
 	$scope.enableDisableButton = true;
@@ -118,17 +124,17 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
 	$scope.updatePositionDetails = function() {
 		var position1={};
 		var skills =[];
-		  console.log($scope.position);
 		if ($scope.position !== undefined) {
 			 angular.forEach($scope.position.primarySkills, function(value, key) {
 				 skills.push(value.toString());
 				});
 			 $scope.position.primarySkills = skills;
+			
 		   /*
 			 * $scope.position.experienceRequired = $scope.selectedExperience;
 			 * $scope.position.location = $scope.selectedLocation;
 			 */
-			 $scope.position.interviewRounds = $scope.ir.interviewRounds;
+			
 		     position1.jobcode=$scope.position.jobcode;
 		     position1.designation=$scope.position.designation;
 		     position1.experienceRequired=$scope.position.experienceRequired;
@@ -138,6 +144,7 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
 		     position1.jobProfile=$scope.position.jobProfile;
 		     position1.location=$scope.position.location;
 		     position1.client=$scope.position.client;
+		     position1.interviewRounds = $scope.position.interviewRounds;
 		     alert("updated position details");
          
 			$http.post(base_url + '/EmployeeReferral/resources/position-update', position1);
@@ -151,26 +158,18 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
          $scope.Done = true;
  }
 	
-	$scope.designation;
 	$scope.changeDesignation = function(value){
 		alert(value);
-	/*
-	 * $scope.$watch(function(){ return $scope.position.designation; },
-	 * function(newvalue, oldvalue){ alert("newvalue: " + newvalue);
-	 * alert("oldvalue: " + oldvalue); },true);
-	 */
-		
-		
-		//$scope.position.newvalue = $scope.position.designation;
-		var skills =[];
+	
+				var skills =[];
 			 angular.forEach($scope.selectPrimarySkills, function(value, key) {
 				 skills.push(value.toString());
-				// $scope.position.DEprimarySkills = skills;
+				 $scope.position.primarySkills = skills;
 				});
 			 var QEskills =[];
 			 angular.forEach($scope.selectQEPrimarySkills, function(value, key) {
 				 QEskills.push(value.toString());
-				// $scope.position.QEprimarySkills = QEskills;
+				 $scope.position.primarySkills = QEskills;
 				});
 			/* var SESskills =[];
 			 angular.forEach($scope.selectSESPrimarySkills, function(value, key) {
