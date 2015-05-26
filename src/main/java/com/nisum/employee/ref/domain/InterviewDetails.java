@@ -17,7 +17,7 @@ public class InterviewDetails {
 	String interviewDateTime;
 	String typeOfInterview;
 	String interviewLocation;
-	@Id
 	String emailIdInterviewer;
 	String additionalNotes;
+	String candidateId;
 }

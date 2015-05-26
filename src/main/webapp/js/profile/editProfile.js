@@ -1,4 +1,4 @@
-app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeService1', function($scope, $http, $q, $window, jobCodeService1) {
+app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeService1', '$timeout', function($scope, $http, $q, $window, jobCodeService1, $timeout) {
 	
 	$scope.oneAtATime = false;
 
@@ -48,6 +48,7 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	$scope.interview.typeOfInterview = "";
 	$scope.typeOfInterviews = {};
 	$scope.interview.interviewDateTime = "";
+	$scope.intCheck = {};
 	$scope.emailId = jobCodeService1.getprofileUserId();
 	var base_url = window.location.origin;
 	var qualification_URL = base_url + '/EmployeeReferral/resources/skill/qualification';
@@ -160,6 +161,7 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 		$scope.interview.typeOfInterview = $scope.sel.selectedtypeOfInterview;
 		$scope.interview.interviewLocation = $scope.sel.selectedLocation;
 		$scope.interview.interviewDateTime = $scope.data.date;
+		$scope.interview.candidateId = $scope.candidate.emailId;
 		
 		$http.post(base_url + '/EmployeeReferral/resources/interview-create', $scope.interview).
 		  success(function(data, status, headers, config) {
@@ -174,9 +176,23 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 		  error(function(data, status, headers, config) {
 			  console.log("failed============================="+data);
 		  });
-		
-		
 	}
 	
-	  
+	$scope.interviewCheck = function(){
+		var intScheduleCheck_URL = base_url + '/EmployeeReferral/resources/interview-check?candidateId='+$scope.candidate.emailId;
+		
+		$http.get(intScheduleCheck_URL).success(function(data, status, headers, config) {
+			$scope.intCheck = data;
+			if($scope.intCheck.length == 1){
+				location.href = "#viewProfile/showInterview";
+			}
+			else if($scope.intCheck.length == 0){
+				location.href = "#viewProfile/scheduleInterview";
+			}
+		}).error(function(data, status, headers, config) {
+			alert('error');
+		})
+	}
+	$timeout( function(){ $scope.interviewCheck(); }, 2000);
+		 
 }]);

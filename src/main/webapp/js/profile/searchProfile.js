@@ -102,11 +102,11 @@ app.controller('searchProfileCtrl',['$scope', '$http','$q', '$window','jobCodeSe
 			          		    {field:'candidateName', displayName:'Name', width: "20%", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editProfile(row)">{{row.getProperty(\'candidateName\')}}</a></div>'}, 
 			          		    {field:'emailId', displayName:'Email-ID', width: "20%"}, 
 			      		    	/*{field:'qualification', displayName:'Qualification', width: "20%"},*/ 
-			         			{field:'primarySkills', displayName:'Skills', width: "20%"},
+			         			{field:'plocation', displayName:'Preferred Location', width: "16%"},
 			         			{field:'expYear', displayName:'Experience', width: "10%"}, 
 			         			/*{field:'mobileNo', displayName:'Mobile No', width: "100"},*/
 			         			{field:'currentEmployer', displayName:'Current Employer', width: "15%"},
-			         			{field:'jobcodeProfile', displayName:'Assigned Job Code', width: "15%", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcodeProfile\')}}</a></div>'}
+			         			{field:'jobcodeProfile', displayName:'Assigned Job Code', width: "19%", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcodeProfile\')}}</a></div>'}
 		          		    ],
 			    };
 		

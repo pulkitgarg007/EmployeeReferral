@@ -1,0 +1,142 @@
+<div ng-controller="editProfileCtrl" align="left">
+<accordion close-others=false>
+
+<accordion-group is-open="status.isThirdOpen" >
+        <accordion-heading>
+          Interview Schedule<i class="pull-right glyphicon" ng-class="{'glyphicon-minus': status.isThirdOpen, 'glyphicon-plus': !status.isThirdOpen}"></i>
+        </accordion-heading>
+        
+        <div class="row">
+        	<div align="right">
+				<div class="col-md-1"></div>
+				<div class="col-md-2">			
+					<label class="lbl" for="candidateName"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;Interviewer Name: </label>
+				</div>
+				<div class="col-md-3" style="display: inline;">
+					<input style="margin-left:0%;" type="text" id="cname" name="iname" class="form-control"  ng-change=""
+				   ng-model="interview.interviewerName" placeholder="Enter Interviewer Name" ng-pattern="/^[a-zA-Z _]*$/" required>
+				   
+				</div>   
+			</div>	
+				
+				<div class="control-group">
+					<div class="col-md-2" align="right">
+					 	<label class="lbl" for="date"><i class="glyphicon glyphicon-plane"></i>&nbsp;&nbsp;Interview Date: </label>
+					</div>
+					<div class="col-md-3">	
+					
+					       <div class="dropdown">
+       <input type="text" id="dLabel"  style="margin-top:5px;" data-ng-model="data.date" data-toggle="dropdown" data-target="#" placeholder="Click Here To Select Date..." class="dropdown-toggle form-control" />
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <datetimepicker data-ng-model="data.date"
+                        data-datetimepicker-config="{ dropdownSelector: '.dropdown-toggle' }"></datetimepicker>
+    </ul>
+</div>			
+					</div>					
+				</div>
+        </div>
+        
+        <br>
+		<div class="row">
+        	<div align="right">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">			
+						<label class="lbl" for="mobileNo"><i class="glyphicon glyphicon-phone"></i>&nbsp;&nbsp;Interviewer Mob. No.: 	</label>
+					</div>
+					<div class="col-md-3">
+						<input type="text" ng-change="" maxlength="18" ng-model="interview.interviewerMobileNumber" name="mobileNo" id="mobileNo"
+									ngPattern="1234567890 " class="form-control" placeholder="Enter mobileNo" ui-br-phone-number required>
+					</div>
+			</div>   
+				
+			<div class="control-group">
+				<div class="col-md-2" align="right">
+				 	<label class="lbl" for="skypeId"><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;&nbsp;Skype ID:</label>
+				</div>
+				<div class="col-md-3">	
+					<input type="text" ng-change="" ng-model="interview.skypeId" name="altmobileNo" id="skypeId"
+								ngPattern="" class="form-control" placeholder="Enter Skype ID." required>			
+				</div>					
+			</div>
+        </div>
+        
+        <br>
+		<div class="row">
+        	<div align="right">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">			
+						<label class="lbl" for="location"><i class="glyphicon glyphicon-plane"></i>&nbsp;&nbsp;Location</label>
+					</div>
+					<div class="col-md-3">
+						<select class="form-control" id="location" ng-model="sel.selectedLocation" ng-options="o as o for o in locations">
+						</select>
+					</div>
+			</div>   
+				
+			<div class="control-group">
+				<div class="col-md-2" align="right">
+				<label class="lbl" for="emailId"><i class="glyphicon glyphicon-envelope"></i>&nbsp;&nbsp;Type Of Interview: </label>
+				</div>
+				<div class="col-md-3">	
+						<select class="form-control" id="typeOfInterview" ng-model="sel.selectedtypeOfInterview" ng-options="o as o for o in typeOfInterviews">
+						</select>	
+				</div>					
+			</div>
+        </div>
+        
+        <br>
+        
+        <div class="row">
+        	<div align="right">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">			
+						<label class="lbl">Interviewer Email Id: </label>
+					</div>
+					<div class="col-md-3">
+						<input type="text" ng-change="" ng-model="interview.emailIdInterviewer" name="emailIdInterviewer" id="emailIdInterviewer"
+								 class="form-control" placeholder="Enter Email Id.." required>
+					</div>
+			</div>   
+				
+			<div class="control-group">
+				<div class="col-md-2" align="right">
+				 	<label class="lbl">Additional Notes: </label>
+				</div>
+				<div class="col-md-3">	
+						<textarea class="form-control" id="intNotes" ng-model="interview.additionalNotes"></textarea>	
+				</div>					
+			</div>
+        </div>
+        
+        <br>
+        
+        <div class="row">
+        	<div align="right">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">			
+						
+					</div>
+					<div class="col-md-3">
+						
+					</div>
+			</div>   
+				
+			<div class="control-group">
+				<div class="col-md-2" align="right">
+				 	
+				</div>
+				<div class="col-md-3">	
+					<a href="" class="btn btn-primary" ng-click="schedule()" ng-disabled="">
+         <span class="glyphicon glyphicon-ok-circle"></span> Schedule
+    </a>
+							
+				</div>					
+			</div>
+        </div>
+
+        
+    </accordion-group>
+
+  </accordion>
+  
+  </div>

@@ -33,7 +33,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('createPosition', {url:'/createPosition', views: {'': {templateUrl: 'views/createPosition.html', controller: 'createPositionCtrl'}}})
     .state('searchPosition', {url:'/searchPosition', views: {'': {templateUrl: 'views/searchPosition.html', controller: 'searchPositionCtrl'}}})
     .state('viewPosition', {url:'/viewPosition', views: {'': {templateUrl: 'views/viewPosition.html', controller: 'editPositionCtrl'}}})
-     .state('interviewManagement', {url:'/interviewManagement', views: {'': {templateUrl: 'views/interviewManagement.html', controller: 'interviewManagementCtrl'}}})
+    .state('interviewManagement', {url:'/interviewManagement', views: {'': {templateUrl: 'views/interviewManagement.html', controller: 'interviewManagementCtrl'}}})
+    
+    .state('viewProfile.scheduleInterview', {url:'/scheduleInterview', views: {'': {templateUrl: 'views/scheduleInterview.html', controller: 'editProfileCtrl'}}})
+    .state('viewProfile.showInterview', {url:'/showInterview', views: {'': {templateUrl: 'views/showInterview.html', controller: 'editProfileCtrl'}}})
+
         
 }]);
 

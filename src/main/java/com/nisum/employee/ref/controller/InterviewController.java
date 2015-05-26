@@ -29,5 +29,12 @@ public class InterviewController {
 		interviewService.prepareInterview(interview);
 		return new ResponseEntity<InterviewDetails>(interview, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/interview-check", method = RequestMethod.GET)
+	public ResponseEntity<?> interviewCheck(@RequestParam(value = "candidateId", required = true) String candidateId) {
+		List<InterviewDetails> checkDetails = interviewService.interviewCheck(candidateId);
+		return (null == checkDetails) ? new ResponseEntity<String>( "Positions are not found", HttpStatus.NOT_FOUND)
+				: new ResponseEntity<List<InterviewDetails>>(checkDetails, HttpStatus.OK);
+	} 
 
 }
