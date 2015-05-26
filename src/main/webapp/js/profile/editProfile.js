@@ -22,6 +22,7 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 
 	  $scope.status = {
 	    isFirstOpen: true,
+	    isFourthOpen: true,
 	    isFirstDisabled: false,
 	    isThirdOpen: false
 	  };
@@ -49,6 +50,7 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	$scope.typeOfInterviews = {};
 	$scope.interview.interviewDateTime = "";
 	$scope.intCheck = {};
+	$scope.interviewLoad = {};
 	$scope.emailId = jobCodeService1.getprofileUserId();
 	var base_url = window.location.origin;
 	var qualification_URL = base_url + '/EmployeeReferral/resources/skill/qualification';
@@ -59,6 +61,25 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 	var URL = base_url + '/EmployeeReferral/resources/profile?emailId='+$scope.emailId;
 	var Location_URL = base_url + '/EmployeeReferral/resources/skill/location';
 	var typeOfInterview_URL = base_url + '/EmployeeReferral/resources/skill/typeOfInterview';
+	var interview_URL = base_url + '/EmployeeReferral/resources/interview-check?candidateId='+$scope.emailId;
+	
+	$http.get(interview_URL).success(function(data, status, headers, config) {
+		$scope.intCheck = data;
+		if($scope.intCheck.length == 1){
+			location.href = "#viewProfile/showInterview";
+		}
+		else if($scope.intCheck.length == 0){
+			location.href = "#viewProfile/scheduleInterview";
+		}
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})	
+	
+	$http.get(interview_URL).success(function(data, status, headers, config) {
+		$scope.interviewLoad = data[0];
+	}).error(function(data, status, headers, config) {
+		alert('error');
+	})
 	
 	$http.get(Location_URL).success(function(data, status, headers, config) {
 		$scope.locations = data;
@@ -177,22 +198,5 @@ app.controller('editProfileCtrl',['$scope', '$http','$q', '$window','jobCodeServ
 			  console.log("failed============================="+data);
 		  });
 	}
-	
-	$scope.interviewCheck = function(){
-		var intScheduleCheck_URL = base_url + '/EmployeeReferral/resources/interview-check?candidateId='+$scope.candidate.emailId;
-		
-		$http.get(intScheduleCheck_URL).success(function(data, status, headers, config) {
-			$scope.intCheck = data;
-			if($scope.intCheck.length == 1){
-				location.href = "#viewProfile/showInterview";
-			}
-			else if($scope.intCheck.length == 0){
-				location.href = "#viewProfile/scheduleInterview";
-			}
-		}).error(function(data, status, headers, config) {
-			alert('error');
-		})
-	}
-	$timeout( function(){ $scope.interviewCheck(); }, 2000);
 		 
 }]);

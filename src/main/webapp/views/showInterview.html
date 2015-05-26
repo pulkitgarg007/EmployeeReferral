@@ -1,5 +1,127 @@
 <div ng-controller="editProfileCtrl" align="left">
 
-{{candidate.emailId}}
+<accordion close-others=false>
+
+<accordion-group is-open="status.isFourthOpen" >
+        <accordion-heading>
+          Interview Details<i class="pull-right glyphicon" ng-class="{'glyphicon-minus': status.isFourthOpen, 'glyphicon-plus': !status.isFourthOpen}"></i>
+        </accordion-heading>
+        
+        <div class="row">
+        	<div align="right">
+				<div class="col-md-1"></div>
+				<div class="col-md-2">			
+					<label class="lbl" for="candidateName"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;Interviewer Name: </label>
+				</div>
+				<div class="col-md-3" style="display: inline;">
+					<p>{{interviewLoad.interviewerName}}</p>
+				   
+				</div>   
+			</div>	
+				
+				<div class="control-group">
+					<div class="col-md-2" align="right">
+					 	<label class="lbl" for="date"><i class="glyphicon glyphicon-plane"></i>&nbsp;&nbsp;Interview Date: </label>
+					</div>
+					<div class="col-md-3">	
+						<p>{{interviewLoad.interviewDateTime}}</p>		
+					</div>					
+				</div>
+        </div>
+        
+        <br>
+		<div class="row">
+        	<div align="right">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">			
+						<label class="lbl" for="mobileNo"><i class="glyphicon glyphicon-phone"></i>&nbsp;&nbsp;Interviewer Mob. No.: 	</label>
+					</div>
+					<div class="col-md-3">
+						<p>{{interviewLoad.interviewerMobileNumber}}</p>
+					</div>
+			</div>   
+				
+			<div class="control-group">
+				<div class="col-md-2" align="right">
+				 	<label class="lbl" for="skypeId"><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;&nbsp;Skype ID:</label>
+				</div>
+				<div class="col-md-3">	
+					<p>{{interviewLoad.skypeId}}</p>		
+				</div>					
+			</div>
+        </div>
+        
+        <br>
+		<div class="row">
+        	<div align="right">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">			
+						<label class="lbl" for="location"><i class="glyphicon glyphicon-plane"></i>&nbsp;&nbsp;Location</label>
+					</div>
+					<div class="col-md-3">
+						<p>{{interviewLoad.interviewLocation}}</p>
+					</div>
+			</div>   
+				
+			<div class="control-group">
+				<div class="col-md-2" align="right">
+				<label class="lbl" for="emailId"><i class="glyphicon glyphicon-envelope"></i>&nbsp;&nbsp;Type Of Interview: </label>
+				</div>
+				<div class="col-md-3">	
+						<p>{{interviewLoad.typeOfInterview}}</p>
+				</div>					
+			</div>
+        </div>
+        
+        <br>
+        
+        <div class="row">
+        	<div align="right">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">			
+						<label class="lbl">Interviewer Email Id: </label>
+					</div>
+					<div class="col-md-3">
+						<p>{{interviewLoad.emailIdInterviewer}}</p>
+					</div>
+			</div>   
+				
+			<div class="control-group">
+				<div class="col-md-2" align="right">
+				 	<label class="lbl">Additional Notes: </label>
+				</div>
+				<div class="col-md-3">	
+						<p>{{interviewLoad.additionalNotes}}</p>	
+				</div>					
+			</div>
+        </div>
+        
+        <br>
+        
+        <div class="row">
+        	<div align="right">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">			
+						<label class="lbl">Candidate Email Id: </label>
+					</div>
+					<div class="col-md-3">
+						<p>{{interviewLoad.candidateId}}</p>
+					</div>
+			</div>   
+				
+			<div class="control-group">
+				<div class="col-md-2" align="right">
+				 	
+				</div>
+				<div class="col-md-3">	
+							
+				</div>					
+			</div>
+        </div>
+
+        
+    </accordion-group>
+
+  </accordion>
 
 </div>
