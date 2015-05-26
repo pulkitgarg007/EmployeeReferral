@@ -1,4 +1,4 @@
-<<<<<<<
+
 HEAD
 	/*------------------------------------------------------------------
 Bootstrap Admin Template by EGrappler.com
@@ -2770,4 +2770,10 @@ acc {
 }
 .main-inner{
 	height: 600px;
+}
+.dropdown-toggle {
+	border-radius:0px;
+}
+.form-control {
+	font-size: 13px;
 }

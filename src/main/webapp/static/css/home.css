@@ -1,62 +1,57 @@
-.control-group{
+.control-group {
 	width: 100%;
 	/* margin-left: 47%; */
 }
 
-
-.field-control{
-	width:250px;
-	
+.field-control {
+	width: 250px;
 }
 
-.form-control{
+.form-control {
 	/* margin-left: 16%; */
-	width:380;
-	height:32;
-	border-radius: 7px;
+	width: 380;
+	height: 32;
+	border-radius: 0px;
 	border: 1px solid gray;
 	/* -moz-box-shadow: 0 0 1px 1px #888;
 	-webkit-box-shadow: 0 0 1px 1px#888;
 	box-shadow: 0 0 1px 1px #888; */
-	
 }
 
-textarea
-{
+textarea {
 	/* margin-left: 16%; */
-	width:250;
-	border-radius: 7px;
+	width: 250;
+	border-radius: 0px;
 	border: 1px solid gray;
-/* 	-moz-box-shadow: 0 0 1px 1px #888;
+	/* 	-moz-box-shadow: 0 0 1px 1px #888;
 	-webkit-box-shadow: 0 0 1px 1px#888;
 	box-shadow: 0 0 1px 1px #888; */
-	height:70px;
+	height: 50px;
 }
 
-.help-block
-{
-	color:red;
+.help-block {
+	color: red;
 }
 
-.lbl{
+.lbl {
 	font-weight: bold;
 	font-size: 11pt;
 	/* margin-left: -50%; */
-	p/* osition:absolute; */
+	p /* osition:absolute; */
 	/* top:97px;
 	left:30px; */
 }
 
-.lbl2{
+.lbl2 {
 	font-weight: bold;
 	margin-left: -60%;
 	font-size: 11pt;
-	margin-top:25%;
+	margin-top: 25%;
 }
 
-.form-container{
-	position:relative;
-	width:1050px;
+.form-container {
+	position: relative;
+	width: 1050px;
 	border: 1px solid #d6d6d6;
 	/* background-color: #F0F0F0; */
 	background-color: #EBFAEB;
@@ -64,210 +59,232 @@ textarea
 }
 
 .gridStyle {
-	
-    border: 1px solid rgb(212,212,212);
-    width: 988px;
-    height: 318px
+	border: 1px solid rgb(212, 212, 212);
+	width: 988px;
+	height: 318px
 }
 
-.gridStyleProfile{
-	border: 1px solid rgb(212,212,212);
-    width: 988px;
-    height: 318px
+.gridStyleProfile {
+	border: 1px solid rgb(212, 212, 212);
+	width: 988px;
+	height: 318px
 }
 
-#designations, #candidateName{
+#designations, #candidateName {
 	color: black;
-	position:absolute;
-	left:30px;
-	top:72px;
-	width:153px;
-	height:32px;
+	position: absolute;
+	left: 30px;
+	top: 72px;
+	width: 153px;
+	height: 32px;
 }
 
-#searchBtn{
-	position:absolute;
-	top:34px;
-	left:190px;
-	width:90px;
+#searchBtn {
+	position: absolute;
+	top: 34px;
+	left: 190px;
+	width: 90px;
 	/* border-top-left-radius:2px;
-	border-bottom-left-radius:2p */x;
+	border-bottom-left-radius:2p */
+	x;
 }
 
-
-#rsBtn{
-	position:absolute;
-	top:34px;
-	left:296px;
-}
-#rsBtn1{
-	position:absolute;
-	top:34px;
-	left:196px;
+#rsBtn {
+	position: absolute;
+	top: 34px;
+	left: 296px;
 }
 
-#approveBtn{
-	position:absolute;
-	top:34px;
-	left:400px;
+#rsBtn1 {
+	position: absolute;
+	top: 34px;
+	left: 196px;
 }
 
-#searcCanhBtn{
-	position:absolute;
-	top:8px;
-	right:175px;
+#approveBtn {
+	position: absolute;
+	top: 34px;
+	left: 400px;
 }
 
-.form-container-mg{
+#searcCanhBtn {
+	position: absolute;
+	top: 8px;
+	right: 175px;
+}
+
+.form-container-mg {
 	/* position:relative; */
-	width:1000px;
-	height:55px;
+	width: 1000px;
+	height: 55px;
 	border: 1px solid #d6d6d6;
 	background-color: #F0F0F0;
 	border-radius: 12px;
 }
 
-.positionMg{
+.positionMg {
 	padding-bottom: 100px;
 }
 
-.ngPagerButton{
-	width:50px;
-	border:1px solid gray;
-	border-radius:10px;
+.ngPagerButton {
+	width: 50px;
+	border: 1px solid gray;
+	border-radius: 10px;
 }
 
-.ngGridMaxPagesNumber{
-	font-weight:bold;
+.ngGridMaxPagesNumber {
+	font-weight: bold;
 }
 
-#designation, #intNotes, #dLabel, #typeOfInterview, #location, #skypeID, #emailIdInterviewer, #jc, #jobcode, #exp, #secondarySkills, #noOfPositions, #location, #client, #cname, #qualification, #selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo, #passportNo, #emailId, #stream, #altmobileNo, #currentEmployee, #plocation, #currentEmployer, #profilecreatedBy, #referredBy{
-	width:250px;
+#designation, #intNotes, #dLabel, #typeOfInterview, #location, #skypeID,
+	#emailIdInterviewer, #jc, #jobcode, #exp, #secondarySkills,
+	#noOfPositions, #location, #client, #cname, #qualification,
+	#selectbasic, #Skills, #mobileNo, #presentLocation, #pancardNo,
+	#passportNo, #emailId, #stream, #altmobileNo, #currentEmployee,
+	#plocation, #currentEmployer, #profilecreatedBy, #referredBy {
+	width: 180px;
 }
 
-#experience{
-	width:120px;
+#experience {
+	width: 120px;
 }
 
-#expMonths{
-	width:120px;
-	position:absolute;
-	top:231px;
-	right:150px;
+#expMonths {
+	width: 120px;
+	position: absolute;
+	top: 231px;
+	right: 150px;
 }
 
-.tableTd{
+.tableTd {
 	padding-right: 20px;
 }
 
-#tdid{
+#tdid {
 	padding-top: 20px;
 }
 
-#footer{
+#footer {
 	position: fixed;
-    bottom: 0;
-    width: 100%;
+	bottom: 0;
+	width: 100%;
 }
 
-.ft{
-	position:relative;
-	bottom:0px;
-	background:black;
-	width:100%;
-	height:10%;
+.ft {
+	position: relative;
+	bottom: 0px;
+	background: black;
+	width: 100%;
+	height: 10%;
 }
 
-.ngRowCountPicker{
+.ngRowCountPicker {
 	display: none;
 }
 
 .custom-file-input {
-  color: black;
+	color: black;
 }
+
 .custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
+	visibility: hidden;
 }
+
 .custom-file-input::before {
-  content: 'Select File';
-  color: white;
-  background: -webkit-linear-gradient(top, #337ab7, #337ab7);
-  border: 1px solid #999;
-  border-radius: 9px;
-  padding: 5px 5px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 10pt;
+	content: 'Select File';
+	color: white;
+	background: -webkit-linear-gradient(top, #337ab7, #337ab7);
+	border: 1px solid #999;
+	border-radius: 9px;
+	padding: 5px 5px;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 10pt;
 }
+
 .custom-file-input:hover::before {
-  border-color: black;
+	border-color: black;
 }
 
-.searchprofile-container{
-	position:relative;
-	top:-40px;
-	width:1050px;
+.searchprofile-container {
+	position: relative;
+	top: -40px;
+	width: 1050px;
 	border: 1px solid #d6d6d6;
 	border-radius: 12px;
 }
-.searchposition-container{
-	position:relative;
-	top:-40px;
-	width:1050px;
+
+.searchposition-container {
+	position: relative;
+	top: -40px;
+	width: 1050px;
 	border: 1px solid #d6d6d6;
 	border-radius: 12px;
 }
-.createprofile-container{
-	position:relative;
+
+.createprofile-container {
+	position: relative;
 	height: 580px;
-	width:1050px;
-	border: 1px solid #d6d6d6;
-	border-radius: 12px;
-}
-.createposition-container{
-	position:relative;
-	width:1050px;
+	width: 1050px;
 	border: 1px solid #d6d6d6;
 	border-radius: 12px;
 }
 
-.editprofile-container{
-	position:relative;
-	width:1050px;
+.createposition-container {
+	position: relative;
+	width: 1050px;
+	border: 1px solid #d6d6d6;
+	border-radius: 12px;
+}
+
+.editprofile-container {
+	position: relative;
+	width: 1050px;
 	border: 1px solid #d6d6d6;
 	/* background-color: #F0F0F0; */
 	background-color: #E0EEEE;
 	border-radius: 12px;
 }
 
-.headerclass-createPosition{
-	position:relative;
-	top:-20px;
+.headerclass-createPosition {
+	position: relative;
+	top: -20px;
 	left: -28%;
 	font-size: 200%;
 	color: #08497F;
 }
-.headerclass-createProfile{
-	position:relative;
-	top:-20px;
+
+.headerclass-createProfile {
+	position: relative;
+	top: -20px;
 	left: -29%;
 	font-size: 200%;
 	color: #08497F;
 }
 
-.headerclass-searchProfile{
-	position:relative;
-	top:-40px;
+.headerclass-searchProfile {
+	position: relative;
+	top: -40px;
 	left: -29%;
 	color: #004E89;
 	font-size: 200%;
 }
 
-
-.headerclass-searchPosiiton{
-	position:relative;
-	top:-40px;
+.headerclass-searchPosiiton {
+	position: relative;
+	top: -40px;
 	left: -28%;
-	color: #004E89;
+	color: #004E89;`
 	font-size: 200%;
+}
+.select2-container-multi .select2-choices .select2-search-field input {
+	font-size: 83%;
+	color: black;
+}
+.select2-drop-mask {
+	 min-width: 60%;
+}
+.dropdown-toggle{
+		border-radius: 0px;
+
 }

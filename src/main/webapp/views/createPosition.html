@@ -99,7 +99,7 @@
 							<td id="tdid">
 							</div>
 							
-							<ui-select multiple ng-model="sk.primarySkills" theme="select2" ng-disabled="disabled" style="width: 250px;">
+							<ui-select multiple ng-model="sk.primarySkills" theme="select2" ng-disabled="disabled" style="width: 180px;">
     <ui-select-match placeholder="Select Skills..">{{$item}}</ui-select-match>
     <ui-select-choices repeat="color in pskills | filter:$select.search">
       {{color}}
@@ -142,7 +142,7 @@
 								<label class="lbl" for="name">Interview Rounds</label>
 				</td>
 				<td id="tdid" class="tableTd">
-				<ui-select multiple ng-model="ir.interviewRounds" theme="select2" ng-disabled="disabled" style="width: 250px;">
+				<ui-select multiple ng-model="ir.interviewRounds" theme="select2" ng-disabled="disabled" style="width: 180px;">
     <ui-select-match placeholder="Select Rounds..">{{$item}}</ui-select-match>
     <ui-select-choices repeat="color in irounds | filter:$select.search">
       {{color}}
