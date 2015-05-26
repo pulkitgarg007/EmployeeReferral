@@ -1,14 +1,4 @@
-<!-- 
 
-<link
-<link rel="stylesheet" type="text/css" media="screen"
-	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
-
-
-</script>
-<script type="text/javascript"
-	src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
-	
 
 <!-- ----------------------------------alert Message--------------------------------------------------------- -->
             <div class="bs-example">
@@ -24,13 +14,13 @@
 <!-- ----------------------------------alert Message--------------------------------------------------------- -->
 
 <!-- <form id="integerForm" role="form" class="form-horizontal" action="#" name="CreateCandidate" onvalidate> -->
-<div ng-controller="editProfileCtrl" align="left">
+<div ng-controller="editPositionCtrl" align="left">
  
   <accordion close-others=false>
     
     <accordion-group is-open="status.isFirstOpen" >
         <accordion-heading>
-          Personal Details<i class="pull-right glyphicon" ng-class="{'glyphicon-minus': status.isFirstOpen, 'glyphicon-plus': !status.isFirstOpen}"></i>
+          Position Details<i class="pull-right glyphicon" ng-class="{'glyphicon-minus': status.isFirstOpen, 'glyphicon-plus': !status.isFirstOpen}"></i>
         </accordion-heading>
         
         <div class="row">
@@ -40,7 +30,7 @@
 					<label class="lbl" for="qualification"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;Designation*:</label>
 				</div>
 				<div class="col-md-3">
-				<a href="#" editable-select="position.designation" e-ng-options="o as o for o in options">
+				<a href="#" editable-select="position.designation" e-ng-options="o as o for o in options" e-ng-change="changeDesignation(position.designation)">
         					{{ position.designation}}
       			</a>
 				
@@ -160,6 +150,7 @@
 					</div>				
 			</div>
         </div>
+        <br>
         <div class="row">
         	<div align="right" class="control-group" ng-class="{ 'has-error' : CreateCandidate.passportNo.$invalid && !CreateCandidate.passportNo.$pristine }">
 					<div class="col-md-1"></div>
@@ -193,7 +184,7 @@
    
    </accordion>
   <div align="center">
-<a href="" class="btn btn-primary"
+<a ui-sref="searchPosition" class="btn btn-primary"
 							ng-click="updatePositionDetails()"> <span
 							class="glyphicon glyphicon-ok"></span> Update
 						</a>&nbsp;&nbsp;&nbsp;&nbsp;
