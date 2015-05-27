@@ -7,7 +7,7 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
 			    isThirdOpen: false
 			  };
 
-	
+	$scope.selectHide = true;
 	$scope.page = "Edit Position";
 	$scope.enableDisableButton = true;
 	$scope.data = {};
@@ -158,46 +158,46 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
          $scope.Done = true;
  }
 	
-	$scope.changeDesignation = function(value){
-		alert(value);
+	$scope.changeDesignation = function(data){
 	
 				var skills =[];
 			 angular.forEach($scope.selectPrimarySkills, function(value, key) {
 				 skills.push(value.toString());
-				 $scope.position.primarySkills = skills;
+				 $scope.position.DEprimarySkills = skills;
 				});
 			 var QEskills =[];
 			 angular.forEach($scope.selectQEPrimarySkills, function(value, key) {
 				 QEskills.push(value.toString());
-				 $scope.position.primarySkills = QEskills;
+				 $scope.position.QEprimarySkills = QEskills;
 				});
-			/* var SESskills =[];
+			 var SESskills =[];
 			 angular.forEach($scope.selectSESPrimarySkills, function(value, key) {
-				 QEskills.push(value.toString());
-				 $scope.position.SESprimarySkills = QEskills;
-				});*/
+				 SESskills.push(value.toString());
+				 $scope.position.SESprimarySkills = SESskills;
+				});
+			 
 			
-		if($scope.position.designation == "Developer"){
+		if(data == "Developer"){
 			desg = "DEV";
 			/*
 			 * if($scope.selectedClient != "Select Client"){ $scope.disLocation =
 			 * false; }else{ $scope.disLocation = true; }
 			 */
-			// $scope.position.primarySkills = $scope.position.DEprimarySkills;
-			$scope.position.primarySkills =  $scope.position.QEprimarySkills;
+			 $scope.position.primarySkills =  $scope.position.DEprimarySkills ;
+			
 		
 		}
 		
-		else if ($scope.position.designation == "Quality Engineer"){
+		else if (data == "Quality Engineer"){
 			desg = "QE";
 			/*
 			 * if($scope.selectedClient != "Select Client"){ $scope.disLocation =
 			 * false; }else{ $scope.disLocation = true; }
 			 */
 			
-			//$scope.position.primarySkills  =  $scope.position.DEprimarySkills;
+			$scope.position.primarySkills =   $scope.position.QEprimarySkills ;
 		}
-		else if($scope.selectedDesignation == "	System Engineer"){
+		else if(data == "	System Engineer"){
 
 			$scope.disLocation = true;
 		}
@@ -210,6 +210,11 @@ app.controller("editPositionCtrl",   ['$scope', '$http','jobCodeService1', funct
 			}*/
 			$scope.position.primarySkills =  $scope.position.SESprimarySkills;
 		}
+	}
+	
+	$scope.abc = function(){
+		$scope.selectHide = false;
+		$scope.dis = true;
 	}
 
 	

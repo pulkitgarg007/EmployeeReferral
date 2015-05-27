@@ -30,7 +30,7 @@
 					<label class="lbl" for="qualification"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;Designation*:</label>
 				</div>
 				<div class="col-md-3">
-				<a href="#" editable-select="position.designation" e-ng-options="o as o for o in options" e-ng-change="changeDesignation(position.designation)">
+				<a href="#" editable-select="position.designation" e-ng-options="o as o for o in options" e-ng-change="changeDesignation($data)">
         					{{ position.designation}}
       			</a>
 				
@@ -135,8 +135,9 @@
 						<label class="lbl" for="passportNo"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;primary Skills.:</label>
 					</div>
 					<div class="col-md-3">
-						<a href="#" .editable-hide="position.primarySkills">{{position.primarySkills
-							|| "empty" }}</a>
+						<!-- <a href="#" .editable-hide="position.primarySkills">{{position.primarySkills
+							|| "empty" }}</a> -->
+					<b ng-repeat="skill in position.primarySkills"  style = "font-color: #428bca">{{skill}}{{$last ? '' : ', '}}</b>
 					</div>
 			</div>   
 				
@@ -169,10 +170,8 @@
 				 	<label class="lbl" for="notes"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;InterviewRounds:</label>
 				</div>
 				<div class="col-md-3">
-						<!-- <a href="#" editable-select="  ir.interviewRounds"
-							e-ng-options="o as o for o in irounds"> {{ ir.interviewRounds }}
-						</a> -->
-						<ui-select multiple ng-model="position.interviewRounds" theme="select2" ng-disabled="disabled" style="width: 250px;">
+	<a herf = "" ng-hide = "dis"ng-click = "abc()"><i ng-repeat="round in position.interviewRounds" >{{round}}{{$last ? '' : ', '}}</i></a>
+						<ui-select ng-hide = "selectHide" multiple ng-model="position.interviewRounds" theme="select2" ng-disabled="disabled" style="width: 250px;">
     <ui-select-match placeholder="Select Rounds..">{{$item}}</ui-select-match>
     <ui-select-choices repeat="color in irounds | filter:$select.search">
       {{color}}
