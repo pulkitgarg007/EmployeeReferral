@@ -297,7 +297,11 @@ textarea {
 .headerclass{
 	position: relative;
 	top: -20px;
-	left: -26%;
+	left: 0%;
 	font-size: 200%;
 	color: #08497F;
+	font-weight: bolder;
+}
+.interviewFeedback{
+	font-family: serif;
 }

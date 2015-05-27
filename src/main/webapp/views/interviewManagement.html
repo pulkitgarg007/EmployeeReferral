@@ -2,14 +2,17 @@
 <head>
 <meta charset="utf-8">
 <title>Employee Referral Portal</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <script src="lib/angular/js/angular.min.js"></script>
 <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="js/interview/interviewManagement.js"></script>
-<link rel="stylesheet" type="text/css" href="lib/angular/css/ng-tags-input.min.css">
+<link rel="stylesheet" type="text/css"
+	href="lib/angular/css/ng-tags-input.min.css">
 <script src="lib/bootstrap/js/ng-tags-input.min.js"></script>
-<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="lib/bootstrap/css/bootstrap-responsive.min.css"
+	rel="stylesheet">
 <link href="static/css/home.css" rel="stylesheet">
 <link href="lib/bootstrap/font/google_font.css" rel="stylesheet">
 <script src="lib/bootstrap/js/bootstrap.js"></script>
@@ -22,9 +25,11 @@
     <![endif]-->
 </head>
 <body>
-<h2 class="headerclass"><b>Interview Management System</b></h2>
-<!-- ----------------------------------alert Message--------------------------------------------------------- -->
-          <!--   <div class="bs-example">
+	<h2 class="headerclass">
+		<b>Interview Management System</b>
+	</h2>
+	<!-- ----------------------------------alert Message--------------------------------------------------------- -->
+	<!--   <div class="bs-example">
                <div style="width:1050px;display:none" class="alert alert-success" id="success-alert">
 	               <a href="" class="close" data-dismiss="alert">&times;</a>
 	               <strong>Success!</strong> Position Details Stored Successfully!
@@ -33,59 +38,56 @@
 	               <a href="" class="close" data-dismiss="alert">&times;</a>
 	               <strong>Failed!</strong> Try again.
                </div> -->
-               
-<!-- ----------------------------------alert Message--------------------------------------------------------- -->
-                   
-                           
-           <!--  </div>
+
+	<!-- ----------------------------------alert Message--------------------------------------------------------- -->
+
+
+	<!--  </div>
             <input type="text" name="jobcode" ng-hide="true"
 									class=" input-sm" id="jobcode" ng-disabled="jbDisabled" ng-change="changeEvent()" 
 									ng-model="position.jobcode" placeholder="Enter Job Code" required>
             <div class="createposition-container"><br> -->
-         
- 
-           <form action="#" name="interviewManagement" onvalidate>
-              	<form id="integerForm" role="form" class="form-horizontal">
-              	<table>
-              	<tr>
-              	<td id="tdid" class="tableTd">
-              	<div class="control-group" >
+
+	<form id="integerForm" role="form" class="form-horizontal" action="#"
+		name="interviewManagement" onvalidate>
+		<table>
+			<tr>
+				<td id="tdid" class="tableTd">
+					<div class="control-group">
 						<label class="lbl" for="Location">Select Location:</label>
-							</td>
-							<td id="tdid">
-							</div>
-							<ui-select ng-model="interview.location" ng-change ="loadPositions()" class = "ui-select-class" theme="bootstrap" ng-disabled="disabled" reset-search-input="false">
-    <ui-select-match placeholder="Select Location" >{{interview.location}}</ui-select-match>
-    <ui-select-choices repeat="location in locations" refresh="refreshAddresses($select.search)" refresh-delay="0">
-    {{location}}
-    </ui-select-choices>
-  </ui-select>
- </td>
-							<td id="tdid" class="tableTd">
-							<div class="control-group">
-							<label class="lbl" for="Position"> Select Position:</label>
-								</td>
-								<td id="tdid" class="tableTd">
-								</div>
-								<ui-select ng-model="interview.position" theme="bootstrap" ng-change = "disableSearch()" ng-disabled="positionDisable" reset-search-input="false" style="width: 380px;">
-    <ui-select-match placeholder="Select Position" >{{interview.position}}</ui-select-match>
-    <ui-select-choices repeat="position in positions" refresh="refreshAddresses($select.search)" refresh-delay="0">
-    {{position}}
-    </ui-select-choices>
-  </ui-select>
-			</td>
-			<td>
-				<a href="" id="interviewSearchBtn" ng-disabled="searchDisable" class="btn btn-primary" ng-click="searchPosition()">
-         		 <span class="glyphicon glyphicon-search" style="position:aboslute;top:1px;"></span> Search
-       			 </a>
+					</div>
 				</td>
-              	</tr>
-              	</table><br>
-              	<div class="gridStyle" ng-grid="gridOptions"></div>
-            	</form>
-            </form>
-            </div>
-
-
+				<td id="tdid"><ui-select ng-model="interview.location"
+						ng-change="loadPositions()"
+						class="ui-select-class" theme="bootstrap" ng-disabled="disabled"
+						reset-search-input="false"> <ui-select-match
+						placeholder="Select Location">{{interview.location}}</ui-select-match>
+					<ui-select-choices repeat="location in locations"
+						refresh="refreshAddresses($select.search)" refresh-delay="0">
+					{{location}} </ui-select-choices> </ui-select></td>
+				<td id="tdid" class="tableTd">
+					<div class="control-group">
+						<label class="lbl" for="Position"> Select Position:</label>
+					</div>
+				</td>
+				<td id="tdid" class="tableTd"><ui-select
+						ng-model="interview.position" theme="bootstrap"
+						ng-change="disableSearch()" ng-disabled="positionDisable"
+						reset-search-input="false" style="width: 380px;"> <ui-select-match
+						placeholder="Select Position">{{interview.position}}</ui-select-match>
+					<ui-select-choices repeat="position in positions"
+						refresh="refreshAddresses($select.search)" refresh-delay="0">
+					{{position}} </ui-select-choices> </ui-select></td>
+				<td><a href="" id="interviewSearchBtn"
+					ng-disabled="searchDisable" class="btn btn-primary"
+					ng-click="searchPosition()"> <span
+						class="glyphicon glyphicon-search"
+						style="position: aboslute; top: 1px;"></span> Search
+				</a></td>
+			</tr>
+		</table>
+		<br>
+		<div class="gridStyle" ng-grid="gridOptions"></div>
+	</form>
 </body>
 </html>

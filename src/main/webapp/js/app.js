@@ -34,7 +34,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('searchPosition', {url:'/searchPosition', views: {'': {templateUrl: 'views/searchPosition.html', controller: 'searchPositionCtrl'}}})
     .state('viewPosition', {url:'/viewPosition', views: {'': {templateUrl: 'views/viewPosition.html', controller: 'editPositionCtrl'}}})
     .state('interviewManagement', {url:'/interviewManagement', views: {'': {templateUrl: 'views/interviewManagement.html', controller: 'interviewManagementCtrl'}}})
-    .state('interviewFeedback', {url:'/interviewFeedback', views: {'': {templateUrl: 'views/interviewFeedback.html', controller: 'interviewManagementCtrl'}}})
+    .state('interviewFeedback', {url:'/interviewFeedback', views: {'': {templateUrl: 'views/interviewFeedback.html', controller: 'interviewFeedbackCtrl'}}})
     .state('viewProfile.scheduleInterview', {url:'/scheduleInterview', views: {'': {templateUrl: 'views/scheduleInterview.html', controller: 'editProfileCtrl'}}})
     .state('viewProfile.showInterview', {url:'/showInterview', views: {'': {templateUrl: 'views/showInterview.html', controller: 'editProfileCtrl'}}})
 

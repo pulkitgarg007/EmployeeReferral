@@ -44,7 +44,7 @@
 		}
 		
 		$scope.searchPosition = function(){
-			$scope.pagingOptions = {
+			$scope.pagingOptions2 = {
 				      pageSizes: [7],
 				      pageSize: 7,
 				      currentPage: 1
@@ -105,21 +105,22 @@
 				      enablePaging: true,
 				      showFooter: true,
 				      totalServerItems: 'totalServerItems',
-				      pagingOptions: $scope.pagingOptions,
+				      pagingOptions: $scope.pagingOptions2,
 				      filterOptions: $scope.filterOptions,
-				      enableColumnResize:false,
+				      enableColumnResize:true,
 				      enableHorizontalScrollbar:0,
 				      columnDefs: [
-				          		    {field:'jobcodeProfile', displayName:'Job Code', width: "190", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcodeProfile\')}}</a></div>'},  
-				          		    {field:'emailId', displayName:'Email ID', width: "255"}, 
-				          		    {field:'experienceRequired', displayName:'Experience', width: "90"}, 
+				          		    {field:'jobcodeProfile', displayName:'Job Code', width: "120", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcodeProfile\')}}</a></div>'},  
+				          		    {field:'emailId', displayName:'Email ID', width: "125"}, 
+				          		    {field:'candidateName', displayName:'Name', width: "120"}, 
 				          		    //{field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
 				          			//{field:'noOfPositions', displayName:'No Of Positions', width: "110"}, 
-				          			{field:'jobProfile', displayName:'Job Profile', width: "200"},
-				          			{field:'location', displayName:'Location', width: "90"},
-				          			{field:'client', displayName:'Client', width: "90"},
-				          			{field:'btn', displayName: 'Feedback', width:"70", cellTemplate:'<span class="glyphicon glyphicon-check" ng-click="feedback(row)" style="position:absolute;left:18px;top:7px;"></span>'}
-				          			//{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deletePosition(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
+				          			{field:'profilecreatedBy', displayName:'Profile Created By', width: "160"},
+				          			{field:'referredBy', displayName:'Source', width: "90"},
+				          			{field:'pLocation', displayName:'Preferred Location', width: "90"},
+				          			{field:'btn', displayName: 'RoundOne', width:"90", cellTemplate:'<span class="glyphicon glyphicon-check" ng-click="feedback(row)" style="position:absolute;left:18px;top:7px;"></span>'},
+				          			{field:'btn', displayName: 'RoundTwo', width:"90", cellTemplate:'<span class="glyphicon glyphicon-check" ng-click="feedback(row)" style="position:absolute;left:18px;top:7px;"></span>'},
+				          			{field:'btn', displayName: 'RoundThree', width:"90", cellTemplate:'<span class="glyphicon glyphicon-check" ng-click="feedback(row)" style="position:absolute;left:18px;top:7px;"></span>'}
 				          		    ]
 				    };
 				    $scope.feedback = function(row) {
@@ -127,7 +128,7 @@
 						jobCodeService1.setjobCode(row.entity.jobcode);
 						location.href='#interviewFeedback';
 					};
-		}
+		};
 		
 		$scope.title = "Search";
 		$scope.pagingOptions = {
@@ -193,19 +194,20 @@
 			      totalServerItems: 'totalServerItems',
 			      pagingOptions: $scope.pagingOptions,
 			      filterOptions: $scope.filterOptions,
-			      enableColumnResize:false,
+			      enableColumnResize:true,
 			      enableHorizontalScrollbar:0,
 			      columnDefs: [
-			          		    {field:'jobcode', displayName:'Job Code', width: "190", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcode\')}}</a></div>'},  
-			          		    {field:'designation', displayName:'Designation', width: "255"}, 
-			          		    {field:'experienceRequired', displayName:'Experience', width: "90"}, 
-			          		    //{field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
-			          			//{field:'noOfPositions', displayName:'No Of Positions', width: "110"}, 
-			          			{field:'jobProfile', displayName:'Job Profile', width: "200"},
-			          			{field:'location', displayName:'Location', width: "90"},
-			          			{field:'client', displayName:'Client', width: "90"},
-			          			{field:'btn', displayName: 'Feedback', width:"70", cellTemplate:'<span class="glyphicon glyphicon-check" ng-click="feedback(row)" style="position:absolute;left:18px;top:7px;"></span>'}
-			          			//{field:'btn', displayName: 'Del', width:"50", cellTemplate:'<span class="glyphicon glyphicon-remove" confirmed-click="deletePosition(row)" ng-confirm-click="Are You Sure You Want to Delete It?" style="position:absolute;left:18px;top:7px;"></span>'}
+			          		    {field:'jobcodeProfile', displayName:'Job Code', width: "120", cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><a ng-click="editPosition(row)">{{row.getProperty(\'jobcodeProfile\')}}</a></div>'},  
+				          		    {field:'emailId', displayName:'Email ID', width: "125"}, 
+				          		    {field:'candidateName', displayName:'Name', width: "120"}, 
+				          		    //{field:'primarySkills', displayName:'Primary Skills', width: "145"}, 
+				          			//{field:'noOfPositions', displayName:'No Of Positions', width: "110"}, 
+				          			{field:'profilecreatedBy', displayName:'Profile Created By', width: "160"},
+				          			{field:'referredBy', displayName:'Source', width: "90"},
+				          			{field:'pLocation', displayName:'Preferred Location', width: "90"},
+				          			{field:'btn', displayName: 'RoundOne', width:"90", cellTemplate:'<span class="glyphicon glyphicon-check" ng-click="feedback(row)" style="position:absolute;left:18px;top:7px;"></span>'},
+				          			{field:'btn', displayName: 'RoundTwo', width:"90", cellTemplate:'<span class="glyphicon glyphicon-check" ng-click="feedback(row)" style="position:absolute;left:18px;top:7px;"></span>'},
+				          			{field:'btn', displayName: 'RoundThree', width:"90", cellTemplate:'<span class="glyphicon glyphicon-check" ng-click="feedback(row)" style="position:absolute;left:18px;top:7px;"></span>'}
 			          		    ]
 			    };
 		
