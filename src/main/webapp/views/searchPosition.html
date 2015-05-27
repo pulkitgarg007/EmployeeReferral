@@ -39,7 +39,7 @@
 							ng-class="{ 'has-error' : searchPosition.designations.$invalid && !searchPosition.designations.$pristine }">
 								<input name="designations" class="form-control input-sm" ng-change="searchDisable=false;disableSearch()" 
 								style="position:absolute;top:35px;"
-								id="designations" ng-model="searchPosition.designations" placeholder="Enter Designation" required> <span
+								id="designations" ng-model="filterOptions.filterText" placeholder="Enter Designation" required> <span
 								ng-show="searchPosition.designations.$invalid  && !searchPosition.designations.$pristine"
 								class="help-block" style="font: black">Designation is Required.</span>
 						</div></td><td>
