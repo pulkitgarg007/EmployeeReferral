@@ -1,29 +1,38 @@
-db.createCollection("Position", {capped: true, size: 5242880, max: 500});
+conn = new Mongo("localhost:27017");
+db = conn.getDB("osirpdb");
+if(db.Info.count() > 0){
+	db.Info.drop();
+	print("Info Collection Dropped!");
+}
+db.createCollection("Position");
 print("Position Collection Created!");
-db.createCollection("Info", {capped: true, size: 5242880, max: 500});
+db.createCollection("Info");
 print("Info Collection Created!");
-db.createCollection("Profile", {capped: true, size: 5242880, max: 500});
+db.createCollection("Profile");
 print("Profile Collection Created!");
-db.createCollection("UserInfo", {capped: true, size: 5242880, max: 500});
+db.createCollection("UserInfo");
 print("UserInfo Collection Created!");
+db.createCollection("Interview");
+print("Interview Collection Created!");
 db.Info.insert({
-	Client: ["Select Client", "GAP", "Macys", "Other"],
-	Designations: ["Select Designation", "Developer", "Quality Engineer", "System Engineer"],
+	Client: ["GAP", "Macys", "Other"],
+	Designations: ["Developer", "Quality Engineer", "System Engineer"],
 	DeveloperSkills: ["Java", "Web Service", "JQuery", "Spring"],
-	ExperienceRequired: ["Select Experience", "0-2", "2-4", "4-6", "6 and Above"],
-	Locations: ["Select Locations", "Hyderabad", "Pune", "Bengaluru"],
-	Positions: ["Select Position", "Entry Level Engineer", "Software Engineer", "Sr. Software Engineer", "Team Lead"],
+	ExperienceRequired: ["0-2", "2-4", "4-6", "6 and Above"],
+	Locations: ["Hyderabad", "Pune", "Bengaluru"],
+	Positions: ["Entry Level Engineer", "Software Engineer", "Sr. Software Engineer", "Team Lead"],
 	QESkills: ["Core Java", "Ruby", "Cucumber", "Selenium", "Junits"],
 	Skills: ["Java", "ASP.net", "Java Script", "Web Service", "PL SQL", "JQuery", "Spring", "Struts"],
 	SysESkills: ["Web Service", "PL SQL"],
-	UserRoles: ["Select Role", "HR", "Manager", "Employee"],
-	empPosition: ["Select Position", "Sr. Developer", "Developer", "HR", "Associate Trainee", "QA"],
-	expYears: ["Select Years", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-	plocation: ["Select Location", "Hyderabad", "Pune", "Bengaluru", "Chennai"],
-	qualification: ["Select Qualification", "B.E.", "B.Tech", "MBA", "MCA", "Others"],
-	referredBy: ["Select Referral", "Consultancy", "Referral"],
-	expMonths: ["Select Months", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
-	interviewRounds: ["Technical Round I", "Technical Round II", "HR Round", "Manager Round", "Written Test", "Technical Round", "Aptitude Round"]
+	UserRoles: ["HR", "Manager", "Employee"],
+	empPosition: ["Sr. Developer", "Developer", "HR", "Associate Trainee", "QA"],
+	expYears: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+	plocation: ["Hyderabad", "Pune", "Bengaluru", "Chennai"],
+	qualification: ["B.E.", "B.Tech", "MBA", "MCA", "Others"],
+	referredBy: ["Consultancy", "Referral"],
+	expMonths: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+	interviewRounds: ["Technical Round I", "Technical Round II", "HR Round", "Manager Round", "Written Test", "Technical Round", "Aptitude Round"],
+	typeOfInterview : ["Face To Face", "Telephonic", "Skype"]
 });
 print("Data Inserted Into Info Collection!");
 print("");
