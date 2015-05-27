@@ -1,11 +1,10 @@
-
 HEAD
 	/*------------------------------------------------------------------
 Bootstrap Admin Template by EGrappler.com
 ------------------------------------------------------------------*/
 	/*------------------------------------------------------------------
 [1. Global]
-*/     
+*/      
 html {
 	margin: 0;
 	padding: 0;
@@ -2696,6 +2695,7 @@ table.fc-border-separate {
 	position: absolute;
 	top: 10%;
 	left: 12%;
+	padding-left: 1%;
 }
 
 .logoheader {
@@ -2706,9 +2706,6 @@ table.fc-border-separate {
 	left: 5%;
 }
 
-acc {
-	color: white;
-}
 
 .acc:hover {
 	text-decoration: none;
@@ -2747,7 +2744,7 @@ acc {
 	border: none;
 	position: relative;
 	left: 12%;
-	width:80%;
+	width: 80%;
 }
 
 .nav>li.active {
@@ -2762,18 +2759,26 @@ acc {
 	color: black;
 }
 
+.nav-tabs>li {
+	margin-bottom: 0px;
+}
+
 .nav .acc>li>a {
 	color: white;
 }
-.span-new{
-	height:580px;
+
+.span-new {
+	height: 580px;
 }
-.main-inner{
+
+.main-inner {
 	height: 600px;
 }
+
 .dropdown-toggle {
-	border-radius:0px;
+	border-radius: 0px;
 }
+
 .form-control {
 	font-size: 13px;
 }
